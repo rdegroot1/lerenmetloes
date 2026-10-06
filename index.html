@@ -47,6 +47,36 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .magic-mission-text{font-size:15px;line-height:1.4;color:#625777}
 .magic-mission-score{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border-radius:999px;background:#fff;font-weight:900;color:#c44f91;box-shadow:0 3px 10px rgba(91,63,140,.1)}
 
+
+/* Grote uitbouw — Magische Boomhuis wereld */
+.map{overflow:hidden}
+.map::before{content:"✨";position:absolute;right:22px;top:78px;font-size:26px;animation:magicFloat 3s ease-in-out infinite;pointer-events:none}
+@keyframes magicFloat{50%{transform:translateY(-8px) rotate(8deg)}}
+.path{position:relative;padding-top:18px}
+.path::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:10px;transform:translateX(-50%);border-radius:999px;background:linear-gradient(#f4c5e0,#d9c9ff,#bde9f7);opacity:.55;box-shadow:0 0 0 4px rgba(255,255,255,.55)}
+.stop{position:relative;z-index:1}
+.stone{position:relative;transition:transform .18s ease,filter .18s ease}
+.stone:hover{transform:translateY(-3px) scale(1.04)}
+.stone.current{animation:magicPulse 1.8s ease-in-out infinite;outline:5px solid rgba(255,216,90,.28)}
+.stone.current::after{content:"✨";position:absolute;right:-16px;top:-16px;font-size:22px}
+.stone.done::after{content:"✓";position:absolute;right:-8px;top:-9px;width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#704fc1;font-size:15px;font-weight:1000;box-shadow:0 3px 8px rgba(80,55,130,.2)}
+@keyframes magicPulse{50%{transform:scale(1.07);filter:drop-shadow(0 7px 9px rgba(239,114,170,.28))}}
+.stop-label{background:rgba(255,255,255,.76);border-radius:18px;padding:7px 10px;backdrop-filter:blur(4px)}
+.stop-stars{color:#ffc83d}
+.stickers{gap:12px}
+.sticker{transition:transform .18s ease,box-shadow .18s ease}
+.sticker.got{box-shadow:0 7px 16px rgba(255,196,63,.2)}
+.sticker.got:hover{transform:translateY(-4px) rotate(-1deg)}
+.sticker.got b{filter:drop-shadow(0 4px 5px rgba(90,65,130,.15))}
+.result-stars .on{filter:drop-shadow(0 6px 7px rgba(255,190,35,.28))}
+.unlock{border-radius:18px;background:linear-gradient(135deg,#fff4b8,#ffe7f5);border:2px solid #fff;padding:12px 14px;box-shadow:0 6px 14px rgba(91,63,140,.12)}
+.board .row{border-radius:20px}
+.board .row.mine{background:linear-gradient(135deg,#fff3fa,#eee7ff);outline:2px solid #e8c9ef}
+.goal.behaald{background:linear-gradient(135deg,#f5fff8,#fff9d9)}
+.magic-tip{margin:14px 0 2px;padding:12px 15px;border-radius:18px;background:rgba(255,255,255,.72);color:#675b7e;font-weight:800;text-align:center}
+.finish-magic{font-size:18px;font-weight:900;color:#c44f91;text-align:center;margin:4px 0 12px}
+@media(max-width:520px){.path::before{width:8px}.stop-label{padding:6px 8px}.map::before{right:12px}}
+
 </style>
 </head>
 <body>
@@ -924,7 +954,7 @@ function ranglijst() {
   const c = nieuweKaart("map");
   const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = () => actief ? home() : spelersKiezen();
   const head = el("div", "map-head"); head.append(back); c.append(head);
-  c.append(el("h1", "title", "Ranglijst"));
+  c.append(el("h1", "title", "🏆 Magische ranglijst"));
   const tabs = el("div", "tabs two");
   [["week", "Deze week"], ["altijd", "Altijd"]].forEach(([k, txt]) => {
     const b = el("button", "tab" + (rlModus === k ? " on" : ""), txt); b.onclick = () => { rlModus = k; ranglijst(); }; tabs.append(b);
@@ -960,7 +990,7 @@ function leerdoelen() {
   const c = nieuweKaart("map");
   const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = home;
   const head = el("div", "map-head"); head.append(back, el("div", "stars-total", speler().plaatje + " " + speler().naam)); c.append(head);
-  c.append(el("h1", "title", "Leerdoelen"));
+  c.append(el("h1", "title", "🎯 Mijn avonturenkaart"));
   const DOELEN = LEERDOELEN.filter(d => d.vak in VAKKEN && (volwassen() ? d.groep === "volwassen" || d.vak === "topo" : d.groep !== "volwassen"));
   const behaald = DOELEN.filter(d => doelStatus(d).stand === "behaald").length;
   c.append(el("p", "prompt", `${behaald} van de ${DOELEN.length} doelen behaald`));
@@ -1049,6 +1079,7 @@ function home() {
     path.append(stop);
   });
   c.append(path);
+  if (!volwassen()) c.append(el("div", "magic-tip", "🌟 Kies het glinsterende level en klim steeds hoger in het Magische Boomhuis!"));
   c.append(el("p", "parent", (volwassen() ? "" : "Voor papa of mama: zet het geluid aan, het spel praat. ") + "Met 1 ster gaat het volgende level open."));
   const cur2 = path.querySelector(".current");
   if (cur2) setTimeout(() => cur2.scrollIntoView({ block: "center", behavior: "smooth" }), 300);
@@ -1085,7 +1116,8 @@ function stickerboek() {
   const head = el("div", "map-head"); head.append(back, el("div", "stars-total", "⭐ " + P.sterren));
   c.append(head);
   const totaal = WOORDEN.length + ENGELS.length, n = aantalStickers();
-  c.append(el("h1", "title", "Mijn stickers"));
+  c.append(el("h1", "title", "Mijn magische stickers ✨"));
+  c.append(el("div", "magic-tip", n === totaal ? "🏆 Wauw! Je stickerboek is helemaal vol!" : "🦄 Nog " + (totaal - n) + " stickers te ontdekken. Blijf oefenen!"));
   c.append(el("p", "prompt", `${n} van de ${totaal} stickers verzameld`));
   const bar = el("div", "bar"); bar.append(el("span")); bar.firstChild.style.width = (100 * n / totaal) + "%";
   c.append(bar);
@@ -1576,7 +1608,8 @@ function finish() {
   const c = nieuweKaart();
   const s = stem();
   c.append(el("div", "hello", s.plaatje));
-  c.append(el("h1", "title", "Goed gedaan, " + speler().naam + "!"));
+  c.append(el("h1", "title", "Goed gedaan, " + speler().naam + "! ✨"));
+  if (!volwassen()) c.append(el("div", "finish-magic", st === 3 ? "🦄 Magisch! Drie sterren!" : st === 2 ? "🌈 Superknap! Bijna drie sterren!" : "⭐ Goed geoefend! Elke ster telt!"));
   const stars = el("div", "result-stars");
   for (let k = 0; k < 3; k++) { const x = el("span", k < st ? "on" : "", "★"); x.style.animationDelay = (0.2 + k * 0.35) + "s"; stars.append(x); }
   c.append(stars);
