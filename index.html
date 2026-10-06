@@ -266,6 +266,12 @@ body::before{content:"✨  ☁️  🌈  ✨  ☁️";position:fixed;inset:18px 
 .app-hero{width:100%;max-width:560px;aspect-ratio:16/9;object-fit:cover;object-position:center;border-radius:28px;border:3px solid #fff;box-shadow:0 12px 28px rgba(88,57,137,.2);display:block}
 .hero-wrap{width:100%;display:flex;justify-content:center;position:relative}.hero-wrap::after{content:"✨";position:absolute;right:5%;bottom:-8px;font-size:34px;filter:drop-shadow(0 3px 5px rgba(90,50,130,.2))}
 @media(max-width:520px){.app-hero{aspect-ratio:16/8;border-radius:22px}.hero-wrap::after{font-size:27px}}
+
+/* Familie-avatars uit de Magische Boomhuis illustratie */
+.avatar3d{display:inline-block;flex:none;border-radius:50%;background-image:url("Leren%20met%20Loes%20in%20het%20Magische%20Boomhuis.png");background-repeat:no-repeat;background-size:300% auto;background-color:#f4eaff;border:3px solid #fff;box-shadow:0 4px 12px rgba(82,58,154,.2);vertical-align:middle}
+.avatar3d.loes{background-position:49% 48%}.avatar3d.rik{background-position:34% 14%}.avatar3d.judith{background-position:61% 14%}
+.avatar3d.player-avatar{width:82px;height:82px}.avatar3d.mini-avatar{width:38px;height:38px}.avatar3d.path-avatar{width:42px;height:42px;border-width:2px}
+.player .avatar3d{margin-bottom:4px}.who-btn .avatar3d{margin:-3px 2px -3px -4px}.me .avatar3d{display:block}
 </style>
 
 <div class="app">
@@ -693,7 +699,7 @@ try {
 } catch (e) {}
 SPELERS.forEach(s => { ALLE[s.id] = Object.assign(leeg(), ALLE[s.id] || {}); });
 let P = ALLE.loes;
-const speler = () => SPELERS.find(s => s.id === actief) || SPELERS[0];
+const speler = () => SPELERS.find(s => s.id === actief) || SPELERS[0];\nconst avatar = (id, cls = "mini-avatar") => `<span class="avatar3d ${id} ${cls}" role="img" aria-label="${(SPELERS.find(s=>s.id===id)||{}).naam || id}"></span>`;
 const metNaam = t => t.replace(/\{naam\}/g, speler().naam);
 
 function weekKey(d = new Date()) {
@@ -842,7 +848,7 @@ function spelersKiezen() {
   const grid = el("div", "players");
   SPELERS.forEach(s => {
     const p = ALLE[s.id];
-    const b = el("button", "player", `<b>${s.plaatje}</b><span>${s.naam}</span><small>⚡ ${p.xp} XP · Lvl ${rang(p.xp)}</small>`);
+    const b = el("button", "player", `${avatar(s.id, "player-avatar")}<span>${s.naam}</span><small>⚡ ${p.xp} XP · Lvl ${rang(p.xp)}</small>`);
     b.onclick = () => { actief = s.id; P = ALLE[s.id]; VAKKEN = s.niveau === "volwassen" ? VAKKEN_VOLWASSEN : VAKKEN_KIND; say("Hoi " + s.naam + "!"); home(); };
     grid.append(b);
   });
@@ -947,7 +953,7 @@ function leerdoelen() {
   scherm = "doelen"; round = null; $("top").hidden = true;
   const c = nieuweKaart("map");
   const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = home;
-  const head = el("div", "map-head"); head.append(back, el("div", "stars-total", speler().plaatje + " " + speler().naam)); c.append(head);
+  const head = el("div", "map-head"); head.append(back, el("div", "stars-total", avatar(speler().id) + " " + speler().naam)); c.append(head);
   c.append(el("h1", "title", "Leerdoelen"));
   const DOELEN = LEERDOELEN.filter(d => d.vak in VAKKEN && (volwassen() ? d.groep === "volwassen" || d.vak === "topo" : d.groep !== "volwassen"));
   const behaald = DOELEN.filter(d => doelStatus(d).stand === "behaald").length;
@@ -986,7 +992,7 @@ function home() {
   const s = stem();
   const head = el("div", "map-head");
   const me = speler();
-  const wie = el("button", "who-btn", `${me.plaatje} <span>${me.naam}</span><small>⚡ ${P.xp}</small>`);
+  const wie = el("button", "who-btn", `${avatar(me.id)} <span>${me.naam}</span><small>⚡ ${P.xp}</small>`);
   wie.setAttribute("aria-label", "Andere speler kiezen"); wie.onclick = spelersKiezen;
   head.append(wie);
   const right = el("div", "head-btns");
@@ -1019,7 +1025,7 @@ function home() {
       if (!isOpen) { oops(); praat("Dit level is nog op slot"); return; }
       say(L.naam); startRound(vak, i);
     };
-    if (i === cur) stop.append(el("div", "me", s.plaatje));
+    if (i === cur) stop.append(el("div", "me", avatar(me.id, "path-avatar")));
     stop.append(b);
     const lab = el("div", "stop-label");
     lab.append(el("span", "stop-name", L.naam));
