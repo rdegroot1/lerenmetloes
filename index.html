@@ -154,6 +154,19 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .task-tab b{animation:taskHouse 2.5s ease-in-out infinite}
 @keyframes taskHouse{50%{transform:translateY(-3px) rotate(4deg)}}
 
+
+/* Dagmissies, schatkisten, prijzen en ouderoverzicht */
+.daily-missions{display:grid;gap:7px;margin:11px 0}.daily-mission{display:grid;grid-template-columns:30px 1fr auto auto;align-items:center;gap:7px;padding:8px 10px;border-radius:15px;background:rgba(255,255,255,.78)}
+.daily-mission.done{background:linear-gradient(135deg,#f4ffde,#fff7c7)}.daily-mission b{font-size:14px}.daily-mission small{font-weight:900;color:#8068af}.claim{border:0;border-radius:12px;background:#ef72aa;color:#fff;font-weight:900;padding:7px 9px;cursor:pointer}.claimed{font-weight:1000;color:#62a85c}
+.chest-progress,.treasure-chest{width:100%;border:2px dashed #d8c6ee;border-radius:18px;background:#fff;padding:10px 12px;font-weight:1000;color:#756b8e}.chest-progress.ready,.treasure-chest{border-style:solid;border-color:#ffd85a;background:linear-gradient(135deg,#fff4a8,#ffe4f4);color:#a74b82;cursor:pointer;animation:chestGlow 1.7s ease-in-out infinite}
+@keyframes chestGlow{50%{transform:scale(1.025);box-shadow:0 7px 20px rgba(255,190,60,.28)}}
+.prize-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%}.prize{min-height:138px;border-radius:24px;padding:14px;display:flex;flex-direction:column;align-items:center;text-align:center;background:#f7f3f9;border:2px solid #e7deec}
+.prize>b{font-size:45px}.prize strong{margin-top:4px;color:#5f4d83}.prize span{font-size:13px;color:#7d7290;margin-top:4px}.prize small{margin-top:auto;font-weight:900;color:#a090b6}.prize.earned{background:linear-gradient(145deg,#fffced,#ffe9f6);border-color:#ffd85a;box-shadow:0 8px 18px rgba(100,70,140,.1)}.prize.earned small{color:#c44f91}
+.parent-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;width:100%;margin:8px 0 18px}.parent-stat{padding:12px 6px;border-radius:18px;background:#fff;border:2px solid #eee4fa;text-align:center}.parent-stat b{display:block;font-size:25px}.parent-stat strong{display:block;font-size:21px;color:#704fc1}.parent-stat span{font-size:11px;color:#7a708b;font-weight:800}
+.parent-note{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:16px;background:#fff;color:#665b76;line-height:1.45}
+.dress-body{position:absolute;z-index:3;left:50%;bottom:-25px;transform:translateX(-50%);font-size:45px;filter:drop-shadow(0 3px 3px rgba(50,30,80,.18));pointer-events:none}.dress-item span em{display:block;font-size:10px;font-style:normal;color:#9d8ab8;margin-top:2px}
+@media(max-width:520px){.daily-mission{grid-template-columns:26px 1fr auto auto}.prize-grid{grid-template-columns:1fr 1fr}.parent-stats{grid-template-columns:repeat(2,1fr)}.dress-body{font-size:37px;bottom:-22px}}
+
 </style>
 </head>
 <body>
@@ -796,7 +809,7 @@ const volwassen = () => speler().niveau === "volwassen";
 
 /* ---------- voortgang per speler ---------- */
 const OPSLAG = "loes-gezin";
-function leeg() { return { sterren: 0, xp: 0, week: "", xpWeek: 0, levels: {}, woorden: {}, stem: "vos", vak: "lezen", taken: {}, klusPunten: 0, edelstenen: 0, items: [], outfit: "", bijgewerkt: 0 }; }
+function leeg() { return { sterren: 0, xp: 0, week: "", xpWeek: 0, levels: {}, woorden: {}, fouten: {}, stem: "vos", vak: "lezen", taken: {}, klusPunten: 0, edelstenen: 0, items: [], outfit: "", streak: 0, laatsteDag: "", totaalDagen: 0, dag: {}, rondesSindsKist: 0, kistKlaar: false, kisten: 0, missieBeloningen: {}, bijgewerkt: 0 }; }
 let ALLE = {}, actief = null;
 try {
   const raw = localStorage.getItem(OPSLAG);
@@ -839,14 +852,71 @@ const TAKEN = [
   { id: "tafel", naam: "Tafel helpen dekken", icoon: "🍴", punten: 15, gems: 1 }
 ];
 const KLEDING = [
-  { id: "kroon", naam: "Regenboogkroon", icoon: "👑", prijs: 4 },
-  { id: "strik", naam: "Feeststrik", icoon: "🎀", prijs: 5 },
-  { id: "bril", naam: "Sterrenbril", icoon: "😎", prijs: 6 },
-  { id: "hoed", naam: "Toverhoed", icoon: "🧙‍♀️", prijs: 7 },
-  { id: "vleugels", naam: "Feeënvleugels", icoon: "🪽", prijs: 8 },
-  { id: "unicorn", naam: "Unicornmaatje", icoon: "🦄", prijs: 10 }
+  { id: "kroon", naam: "Regenboogkroon", icoon: "👑", prijs: 4, thema: "Prinses" },
+  { id: "strik", naam: "Feeststrik", icoon: "🎀", prijs: 5, thema: "Feest" },
+  { id: "bril", naam: "Sterrenbril", icoon: "😎", prijs: 6, thema: "Sterren" },
+  { id: "hoed", naam: "Toverhoed", icoon: "🧙‍♀️", prijs: 7, thema: "Magie" },
+  { id: "vleugels", naam: "Feeënvleugels", icoon: "🪽", prijs: 8, thema: "Fee" },
+  { id: "unicorn", naam: "Unicornmaatje", icoon: "🦄", prijs: 10, thema: "Regenboog" },
+  { id: "prinses", naam: "Prinsessenjurk", icoon: "👗", prijs: 12, thema: "Prinses" },
+  { id: "dierenarts", naam: "Dierenartsjas", icoon: "🥼", prijs: 12, thema: "Dierenarts" },
+  { id: "astronaut", naam: "Ruimtepak", icoon: "🚀", prijs: 14, thema: "Astronaut" },
+  { id: "regenboog", naam: "Regenboogcape", icoon: "🌈", prijs: 14, thema: "Regenboog" },
+  { id: "held", naam: "Superheldencape", icoon: "🦸‍♀️", prijs: 16, thema: "Superheld" }
 ];
-const dagKey = () => new Date().toISOString().slice(0, 10);
+const dagKeyVan = d => [d.getFullYear(), String(d.getMonth() + 1).padStart(2, "0"), String(d.getDate()).padStart(2, "0")].join("-");
+const dagKey = () => dagKeyVan(new Date());
+const gisterenKey = () => { const d = new Date(); d.setDate(d.getDate() - 1); return dagKeyVan(d); };
+
+function zorgDag() {
+  if (!P.dag || P.dag.datum !== dagKey()) P.dag = { datum: dagKey(), levels: 0, sterren: 0, taakjes: 0 };
+  P.missieBeloningen ||= {};
+  P.fouten ||= {};
+  return P.dag;
+}
+function markeerAvontuur() {
+  const nu = dagKey();
+  if (P.laatsteDag === nu) return;
+  P.streak = P.laatsteDag === gisterenKey() ? (P.streak || 0) + 1 : 1;
+  P.laatsteDag = nu;
+  P.totaalDagen = (P.totaalDagen || 0) + 1;
+}
+function registreerLevel(sterren) {
+  const d = zorgDag(); d.levels++; d.sterren += sterren; markeerAvontuur();
+  P.rondesSindsKist = (P.rondesSindsKist || 0) + 1;
+  if (P.rondesSindsKist >= 3) P.kistKlaar = true;
+}
+function registreerTaak() { const d = zorgDag(); d.taakjes++; markeerAvontuur(); }
+function dagMissies() {
+  const d = zorgDag();
+  return [
+    { id: "level", icoon: "📚", naam: "Speel een leerlevel", nu: d.levels, doel: 1 },
+    { id: "ster", icoon: "⭐", naam: "Verdien 2 sterren", nu: d.sterren, doel: 2 },
+    { id: "taak", icoon: "🏡", naam: "Help met 1 taakje", nu: d.taakjes, doel: 1 }
+  ];
+}
+function claimMissie(id) {
+  const m = dagMissies().find(x => x.id === id), key = dagKey() + ":" + id;
+  if (!m || m.nu < m.doel || P.missieBeloningen[key]) return;
+  P.missieBeloningen[key] = 1; P.edelstenen = (P.edelstenen || 0) + 1; geefXp(5); bewaar(); yay(); confetti(); home();
+}
+function openKist(btn) {
+  if (!P.kistKlaar) return;
+  const gems = 2 + Math.floor(Math.random() * 3);
+  P.edelstenen = (P.edelstenen || 0) + gems; P.kisten = (P.kisten || 0) + 1;
+  P.kistKlaar = false; P.rondesSindsKist = 0; geefXp(10); bewaar(); yay(); confetti();
+  if (btn) { btn.disabled = true; btn.innerHTML = "✨ Gevonden: 💎 +" + gems + " en ⚡ +10 XP!"; }
+  praat("Wauw! Een magische schat!");
+}
+const PRIJZEN = [
+  { icoon: "🌟", naam: "Eerste stap", tekst: "Verdien je eerste sticker", haal: () => aantalStickers() >= 1 },
+  { icoon: "📚", naam: "Boekenwurm", tekst: "Verzamel 10 stickers", haal: () => aantalStickers() >= 10 },
+  { icoon: "🗺️", naam: "Avonturier", tekst: "Haal 5 leerlevels", haal: () => Object.values(P.levels || {}).filter(x => x > 0).length >= 5 },
+  { icoon: "🔥", naam: "Doorzetter", tekst: "3 dagen op avontuur", haal: () => (P.streak || 0) >= 3 },
+  { icoon: "🏡", naam: "Superhelper", tekst: "Doe 5 taakjes", haal: () => Object.keys(P.taken || {}).length >= 5 },
+  { icoon: "💎", naam: "Schatzoeker", tekst: "Open 3 schatkisten", haal: () => (P.kisten || 0) >= 3 },
+  { icoon: "⚡", naam: "XP-held", tekst: "Verdien 250 XP", haal: () => (P.xp || 0) >= 250 }
+];
 
 /* ---------- opslaan: op dit apparaat en (als het kan) gedeeld met het gezin ---------- */
 function bewaarLokaal() { try { localStorage.setItem(OPSLAG, JSON.stringify({ spelers: ALLE })); } catch (e) {} }
@@ -1113,6 +1183,40 @@ function leerdoelen() {
   c.append(el("p", "parent", (volwassen() ? "Doelen voor volwassenen, plus de topografie van de basisschool." : "Globaal gebaseerd op de SLO-leerlijnen jonge kind en de kerndoelen.") + " Een doel is behaald als alle levels ervan minstens 1 ster hebben."));
 }
 
+/* ---------- prijzenkast en ouderoverzicht ---------- */
+function prijzenkast() {
+  scherm = "prijzen"; round = null; $("top").hidden = true;
+  const c = nieuweKaart("map");
+  const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = home;
+  const head = el("div", "map-head"); head.append(back, el("div", "stars-total", "🏅 " + PRIJZEN.filter(p => p.haal()).length + "/" + PRIJZEN.length)); c.append(head);
+  c.append(el("h1", "title", "🏅 Loes' Prijzenkast"));
+  c.append(el("p", "prompt", "Niet alleen goed zijn telt — oefenen, helpen en volhouden ook!"));
+  const grid = el("div", "prize-grid");
+  PRIJZEN.forEach(p => {
+    const ok = p.haal(), card = el("div", "prize" + (ok ? " earned" : " locked"));
+    card.innerHTML = '<b>' + (ok ? p.icoon : "🔒") + '</b><strong>' + p.naam + '</strong><span>' + p.tekst + '</span>' + (ok ? '<small>Behaald ✨</small>' : '<small>Nog te ontdekken</small>');
+    grid.append(card);
+  });
+  c.append(grid);
+}
+function ouderOverzicht() {
+  scherm = "ouder"; round = null; $("top").hidden = true; zorgDag();
+  const c = nieuweKaart("map");
+  const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = home;
+  const head = el("div", "map-head"); head.append(back, el("div", "stars-total", "👨‍👩‍👧 Ouder")); c.append(head);
+  c.append(el("h1", "title", "Overzicht van Loes"));
+  const levelN = Object.values(P.levels || {}).filter(x => x > 0).length, taakN = Object.keys(P.taken || {}).length;
+  const stats = el("div", "parent-stats");
+  [["📚","Levels",levelN],["📖","Stickers",aantalStickers()],["🏡","Taakjes",taakN],["🔥","Reeks",P.streak || 0],["⚡","XP",P.xp || 0],["💎","Edelstenen",P.edelstenen || 0]].forEach(x => stats.append(el("div","parent-stat","<b>"+x[0]+"</b><strong>"+x[2]+"</strong><span>"+x[1]+"</span>")));
+  c.append(stats);
+  c.append(el("h2", "section", "Vandaag"));
+  c.append(el("p", "parent-note", "📚 " + P.dag.levels + " leerlevel(s) · ⭐ " + P.dag.sterren + " sterren · 🏡 " + P.dag.taakjes + " taakje(s)"));
+  const lastig = [...WOORDEN.map(w => ({ naam:w.woord, key:w.woord })), ...ENGELS.map(w => ({ naam:w.en, key:"en:"+w.en }))].filter(w => (P.fouten?.[w.key] || 0) > 0 && !geleerd(w.key)).sort((a,b)=>(P.fouten[b.key]||0)-(P.fouten[a.key]||0)).slice(0,6);
+  c.append(el("h2", "section", "Slim herhalen"));
+  c.append(el("p", "parent-note", lastig.length ? "Deze woorden krijgen automatisch wat vaker herhaling: " + lastig.map(x => x.naam).join(", ") + "." : "Nog geen duidelijke struikelwoorden. De app past herhaling automatisch aan zodra dat nodig is."));
+  c.append(el("p", "parent", "Dit overzicht is bedoeld voor papa/mama. Fouten worden alleen gebruikt om oefeningen slimmer te herhalen; Loes krijgt er geen strafpunten voor."));
+}
+
 /* ---------- startscherm: vak kiezen + levelpad ---------- */
 function home() {
   if (!actief) return spelersKiezen();
@@ -1131,15 +1235,30 @@ function home() {
   const book = el("button", "book-btn", `📖 <span>${aantalStickers()}</span>`); book.setAttribute("aria-label", "Mijn stickerboek"); book.onclick = stickerboek;
   const rl = el("button", "book-btn", "🏆"); rl.setAttribute("aria-label", "Ranglijst"); rl.onclick = ranglijst;
   const dl = el("button", "book-btn", "🎯"); dl.setAttribute("aria-label", "Leerdoelen"); dl.onclick = leerdoelen;
-  if (volwassen()) book.hidden = true;
-  right.append(vb, book, dl, rl); head.append(right);
+  const pr = el("button", "book-btn", "🏅"); pr.setAttribute("aria-label", "Prijzenkast"); pr.onclick = prijzenkast;
+  const ouder = el("button", "book-btn", "👨‍👩‍👧"); ouder.setAttribute("aria-label", "Overzicht voor papa en mama"); ouder.onclick = ouderOverzicht;
+  if (volwassen()) { book.hidden = true; pr.hidden = true; ouder.hidden = true; }
+  right.append(vb, book, pr, ouder, dl, rl); head.append(right);
   c.append(head);
   c.append(el("h1", "title", "Hoi " + me.naam + "! ✨"));
   if (!volwassen()) {
+    zorgDag();
     const missie = el("div", "magic-mission");
-    missie.append(el("div", "magic-mission-title", "🦄 Jouw magische missie"));
-    missie.append(el("div", "magic-mission-text", "Oefen lekker verder en verzamel stickers. Een woordje dat je 3 keer goed doet, verdient een plekje in jouw stickerboek!"));
-    missie.append(el("div", "magic-mission-score", "📖 " + aantalStickers() + " stickers · ⚡ " + P.xp + " XP"));
+    missie.append(el("div", "magic-mission-title", "🦄 Dagmissies · 🔥 " + (P.streak || 0) + " avonturendag" + ((P.streak || 0) === 1 ? "" : "en")));
+    missie.append(el("div", "magic-mission-text", P.laatsteDag && P.laatsteDag !== dagKey() ? "Vandaag begint een nieuw avontuur. Kies iets waar je zin in hebt!" : "Kleine missies leveren extra edelstenen op."));
+    const mg = el("div", "daily-missions");
+    dagMissies().forEach(m => {
+      const key = dagKey() + ":" + m.id, klaar = m.nu >= m.doel, geclaimd = !!P.missieBeloningen[key];
+      const row = el("div", "daily-mission" + (klaar ? " done" : ""));
+      row.innerHTML = '<span>' + m.icoon + '</span><b>' + m.naam + '</b><small>' + Math.min(m.nu, m.doel) + '/' + m.doel + '</small>';
+      if (klaar && !geclaimd) { const claim = el("button", "claim", "💎 Pak"); claim.onclick = () => claimMissie(m.id); row.append(claim); }
+      else if (geclaimd) row.append(el("span", "claimed", "✓"));
+      mg.append(row);
+    });
+    missie.append(mg);
+    const kist = el("button", "chest-progress" + (P.kistKlaar ? " ready" : ""), P.kistKlaar ? "🎁 Schatkist klaar! Tik om te openen" : "🧰 Schatkist " + Math.min(P.rondesSindsKist || 0, 3) + "/3 leerlevels");
+    kist.disabled = !P.kistKlaar; kist.onclick = () => openKist(kist); missie.append(kist);
+    missie.append(el("div", "magic-mission-score", "📖 " + aantalStickers() + " stickers · 💎 " + (P.edelstenen || 0) + " · ⚡ " + P.xp + " XP"));
     c.append(missie);
   }
   const tabs = el("div", "tabs");
@@ -1195,7 +1314,8 @@ function takenAvontuur() {
   c.append(el("h1", "title", "🏡 Loes' Takenavontuur"));
   const hero = el("div", "chore-hero");
   const outfitId = (P.items || []).find(id => (KLEDING.find(x => x.id === id) || {}).icoon === P.outfit) || "";
-  hero.innerHTML = '<div class="dress-stage"><div class="dress-avatar outfit-' + outfitId + '"><span class="dress-wings">' + (outfitId === "vleugels" ? "🪽" : "") + '</span><span class="dress-face"></span><span class="dress-head">' + (["kroon","strik","hoed"].includes(outfitId) ? P.outfit : "") + '</span><span class="dress-glasses">' + (outfitId === "bril" ? "😎" : "") + '</span><span class="dress-friend">' + (outfitId === "unicorn" ? "🦄" : "") + '</span></div><small>Loes</small></div><div><strong>Help mee in huis!</strong><span>Verdien sterren en edelstenen en kleed je eigen Loes-avatar aan.</span></div>';
+  const bodyOutfit = { prinses: "👗", dierenarts: "🥼", astronaut: "🚀", regenboog: "🌈", held: "🦸‍♀️" }[outfitId] || "";
+  hero.innerHTML = '<div class="dress-stage"><div class="dress-avatar outfit-' + outfitId + '"><span class="dress-wings">' + (outfitId === "vleugels" ? "🪽" : "") + '</span><span class="dress-face"></span><span class="dress-head">' + (["kroon","strik","hoed"].includes(outfitId) ? P.outfit : "") + '</span><span class="dress-glasses">' + (outfitId === "bril" ? "😎" : "") + '</span><span class="dress-body">' + bodyOutfit + '</span><span class="dress-friend">' + (outfitId === "unicorn" ? "🦄" : "") + '</span></div><small>Loes</small></div><div><strong>Help mee in huis!</strong><span>Verdien sterren en edelstenen en kleed je eigen Loes-avatar aan.</span></div>';
   c.append(hero);
   c.append(el("div", "reward-wallet", "⭐ " + (P.klusPunten || 0) + " taakpunten &nbsp; · &nbsp; 💎 " + (P.edelstenen || 0) + " edelstenen"));
   c.append(el("h2", "section", "🌟 Taakjes van vandaag"));
@@ -1210,7 +1330,7 @@ function takenAvontuur() {
       if (done) return;
       if (!confirm("Papa of mama: heeft Loes dit taakje echt gedaan?")) return;
       P.taken[key] = Date.now(); P.klusPunten = (P.klusPunten || 0) + t.punten; P.edelstenen = (P.edelstenen || 0) + t.gems;
-      geefXp(5); bewaar(); yay(); confetti(); takenAvontuur();
+      registreerTaak(); geefXp(5); bewaar(); yay(); confetti(); takenAvontuur();
     };
     row.append(b); list.append(row);
   });
@@ -1220,7 +1340,7 @@ function takenAvontuur() {
   KLEDING.forEach(it => {
     const owned = (P.items || []).includes(it.id), wearing = P.outfit === it.icoon;
     const card = el("button", "dress-item" + (owned ? " owned" : "") + (wearing ? " wearing" : ""));
-    card.innerHTML = '<b>' + it.icoon + '</b><span>' + it.naam + '</span><small>' + (owned ? (wearing ? "Aan ✓" : "Aantrekken") : "💎 " + it.prijs) + '</small>';
+    card.innerHTML = '<b>' + it.icoon + '</b><span>' + it.naam + '<em>' + (it.thema || "Magisch") + '</em></span><small>' + (owned ? (wearing ? "Aan ✓" : "Aantrekken") : "💎 " + it.prijs) + '</small>';
     card.onclick = () => {
       P.items ||= [];
       if (owned) { P.outfit = wearing ? "" : it.icoon; bewaar(); takenAvontuur(); return; }
@@ -1345,7 +1465,9 @@ function maakVragen(vak, li) {
   else {
     // elk nieuw woordje komt twee keer (op een andere manier), plus een paar oude woordjes
     [0, 1].forEach(k => items.forEach((it, j) => add(it, j + k)));
-    const oud = shuffle(VAKKEN[vak].levels.slice(0, li).flatMap((_, k) => levelItems(vak, k))).slice(0, HERHAAL_PER_RONDE);
+    const oudPool = shuffle(VAKKEN[vak].levels.slice(0, li).flatMap((_, k) => levelItems(vak, k)));
+    const slimScore = it => { const key = stickerKey(vak, it); return (P.fouten?.[key] || 0) * 4 + Math.max(0, GELEERD_NA - telGoed(key)); };
+    const oud = oudPool.sort((a, b) => slimScore(b) - slimScore(a)).slice(0, HERHAAL_PER_RONDE);
     oud.forEach((it, j) => add(it, j + 2));
   }
   return shuffle(qs);
@@ -1443,7 +1565,9 @@ function good(fb, naGoed) {
 }
 function tryAgain(fb, extra) {
   round.mistakes++;
-  round.qs[round.i].missed = true;
+  const q = round.qs[round.i];
+  q.missed = true;
+  if (q.sticker) { P.fouten ||= {}; P.fouten[q.sticker] = (P.fouten[q.sticker] || 0) + 1; }
   const s = stem(), t = pick(s.fout);
   fb.className = "feedback try"; fb.textContent = s.plaatje + " " + (extra ? extra + " " : "") + t;
   oops(); setTimeout(() => praat((extra ? extra + " " : "") + t), 300);
@@ -1751,6 +1875,7 @@ function finish() {
   const wasOpen = open(vak, li + 1);
   P.levels[lk(vak, li)] = Math.max(P.levels[lk(vak, li)] || 0, st);
   geefXp(st * XP_PER_STER);
+  if (!volwassen()) registreerLevel(st);
   bewaar();
   const nieuwDoel = LEERDOELEN.find(d => d.vak === vak && d.levels.includes(levelId(vak, li)) && doelStatus(d).stand === "behaald" && !round.doelWasBehaald);
   const c = nieuweKaart();
@@ -1762,6 +1887,7 @@ function finish() {
   for (let k = 0; k < 3; k++) { const x = el("span", k < st ? "on" : "", "★"); x.style.animationDelay = (0.2 + k * 0.35) + "s"; stars.append(x); }
   c.append(stars);
   c.append(el("p", "xp-total", `⚡ +${round.xp} XP <small>(totaal ${P.xp} · Lvl ${rang(P.xp)})</small>`));
+  if (!volwassen() && P.kistKlaar) { const kb = el("button", "treasure-chest", "🎁 Je schatkist is klaar — OPEN! ✨"); kb.onclick = () => openKist(kb); c.append(kb); }
   if (round.newStickers.length) {
     c.append(el("p", "prompt", "Nieuwe stickers!"));
     const g = el("div", "stickers small");
@@ -1792,7 +1918,7 @@ function confetti() {
   setTimeout(() => box.remove(), 2800);
 }
 
-const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, meenemen };
+const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, prijzen: prijzenkast, ouder: ouderOverzicht, meenemen };
 $("homeBtn").onclick = home;
 spelersKiezen();
 koppel();
