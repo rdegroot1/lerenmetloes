@@ -77,6 +77,39 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .finish-magic{font-size:18px;font-weight:900;color:#c44f91;text-align:center;margin:4px 0 12px}
 @media(max-width:520px){.path::before{width:8px}.stop-label{padding:6px 8px}.map::before{right:12px}}
 
+
+/* Speelse polish — iconen, kaarten en micro-animaties */
+.book-btn{min-width:44px;min-height:44px;border-radius:16px;border:2px solid rgba(255,255,255,.7);font-size:21px;transition:transform .16s ease,filter .16s ease}
+.book-btn:hover{transform:translateY(-2px) rotate(-2deg);filter:brightness(1.07)}
+.book-btn:active{transform:translateY(2px)}
+.head-btns{gap:8px}
+.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));width:100%}
+.tab{min-height:78px;padding:10px 7px;font-weight:900;transition:transform .18s ease}
+.tab b{display:block;font-size:34px;line-height:1.05;margin-bottom:4px;filter:drop-shadow(0 3px 3px rgba(80,55,130,.12))}
+.tab:hover{transform:translateY(-3px)}
+.tab.on{transform:translateY(-2px);outline:3px solid rgba(239,114,170,.13)}
+.player{background:linear-gradient(160deg,#fff,#fff8fd);border-color:#eee2f8;box-shadow:0 7px 0 #e7daf3,0 12px 22px rgba(82,58,154,.1);transition:transform .18s ease,box-shadow .18s ease}
+.player:hover{transform:translateY(-5px);box-shadow:0 9px 0 #e7daf3,0 16px 26px rgba(82,58,154,.14)}
+.player span::after{content:" ✨";font-size:14px}
+.voice{border-color:#eadff4;background:linear-gradient(#fff,#fff9fd);transition:transform .16s ease}
+.voice:hover{transform:translateY(-3px)}
+.voice b{filter:drop-shadow(0 4px 4px rgba(90,60,130,.14))}
+.who-btn{border:2px solid #eee4fa;box-shadow:0 4px 0 #e2d6f1}
+.who-btn::before{content:"🌟";font-size:15px}
+.sticker{min-height:116px;position:relative;overflow:hidden}
+.sticker.got::after{content:"✨";position:absolute;right:7px;top:5px;font-size:15px;animation:stickerTwinkle 2.1s ease-in-out infinite}
+@keyframes stickerTwinkle{50%{transform:scale(1.35) rotate(18deg);opacity:.55}}
+.sticker.got b{font-size:50px}
+.sticker:not(.got):not(.half){opacity:.72;background:linear-gradient(145deg,#faf8fc,#f2edf7)}
+.go{border-radius:18px;transition:transform .16s ease,filter .16s ease}
+.go:hover{transform:translateY(-3px);filter:brightness(1.04)}
+.go:active{transform:translateY(2px)}
+.choice{transition:transform .14s ease,box-shadow .14s ease}
+.choice:hover{transform:translateY(-3px)}
+.magic-mission::before{content:"✨";float:right;font-size:26px;animation:stickerTwinkle 2s ease-in-out infinite}
+.section{padding:5px 10px;border-radius:12px;background:rgba(255,255,255,.58)}
+@media(max-width:520px){.tab{min-height:70px;font-size:14px}.tab b{font-size:29px}.book-btn{min-width:41px;min-height:41px}.player span{font-size:22px}}
+
 </style>
 </head>
 <body>
