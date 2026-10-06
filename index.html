@@ -1003,7 +1003,20 @@ function home() {
   if (volwassen()) book.hidden = true;
   right.append(vb, book, dl, rl); head.append(right);
   c.append(head);
-  c.append(el("h1", "title", "Hoi " + me.naam + "! ✨"));\n  if (!volwassen()) {\n    const hero = el("div", "hero-wrap");\n    const img = document.createElement("img");\n    img.className = "app-hero"; img.src = "Leren%20met%20Loes%20in%20het%20Magische%20Boomhuis.png"; img.alt = "Leren met Loes in het Magische Boomhuis"; img.loading = "eager";\n    hero.append(img); c.append(hero);\n  }\n  if (!volwassen()) {\n    const n = aantalStickers(), totaal = WOORDEN.length + ENGELS.length, over = totaal - n;\n    c.append(el("div", "magic-hero", `<div class="magic-unicorn">🦄</div><div class="magic-copy"><b>Welkom in jouw magische leerwereld!</b><span>Elke oefening maakt je slimmer en brengt je dichter bij een nieuwe sticker. Jij kunt dit, ${me.naam}! 🌈</span></div>`));\n    const bijna = [...WOORDEN.map(w => ({naam:w.woord,k:telGoed(w.woord)})), ...ENGELS.map(w => ({naam:w.en,k:telGoed("en:"+w.en)}))].filter(x => x.k > 0 && x.k < GELEERD_NA).sort((a,b)=>b.k-a.k)[0];\n    const missie = bijna ? `🪄 <b>Sticker-missie:</b> “${bijna.naam}” nog ${GELEERD_NA-bijna.k} ${GELEERD_NA-bijna.k===1?"keer":"keer"} in één keer goed en hij schittert in je stickerboek!` : (over ? `🌟 <b>Nieuwe missie:</b> oefen een woordje 3 keer in één keer goed en verdien je volgende sticker. Je hebt al ${n} stickers!` : "🏆 <b>Wauw!</b> Je hebt alle stickers verzameld. Wat een leerheld!");\n    c.append(el("div", "magic-mission", missie));\n  }
+  c.append(el("h1", "title", "Hoi " + me.naam + "! ✨"));
+  if (!volwassen()) {
+    const hero = el("div", "hero-wrap");
+    const img = document.createElement("img");
+    img.className = "app-hero"; img.src = "Leren%20met%20Loes%20in%20het%20Magische%20Boomhuis.png"; img.alt = "Leren met Loes in het Magische Boomhuis"; img.loading = "eager";
+    hero.append(img); c.append(hero);
+  }
+  if (!volwassen()) {
+    const n = aantalStickers(), totaal = WOORDEN.length + ENGELS.length, over = totaal - n;
+    c.append(el("div", "magic-hero", `<div class="magic-unicorn">🦄</div><div class="magic-copy"><b>Welkom in jouw magische leerwereld!</b><span>Elke oefening maakt je slimmer en brengt je dichter bij een nieuwe sticker. Jij kunt dit, ${me.naam}! 🌈</span></div>`));
+    const bijna = [...WOORDEN.map(w => ({naam:w.woord,k:telGoed(w.woord)})), ...ENGELS.map(w => ({naam:w.en,k:telGoed("en:"+w.en)}))].filter(x => x.k > 0 && x.k < GELEERD_NA).sort((a,b)=>b.k-a.k)[0];
+    const missie = bijna ? `🪄 <b>Sticker-missie:</b> “${bijna.naam}” nog ${GELEERD_NA-bijna.k} ${GELEERD_NA-bijna.k===1?"keer":"keer"} in één keer goed en hij schittert in je stickerboek!` : (over ? `🌟 <b>Nieuwe missie:</b> oefen een woordje 3 keer in één keer goed en verdien je volgende sticker. Je hebt al ${n} stickers!` : "🏆 <b>Wauw!</b> Je hebt alle stickers verzameld. Wat een leerheld!");
+    c.append(el("div", "magic-mission", missie));
+  }
   const tabs = el("div", "tabs");
   Object.entries(VAKKEN).forEach(([id, V]) => {
     const t = el("button", "tab" + ((P.vak in VAKKEN ? P.vak : Object.keys(VAKKEN)[0]) === id ? " on" : ""), `<b>${V.icoon}</b>${V.naam}`);
