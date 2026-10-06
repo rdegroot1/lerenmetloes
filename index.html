@@ -110,6 +110,27 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .section{padding:5px 10px;border-radius:12px;background:rgba(255,255,255,.58)}
 @media(max-width:520px){.tab{min-height:70px;font-size:14px}.tab b{font-size:29px}.book-btn{min-width:41px;min-height:41px}.player span{font-size:22px}}
 
+
+/* 3D animatiefilm-achtige illustratieve polish */
+.card{background:linear-gradient(160deg,rgba(255,255,255,.97),rgba(255,248,253,.96));box-shadow:0 18px 50px rgba(73,61,103,.2),inset 0 1px 0 #fff}
+.big-pic{filter:drop-shadow(0 10px 9px rgba(70,45,100,.18));animation:characterBob 2.6s ease-in-out infinite}
+@keyframes characterBob{50%{transform:translateY(-6px) rotate(2deg)}}
+.choice,.voice,.sticker,.dress-item,.chore{box-shadow:0 7px 0 rgba(112,79,193,.11),0 12px 22px rgba(80,55,130,.08)}
+.chore-hero{display:flex;align-items:center;gap:18px;width:100%;padding:16px;border-radius:26px;background:linear-gradient(135deg,#dff4ff,#ffe4f3 50%,#fff2b8);box-sizing:border-box}
+.chore-hero strong{display:block;font-size:22px;color:#704fc1}.chore-hero span{display:block;color:#675b7e;margin-top:4px}
+.dress-avatar{position:relative;flex:0 0 92px;height:92px;border-radius:50%;background:#fff;border:4px solid #fff;box-shadow:0 7px 18px rgba(80,55,130,.18)}
+.dress-face{position:absolute;inset:0;border-radius:50%;background-image:url("Leren%20met%20Loes%20in%20het%20Magische%20Boomhuis.png");background-size:300% auto;background-position:49% 48%}
+.dress-avatar>b{position:absolute;right:-9px;top:-12px;font-size:34px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.16))}
+.reward-wallet{margin:12px 0 18px;padding:10px 14px;border-radius:999px;background:#fff;font-weight:900;color:#c44f91;box-shadow:0 4px 12px rgba(80,55,130,.1)}
+.chore-list{display:grid;gap:11px;width:100%}.chore{display:flex;align-items:center;gap:12px;padding:12px;border-radius:22px;background:linear-gradient(145deg,#fff,#fbf8ff);border:2px solid #eee3fa}
+.chore.done{opacity:.68;background:#f4fff1}.chore-icon{font-size:38px;filter:drop-shadow(0 4px 4px rgba(70,45,100,.12))}
+.chore-text{display:flex;flex:1;flex-direction:column}.chore-text b{font-size:17px}.chore-text small{color:#8b72bd;margin-top:3px;font-weight:800}
+.chore-go{border:0;border-radius:14px;padding:10px;background:linear-gradient(#f486bc,#e35c9e);color:#fff;font-weight:900;cursor:pointer}.chore-go:disabled{background:#a9c99f}
+.dress-shop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}.dress-item{border:2px solid #eadffa;border-radius:22px;background:linear-gradient(#fff,#fff7fc);padding:11px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;color:#493d67;font-family:var(--font-ui);cursor:pointer}
+.dress-item>b{font-size:38px}.dress-item span{font-weight:900;font-size:13px}.dress-item small{color:#c44f91;font-weight:900}.dress-item.owned{border-color:#ffd85a;background:#fffbea}.dress-item.wearing{outline:3px solid rgba(239,114,170,.25)}
+.blocks span{background:linear-gradient(145deg,#fff,#efe7ff);border:3px solid #d7c8ff;box-shadow:0 5px 0 #c5b2eb}
+@media(max-width:520px){.chore-hero{gap:11px}.dress-avatar{flex-basis:76px;height:76px}.dress-shop{grid-template-columns:repeat(2,1fr)}.chore{align-items:flex-start}.chore-go{font-size:12px;padding:9px 7px}}
+
 </style>
 </head>
 <body>
@@ -390,7 +411,7 @@ const WOORDEN = [
 const LEZEN_LEVELS = [
   { id: "rijm",  naam: "Rijmen",          soort: "rijm",  pics: "🐱🐀" },
   { id: "begin", naam: "Beginklank",      soort: "begin", pics: "🐟🦊" },
-  { id: "hak",   naam: "Woorden hakken",  soort: "hak",   pics: "✂️" },
+  { id: "hak",   naam: "Klanken horen",   soort: "hak",   pics: "👂✨" },
   { id: "plak",  naam: "Klanken plakken", soort: "plak",  pics: "🧩" },
   { id: "0", naam: "In het bos",     woorden: ["bos", "vos", "zon"] },
   { id: "1", naam: "Kleine dieren",  woorden: ["kip", "kat", "vis", "mus"] },
@@ -409,8 +430,9 @@ const EXTRA_WOORDEN = [
 ];
 // extra woorden voor hakken en plakken, zodat niet alles 3 klanken heeft
 const HAK_WOORDEN = [
-  { woord: "zee", plaatje: "🌊" }, { woord: "tent", plaatje: "⛺" }, { woord: "lamp", plaatje: "💡" },
-  { woord: "slak", plaatje: "🐌" }, { woord: "vlag", plaatje: "🚩" }, { woord: "trein", plaatje: "🚂" },
+  { woord: "zee", plaatje: "🌊" }, { woord: "aap", plaatje: "🐒" }, { woord: "ijs", plaatje: "🍦" },
+  { woord: "kat", plaatje: "🐱" }, { woord: "vis", plaatje: "🐟" }, { woord: "bus", plaatje: "🚌" },
+  { woord: "sok", plaatje: "🧦" }, { woord: "pet", plaatje: "🧢" }, { woord: "bed", plaatje: "🛏️" },
 ];
 const RIJMEN = [["kat", "rat"], ["bos", "vos"], ["mus", "bus"], ["muis", "huis"], ["beer", "peer"], ["boot", "poot"], ["maan", "kraan"]];
 
@@ -475,32 +497,32 @@ const DINGEN = ["🍎", "🐞", "⭐", "🐟", "🎈", "🧁", "🐥", "🍓", "
    STEMMETJES — pitch: 0 (laag) tot 2 (hoog), rate: snelheid.
    ============================================================ */
 const STEMMEN = [
-  { id: "vos",    naam: "Vos Vera",    plaatje: "🦊", pitch: 1.1, rate: 0.95,
+  { id: "vos",    naam: "Vos Vera",    plaatje: "🦊", pitch: 1.35, rate: 1.02,
     hoi: "Hoi {naam}! Ik ben Vos Vera. Zullen we samen spelen?",
     goed: ["Goed zo!", "Super!", "Knap hoor!", "Heel goed!", "Wauw, top!"],
     fout: ["Probeer nog eens!", "Bijna! Nog een keer."],
     klaar: "Goed gedaan, {naam}!" },
-  { id: "robot",  naam: "Robot Bliep", plaatje: "🤖", pitch: 0.2, rate: 1.0,
+  { id: "robot",  naam: "Robot Bliep", plaatje: "🤖", pitch: 0.55, rate: 0.92,
     hoi: "Bliep bloep. Ik ben Robot Bliep. Systeem klaar om te spelen!",
     goed: ["Bliep bloep! Correct!", "Computer zegt: super!", "Piep! Tien punten!", "Batterij vol! Goed zo!"],
     fout: ["Bzzt. Probeer opnieuw.", "Error! Nog een keer. Bliep."],
     klaar: "Missie geslaagd, {naam}! Bliep bloep!" },
-  { id: "muis",   naam: "Muisje Pien", plaatje: "🐭", pitch: 2, rate: 1.15,
+  { id: "muis",   naam: "Muisje Pien", plaatje: "🐭", pitch: 1.85, rate: 1.18,
     hoi: "Piep piep! Ik ben Muisje Pien. Spelen we?",
     goed: ["Piep piep, hoera!", "Kaas-tastisch!", "Jij bent een kanjer!", "Piep, wat knap!"],
     fout: ["Piep, nog een keertje!", "Oei, bijna! Piep."],
     klaar: "Piep piep hoera, {naam}!" },
-  { id: "leeuw",  naam: "Leeuw Leo",   plaatje: "🦁", pitch: 0.4, rate: 0.8,
+  { id: "leeuw",  naam: "Leeuw Leo",   plaatje: "🦁", pitch: 0.72, rate: 0.82,
     hoi: "Roaar! Ik ben Leeuw Leo, de koning van het spel!",
     goed: ["Roaar! Wat knap!", "Jij bent zo sterk als een leeuw!", "Brullend goed!", "Roaar, super!"],
     fout: ["Grrr, probeer nog eens!", "Bijna, kleine leeuw!"],
     klaar: "Roaaar! Jij bent de koning, {naam}!" },
-  { id: "fee",    naam: "Fee Fien",    plaatje: "🧚", pitch: 1.6, rate: 0.95,
+  { id: "fee",    naam: "Fee Fien",    plaatje: "🧚", pitch: 1.72, rate: 0.98,
     hoi: "Hallo lieverd, ik ben Fee Fien. Zullen we samen toveren?",
     goed: ["Toverachtig goed!", "Wat glinstert dat!", "Hocus pocus, helemaal goed!", "Magisch!"],
     fout: ["Even toveren, nog een keer!", "Bijna! Zwaai je toverstaf nog eens."],
     klaar: "Je bent een echte tovenaar, {naam}!" },
-  { id: "piraat", naam: "Piraat Piet", plaatje: "🏴‍☠️", pitch: 0.7, rate: 0.85,
+  { id: "piraat", naam: "Piraat Piet", plaatje: "🏴‍☠️", pitch: 0.82, rate: 0.88,
     hoi: "Ahoy matroos! Ik ben Piraat Piet. Op schattenjacht!",
     goed: ["Arrr! Een schat gevonden!", "Ahoy, dat is goed!", "Arrr, kanjer!", "Goud waard!"],
     fout: ["Arrr, nog een keer, matroos!", "Mis! Probeer nog eens."],
@@ -751,7 +773,7 @@ const volwassen = () => speler().niveau === "volwassen";
 
 /* ---------- voortgang per speler ---------- */
 const OPSLAG = "loes-gezin";
-function leeg() { return { sterren: 0, xp: 0, week: "", xpWeek: 0, levels: {}, woorden: {}, stem: "vos", vak: "lezen", bijgewerkt: 0 }; }
+function leeg() { return { sterren: 0, xp: 0, week: "", xpWeek: 0, levels: {}, woorden: {}, stem: "vos", vak: "lezen", taken: {}, klusPunten: 0, edelstenen: 0, items: [], outfit: "", bijgewerkt: 0 }; }
 let ALLE = {}, actief = null;
 try {
   const raw = localStorage.getItem(OPSLAG);
@@ -785,6 +807,23 @@ function geefXp(n) {
   P.xp += n; P.xpWeek += n;
   if (round) round.xp += n;
 }
+
+const TAKEN = [
+  { id: "vaatwasser", naam: "Vaatwasser uitpakken", icoon: "🍽️", punten: 20, gems: 2 },
+  { id: "stofzuigen", naam: "Even stofzuigen", icoon: "🧹", punten: 20, gems: 2 },
+  { id: "bed", naam: "Bed opmaken", icoon: "🛏️", punten: 15, gems: 1 },
+  { id: "opruimen", naam: "Speelgoed opruimen", icoon: "🧸", punten: 15, gems: 1 },
+  { id: "tafel", naam: "Tafel helpen dekken", icoon: "🍴", punten: 15, gems: 1 }
+];
+const KLEDING = [
+  { id: "kroon", naam: "Regenboogkroon", icoon: "👑", prijs: 4 },
+  { id: "strik", naam: "Feeststrik", icoon: "🎀", prijs: 5 },
+  { id: "bril", naam: "Sterrenbril", icoon: "😎", prijs: 6 },
+  { id: "hoed", naam: "Toverhoed", icoon: "🧙‍♀️", prijs: 7 },
+  { id: "vleugels", naam: "Feeënvleugels", icoon: "🪽", prijs: 8 },
+  { id: "unicorn", naam: "Unicornmaatje", icoon: "🦄", prijs: 10 }
+];
+const dagKey = () => new Date().toISOString().slice(0, 10);
 
 /* ---------- opslaan: op dit apparaat en (als het kan) gedeeld met het gezin ---------- */
 function bewaarLokaal() { try { localStorage.setItem(OPSLAG, JSON.stringify({ spelers: ALLE })); } catch (e) {} }
@@ -1069,8 +1108,9 @@ function home() {
   const book = el("button", "book-btn", `📖 <span>${aantalStickers()}</span>`); book.setAttribute("aria-label", "Mijn stickerboek"); book.onclick = stickerboek;
   const rl = el("button", "book-btn", "🏆"); rl.setAttribute("aria-label", "Ranglijst"); rl.onclick = ranglijst;
   const dl = el("button", "book-btn", "🎯"); dl.setAttribute("aria-label", "Leerdoelen"); dl.onclick = leerdoelen;
-  if (volwassen()) book.hidden = true;
-  right.append(vb, book, dl, rl); head.append(right);
+  const taak = el("button", "book-btn", "🏡"); taak.setAttribute("aria-label", "Mijn taakjes en verkleedkast"); taak.onclick = takenAvontuur;
+  if (volwassen()) { book.hidden = true; taak.hidden = true; }
+  right.append(vb, book, taak, dl, rl); head.append(right);
   c.append(head);
   c.append(el("h1", "title", "Hoi " + me.naam + "! ✨"));
   if (!volwassen()) {
@@ -1116,6 +1156,52 @@ function home() {
   c.append(el("p", "parent", (volwassen() ? "" : "Voor papa of mama: zet het geluid aan, het spel praat. ") + "Met 1 ster gaat het volgende level open."));
   const cur2 = path.querySelector(".current");
   if (cur2) setTimeout(() => cur2.scrollIntoView({ block: "center", behavior: "smooth" }), 300);
+}
+
+/* ---------- Loes' takenavontuur ---------- */
+function takenAvontuur() {
+  scherm = "taken"; round = null; $("top").hidden = true;
+  const c = nieuweKaart("map");
+  const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = home;
+  const head = el("div", "map-head"); head.append(back, el("div", "stars-total", "💎 " + (P.edelstenen || 0))); c.append(head);
+  c.append(el("h1", "title", "🏡 Loes' Takenavontuur"));
+  const hero = el("div", "chore-hero");
+  hero.innerHTML = '<div class="dress-avatar"><span class="dress-face"></span><b>' + (P.outfit || "✨") + '</b></div><div><strong>Help mee in huis!</strong><span>Verdien sterren en edelstenen voor je verkleedkast.</span></div>';
+  c.append(hero);
+  c.append(el("div", "reward-wallet", "⭐ " + (P.klusPunten || 0) + " taakpunten &nbsp; · &nbsp; 💎 " + (P.edelstenen || 0) + " edelstenen"));
+  c.append(el("h2", "section", "🌟 Taakjes van vandaag"));
+  const list = el("div", "chore-list");
+  TAKEN.forEach(t => {
+    const key = dagKey() + ":" + t.id, done = !!P.taken[key];
+    const row = el("div", "chore" + (done ? " done" : ""));
+    row.innerHTML = '<span class="chore-icon">' + t.icoon + '</span><span class="chore-text"><b>' + t.naam + '</b><small>⭐ +' + t.punten + ' · 💎 +' + t.gems + '</small></span>';
+    const b = el("button", "chore-go", done ? "Gedaan ✓" : "Papa/mama ✓");
+    b.disabled = done;
+    b.onclick = () => {
+      if (done) return;
+      if (!confirm("Papa of mama: heeft Loes dit taakje echt gedaan?")) return;
+      P.taken[key] = Date.now(); P.klusPunten = (P.klusPunten || 0) + t.punten; P.edelstenen = (P.edelstenen || 0) + t.gems;
+      geefXp(5); bewaar(); yay(); confetti(); takenAvontuur();
+    };
+    row.append(b); list.append(row);
+  });
+  c.append(list);
+  c.append(el("h2", "section", "🎁 Magische verkleedkast"));
+  const shop = el("div", "dress-shop");
+  KLEDING.forEach(it => {
+    const owned = (P.items || []).includes(it.id), wearing = P.outfit === it.icoon;
+    const card = el("button", "dress-item" + (owned ? " owned" : "") + (wearing ? " wearing" : ""));
+    card.innerHTML = '<b>' + it.icoon + '</b><span>' + it.naam + '</span><small>' + (owned ? (wearing ? "Aan ✓" : "Aantrekken") : "💎 " + it.prijs) + '</small>';
+    card.onclick = () => {
+      P.items ||= [];
+      if (owned) { P.outfit = wearing ? "" : it.icoon; bewaar(); takenAvontuur(); return; }
+      if ((P.edelstenen || 0) < it.prijs) { oops(); praat("Nog even sparen voor " + it.naam); return; }
+      P.edelstenen -= it.prijs; P.items.push(it.id); P.outfit = it.icoon; bewaar(); yay(); confetti(); takenAvontuur();
+    };
+    shop.append(card);
+  });
+  c.append(shop);
+  c.append(el("p", "parent", "Taakjes kunnen één keer per dag worden afgevinkt. Een ouder bevestigt eerst dat het taakje gedaan is."));
 }
 
 /* ---------- stem kiezen ---------- */
@@ -1277,8 +1363,8 @@ function klankVragen(soort) {
     });
   }
   // hak en plak: woordjes van 2 tot 4 klanken, altijd een paar korte en lange erbij
-  const pool = [...WOORDEN, ...HAK_WOORDEN], len = w => klanken(w.woord).length;
-  const kies = [...shuffle(pool.filter(w => len(w) === 2)).slice(0, 2), ...shuffle(pool.filter(w => len(w) === 4)).slice(0, 3), ...shuffle(pool.filter(w => len(w) === 3)).slice(0, N - 5)];
+  const pool = soort === "hak" ? HAK_WOORDEN : [...WOORDEN, ...HAK_WOORDEN], len = w => klanken(w.woord).length;
+  const kies = soort === "hak" ? [...shuffle(pool.filter(w => len(w) === 2)).slice(0, 3), ...shuffle(pool.filter(w => len(w) === 3)).slice(0, 5)] : [...shuffle(pool.filter(w => len(w) === 2)).slice(0, 2), ...shuffle(pool.filter(w => len(w) === 4)).slice(0, 3), ...shuffle(pool.filter(w => len(w) === 3)).slice(0, N - 5)];
   return shuffle(kies).map(w => ({ type: soort, item: w, pool }));
 }
 function rekenVraag(soort, tot) {
@@ -1490,7 +1576,7 @@ const OEFENINGEN = {
   hak({ item: w }) {
     const c = $("card"); c.innerHTML = "";
     const kl = klanken(w.woord);
-    c.append(el("p", "prompt", `Hak het woord. Hoeveel klanken hoor je in <b>${w.woord}</b>?`));
+    c.append(el("p", "prompt", `Luister goed. Uit hoeveel losse klanken bestaat <b>${w.woord}</b>?`));
     c.append(el("div", "big-pic", w.plaatje));
     const sp = el("button", "speak", "🔊 Hoor"); sp.onclick = () => say(w.woord, { rate: 0.6 }); c.append(sp);
     keuzes(c, [2, 3, 4], kl.length, o => o, { cls: "text num", naGoed: true,
@@ -1677,7 +1763,7 @@ function confetti() {
   setTimeout(() => box.remove(), 2800);
 }
 
-const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, meenemen };
+const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, meenemen };
 $("homeBtn").onclick = home;
 spelersKiezen();
 koppel();
