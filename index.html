@@ -149,6 +149,11 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .dress-item.wearing small::before{content:"✨ "}
 @media(max-width:520px){.dress-stage{flex-basis:94px}.dress-stage .dress-avatar{width:82px;height:82px}.dress-glasses{font-size:31px;top:26px}.dress-head{font-size:33px;top:-23px}.outfit-hoed .dress-head{font-size:39px;top:-30px}.dress-wings{font-size:58px}.dress-friend{font-size:34px;right:-25px}}
 
+
+.task-tab{background:linear-gradient(145deg,#efffe8,#fff6c9);border-color:#cfe9ba;box-shadow:0 5px 0 #c7dfad}
+.task-tab b{animation:taskHouse 2.5s ease-in-out infinite}
+@keyframes taskHouse{50%{transform:translateY(-3px) rotate(4deg)}}
+
 </style>
 </head>
 <body>
@@ -1126,9 +1131,8 @@ function home() {
   const book = el("button", "book-btn", `📖 <span>${aantalStickers()}</span>`); book.setAttribute("aria-label", "Mijn stickerboek"); book.onclick = stickerboek;
   const rl = el("button", "book-btn", "🏆"); rl.setAttribute("aria-label", "Ranglijst"); rl.onclick = ranglijst;
   const dl = el("button", "book-btn", "🎯"); dl.setAttribute("aria-label", "Leerdoelen"); dl.onclick = leerdoelen;
-  const taak = el("button", "book-btn", "🏡"); taak.setAttribute("aria-label", "Mijn taakjes en verkleedkast"); taak.onclick = takenAvontuur;
-  if (volwassen()) { book.hidden = true; taak.hidden = true; }
-  right.append(vb, book, taak, dl, rl); head.append(right);
+  if (volwassen()) book.hidden = true;
+  right.append(vb, book, dl, rl); head.append(right);
   c.append(head);
   c.append(el("h1", "title", "Hoi " + me.naam + "! ✨"));
   if (!volwassen()) {
@@ -1144,6 +1148,12 @@ function home() {
     t.onclick = () => { P.vak = id; bewaar(); say(V.naam); home(); };
     tabs.append(t);
   });
+  if (!volwassen()) {
+    const taakTab = el("button", "tab task-tab", "<b>🏡</b>Taken");
+    taakTab.setAttribute("aria-label", "Takenavontuur en verkleedkast");
+    taakTab.onclick = () => { praat("Op naar het takenavontuur!"); takenAvontuur(); };
+    tabs.append(taakTab);
+  }
   c.append(tabs);
   const vak = P.vak in VAKKEN ? P.vak : Object.keys(VAKKEN)[0];
   const levels = VAKKEN[vak].levels;
