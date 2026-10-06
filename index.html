@@ -5,12 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Frontierlingo">
+<meta name="apple-mobile-web-app-title" content="Leren met Loes">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%A6%8A%3C/text%3E%3C/svg%3E">
-<style>body{margin:0}</style>
+<style>body{margin:0}
+/* Leren met Loes — veilige visuele huisstijl, zonder wijzigingen aan spel-logica */
+:root{--sky:#dff4ff;--grass:#d7c8ff;--leaf:#7657c8;--fox:#ef72aa;--sun:#ffd85a;--paper:#fffaff;--ink:#493d67;--soft:#756b8e;--wrong:#e85d75}
+body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b8 100%);background-attachment:fixed}
+.app{position:relative;z-index:1;max-width:680px;padding-block:22px}
+.card{background:rgba(255,250,255,.96);border:2px solid rgba(255,255,255,.92);border-radius:34px;box-shadow:0 16px 42px rgba(91,63,140,.18);padding:28px 24px}
+.title{color:#704fc1;text-shadow:0 2px 0 #fff}
+.brand{color:#c44f91;font-size:24px}
+.brand::before{content:"🦄 "}
+.brand::after{content:" ✨"}
+.book-btn{background:linear-gradient(180deg,#8d70dc,#6e50bd);box-shadow:0 4px 0 #523a9a}
+.tabs{gap:10px}
+.tab{border:2px solid #eadfff;border-radius:22px;background:linear-gradient(#fff,#fbf7ff);box-shadow:0 5px 0 #e5d9f7}
+.tab.on{border-color:#ef72aa;background:linear-gradient(#fff5fb,#ffe9f5);box-shadow:0 5px 0 #f4bdd8}
+.stone{background:linear-gradient(145deg,#ffe978,#ffc94f);border:3px solid rgba(255,255,255,.9)}
+.stone.done{background:linear-gradient(145deg,#a58ae9,#7759c8);color:#fff}
+.stone.current{background:linear-gradient(145deg,#ff9aca,#ec67a8);color:#fff}
+.sticker{border-color:#ddcff5;background:linear-gradient(145deg,#fff,#fff5fb);border-radius:24px}
+.sticker.got{border-color:#ffd85a;background:linear-gradient(145deg,#fffef5,#fff3bf)}
+.bar span{background:linear-gradient(90deg,#ef72aa,#9a7be2,#66c7e8)}
+.go{background:linear-gradient(180deg,#f486bc,#e35c9e);box-shadow:0 6px 0 #bd3f7c}
+@media(max-width:520px){.card{padding:22px 16px;border-radius:30px}}
+
+</style>
 </head>
 <body>
-<title>Frontierlingo</title>
+<title>Leren met Loes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@500;600&display=swap">
 <style>
@@ -808,7 +831,7 @@ function spelersKiezen() {
   scherm = "spelers"; round = null; $("top").hidden = true;
   const c = nieuweKaart("map");
   const rl = el("button", "book-btn", "🏆 <span>Ranglijst</span>"); rl.onclick = ranglijst;
-  const head = el("div", "map-head"); head.append(el("span", "brand", "Frontierlingo"), rl); c.append(head);
+  const head = el("div", "map-head"); head.append(el("span", "brand", "Leren met Loes"), rl); c.append(head);
   c.append(el("h1", "title", "Wie speelt er?"));
   const grid = el("div", "players");
   SPELERS.forEach(s => {
