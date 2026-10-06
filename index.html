@@ -983,7 +983,7 @@ function levelItems(vak, i) {
 const levelId = (vak, i) => String(VAKKEN[vak].levels[i].id ?? i);
 const lk = (vak, i) => vak + ":" + levelId(vak, i);
 // open als het vorige level een ster heeft, of als dit level zelf al eens gehaald is
-const open = (vak, i) => i === 0 || (P.levels[lk(vak, i - 1)] || 0) > 0 || (P.levels[lk(vak, i)] || 0) > 0;
+const open = (vak, i) => i >= 0 && i < VAKKEN[vak].levels.length && (i === 0 || (P.levels[lk(vak, i - 1)] || 0) > 0 || (P.levels[lk(vak, i)] || 0) > 0);
 const stickerKey = (vak, it) => vak === "lezen" ? it.woord : "en:" + it.en;
 const telGoed = k => P.woorden[k] || 0;
 const geleerd = k => telGoed(k) >= GELEERD_NA;
