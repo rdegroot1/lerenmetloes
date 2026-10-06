@@ -167,6 +167,18 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .dress-body{position:absolute;z-index:3;left:50%;bottom:-25px;transform:translateX(-50%);font-size:45px;filter:drop-shadow(0 3px 3px rgba(50,30,80,.18));pointer-events:none}.dress-item span em{display:block;font-size:10px;font-style:normal;color:#9d8ab8;margin-top:2px}
 @media(max-width:520px){.daily-mission{grid-template-columns:26px 1fr auto auto}.prize-grid{grid-template-columns:1fr 1fr}.parent-stats{grid-template-columns:repeat(2,1fr)}.dress-body{font-size:37px;bottom:-22px}}
 
+
+/* Korte minigames */
+.choices.bubble-game,.choices.balloon-game,.choices.star-game{position:relative;min-height:170px;display:flex;align-items:center;justify-content:space-around;gap:12px;overflow:visible}
+.bubble-choice{width:112px!important;height:112px!important;border-radius:50%!important;background:radial-gradient(circle at 32% 25%,#fff 0 10%,#dff7ff 22%,#d8c9ff 70%,#c9b3f0 100%)!important;border:3px solid #fff!important;box-shadow:inset 0 0 0 3px rgba(150,120,220,.15),0 10px 22px rgba(75,55,120,.15)!important;animation:bubbleFloat 2.5s ease-in-out infinite}
+.bubble-choice:nth-child(2){animation-delay:.35s}.bubble-choice:nth-child(3){animation-delay:.7s}
+@keyframes bubbleFloat{50%{transform:translateY(-9px) scale(1.03)}}.bubble-choice.right{animation:bubblePop .38s ease-out forwards!important}@keyframes bubblePop{60%{transform:scale(1.22)}100%{transform:scale(.96)}}
+.balloon-choice{position:relative;width:105px!important;height:125px!important;border-radius:52% 52% 48% 48%!important;background:linear-gradient(145deg,#fff,#ffe1f0)!important;border:3px solid #fff!important;font-size:46px!important;box-shadow:0 10px 22px rgba(90,55,120,.14)!important;animation:balloonBob 2.3s ease-in-out infinite}
+.balloon-choice::after{content:"";position:absolute;left:50%;bottom:-18px;width:2px;height:20px;background:#aa91c7}.balloon-choice:nth-child(2){animation-delay:.4s}.balloon-choice:nth-child(3){animation-delay:.8s}@keyframes balloonBob{50%{transform:translateY(-8px) rotate(2deg)}}
+.star-choice{width:105px!important;height:105px!important;border:0!important;background:transparent!important;box-shadow:none!important;font-size:62px!important;position:relative;filter:drop-shadow(0 7px 5px rgba(105,75,140,.18));animation:starWiggle 2s ease-in-out infinite}.star-choice small{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;color:#6d4c00;font-weight:1000}.star-choice:nth-child(2){animation-delay:.3s}.star-choice:nth-child(3){animation-delay:.6s}@keyframes starWiggle{50%{transform:translateY(-7px) rotate(5deg)}}
+.memory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;margin-top:12px}.memory-card{aspect-ratio:1/1;border:3px solid #fff;border-radius:22px;background:linear-gradient(145deg,#8e70db,#674bb5);color:#fff;font:1000 30px/1 var(--font-ui);box-shadow:0 7px 0 #563e99;transition:transform .2s ease,background .2s ease}.memory-card.open,.memory-card.found{background:linear-gradient(145deg,#fff,#fff0f8);color:#5b4878;transform:rotateY(180deg)}.memory-card.open span,.memory-card.found span{display:block;transform:rotateY(180deg)}.memory-card.found{border-color:#ffd85a;box-shadow:0 5px 0 #e9c248}
+@media(max-width:520px){.bubble-choice{width:88px!important;height:88px!important;font-size:18px!important}.balloon-choice{width:82px!important;height:104px!important}.star-choice{width:82px!important;height:82px!important;font-size:50px!important}.star-choice small{font-size:23px}.memory-grid{gap:8px}.memory-card{border-radius:17px;font-size:25px}}
+
 </style>
 </head>
 <body>
@@ -1457,7 +1469,7 @@ function maakVragen(vak, li) {
   if (L.mc) return shuffle(L.mc).slice(0, 10).map(([vraag, juist, fout, uitleg]) => ({ type: "mc", vraag, juist, opties: shuffle([juist, ...fout]), uitleg }));
   if (L.gen) return Array.from({ length: 10 }, (_, i) => hoofdreken(L.gen[i % L.gen.length]));
   if (vak === "rekenen") return Array.from({ length: 8 }, (_, i) => rekenVraag(L.soorten[i % L.soorten.length], L.tot));
-  const types = vak === "lezen" ? ["kiesPlaatje", "hoorWoord", "bouwWoord"] : ["hoorEngels", "kloptHet"];
+  const types = vak === "lezen" ? ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord", "memoryWoord"] : ["hoorEngels", "kloptHet", "ballonEngels"];
   const items = levelItems(vak, li);
   const qs = [];
   const add = (it, t) => qs.push({ type: types[t % types.length], item: it, sticker: stickerKey(vak, it) });
@@ -1527,6 +1539,7 @@ function rekenVraag(soort, tot) {
   }
   if (soort === "plus") { const a = rnd(1, tot - 1), b = rnd(1, tot - a); return { type: "som", a, b, op: "+", n: a + b, tot }; }
   if (soort === "min") { const a = rnd(2, tot), b = rnd(1, Math.min(3, a - 1)); return { type: "som", a, b, op: "−", n: a - b, tot }; }
+  if (soort === "getal" && Math.random() < 0.5) return { type: "sterGetal", n: rnd(1, tot), tot, ding: pick(DINGEN) };
   return { type: soort, n: rnd(1, tot), tot, ding: pick(DINGEN) };
 }
 function startRound(vak, li) {
@@ -1619,6 +1632,48 @@ const OEFENINGEN = {
       cls: "text", goed: b => { b.innerHTML = w.plaatje + "<br>" + w.woord; }, fout: o => say(o.woord) });
     setTimeout(() => say(w.woord), 350);
   },
+  /* minigame: prik de goede woordbel */
+  bubbelWoord({ item: w }) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "🫧 Prik de woordbel die je hoort!"));
+    const sp = el("button", "speak huge", "🔊"); sp.onclick = () => say(w.woord); c.append(sp);
+    const pool = round.pool.length >= 3 ? round.pool : WOORDEN;
+    keuzes(c, shuffle([w, ...others(w, pool, 2)]), w, o => o.woord, {
+      cls: "text bubble-choice", grid: "bubble-game", goed: b => { b.innerHTML = "✨ " + w.plaatje + "<br>" + w.woord; }, fout: o => say(o.woord)
+    });
+    setTimeout(() => say(w.woord), 300);
+  },
+  /* minigame: zoek woord en plaatje bij elkaar */
+  memoryWoord({ item: w }) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "🧠 Memory! Zoek de woorden bij de plaatjes."));
+    const pool = round.pool.length >= 3 ? round.pool : WOORDEN;
+    const set = [w, ...others(w, pool, 2)];
+    const kaarten = shuffle(set.flatMap(it => [{ key: it.woord, html: it.plaatje, soort: "pic" }, { key: it.woord, html: it.woord, soort: "word" }]));
+    const grid = el("div", "memory-grid"), fb = el("p", "feedback");
+    let open = [], gevonden = 0, busy = false;
+    kaarten.forEach(k => {
+      const b = el("button", "memory-card", "<span>?</span>");
+      b.dataset.key = k.key; b.dataset.soort = k.soort;
+      b.onclick = () => {
+        if (busy || b.classList.contains("found") || b.classList.contains("open")) return;
+        b.classList.add("open"); b.innerHTML = '<span>' + k.html + '</span>'; open.push(b); tik();
+        if (k.soort === "word") say(k.key);
+        if (open.length === 2) {
+          busy = true;
+          const [a,z] = open, match = a.dataset.key === z.dataset.key && a.dataset.soort !== z.dataset.soort;
+          if (match) {
+            setTimeout(() => { a.classList.add("found"); z.classList.add("found"); gevonden++; open = []; busy = false; yay(); if (gevonden === set.length) { fb.className = "feedback good"; fb.textContent = "✨ Alles gevonden!"; good(fb, true); } }, 350);
+          } else {
+            setTimeout(() => { a.classList.remove("open"); z.classList.remove("open"); a.innerHTML = "<span>?</span>"; z.innerHTML = "<span>?</span>"; open = []; busy = false; }, 700);
+          }
+        }
+      };
+      grid.append(b);
+    });
+    c.append(grid, fb);
+  },
+
   /* bouw het woord met letters */
   bouwWoord({ item: w }) {
     const c = $("card"); c.innerHTML = "";
@@ -1680,6 +1735,19 @@ const OEFENINGEN = {
       goed: (b, fb) => { setTimeout(() => sayEn(w.en), 100); c.append(el("p", "translate", `<b>${w.en}</b> = ${w.nl}`)); } });
     setTimeout(() => sayEn(w.en), 350);
   },
+  /* minigame: vang de goede Engelse ballon */
+  ballonEngels({ item: w }) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "🎈 Vang het plaatje dat bij het Engelse woord hoort!"));
+    const sp = el("button", "speak huge", "🔊"); sp.onclick = () => sayEn(w.en); c.append(sp);
+    const pool = round.pool.length >= 3 ? round.pool : ENGELS;
+    keuzes(c, shuffle([w, ...others(w, pool, 2)]), w, o => o.plaatje, {
+      cls: "balloon-choice", grid: "balloon-game", label: o => o.nl, naGoed: true,
+      goed: () => { c.append(el("p", "translate", '<b>' + w.en + '</b> = ' + w.nl)); setTimeout(() => sayEn(w.en), 100); }
+    });
+    setTimeout(() => sayEn(w.en), 300);
+  },
+
   /* plaatje + Engels woord: klopt het? */
   kloptHet({ item: w }) {
     const c = $("card"); c.innerHTML = "";
@@ -1846,6 +1914,17 @@ const OEFENINGEN = {
     keuzes(c, shuffle(getalOpties(q.n, q.tot)), q.n, o => o, { cls: "text num", goed: (b) => { b.innerHTML = q.n + "<small>" + q.ding.repeat(Math.min(q.n, 5)) + (q.n > 5 ? "…" : "") + "</small>"; }, fout: o => sayGetal(o) });
     setTimeout(() => sayGetal(q.n), 350);
   },
+  /* minigame: vang de ster met het getal dat je hoort */
+  sterGetal(q) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "🌟 Vang de ster met het getal dat je hoort!"));
+    const sp = el("button", "speak huge", "🔊"); sp.onclick = () => sayGetal(q.n); c.append(sp);
+    keuzes(c, shuffle(getalOpties(q.n, q.tot)), q.n, o => "⭐<small>" + o + "</small>", {
+      cls: "star-choice", grid: "star-game", goed: () => sayGetal(q.n), fout: o => sayGetal(o)
+    });
+    setTimeout(() => sayGetal(q.n), 300);
+  },
+
   /* plus- en minsommen met plaatjes */
   som(q) {
     const c = $("card"); c.innerHTML = "";
