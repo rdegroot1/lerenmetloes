@@ -40,6 +40,13 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .player:nth-child(2) b:first-child{background-position:34% 14%}
 .player:nth-child(3) b:first-child{background-position:61% 14%}
 
+
+/* Stap 4 — Magische missie op het startscherm */
+.magic-mission{margin:14px 0 18px;padding:16px 18px;border-radius:24px;background:linear-gradient(135deg,#fff7cf,#ffe8f5 48%,#eee6ff);border:2px solid rgba(255,255,255,.95);box-shadow:0 8px 20px rgba(91,63,140,.12)}
+.magic-mission-title{font-weight:900;font-size:18px;color:#704fc1;margin-bottom:5px}
+.magic-mission-text{font-size:15px;line-height:1.4;color:#625777}
+.magic-mission-score{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border-radius:999px;background:#fff;font-weight:900;color:#c44f91;box-shadow:0 3px 10px rgba(91,63,140,.1)}
+
 </style>
 </head>
 <body>
@@ -1002,7 +1009,14 @@ function home() {
   if (volwassen()) book.hidden = true;
   right.append(vb, book, dl, rl); head.append(right);
   c.append(head);
-  c.append(el("h1", "title", "Hoi " + me.naam + "!"));
+  c.append(el("h1", "title", "Hoi " + me.naam + "! ✨"));
+  if (!volwassen()) {
+    const missie = el("div", "magic-mission");
+    missie.append(el("div", "magic-mission-title", "🦄 Jouw magische missie"));
+    missie.append(el("div", "magic-mission-text", "Oefen lekker verder en verzamel stickers. Een woordje dat je 3 keer goed doet, verdient een plekje in jouw stickerboek!"));
+    missie.append(el("div", "magic-mission-score", "📖 " + aantalStickers() + " stickers · ⚡ " + P.xp + " XP"));
+    c.append(missie);
+  }
   const tabs = el("div", "tabs");
   Object.entries(VAKKEN).forEach(([id, V]) => {
     const t = el("button", "tab" + ((P.vak in VAKKEN ? P.vak : Object.keys(VAKKEN)[0]) === id ? " on" : ""), `<b>${V.icoon}</b>${V.naam}`);
