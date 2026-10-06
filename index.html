@@ -131,6 +131,24 @@ body{background:linear-gradient(155deg,#ccefff 0%,#eee4ff 48%,#ffdff0 78%,#fff0b
 .blocks span{background:linear-gradient(145deg,#fff,#efe7ff);border:3px solid #d7c8ff;box-shadow:0 5px 0 #c5b2eb}
 @media(max-width:520px){.chore-hero{gap:11px}.dress-avatar{flex-basis:76px;height:76px}.dress-shop{grid-template-columns:repeat(2,1fr)}.chore{align-items:flex-start}.chore-go{font-size:12px;padding:9px 7px}}
 
+
+/* Echte Loes-verkleedavatar */
+.dress-stage{display:flex;flex-direction:column;align-items:center;gap:4px;flex:0 0 118px}
+.dress-stage>small{font-weight:1000;color:#704fc1;font-size:14px}
+.dress-stage .dress-avatar{width:106px;height:106px;flex:none;overflow:visible;position:relative;z-index:1}
+.dress-stage .dress-face{z-index:2}
+.dress-head,.dress-glasses,.dress-wings,.dress-friend{position:absolute;z-index:4;pointer-events:none;line-height:1;filter:drop-shadow(0 3px 3px rgba(50,30,80,.2))}
+.dress-head{font-size:40px;left:50%;top:-27px;transform:translateX(-50%) rotate(-4deg)}
+.outfit-strik .dress-head{font-size:34px;left:76%;top:-12px;transform:rotate(12deg)}
+.outfit-hoed .dress-head{font-size:46px;top:-34px}
+.dress-glasses{font-size:39px;left:50%;top:34px;transform:translateX(-50%) scaleX(1.12)}
+.dress-wings{z-index:0;font-size:72px;left:50%;top:20px;transform:translateX(-50%) scaleX(1.75);opacity:.92}
+.dress-friend{font-size:43px;right:-32px;bottom:-10px;animation:characterBob 2.4s ease-in-out infinite}
+.dress-avatar::after{content:"";position:absolute;inset:-7px;border-radius:50%;z-index:-1;background:linear-gradient(135deg,#ffe27a,#f6a8d0,#bca9f3,#8cddf4);opacity:.35;filter:blur(3px)}
+.dress-item.wearing{transform:translateY(-3px);box-shadow:0 8px 0 rgba(239,114,170,.18),0 14px 24px rgba(80,55,130,.12)}
+.dress-item.wearing small::before{content:"✨ "}
+@media(max-width:520px){.dress-stage{flex-basis:94px}.dress-stage .dress-avatar{width:82px;height:82px}.dress-glasses{font-size:31px;top:26px}.dress-head{font-size:33px;top:-23px}.outfit-hoed .dress-head{font-size:39px;top:-30px}.dress-wings{font-size:58px}.dress-friend{font-size:34px;right:-25px}}
+
 </style>
 </head>
 <body>
@@ -1166,7 +1184,8 @@ function takenAvontuur() {
   const head = el("div", "map-head"); head.append(back, el("div", "stars-total", "💎 " + (P.edelstenen || 0))); c.append(head);
   c.append(el("h1", "title", "🏡 Loes' Takenavontuur"));
   const hero = el("div", "chore-hero");
-  hero.innerHTML = '<div class="dress-avatar"><span class="dress-face"></span><b>' + (P.outfit || "✨") + '</b></div><div><strong>Help mee in huis!</strong><span>Verdien sterren en edelstenen voor je verkleedkast.</span></div>';
+  const outfitId = (P.items || []).find(id => (KLEDING.find(x => x.id === id) || {}).icoon === P.outfit) || "";
+  hero.innerHTML = '<div class="dress-stage"><div class="dress-avatar outfit-' + outfitId + '"><span class="dress-wings">' + (outfitId === "vleugels" ? "🪽" : "") + '</span><span class="dress-face"></span><span class="dress-head">' + (["kroon","strik","hoed"].includes(outfitId) ? P.outfit : "") + '</span><span class="dress-glasses">' + (outfitId === "bril" ? "😎" : "") + '</span><span class="dress-friend">' + (outfitId === "unicorn" ? "🦄" : "") + '</span></div><small>Loes</small></div><div><strong>Help mee in huis!</strong><span>Verdien sterren en edelstenen en kleed je eigen Loes-avatar aan.</span></div>';
   c.append(hero);
   c.append(el("div", "reward-wallet", "⭐ " + (P.klusPunten || 0) + " taakpunten &nbsp; · &nbsp; 💎 " + (P.edelstenen || 0) + " edelstenen"));
   c.append(el("h2", "section", "🌟 Taakjes van vandaag"));
