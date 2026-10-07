@@ -1034,9 +1034,40 @@ function voiceFor(lang, idx) {
   return list.length ? list[idx % list.length] : null;
 }
 // soort "praat": het maatje praat met zijn eigen gekke stem. soort "woord": duidelijk uitspreken.
+let karakterAudio = null;
+function karakterBestand(kind, s = stem()) {
+  const suffix = kind === "hoi" ? "proef" : kind;
+  return "lerenmetloes_" + s.id + "_" + suffix + ".mp3";
+}
+function stopKarakterAudio() {
+  if (!karakterAudio) return;
+  try { karakterAudio.pause(); karakterAudio.currentTime = 0; } catch (e) {}
+  karakterAudio = null;
+}
+function speelKarakter(kind, fallbackTekst, delay = 0) {
+  const run = () => {
+    try {
+      if ("speechSynthesis" in window) speechSynthesis.cancel();
+      stopKarakterAudio();
+      const a = new Audio(karakterBestand(kind));
+      karakterAudio = a;
+      a.volume = 1;
+      a.onended = () => { if (karakterAudio === a) karakterAudio = null; };
+      a.onerror = () => { if (karakterAudio === a) karakterAudio = null; if (fallbackTekst) praat(fallbackTekst); };
+      const p = a.play();
+      if (p && p.catch) p.catch(() => { if (karakterAudio === a) karakterAudio = null; if (fallbackTekst) praat(fallbackTekst); });
+    } catch (e) { if (fallbackTekst) praat(fallbackTekst); }
+  };
+  if (delay) setTimeout(run, delay); else run();
+}
+function preloadKarakterStem(s = stem()) {
+  ["proef","goed","fout","klaar"].forEach(k => { const a = new Audio("lerenmetloes_" + s.id + "_" + k + ".mp3"); a.preload = "auto"; });
+}
+
 function say(text, { lang = "nl-NL", soort = "woord", rate } = {}) {
   if (!("speechSynthesis" in window)) return;
   try {
+    stopKarakterAudio();
     speechSynthesis.cancel();
     const s = stem(), u = new SpeechSynthesisUtterance(text);
     u.lang = lang;
@@ -1271,6 +1302,7 @@ function home() {
   $("top").hidden = true;
   const c = nieuweKaart("map");
   const s = stem();
+  if (!volwassen()) preloadKarakterStem(s);
   const head = el("div", "map-head");
   const me = speler();
   const wie = el("button", "who-btn", `${me.plaatje} <span>${me.naam}</span><small>⚡ ${P.xp}</small>`);
@@ -1413,13 +1445,14 @@ function stemKiezen() {
     b.onclick = () => {
       P.stem = s.id; bewaar();
       grid.querySelectorAll(".voice").forEach(x => x.classList.remove("on")); b.classList.add("on");
-      praat(metNaam(s.hoi));
+      preloadKarakterStem(s);
+      speelKarakter("hoi", metNaam(s.hoi));
     };
     grid.append(b);
   });
   c.append(grid);
   const go = el("button", "go", "Spelen!"); go.onclick = home; c.append(go);
-  c.append(el("p", "parent", "De stemmen gebruiken de voorleesstem van dit apparaat. Hoe gek ze klinken, verschilt per tablet."));
+  c.append(el("p", "parent", "De maatjes hebben nu hun eigen tekenfilmstem voor begroetingen en reacties. Woorden, getallen en opdrachten worden apart en duidelijk voorgelezen."));
 }
 
 /* ---------- stickerboek ---------- */
@@ -1609,8 +1642,8 @@ function good(fb, naGoed) {
   geefXp(xp);
   fb.className = "feedback good"; fb.innerHTML = `${s.plaatje} ${t} <span class="xp-pop">+${xp} XP</span>`;
   yay(); addStar();
-  setTimeout(() => praat(t), naGoed ? 1300 : 500);
-  setTimeout(() => { round.i++; next(); }, naGoed ? 3300 : 2300);
+  speelKarakter("goed", t, naGoed ? 1100 : 350);
+  setTimeout(() => { round.i++; next(); }, naGoed ? 3500 : 2500);
 }
 function tryAgain(fb, extra) {
   round.mistakes++;
@@ -1619,7 +1652,9 @@ function tryAgain(fb, extra) {
   if (q.sticker) { P.fouten ||= {}; P.fouten[q.sticker] = (P.fouten[q.sticker] || 0) + 1; }
   const s = stem(), t = pick(s.fout);
   fb.className = "feedback try"; fb.textContent = s.plaatje + " " + (extra ? extra + " " : "") + t;
-  oops(); setTimeout(() => praat((extra ? extra + " " : "") + t), 300);
+  oops();
+  if (extra) { setTimeout(() => praat(extra), 220); speelKarakter("fout", t, 1050); }
+  else speelKarakter("fout", t, 250);
 }
 // drie (of twee) grote knoppen waarvan er één goed is
 function keuzes(c, opties, juist, toon, opts = {}) {
@@ -2025,7 +2060,7 @@ function finish() {
   const again = el("button", "go alt", "Nog een keer"); again.onclick = () => startRound(vak, li);
   btns.append(again);
   c.append(btns);
-  praat(metNaam(s.klaar));
+  speelKarakter("klaar", metNaam(s.klaar), 250);
   yay(); setTimeout(yay, 450);
   confetti();
 }
