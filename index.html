@@ -212,6 +212,19 @@ body.game-mode .memory-grid{max-width:460px}
   body.game-mode .memory-grid{gap:7px;max-width:360px}.game-mode .memory-card{max-height:90px}
 }
 
+
+/* Hoofdstuk 2 — Het Sterrenbos */
+.chapter-banner{position:relative;z-index:2;width:100%;box-sizing:border-box;margin:16px 0 10px;padding:13px 16px;border-radius:22px;text-align:center;background:linear-gradient(135deg,#fff8cf,#ffe7f6,#eae3ff);border:2px solid #fff;box-shadow:0 8px 18px rgba(90,65,130,.12)}
+.chapter-banner b{display:block;color:#704fc1;font-size:19px}.chapter-banner span{display:block;font-weight:1000;color:#c44f91;margin-top:2px}.chapter-banner small{display:block;color:#776b8c;margin-top:4px;font-weight:800}
+.chapter-2{background:linear-gradient(135deg,#18265e,#563987 52%,#bd5a9b);box-shadow:0 10px 24px rgba(49,36,104,.22)}
+.chapter-2 b,.chapter-2 span,.chapter-2 small{color:#fff}.chapter-2::before,.chapter-2::after{content:"✨";position:absolute;top:10px;font-size:23px}.chapter-2::before{left:14px}.chapter-2::after{right:14px}
+.letter-choice{font-size:clamp(50px,14vw,76px)!important;text-transform:lowercase;background:linear-gradient(145deg,#fff,#f4ecff)!important}
+.choices.letter-rain{display:flex;justify-content:space-around;align-items:flex-start;min-height:175px}
+.rain-letter{position:relative;width:105px!important;height:125px!important;border-radius:55% 55% 60% 60%!important;background:linear-gradient(180deg,#ddf7ff,#a9dfff)!important;border:3px solid #fff!important;font-size:50px!important;animation:rainDrop 2.2s ease-in-out infinite}
+.rain-letter small{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;font-weight:1000;color:#425478}.rain-letter:nth-child(2){animation-delay:.35s}.rain-letter:nth-child(3){animation-delay:.7s}
+@keyframes rainDrop{50%{transform:translateY(12px) rotate(2deg)}}
+@media(max-height:760px){.chapter-banner{margin:8px 0;padding:9px 12px}.rain-letter{width:80px!important;height:92px!important}.rain-letter small{font-size:27px}}
+
 </style>
 </head>
 <body>
@@ -485,6 +498,18 @@ const WOORDEN = [
   { woord: "aap",  plaatje: "🐵" },
   { woord: "ijs",  plaatje: "🍦" },
   { woord: "boot", plaatje: "⛵" },
+  { woord: "pan",  plaatje: "🍳" },
+  { woord: "mes",  plaatje: "🔪" },
+  { woord: "kom",  plaatje: "🥣" },
+  { woord: "weg",  plaatje: "🛣️" },
+  { woord: "hek",  plaatje: "🚧" },
+  { woord: "rug",  plaatje: "🎒" },
+  { woord: "ram",  plaatje: "🐏" },
+  { woord: "hen",  plaatje: "🐔" },
+  { woord: "mol",  plaatje: "🦫" },
+  { woord: "pen",  plaatje: "🖊️" },
+  { woord: "rok",  plaatje: "👗" },
+  { woord: "dak",  plaatje: "🏠" },
 ];
 // Een level toevoegen: zet er een regel bij met woorden uit WOORDEN. "alle: true" = grote toets.
 // id: vaste naam van het level (voortgang hangt eraan, dus niet veranderen).
@@ -502,7 +527,16 @@ const LEZEN_LEVELS = [
   { id: "5", naam: "In de tuin",     woorden: ["roos", "boom", "huis"] },
   { id: "6", naam: "Grote dieren",   woorden: ["koe", "aap", "muis"] },
   { id: "7", naam: "Op vakantie",    woorden: ["ijs", "boot"] },
-  { id: "8", naam: "Grote toets",    woorden: [], alle: true },
+  { id: "8", naam: "Grote toets",    woorden: [], alle: true, hoofdstuk: 1 },
+
+  { id: "h2letters", naam: "Sterrenletters", soort: "letterBegin", pics: "⭐🔤", hoofdstuk: 2 },
+  { id: "h2keuken", naam: "In de keuken", woorden: ["pan", "mes", "kom"], hoofdstuk: 2, speltypes: ["kiesPlaatje","bouwWoord","letterBeginSpel","bubbelWoord"] },
+  { id: "h2eind", naam: "Laatste klank", soort: "letterEind", pics: "👂🔤", hoofdstuk: 2 },
+  { id: "h2pad", naam: "Op avontuur", woorden: ["weg", "hek", "rug"], hoofdstuk: 2, speltypes: ["kiesPlaatje","letterEindSpel","bouwWoord","memoryWoord"] },
+  { id: "h2regen", naam: "Letterregen", soort: "letterRegen", pics: "🌧️🔤", hoofdstuk: 2 },
+  { id: "h2dieren", naam: "Dierenfeest", woorden: ["ram", "hen", "mol"], hoofdstuk: 2, speltypes: ["letterBeginSpel","kiesPlaatje","bouwWoord","bubbelWoord","memoryWoord"] },
+  { id: "h2spullen", naam: "Mijn spullen", woorden: ["pen", "rok", "dak"], hoofdstuk: 2, speltypes: ["letterEindSpel","kiesPlaatje","bouwWoord","memoryWoord"] },
+  { id: "h2toets", naam: "Sterrenproef", woorden: ["pan","mes","kom","weg","hek","rug","ram","hen","mol","pen","rok","dak"], hoofdstuk: 2, speltypes: ["kiesPlaatje","letterBeginSpel","letterEindSpel","bouwWoord","memoryWoord","bubbelWoord"] },
 ];
 // woorden die alleen in de klankspelletjes voorkomen (rijmen)
 const EXTRA_WOORDEN = [
@@ -1356,11 +1390,21 @@ function home() {
   const levels = VAKKEN[vak].levels;
   const path = el("div", "path");
   const cur = huidigLevel(vak);
+  let vorigHoofdstuk = null;
   levels.forEach((L, i) => {
+    const hoofdstuk = vak === "lezen" ? (L.hoofdstuk || 1) : null;
+    if (hoofdstuk && hoofdstuk !== vorigHoofdstuk) {
+      const ch = el("div", "chapter-banner chapter-" + hoofdstuk);
+      ch.innerHTML = hoofdstuk === 1
+        ? "<b>📖 Hoofdstuk 1</b><span>Het Magische Boomhuis</span>"
+        : "<b>🌟 Hoofdstuk 2</b><span>Het Sterrenbos</span><small>Nieuwe woorden • letters • klanken • spelletjes</small>";
+      path.append(ch); vorigHoofdstuk = hoofdstuk;
+    }
     const st = P.levels[lk(vak, i)] || 0, isOpen = open(vak, i);
     const stop = el("div", "stop pos" + (i % 4));
     const b = el("button", "stone" + (isOpen ? "" : " locked") + (st ? " done" : "") + (i === cur ? " current" : ""));
-    b.innerHTML = isOpen ? (i === levels.length - 1 && /toets/i.test(L.naam) ? "🏆" : i + 1) : "🔒";
+    const nummer = vak === "lezen" && (L.hoofdstuk || 1) === 2 ? i - 8 : i + 1;
+    b.innerHTML = isOpen ? (/toets|proef/i.test(L.naam) ? "🏆" : nummer) : "🔒";
     b.setAttribute("aria-label", "Level " + (i + 1) + ": " + L.naam + (isOpen ? "" : " (nog op slot)"));
     b.onclick = () => {
       if (!isOpen) { oops(); praat("Dit level is nog op slot"); return; }
@@ -1532,11 +1576,11 @@ const naamOpties = (juist, pool, n = 4) => shuffle([juist, ...shuffle([...new Se
 function maakVragen(vak, li) {
   const L = VAKKEN[vak].levels[li];
   if (vak === "topo" && !L.mc) return topoVragen(L);
-  if (L.soort) return klankVragen(L.soort);
+  if (L.soort) return ["letterBegin","letterEind","letterRegen"].includes(L.soort) ? letterVragen(L.soort) : klankVragen(L.soort);
   if (L.mc) return shuffle(L.mc).slice(0, 10).map(([vraag, juist, fout, uitleg]) => ({ type: "mc", vraag, juist, opties: shuffle([juist, ...fout]), uitleg }));
   if (L.gen) return Array.from({ length: 10 }, (_, i) => hoofdreken(L.gen[i % L.gen.length]));
   if (vak === "rekenen") return Array.from({ length: 8 }, (_, i) => rekenVraag(L.soorten[i % L.soorten.length], L.tot));
-  const types = vak === "lezen" ? ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord", "memoryWoord"] : ["hoorEngels", "kloptHet", "ballonEngels"];
+  const types = L.speltypes || (vak === "lezen" ? ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord", "memoryWoord"] : ["hoorEngels", "kloptHet", "ballonEngels"]);
   const items = levelItems(vak, li);
   const qs = [];
   const add = (it, t) => qs.push({ type: types[t % types.length], item: it, sticker: stickerKey(vak, it) });
@@ -1596,6 +1640,20 @@ function klankVragen(soort) {
   const pool = soort === "hak" ? HAK_WOORDEN : [...WOORDEN, ...HAK_WOORDEN], len = w => klanken(w.woord).length;
   const kies = soort === "hak" ? [...shuffle(pool.filter(w => len(w) === 2)).slice(0, 3), ...shuffle(pool.filter(w => len(w) === 3)).slice(0, 5)] : [...shuffle(pool.filter(w => len(w) === 2)).slice(0, 2), ...shuffle(pool.filter(w => len(w) === 4)).slice(0, 3), ...shuffle(pool.filter(w => len(w) === 3)).slice(0, N - 5)];
   return shuffle(kies).map(w => ({ type: soort, item: w, pool }));
+}
+function simpeleLeesWoorden() {
+  return WOORDEN.filter(w => /^[a-z]{3}$/.test(w.woord));
+}
+function letterKeuzes(letter) {
+  const alfabet = ["a","b","d","e","f","h","i","k","l","m","n","o","p","r","s","t","u","v","w","z"];
+  return shuffle([letter, ...shuffle(alfabet.filter(x => x !== letter)).slice(0, 2)]);
+}
+function letterVragen(soort) {
+  const pool = shuffle(simpeleLeesWoorden()).slice(0, 8);
+  return pool.map(w => {
+    const letters = [...w.woord], letter = soort === "letterEind" ? letters.at(-1) : letters[0];
+    return { type: soort, item: w, letter, opties: letterKeuzes(letter) };
+  });
 }
 function rekenVraag(soort, tot) {
   if (soort === "dobbel") return { type: "dobbel", n: rnd(1, 6), tot: 6 };
@@ -1742,6 +1800,42 @@ const OEFENINGEN = {
       grid.append(b);
     });
     c.append(grid, fb);
+  },
+
+  /* hoofdstuk 2: welke letter hoor je vooraan? */
+  letterBegin(q) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "⭐ Met welke letter begint dit woord?"));
+    const pic = el("div", "big-pic", q.item.plaatje); c.append(pic);
+    const hoor = el("button", "speak", "🔊 " + q.item.woord); hoor.onclick = () => say(q.item.woord); c.append(hoor);
+    keuzes(c, q.opties, q.letter, x => x, { cls: "text letter-choice", goed: () => say(q.letter, { rate: .75 }), fout: x => say(x, { rate: .75 }) });
+    setTimeout(() => say(q.item.woord), 300);
+  },
+  /* hoofdstuk 2: welke letter hoor je achteraan? */
+  letterEind(q) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "👂 Welke letter hoor je aan het einde?"));
+    c.append(el("div", "big-pic", q.item.plaatje));
+    const hoor = el("button", "speak", "🔊 " + q.item.woord); hoor.onclick = () => say(q.item.woord); c.append(hoor);
+    keuzes(c, q.opties, q.letter, x => x, { cls: "text letter-choice", goed: () => say(q.letter, { rate: .75 }), fout: x => say(x, { rate: .75 }) });
+    setTimeout(() => say(q.item.woord), 300);
+  },
+  /* hoofdstuk 2: vang de goede beginletter */
+  letterRegen(q) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "🌧️ Vang de letter waarmee het woord begint!"));
+    c.append(el("div", "big-pic", q.item.plaatje));
+    keuzes(c, q.opties, q.letter, x => "💧<small>" + x + "</small>", { cls: "rain-letter", grid: "letter-rain", goed: () => say(q.item.woord) });
+    setTimeout(() => say(q.item.woord), 250);
+  },
+  /* letterspel tussen de gewone woordspelletjes */
+  letterBeginSpel({ item: w }) {
+    const letters = [...w.woord], letter = letters[0];
+    OEFENINGEN.letterBegin({ item: w, letter, opties: letterKeuzes(letter) });
+  },
+  letterEindSpel({ item: w }) {
+    const letters = [...w.woord], letter = letters.at(-1);
+    OEFENINGEN.letterEind({ item: w, letter, opties: letterKeuzes(letter) });
   },
 
   /* bouw het woord met letters */
