@@ -1142,7 +1142,13 @@ const pick = a => a[Math.floor(Math.random() * a.length)];
 const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
 function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
 function others(item, pool, n) {
-  return shuffle(pool.filter(w => w !== item && w.plaatje !== item.plaatje)).slice(0, n);
+  const zelfdeBetekenis = w => {
+    if (w === item || w.plaatje === item.plaatje) return true;
+    if (item.woord && w.woord && w.woord === item.woord) return true;
+    if (item.en && w.en && w.en === item.en) return true;
+    return false;
+  };
+  return shuffle(pool.filter(w => !zelfdeBetekenis(w))).slice(0, n);
 }
 function addStar() { P.sterren++; bewaar(); $("stars").textContent = "⭐ " + P.sterren; }
 function nieuweKaart(cls) { const c = $("card"); c.innerHTML = ""; c.className = "card" + (cls ? " " + cls : ""); return c; }
