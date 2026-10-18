@@ -225,6 +225,12 @@ body.game-mode .memory-grid{max-width:460px}
 @keyframes rainDrop{50%{transform:translateY(12px) rotate(2deg)}}
 @media(max-height:760px){.chapter-banner{margin:8px 0;padding:9px 12px}.rain-letter{width:80px!important;height:92px!important}.rain-letter small{font-size:27px}}
 
+/* Compact clock lessons keep the answers within reach on small screens. */
+.lesson-clock { width:min(240px, 48vw, 35dvh); flex-shrink:0; }
+.lesson-clock text { font: 20px var(--font-ui); fill:#51396e; }
+.clock-tip { font-size:16px; text-align:center; margin:0; max-width:380px; color:var(--soft); }
+body.game-mode .choice.clock-answer { font-family:var(--font-ui); font-size:clamp(18px, 5vw, 26px); min-height:68px; padding:10px 5px; color:var(--ink); }
+@media (max-height:600px) { .lesson-clock { width:min(180px, 30dvh); } .clock-tip { font-size:14px; } }
 </style>
 </head>
 <body>
@@ -606,6 +612,12 @@ const REKENEN_LEVELS = [
   { id: "6",       naam: "Plus en min",      soorten: ["plus", "min"], tot: 10 },
   { id: "7",       naam: "Grote toets",      soorten: ["tellen", "dobbel", "split", "plus", "min"], tot: 10 },
 ];
+const KLOK_LEVELS = [
+  { id: "klok-heel", naam: "Hele uren", klok: [0], tip: "De lange blauwe wijzer staat op 12. De korte roze wijzer wijst het uur aan." },
+  { id: "klok-half", naam: "Halve uren", klok: [30], tip: "De lange wijzer staat op 6. Half 3 is halverwege 2 en 3." },
+  { id: "klok-kwart", naam: "Kwart over en voor", klok: [15, 45], tip: "Op 3: kwart over. Op 9: kwart voor het volgende uur." },
+  { id: "klok-proef", naam: "Klokkenproef", klok: [0, 30, 15, 45], tip: "Kijk naar allebei de wijzers. Hoe laat is het?" },
+];
 const DINGEN = ["🍎", "🐞", "⭐", "🐟", "🎈", "🧁", "🐥", "🍓", "🚗", "🌸"];
 
 /* ============================================================
@@ -872,6 +884,7 @@ const XP_GOED = 10, XP_NA_FOUT = 5, XP_PER_STER = 10;
 const VAKKEN_KIND = {
   lezen:   { naam: "Lezen",   icoon: "📖", levels: LEZEN_LEVELS },
   rekenen: { naam: "Rekenen", icoon: "🔢", levels: REKENEN_LEVELS },
+  klokkijken: { naam: "Klokkijken", icoon: "🕒", levels: KLOK_LEVELS },
   engels:  { naam: "Engels",  icoon: "🇬🇧", levels: ENGELS_LEVELS },
   topo:    { naam: "Topo",    icoon: "🗺️", levels: TOPO_LEVELS },
 };
@@ -1042,7 +1055,7 @@ const vindLezen = w => WOORDEN.find(x => x.woord === w);
 const vindEngels = w => ENGELS.find(x => x.en === w);
 function levelItems(vak, i) {
   const L = VAKKEN[vak].levels[i];
-  if (L.soort || L.mc || L.gen) return [];
+  if (L.soort || L.mc || L.gen || L.klok) return [];
   if (vak === "lezen") return L.alle ? WOORDEN : L.woorden.map(vindLezen).filter(Boolean);
   if (vak === "engels") return L.alle ? ENGELS : L.woorden.map(vindEngels).filter(Boolean);
   return [];
@@ -1581,6 +1594,15 @@ const naamOpties = (juist, pool, n = 4) => shuffle([juist, ...shuffle([...new Se
 /* ---------- ronde ---------- */
 function maakVragen(vak, li) {
   const L = VAKKEN[vak].levels[li];
+  if (L.klok) {
+    const uren = shuffle(Array.from({ length: 12 }, (_, i) => i + 1)).slice(0, 8);
+    return uren.map((uur, i) => {
+      const minuut = L.klok[i % L.klok.length];
+      const juist = klokTekst(uur, minuut);
+      const andere = Array.from({ length: 12 }, (_, k) => klokTekst(k + 1, minuut)).filter(t => t !== juist);
+      return { type: "klok", uur, minuut, juist, opties: shuffle([juist, ...shuffle(andere).slice(0, 2)]), tip: L.tip };
+    });
+  }
   if (vak === "topo" && !L.mc) return topoVragen(L);
   if (L.soort) return ["letterBegin","letterEind","letterRegen"].includes(L.soort) ? letterVragen(L.soort) : klankVragen(L.soort);
   if (L.mc) return shuffle(L.mc).slice(0, 10).map(([vraag, juist, fout, uitleg]) => ({ type: "mc", vraag, juist, opties: shuffle([juist, ...fout]), uitleg }));
@@ -1660,6 +1682,30 @@ function letterVragen(soort) {
     const letters = [...w.woord], letter = soort === "letterEind" ? letters.at(-1) : letters[0];
     return { type: soort, item: w, letter, opties: letterKeuzes(letter) };
   });
+}
+function klokTekst(uur, minuut) {
+  const volgend = uur % 12 + 1;
+  if (minuut === 30) return "half " + volgend;
+  if (minuut === 15) return "kwart over " + uur;
+  if (minuut === 45) return "kwart voor " + volgend;
+  return uur + " uur";
+}
+function tekenKlok(uur, minuut) {
+  const klok = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  klok.setAttribute("viewBox", "0 0 240 240");
+  klok.setAttribute("class", "lesson-clock");
+  klok.setAttribute("role", "img");
+  klok.setAttribute("aria-label", "Klok met een korte roze uurwijzer en een lange blauwe minuutwijzer");
+  let cijfers = "";
+  for (let n = 1; n <= 12; n++) {
+    const hoek = n * Math.PI / 6;
+    cijfers += `<text x="${120 + 88 * Math.sin(hoek)}" y="${120 - 88 * Math.cos(hoek)}" text-anchor="middle" dominant-baseline="central">${n}</text>`;
+  }
+  klok.innerHTML = `<circle cx="120" cy="120" r="114" fill="#fffdf6" stroke="#b89be2" stroke-width="7"/>${cijfers}
+    <line class="hour-hand" x1="120" y1="120" x2="120" y2="64" stroke="#bd3674" stroke-width="10" stroke-linecap="round" transform="rotate(${(uur % 12) * 30 + minuut / 2} 120 120)"/>
+    <line class="minute-hand" x1="120" y1="120" x2="120" y2="39" stroke="#2375bd" stroke-width="6" stroke-linecap="round" transform="rotate(${minuut * 6} 120 120)"/>
+    <circle cx="120" cy="120" r="7" fill="#51396e"/>`;
+  return klok;
 }
 function rekenVraag(soort, tot) {
   if (soort === "dobbel") return { type: "dobbel", n: rnd(1, 6), tot: 6 };
@@ -1983,6 +2029,14 @@ const OEFENINGEN = {
     say("Plak de klanken aan elkaar");
   },
 
+  klok(q) {
+    const c = $("card"); c.innerHTML = "";
+    c.append(el("p", "prompt", "🕒 Hoe laat is het?"));
+    c.append(tekenKlok(q.uur, q.minuut));
+    c.append(el("p", "clock-tip", q.tip));
+    keuzes(c, q.opties, q.juist, o => o, { cls: "clock-answer", goed: () => say("Ja! Het is " + q.juist + ".") });
+    say("Hoe laat is het?");
+  },
   /* ===== EXTRA REKENEN ===== */
   /* dobbelsteen: hoeveel ogen? */
   dobbel(q) {
