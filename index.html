@@ -517,6 +517,37 @@ const WOORDEN = [
   { woord: "rok",  plaatje: "👗" },
   { woord: "dak",  plaatje: "🏠" },
 ];
+// Nieuwe leeswoorden blijven buiten de beginnerspool van hoofdstuk 1 en 2.
+const AVONTUUR_WOORDEN = [
+  { woord: "haas", plaatje: "🐇" },
+  { woord: "kaas", plaatje: "🧀" },
+  { woord: "raam", plaatje: "🪟" },
+  { woord: "peer", plaatje: "🍐" },
+  { woord: "veer", plaatje: "🪶" },
+  { woord: "been", plaatje: "🦵" },
+  { woord: "oog", plaatje: "👁️" },
+  { woord: "oor", plaatje: "👂" },
+  { woord: "doos", plaatje: "📦" },
+  { woord: "vuur", plaatje: "🔥" },
+  { woord: "muur", plaatje: "🧱" },
+  { woord: "boek", plaatje: "📕" },
+  { woord: "voet", plaatje: "🦶" },
+  { woord: "koek", plaatje: "🍪" },
+  { woord: "tuin", plaatje: "🌷" },
+  { woord: "duif", plaatje: "🕊️" },
+  { woord: "ui", plaatje: "🧅" },
+  { woord: "bij", plaatje: "🐝" },
+  { woord: "pijl", plaatje: "➡️" },
+  { woord: "ei", plaatje: "🥚" },
+  { woord: "geit", plaatje: "🐐" },
+  { woord: "zeil", plaatje: "⛵" },
+  { woord: "touw", plaatje: "🪢" },
+  { woord: "hout", plaatje: "🪵" },
+  { woord: "pauw", plaatje: "🦚" },
+  { woord: "spin", plaatje: "🕷️" },
+  { woord: "slak", plaatje: "🐌" },
+  { woord: "ster", plaatje: "⭐" },
+];
 // Een level toevoegen: zet er een regel bij met woorden uit WOORDEN. "alle: true" = grote toets.
 // id: vaste naam van het level (voortgang hangt eraan, dus niet veranderen).
 // soort: een klankspel (rijm, begin, hak, plak) in plaats van woordjes lezen.
@@ -543,6 +574,23 @@ const LEZEN_LEVELS = [
   { id: "h2dieren", naam: "Dierenfeest", woorden: ["ram", "hen", "mol"], hoofdstuk: 2, speltypes: ["letterBeginSpel","kiesPlaatje","bouwWoord","bubbelWoord","memoryWoord"] },
   { id: "h2spullen", naam: "Mijn spullen", woorden: ["pen", "rok", "dak"], hoofdstuk: 2, speltypes: ["letterEindSpel","kiesPlaatje","bouwWoord","memoryWoord"] },
   { id: "h2toets", naam: "Sterrenproef", woorden: ["pan","mes","kom","weg","hek","rug","ram","hen","mol","pen","rok","dak"], hoofdstuk: 2, speltypes: ["kiesPlaatje","letterBeginSpel","letterEindSpel","bouwWoord","memoryWoord","bubbelWoord"] },
+
+  { id: "h3aa", naam: "Hazen en kaas", woorden: ["haas", "kaas", "raam"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h3ee", naam: "Veren verzamelen", woorden: ["peer", "veer", "been"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h3oo", naam: "De toverdoos", woorden: ["oog", "oor", "doos"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h3uu", naam: "Bij het vuur", woorden: ["vuur", "muur"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h3mix", naam: "Klankenschat", woorden: ["haas", "peer", "doos", "muur"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "memoryWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h3bouw", naam: "Toverwoorden bouwen", woorden: ["kaas", "veer", "oog", "vuur"], hoofdstuk: 3, speltypes: ["bouwWoord", "hoorWoord"] },
+  { id: "h3herhaal", naam: "Op schattenjacht", woorden: ["raam", "been", "oor", "muur"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "memoryWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h3toets", naam: "Regenboogproef", woorden: ["haas", "kaas", "peer", "veer", "oog", "doos", "vuur", "muur"], hoofdstuk: 3, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"], maxVragen: 8 },
+  { id: "h4oe", naam: "Koek en een boek", woorden: ["boek", "voet", "koek"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4ui", naam: "In de bloementuin", woorden: ["tuin", "duif", "ui"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4ij", naam: "De bezige bij", woorden: ["bij", "pijl", "ijs"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4ei", naam: "Op de boerderij", woorden: ["ei", "geit", "zeil"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4ou", naam: "De trotse pauw", woorden: ["touw", "hout", "pauw"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4samen", naam: "Twee letters vooraan", woorden: ["spin", "slak", "ster"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4herhaal", naam: "Het drakenpad", woorden: ["boek", "duif", "geit", "slak"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "memoryWoord", "bouwWoord", "bubbelWoord"] },
+  { id: "h4toets", naam: "Drakenproef", woorden: ["voet", "ui", "bij", "ei", "hout", "pauw", "spin", "ster"], hoofdstuk: 4, speltypes: ["kiesPlaatje", "hoorWoord", "bouwWoord", "bubbelWoord"], maxVragen: 8 },
 ];
 // woorden die alleen in de klankspelletjes voorkomen (rijmen)
 const EXTRA_WOORDEN = [
@@ -843,6 +891,9 @@ const LEERDOELEN = [
   { vak: "lezen",   groep: "3",   doel: "Leest korte woorden zoals bos, vos en kip",     levels: ["0", "1", "2", "3"] },
   { vak: "lezen",   groep: "3",   doel: "Leest woorden met lange klanken en tweeklanken (maan, huis)", levels: ["4", "5", "6", "7"] },
   { vak: "lezen",   groep: "3",   doel: "Leest alle geoefende woordjes vlot",            levels: ["8"] },
+  { vak: "lezen", groep: "3", doel: "Leest nieuwe woorden met aa, ee, oo en uu", levels: ["h3aa", "h3ee", "h3oo", "h3uu", "h3toets"] },
+  { vak: "lezen", groep: "3", doel: "Leest woorden met oe, ui, ij, ei, ou en au", levels: ["h4oe", "h4ui", "h4ij", "h4ei", "h4ou"] },
+  { vak: "lezen", groep: "3", doel: "Leest korte woorden met twee medeklinkers vooraan", levels: ["h4samen", "h4toets"] },
   { vak: "rekenen", groep: "1-2", doel: "Telt hoeveelheden tot 5",                       levels: ["0"] },
   { vak: "rekenen", groep: "1-2", doel: "Herkent getalbeelden op een dobbelsteen",       levels: ["dobbel"] },
   { vak: "rekenen", groep: "1-2", doel: "Vergelijkt hoeveelheden: meer en minder",       levels: ["meer"] },
@@ -1051,7 +1102,7 @@ async function koppel() {
 }
 
 const stem = () => STEMMEN.find(s => s.id === P.stem) || STEMMEN[0];
-const vindLezen = w => WOORDEN.find(x => x.woord === w);
+const vindLezen = w => WOORDEN.find(x => x.woord === w) || AVONTUUR_WOORDEN.find(x => x.woord === w);
 const vindEngels = w => ENGELS.find(x => x.en === w);
 function levelItems(vak, i) {
   const L = VAKKEN[vak].levels[i];
@@ -1414,15 +1465,16 @@ function home() {
     const hoofdstuk = vak === "lezen" ? (L.hoofdstuk || 1) : null;
     if (hoofdstuk && hoofdstuk !== vorigHoofdstuk) {
       const ch = el("div", "chapter-banner chapter-" + hoofdstuk);
-      ch.innerHTML = hoofdstuk === 1
-        ? "<b>📖 Hoofdstuk 1</b><span>Het Magische Boomhuis</span>"
-        : "<b>🌟 Hoofdstuk 2</b><span>Het Sterrenbos</span><small>Nieuwe woorden • letters • klanken • spelletjes</small>";
+      const titels = { 1: "Het Magische Boomhuis", 2: "Het Sterrenbos", 3: "De Regenboogvallei", 4: "Het Drakenpad" };
+      const tekens = { 1: "📖", 2: "🌟", 3: "🌈", 4: "🐉" };
+      const uitleg = { 2: "Nieuwe woorden • letters • klanken • spelletjes", 3: "Lange klanken • aa, ee, oo en uu", 4: "Nieuwe klanken • samen lezen • twee letters vooraan" };
+      ch.innerHTML = `<b>${tekens[hoofdstuk]} Hoofdstuk ${hoofdstuk}</b><span>${titels[hoofdstuk]}</span>` + (uitleg[hoofdstuk] ? `<small>${uitleg[hoofdstuk]}</small>` : "");
       path.append(ch); vorigHoofdstuk = hoofdstuk;
     }
     const st = P.levels[lk(vak, i)] || 0, isOpen = open(vak, i);
     const stop = el("div", "stop pos" + (i % 4));
     const b = el("button", "stone" + (isOpen ? "" : " locked") + (st ? " done" : "") + (i === cur ? " current" : ""));
-    const nummer = vak === "lezen" && (L.hoofdstuk || 1) === 2 ? i - 8 : i + 1;
+    const nummer = vak === "lezen" && hoofdstuk > 1 ? i - levels.findIndex(l => (l.hoofdstuk || 1) === hoofdstuk) + 1 : i + 1;
     b.innerHTML = isOpen ? (/toets|proef/i.test(L.naam) ? "🏆" : nummer) : "🔒";
     b.setAttribute("aria-label", "Level " + (i + 1) + ": " + L.naam + (isOpen ? "" : " (nog op slot)"));
     b.onclick = () => {
@@ -1621,7 +1673,7 @@ function maakVragen(vak, li) {
     const oud = oudPool.sort((a, b) => slimScore(b) - slimScore(a)).slice(0, HERHAAL_PER_RONDE);
     oud.forEach((it, j) => add(it, j + 2));
   }
-  return shuffle(qs);
+  return shuffle(qs).slice(0, L.maxVragen || qs.length);
 }
 /* hoofdrekenen voor volwassenen: een som met drie bijna-goede foute antwoorden */
 function hoofdreken(soort) {

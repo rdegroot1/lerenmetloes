@@ -6,6 +6,10 @@ Een leerspel voor het hele gezin, in de stijl van Duolingo. Eén HTML-bestand, z
 - **Rik en Judith (volwassen):** dt-regels en spelling, hoofdrekenen, Engelse false friends en uitdrukkingen, topografie van Nederland, Europa en de wereld.
 - XP, sterren, stickers, leerdoelen en een gezinsranglijst.
 
+## Leesavontuur voor Loes
+
+Het leespad heeft vier hoofdstukken: Het Magische Boomhuis, Het Sterrenbos, De Regenboogvallei en Het Drakenpad. Hoofdstuk 3 oefent aa, ee, oo en uu; hoofdstuk 4 bouwt verder met oe, ui, ij, ei, ou en au en introduceert daarna korte woorden zoals spin en slak. De laatste twee hoofdstukken hebben elk acht lessen met herhaling en een afsluitende proef. Een volgend level opent na het behalen van een ster.
+
 ## Voortgang
 
 Voortgang wordt in de browser van het apparaat bewaard. Een nieuwe versie van het spel laat XP en levels staan. Naar een ander apparaat neem je de voortgang mee met de knop **📦 Voortgang meenemen** op het startscherm.

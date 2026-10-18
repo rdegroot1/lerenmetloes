@@ -52,6 +52,10 @@ Chapter 2 is “Het Sterrenbos” and adds:
 - Mijn spullen
 - Sterrenproef
 
+Chapter 3 is “De Regenboogvallei”: eight levels for aa, ee, oo and uu, with IDs starting with `h3`.
+Chapter 4 is “Het Drakenpad”: eight levels for oe, ui, ij, ei, ou/au, followed by short initial consonant clusters, with IDs starting with `h4`.
+Their words live in `AVONTUUR_WOORDEN` so the original beginners pool and old tests stay unchanged. `vindLezen()` resolves both pools. Their final tests use `maxVragen` to keep rounds short.
+
 When adding later chapters, keep stable level IDs because progress keys depend on them.
 
 ## Progress/storage
