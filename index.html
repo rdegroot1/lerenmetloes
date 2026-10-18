@@ -1752,8 +1752,12 @@ function good(fb, naGoed) {
   geefXp(xp);
   fb.className = "feedback good"; fb.innerHTML = `${s.plaatje} ${t} <span class="xp-pop">+${xp} XP</span>`;
   yay(); addStar();
-  speelKarakter("goed", t, naGoed ? 1100 : 350);
-  setTimeout(() => { round.i++; next(); }, naGoed ? 3500 : 2500);
+  if (q.type === "klok") {
+    const uurWoord = ["", "één", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "elf", "twaalf"];
+    const tijd = q.juist.replace(/\d+/g, n => uurWoord[Number(n)]);
+    say("Goed zo! Het is " + tijd + ".");
+  } else speelKarakter("goed", t, naGoed ? 1100 : 350);
+  setTimeout(() => { round.i++; next(); }, q.type === "klok" ? 5000 : naGoed ? 3500 : 2500);
 }
 function tryAgain(fb, extra) {
   round.mistakes++;
@@ -2034,7 +2038,7 @@ const OEFENINGEN = {
     c.append(el("p", "prompt", "🕒 Hoe laat is het?"));
     c.append(tekenKlok(q.uur, q.minuut));
     c.append(el("p", "clock-tip", q.tip));
-    keuzes(c, q.opties, q.juist, o => o, { cls: "clock-answer", goed: () => say("Ja! Het is " + q.juist + ".") });
+    keuzes(c, q.opties, q.juist, o => o, { cls: "clock-answer" });
     say("Hoe laat is het?");
   },
   /* ===== EXTRA REKENEN ===== */
