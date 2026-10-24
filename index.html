@@ -248,6 +248,20 @@ body.game-mode .choice.clock-answer { font-family:var(--font-ui); font-size:clam
 .draw-dots{display:flex;justify-content:center;gap:7px;margin-top:14px}.draw-dots span{width:12px;height:12px;border-radius:50%;background:#ded7e8}.draw-dots span.done{background:#a993da}.draw-dots span.now{background:#e35d9d;transform:scale(1.35)}
 @media(max-width:700px){.draw-animal-grid{grid-template-columns:repeat(3,1fr)}.draw-animal{min-height:112px}.draw-animal b{font-size:42px}.draw-step-title span{font-size:17px}}
 @media(max-width:430px){.draw-animal-grid{grid-template-columns:repeat(2,1fr)}.draw-example{max-height:390px}.draw-map .title{font-size:26px}}
+
+/* Sinterklaasfeest */
+.sint-tab{background:linear-gradient(180deg,#fff7df,#ffe8e8)!important}
+.sint-map{max-width:820px!important}
+.sint-intro{text-align:center;font-weight:900;color:#786a86;margin:0 auto 16px}
+.sint-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sint-card{min-height:150px;border:0;border-radius:24px;background:linear-gradient(160deg,#fffaf0,#ffe9ea);box-shadow:0 6px 0 #efd4d6;font-family:var(--font-ui);color:#81484d;padding:16px}
+.sint-card b{display:block;font-size:54px}.sint-card span{display:block;font-size:18px;font-weight:1000;margin-top:7px}
+.sint-pakjes{text-align:center;font-size:clamp(52px,12vw,92px);line-height:1.15;min-height:120px;letter-spacing:4px}
+.sint-picture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:600px;margin:12px auto}
+.sint-picture{min-height:140px;border:0;border-radius:24px;background:#fff8ee;box-shadow:0 5px 0 #ead9c7}
+.sint-picture b{font-size:64px}
+@media(max-width:600px){.sint-grid{grid-template-columns:1fr}.sint-card{min-height:105px;display:flex;align-items:center;gap:18px;text-align:left}.sint-card b{font-size:46px}.sint-picture{min-height:105px}.sint-picture b{font-size:50px}}
+
 </style>
 </head>
 <body>
@@ -1475,6 +1489,10 @@ function home() {
     tekenTab.setAttribute("aria-label", "Tekenatelier");
     tekenTab.onclick = () => { praat("Welkom in het tekenatelier!"); tekenAtelier(); };
     tabs.append(tekenTab);
+    const sintTab = el("button", "tab sint-tab", "<b>🎁</b>Sint");
+    sintTab.setAttribute("aria-label", "Sinterklaasfeest");
+    sintTab.onclick = () => { praat("Welkom bij het Sinterklaasfeest!"); sinterklaasFeest(); };
+    tabs.append(sintTab);
   }
   c.append(tabs);
   const vak = P.vak in VAKKEN ? P.vak : Object.keys(VAKKEN)[0];
@@ -1517,6 +1535,145 @@ function home() {
   c.append(el("p", "parent", (volwassen() ? "" : "Voor papa of mama: zet het geluid aan, het spel praat. ") + "Met 1 ster gaat het volgende level open."));
   const cur2 = path.querySelector(".current");
   if (cur2) setTimeout(() => cur2.scrollIntoView({ block: "center", behavior: "smooth" }), 300);
+}
+
+/* ---------- Sinterklaasfeest ---------- */
+const SINT_PLAATJES = [
+  { naam: "mijter", icoon: "👑" },
+  { naam: "cadeau", icoon: "🎁" },
+  { naam: "schoen", icoon: "👟" },
+  { naam: "wortel", icoon: "🥕" },
+  { naam: "paard", icoon: "🐴" },
+  { naam: "letter", icoon: "🍫" }
+];
+
+const SINT_TEKEN_STAPPEN = [
+  ["Teken een grote ronde kop.", '<circle cx="180" cy="115" r="62"/>'],
+  ["Teken onder de kop een lang lijf.", '<path d="M135 175 Q180 155 225 175 L245 310 L115 310 Z"/>'],
+  ["Teken bovenop een hoge mijter.", '<path d="M125 70 L180 15 L235 70 Z"/>'],
+  ["Teken een kruis op de mijter.", '<path d="M180 30 L180 65 M160 48 L200 48"/>'],
+  ["Teken twee ronde ogen.", '<circle cx="158" cy="112" r="7"/><circle cx="202" cy="112" r="7"/>'],
+  ["Teken een klein neusje.", '<path d="M176 128 Q180 134 184 128"/>'],
+  ["Teken een grote baard.", '<path d="M140 140 Q125 200 180 220 Q235 200 220 140 Q210 175 180 185 Q150 175 140 140"/>'],
+  ["Teken twee armen.", '<path d="M135 190 Q95 215 90 260 M225 190 Q265 215 270 260"/>'],
+  ["Teken een staf naast Sinterklaas.", '<path d="M280 90 L280 310 M280 90 Q320 75 315 115 Q312 135 295 135"/>'],
+  ["Versier zijn mantel met een paar sterren.", '<path d="M160 245 l5 10 11 1-8 8 2 11-10-5-10 5 2-11-8-8 11-1z M205 265 l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z"/>']
+];
+
+function sinterklaasFeest() {
+  scherm="sint"; round=null; $("top").hidden=true;
+  document.body.classList.remove("game-mode");
+  const c=nieuweKaart("map sint-map");
+  const head=el("div","map-head");
+  const back=el("button","book-btn","🏠 <span>Terug</span>"); back.onclick=home;
+  head.append(back,el("div","stars-total","🎁 Sinterklaasfeest")); c.append(head);
+  c.append(el("h1","title","🎁 Sinterklaasfeest"));
+  c.append(el("p","sint-intro","Tik op een plaatje. Alles wordt voorgelezen."));
+  const grid=el("div","sint-grid");
+  const opties=[
+    ["🎁","Pakjes tellen",sintTellen,"Pakjes tellen"],
+    ["🔊","Luisterspel",sintLuisteren,"Luister en kies"],
+    ["✏️","Sint tekenen",sintTekenen,"Sinterklaas tekenen"]
+  ];
+  opties.forEach(([icoon,naam,fn,aria])=>{
+    const b=el("button","sint-card",'<b>'+icoon+'</b><span>'+naam+'</span>');
+    b.setAttribute("aria-label",aria); b.onclick=fn; grid.append(b);
+  });
+  c.append(grid);
+  setTimeout(()=>praat("Welkom bij het Sinterklaasfeest! Kies pakjes tellen, het luisterspel, of Sinterklaas tekenen."),300);
+}
+
+function sintTellen() {
+  scherm="sint"; $("top").hidden=true;
+  const c=nieuweKaart("map sint-map");
+  const back=el("button","book-btn","← <span>Sint</span>"); back.onclick=sinterklaasFeest;
+  const head=el("div","map-head"); head.append(back,el("div","stars-total","🎁 Pakjes tellen")); c.append(head);
+  const prompt=el("p","prompt big","Hoeveel pakjes zie je?");
+  const pakjes=el("div","sint-pakjes");
+  const choices=el("div","choices");
+  const fb=el("p","feedback");
+  c.append(prompt,pakjes,choices,fb);
+
+  function nieuw() {
+    const n=rnd(1,6); pakjes.textContent="🎁".repeat(n); choices.innerHTML=""; fb.textContent=""; fb.className="feedback";
+    const nums=getalOpties(n,6).filter(x=>x>0).slice(0,3);
+    if(!nums.includes(n)) nums[0]=n;
+    shuffle(nums).forEach(x=>{
+      const b=el("button","choice text num",String(x));
+      b.onclick=()=>{
+        if(x===n){fb.className="feedback good";fb.textContent="🎉 Goed zo!";yay();praat("Goed zo! Het zijn "+NL[n]+" pakjes.");setTimeout(nieuw,1800);}
+        else {fb.className="feedback try";fb.textContent="Nog een keer!";oops();praat("Bijna. Tel de pakjes nog eens.");}
+      };
+      choices.append(b);
+    });
+    setTimeout(()=>praat("Hoeveel pakjes zie je? Tel ze maar."),250);
+  }
+  nieuw();
+}
+
+function sintLuisteren() {
+  scherm="sint"; $("top").hidden=true;
+  const c=nieuweKaart("map sint-map");
+  const back=el("button","book-btn","← <span>Sint</span>"); back.onclick=sinterklaasFeest;
+  const head=el("div","map-head"); head.append(back,el("div","stars-total","🔊 Luisterspel")); c.append(head);
+  const prompt=el("p","prompt","Luister goed en tik op het juiste plaatje.");
+  const hoor=el("button","draw-speak","🔊");
+  const grid=el("div","sint-picture-grid");
+  const fb=el("p","feedback");
+  c.append(prompt,hoor,grid,fb);
+  let doel=null;
+  function nieuw(){
+    doel=pick(SINT_PLAATJES); grid.innerHTML=""; fb.textContent=""; fb.className="feedback";
+    const opties=shuffle([doel,...shuffle(SINT_PLAATJES.filter(x=>x!==doel)).slice(0,2)]);
+    opties.forEach(o=>{
+      const b=el("button","sint-picture",'<b>'+o.icoon+'</b>');
+      b.setAttribute("aria-label",o.naam);
+      b.onclick=()=>{
+        if(o===doel){fb.className="feedback good";fb.textContent="✨ Goed!";yay();praat("Ja! Dat is "+doel.naam+".");setTimeout(nieuw,1700);}
+        else {fb.className="feedback try";fb.textContent="Nog eens";oops();praat("Bijna. Luister nog een keer.");}
+      };
+      grid.append(b);
+    });
+    setTimeout(()=>praat("Tik op "+doel.naam+"."),250);
+  }
+  hoor.onclick=()=>{if(doel)praat("Tik op "+doel.naam+".");};
+  nieuw();
+}
+
+function sintTekenen() {
+  scherm="sint"; $("top").hidden=true;
+  const c=nieuweKaart("map draw-map sint-map");
+  const head=el("div","map-head");
+  const back=el("button","book-btn","← <span>Sint</span>"); back.onclick=sinterklaasFeest;
+  head.append(back,el("div","stars-total","✏️ Sinterklaas tekenen")); c.append(head);
+  c.append(el("h1","title","🎅 Teken Sinterklaas"));
+  c.append(el("div","paper-tip","📄 Pak je papier en potlood"));
+  let stap=0;
+  const titel=el("div","draw-step-title"), voorbeeld=el("div","draw-example paper-example");
+  c.append(titel,voorbeeld);
+  const nav=el("div","draw-nav");
+  const prev=el("button","go alt","←"), hoor=el("button","draw-speak","🔊"), next=el("button","go","→");
+  prev.setAttribute("aria-label","Vorige stap"); hoor.setAttribute("aria-label","Hoor deze stap"); next.setAttribute("aria-label","Volgende stap");
+  nav.append(prev,hoor,next); c.append(nav);
+  const dots=el("div","draw-dots"); c.append(dots);
+
+  function svg(){
+    let s='<svg viewBox="0 0 360 350" role="img" aria-label="Sinterklaas tekenen stap '+(stap+1)+'">';
+    for(let i=0;i<=stap;i++) s+='<g class="'+(i===stap?'nieuw':'oud')+'">'+SINT_TEKEN_STAPPEN[i][1]+'</g>';
+    return s+'</svg>';
+  }
+  function spreek(){praat("Stap "+(stap+1)+". "+SINT_TEKEN_STAPPEN[stap][0]);}
+  function toon(spreekOok){
+    titel.innerHTML='<b>Stap '+(stap+1)+' van 10</b><span>'+SINT_TEKEN_STAPPEN[stap][0]+'</span>';
+    voorbeeld.innerHTML=svg(); prev.disabled=stap===0; next.textContent=stap===9?"🎉":"→"; dots.innerHTML="";
+    SINT_TEKEN_STAPPEN.forEach((_,i)=>dots.append(el("span",i<stap?"done":i===stap?"now":"")));
+    if(spreekOok) spreek();
+  }
+  prev.onclick=()=>{if(stap>0){stap--;toon(true);}};
+  hoor.onclick=spreek;
+  next.onclick=()=>{if(stap<9){stap++;toon(true);}else{praat("Klaar! Wat een mooie Sinterklaas. Goed gedaan!");confetti();}};
+  toon(false);
+  setTimeout(()=>{praat("Pak een vel papier en een potlood. We gaan Sinterklaas tekenen!");setTimeout(spreek,2500);},300);
 }
 
 /* ---------- Tekenatelier: stap voor stap tekenen op papier ---------- */
@@ -2528,7 +2685,7 @@ function confetti() {
   setTimeout(() => box.remove(), 2800);
 }
 
-const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, tekenen: tekenAtelier, prijzen: prijzenkast, ouder: ouderOverzicht, meenemen };
+const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, tekenen: tekenAtelier, sint: sinterklaasFeest, prijzen: prijzenkast, ouder: ouderOverzicht, meenemen };
 $("homeBtn").onclick = home;
 spelersKiezen();
 koppel();
