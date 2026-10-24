@@ -978,6 +978,29 @@ const VAKKEN_VOLWASSEN = {
     { id: "wereld1", naam: "Wereld: hoofdsteden", mc: WERELD_HOOFDSTEDEN },
     { id: "wereld2", naam: "Wereld: lastige hoofdsteden", mc: WERELD_LASTIG }] },
 };
+/* Verenigde Staten — alleen beschikbaar voor Rik bij Topografie. */
+const VS_STATEN = [["Alabama","AL","Montgomery"],["Alaska","AK","Juneau"],["Arizona","AZ","Phoenix"],["Arkansas","AR","Little Rock"],["California","CA","Sacramento"],["Colorado","CO","Denver"],["Connecticut","CT","Hartford"],["Delaware","DE","Dover"],["Florida","FL","Tallahassee"],["Georgia","GA","Atlanta"],["Hawaii","HI","Honolulu"],["Idaho","ID","Boise"],["Illinois","IL","Springfield"],["Indiana","IN","Indianapolis"],["Iowa","IA","Des Moines"],["Kansas","KS","Topeka"],["Kentucky","KY","Frankfort"],["Louisiana","LA","Baton Rouge"],["Maine","ME","Augusta"],["Maryland","MD","Annapolis"],["Massachusetts","MA","Boston"],["Michigan","MI","Lansing"],["Minnesota","MN","Saint Paul"],["Mississippi","MS","Jackson"],["Missouri","MO","Jefferson City"],["Montana","MT","Helena"],["Nebraska","NE","Lincoln"],["Nevada","NV","Carson City"],["New Hampshire","NH","Concord"],["New Jersey","NJ","Trenton"],["New Mexico","NM","Santa Fe"],["New York","NY","Albany"],["North Carolina","NC","Raleigh"],["North Dakota","ND","Bismarck"],["Ohio","OH","Columbus"],["Oklahoma","OK","Oklahoma City"],["Oregon","OR","Salem"],["Pennsylvania","PA","Harrisburg"],["Rhode Island","RI","Providence"],["South Carolina","SC","Columbia"],["South Dakota","SD","Pierre"],["Tennessee","TN","Nashville"],["Texas","TX","Austin"],["Utah","UT","Salt Lake City"],["Vermont","VT","Montpelier"],["Virginia","VA","Richmond"],["Washington","WA","Olympia"],["West Virginia","WV","Charleston"],["Wisconsin","WI","Madison"],["Wyoming","WY","Cheyenne"]];
+const VS_LEVELS = [
+  ...Array.from({length:5},(_,i)=>{
+    const deel = VS_STATEN.slice(i*10,i*10+10);
+    return {id:"vs-staten-"+(i+1),naam:"VS: staten "+(i+1)+"/5",mc:deel.map(([staat,code])=>[
+      "Welke Amerikaanse staat heeft de afkorting "+code+"?",staat,
+      VS_STATEN.filter(x=>x[0]!==staat).slice((i*7)%40,(i*7)%40+3).map(x=>x[0]),
+      staat+" heeft de afkorting "+code+"."])};
+  }),
+  ...Array.from({length:5},(_,i)=>{
+    const deel = VS_STATEN.slice(i*10,i*10+10);
+    return {id:"vs-hoofdsteden-"+(i+1),naam:"VS: hoofdsteden "+(i+1)+"/5",mc:deel.map(([staat,code,hoofdstad],j)=>[
+      "Wat is de hoofdstad van "+staat+"?",hoofdstad,
+      VS_STATEN.filter(x=>x[2]!==hoofdstad && x[2]!==hoofdstad).slice((i*9+j)%45,(i*9+j)%45+3).map(x=>x[2]),
+      "De hoofdstad van "+staat+" is "+hoofdstad+"."])};
+  })
+];
+const VAKKEN_RIK = {
+  ...VAKKEN_VOLWASSEN,
+  topo: {...VAKKEN_VOLWASSEN.topo, levels: [...VAKKEN_VOLWASSEN.topo.levels, ...VS_LEVELS]}
+};
+
 let VAKKEN = VAKKEN_KIND;
 const volwassen = () => speler().niveau === "volwassen";
 
@@ -1261,7 +1284,7 @@ function spelersKiezen() {
   SPELERS.forEach(s => {
     const p = ALLE[s.id];
     const b = el("button", "player", `<b>${s.plaatje}</b><span>${s.naam}</span><small>⚡ ${p.xp} XP · Lvl ${rang(p.xp)}</small>`);
-    b.onclick = () => { actief = s.id; P = ALLE[s.id]; VAKKEN = s.niveau === "volwassen" ? VAKKEN_VOLWASSEN : VAKKEN_KIND; say("Hoi " + s.naam + "!"); home(); };
+    b.onclick = () => { actief = s.id; P = ALLE[s.id]; VAKKEN = s.id === "rik" ? VAKKEN_RIK : (s.niveau === "volwassen" ? VAKKEN_VOLWASSEN : VAKKEN_KIND); say("Hoi " + s.naam + "!"); home(); };
     grid.append(b);
   });
   c.append(grid);
