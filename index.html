@@ -231,6 +231,26 @@ body.game-mode .memory-grid{max-width:460px}
 .clock-tip { font-size:16px; text-align:center; margin:0; max-width:380px; color:var(--soft); }
 body.game-mode .choice.clock-answer { font-family:var(--font-ui); font-size:clamp(18px, 5vw, 26px); min-height:68px; padding:10px 5px; color:var(--ink); }
 @media (max-height:600px) { .lesson-clock { width:min(180px, 30dvh); } .clock-tip { font-size:14px; } }
+
+/* Tekenatelier */
+.draw-map{max-width:920px!important}
+.draw-intro{max-width:700px;margin:0 auto 12px;text-align:center;font-weight:800;color:#766989;line-height:1.35}
+.draw-workspace{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;align-items:start}
+.draw-panel{min-width:0;border:2px solid rgba(112,79,193,.13);border-radius:24px;padding:12px;background:rgba(255,255,255,.74)}
+.draw-panel-title{font-size:18px;margin:0 0 7px;text-align:center;color:#704fc1}
+.draw-step-title{text-align:center;min-height:55px}.draw-step-title b{display:block;font-size:16px;color:#c44f91}.draw-step-title span{display:block;font-size:17px;font-weight:1000;margin-top:3px}
+.draw-example{width:100%;aspect-ratio:360/350;border-radius:18px;background:#fffdf8;border:2px dashed #decff4;overflow:hidden}
+.draw-example svg{width:100%;height:100%;display:block}
+.draw-example g{fill:none;stroke:#857b91;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.draw-example g.nieuw{stroke:#e35d9d;stroke-width:7}
+.draw-canvas{display:block;width:100%;height:auto;aspect-ratio:720/700;border-radius:18px;border:3px solid #e4d9f3;background:#fffdf8;touch-action:none;cursor:crosshair;box-sizing:border-box}
+.draw-tools,.draw-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:13px}
+.draw-tool,.draw-speak{min-height:48px;border:0;border-radius:15px;padding:10px 16px;font:900 16px/1.1 var(--font-ui);background:#f1eaff;color:#654c9c;box-shadow:0 4px 0 #ddd0f2}
+.draw-nav .go{flex:1;max-width:220px}.draw-speak{background:#fff3c8;color:#705d32;box-shadow:0 4px 0 #f0dda0}
+.draw-dots{display:flex;justify-content:center;gap:6px;margin-top:13px}.draw-dots span{width:11px;height:11px;border-radius:50%;background:#ded7e8}.draw-dots span.done{background:#a993da}.draw-dots span.now{background:#e35d9d;transform:scale(1.35)}
+@media(max-width:700px){.draw-workspace{grid-template-columns:1fr 1fr;gap:7px}.draw-panel{padding:7px;border-radius:18px}.draw-panel-title{font-size:15px}.draw-step-title{min-height:62px}.draw-step-title span{font-size:14px}.draw-nav{gap:7px}.draw-nav .go,.draw-speak{font-size:14px;padding:9px 10px}.draw-intro{font-size:14px}}
+@media(max-width:430px){.draw-workspace{grid-template-columns:1fr}.example-panel{display:grid;grid-template-columns:88px 1fr;gap:6px;align-items:center}.example-panel .draw-panel-title{display:none}.draw-step-title{min-height:0;text-align:left}.draw-example{max-height:170px}.canvas-panel .draw-panel-title{display:none}.draw-tools{margin-top:8px}.draw-nav{margin-top:9px}.draw-tool{font-size:14px;min-height:44px}}
+
 </style>
 </head>
 <body>
@@ -1454,6 +1474,10 @@ function home() {
     taakTab.setAttribute("aria-label", "Takenavontuur en verkleedkast");
     taakTab.onclick = () => { praat("Op naar het takenavontuur!"); takenAvontuur(); };
     tabs.append(taakTab);
+    const tekenTab = el("button", "tab draw-tab", "<b>🎨</b>Tekenen");
+    tekenTab.setAttribute("aria-label", "Tekenatelier");
+    tekenTab.onclick = () => { praat("Welkom in het tekenatelier!"); tekenAtelier(); };
+    tabs.append(tekenTab);
   }
   c.append(tabs);
   const vak = P.vak in VAKKEN ? P.vak : Object.keys(VAKKEN)[0];
@@ -1496,6 +1520,129 @@ function home() {
   c.append(el("p", "parent", (volwassen() ? "" : "Voor papa of mama: zet het geluid aan, het spel praat. ") + "Met 1 ster gaat het volgende level open."));
   const cur2 = path.querySelector(".current");
   if (cur2) setTimeout(() => cur2.scrollIntoView({ block: "center", behavior: "smooth" }), 300);
+}
+
+/* ---------- Tekenatelier: stap voor stap tekenen ---------- */
+const TEKEN_KAT_STAPPEN = [
+  { tekst: "Teken een grote ronde kop.", spreek: "Stap één. Teken een grote ronde kop." },
+  { tekst: "Teken onder de kop een ovaal lijf.", spreek: "Stap twee. Teken onder de kop een ovaal lijf." },
+  { tekst: "Maak bovenop twee driehoekige oren.", spreek: "Stap drie. Maak twee driehoekige oren." },
+  { tekst: "Teken twee ronde ogen.", spreek: "Stap vier. Teken twee ronde ogen." },
+  { tekst: "Teken een klein neusje.", spreek: "Stap vijf. Teken een klein driehoekig neusje." },
+  { tekst: "Maak een mondje onder de neus.", spreek: "Stap zes. Maak een klein mondje." },
+  { tekst: "Geef de kat snorharen.", spreek: "Stap zeven. Teken snorharen aan beide kanten." },
+  { tekst: "Teken twee voorpootjes.", spreek: "Stap acht. Teken twee voorpootjes." },
+  { tekst: "Geef de kat een lange staart.", spreek: "Stap negen. Teken een lange gebogen staart." },
+  { tekst: "Versier je kat met strepen of stippen!", spreek: "Stap tien. Versier je kat met strepen of stippen. Klaar!" }
+];
+
+function katVoorbeeldSvg(stap) {
+  const vormen = [
+    '<ellipse cx="180" cy="105" rx="70" ry="62"/>',
+    '<ellipse cx="180" cy="235" rx="72" ry="92"/>',
+    '<path d="M125 64 L138 20 L158 58 M202 58 L222 20 L235 64"/>',
+    '<circle cx="155" cy="98" r="9"/><circle cx="205" cy="98" r="9"/>',
+    '<path d="M173 120 L187 120 L180 130 Z"/>',
+    '<path d="M180 130 Q166 143 158 134 M180 130 Q194 143 202 134"/>',
+    '<path d="M145 130 L105 120 M145 137 L100 138 M145 144 L108 156 M215 130 L255 120 M215 137 L260 138 M215 144 L252 156"/>',
+    '<path d="M148 268 L145 320 Q160 330 173 318 L174 273 M187 273 L188 318 Q201 330 215 320 L212 268"/>',
+    '<path d="M242 245 Q310 225 302 165 Q300 145 284 154"/>',
+    '<path d="M145 205 L162 215 M198 215 L215 205 M145 235 L163 245 M198 245 L215 235"/>'
+  ];
+  let s = '<svg viewBox="0 0 360 350" role="img" aria-label="Voorbeeld van de kat tot en met stap ' + (stap + 1) + '">';
+  for (let i = 0; i <= stap; i++) s += '<g class="' + (i === stap ? 'nieuw' : 'oud') + '">' + vormen[i] + '</g>';
+  return s + '</svg>';
+}
+
+function tekenAtelier() {
+  scherm = "tekenen"; round = null; $("top").hidden = true;
+  document.body.classList.remove("game-mode");
+  const c = nieuweKaart("map draw-map");
+  const head = el("div", "map-head");
+  const back = el("button", "book-btn", "🏠 <span>Terug</span>"); back.onclick = home;
+  head.append(back, el("div", "stars-total", "🎨 Tekenatelier")); c.append(head);
+  c.append(el("h1", "title", "🐱 Teken een kat in 10 stappen"));
+  c.append(el("p", "draw-intro", "Kijk naar het voorbeeld en teken dezelfde nieuwe vorm op je eigen vel. Het hoeft niet perfect — jouw kat mag helemaal van jou zijn!"));
+
+  let stap = 0, tekenen = false, huidig = null;
+  const strokes = [];
+  const werk = el("div", "draw-workspace");
+  const voorbeeld = el("section", "draw-panel example-panel");
+  const zelf = el("section", "draw-panel canvas-panel");
+  const stapTitel = el("div", "draw-step-title");
+  const voorbeeldBox = el("div", "draw-example");
+  voorbeeld.append(el("h2", "draw-panel-title", "👀 Kijk"), stapTitel, voorbeeldBox);
+
+  const canvas = document.createElement("canvas");
+  canvas.className = "draw-canvas"; canvas.width = 720; canvas.height = 700;
+  canvas.setAttribute("aria-label", "Tekenveld");
+  zelf.append(el("h2", "draw-panel-title", "✏️ Teken zelf"), canvas);
+  werk.append(voorbeeld, zelf); c.append(werk);
+
+  const ctx = canvas.getContext("2d");
+  ctx.lineCap = "round"; ctx.lineJoin = "round";
+  function punt(e) {
+    const r = canvas.getBoundingClientRect();
+    return { x: (e.clientX-r.left)*canvas.width/r.width, y: (e.clientY-r.top)*canvas.height/r.height };
+  }
+  function herteken() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="#fffdf8"; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle="#55476e"; ctx.lineWidth=9;
+    strokes.forEach(st => {
+      if(st.length<2) return;
+      ctx.beginPath(); ctx.moveTo(st[0].x,st[0].y);
+      for(let i=1;i<st.length;i++) ctx.lineTo(st[i].x,st[i].y);
+      ctx.stroke();
+    });
+  }
+  canvas.addEventListener("pointerdown", e => {
+    e.preventDefault(); tekenen=true; huidig=[punt(e)]; strokes.push(huidig);
+    try{canvas.setPointerCapture(e.pointerId);}catch(_){}
+  });
+  canvas.addEventListener("pointermove", e => {
+    if(!tekenen) return; e.preventDefault(); huidig.push(punt(e)); herteken();
+  });
+  const stop = e => {
+    if(!tekenen) return; tekenen=false; huidig=null;
+    try{canvas.releasePointerCapture(e.pointerId);}catch(_){}
+  };
+  canvas.addEventListener("pointerup", stop);
+  canvas.addEventListener("pointercancel", stop);
+
+  const tools = el("div", "draw-tools");
+  const undo = el("button", "draw-tool", "↩️ Ongedaan");
+  undo.onclick = () => { strokes.pop(); herteken(); };
+  const clear = el("button", "draw-tool", "🧽 Wissen");
+  clear.onclick = () => { strokes.length=0; herteken(); };
+  tools.append(undo, clear); c.append(tools);
+
+  const nav = el("div", "draw-nav");
+  const prev = el("button", "go alt", "← Vorige");
+  const hoor = el("button", "draw-speak", "🔊 Hoor stap");
+  const nextBtn = el("button", "go", "Volgende →");
+  nav.append(prev, hoor, nextBtn); c.append(nav);
+  const dots = el("div", "draw-dots"); c.append(dots);
+
+  function toonStap(spreekOok) {
+    const info = TEKEN_KAT_STAPPEN[stap];
+    stapTitel.innerHTML = '<b>Stap '+(stap+1)+' van 10</b><span>'+info.tekst+'</span>';
+    voorbeeldBox.innerHTML = katVoorbeeldSvg(stap);
+    prev.disabled = stap===0;
+    nextBtn.textContent = stap===9 ? "Klaar! 🎉" : "Volgende →";
+    dots.innerHTML="";
+    TEKEN_KAT_STAPPEN.forEach((_,i)=>dots.append(el("span", i<stap?"done":i===stap?"now":"")));
+    if(spreekOok) praat(info.spreek);
+  }
+  prev.onclick = () => { if(stap>0){stap--;toonStap(true);} };
+  hoor.onclick = () => praat(TEKEN_KAT_STAPPEN[stap].spreek);
+  nextBtn.onclick = () => {
+    if(stap<9){stap++;toonStap(true);}
+    else { praat("Wauw! Wat een mooie kat. Goed getekend!"); confetti(); }
+  };
+
+  herteken(); toonStap(false);
+  setTimeout(()=>praat(TEKEN_KAT_STAPPEN[0].spreek),300);
 }
 
 /* ---------- Loes' takenavontuur ---------- */
@@ -2286,7 +2433,7 @@ function confetti() {
   setTimeout(() => box.remove(), 2800);
 }
 
-const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, prijzen: prijzenkast, ouder: ouderOverzicht, meenemen };
+const HERTEKEN = { spelers: spelersKiezen, ranglijst, home, stem: stemKiezen, stickers: stickerboek, doelen: leerdoelen, taken: takenAvontuur, tekenen: tekenAtelier, prijzen: prijzenkast, ouder: ouderOverzicht, meenemen };
 $("homeBtn").onclick = home;
 spelersKiezen();
 koppel();
