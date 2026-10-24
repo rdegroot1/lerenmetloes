@@ -960,6 +960,10 @@ const SPELERS = [
   { id: "loes",   naam: "Loes",   plaatje: "👧", niveau: "kind" },
   { id: "rik",    naam: "Rik",    plaatje: "👨", niveau: "volwassen" },
   { id: "judith", naam: "Judith", plaatje: "👩", niveau: "volwassen" },
+  { id: "simon", naam: "Simon", plaatje: "👴", niveau: "volwassen" },
+  { id: "wilma", naam: "Wilma", plaatje: "👵", niveau: "volwassen" },
+  { id: "lucie", naam: "Lucie", plaatje: "👵", niveau: "volwassen" },
+  { id: "jan-willem", naam: "Jan Willem", plaatje: "👴", niveau: "volwassen" },
 ];
 const XP_GOED = 10, XP_NA_FOUT = 5, XP_PER_STER = 10;
 
@@ -996,9 +1000,72 @@ const VS_LEVELS = [
       "De hoofdstad van "+staat+" is "+hoofdstad+"."])};
   })
 ];
+
+/* Interactieve kaart van de 50 Amerikaanse staten, speciaal voor Rik. */
+const VS_GEOJSON_URL = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json";
+let VS_GEOJSON_CACHE = null;
+const VS_KAART_LEVELS = Array.from({length:5},(_,i)=>({
+  id:"vs-kaart-"+(i+1), naam:"VS: kaart "+(i+1)+"/5",
+  vsKaart:true, gebieden:VS_STATEN.slice(i*10,i*10+10).map(x=>x[0])
+}));
+function vsKaartVragen(L) {
+  return shuffle(L.gebieden).map(naam=>({type:"vsKaart",naam}));
+}
+function vsPath(shape,project) {
+  const polygons=shape.type==="MultiPolygon"?shape.coordinates:[shape.coordinates];
+  return polygons.map(poly=>poly.map(ring=>ring.map((point,i)=>
+    (i?"L":"M")+project(point).map(v=>v.toFixed(1)).join(",")
+  ).join(" ")+"Z").join(" ")).join(" ");
+}
+async function tekenVsKaart(wrap, kies) {
+  if(!VS_GEOJSON_CACHE) {
+    const response=await fetch(VS_GEOJSON_URL);
+    if(!response.ok) throw Error("Kaart niet bereikbaar");
+    VS_GEOJSON_CACHE=await response.json();
+  }
+  if(!wrap.isConnected)return;
+  const ns="http://www.w3.org/2000/svg";
+  const zones=[
+    {titel:"De 48 aaneengesloten staten",w:960,h:470,x0:-125,x1:-66,y0:24,y1:50,filter:n=>n!=="Alaska"&&n!=="Hawaii"},
+    {titel:"Alaska",w:440,h:210,x0:-180,x1:-129,y0:51,y1:72,filter:n=>n==="Alaska"},
+    {titel:"Hawaii",w:300,h:210,x0:-161,x1:-154,y0:18,y1:23,filter:n=>n==="Hawaii"}
+  ];
+  wrap.replaceChildren();
+  zones.forEach((z,i)=>{
+    const pane=document.createElement("div");
+    pane.style.cssText=i===0?"flex-basis:100%;min-width:0":"flex:1;min-width:120px";
+    const label=document.createElement("div");
+    label.textContent=z.titel;
+    label.style.cssText="font-size:14px;text-align:center;font-weight:700;color:var(--ink);padding:8px";
+    const svg=document.createElementNS(ns,"svg");
+    svg.setAttribute("viewBox","0 0 "+z.w+" "+z.h);
+    svg.setAttribute("aria-label","Kaart van "+z.titel);
+    svg.style.cssText="display:block;width:100%;border-radius:16px;background:#cfe8f3";
+    const project=([lon,lat])=>[12+(lon-z.x0)/(z.x1-z.x0)*(z.w-24),12+(z.y1-lat)/(z.y1-z.y0)*(z.h-24)];
+    VS_GEOJSON_CACHE.features.forEach(feature=>{
+      const name=feature.properties.name;
+      if(!z.filter(name)||!VS_STATEN.some(state=>state[0]===name))return;
+      const shape=document.createElementNS(ns,"path");
+      shape.setAttribute("d",vsPath(feature.geometry,project));
+      shape.setAttribute("fill","#a9d48f");
+      shape.setAttribute("stroke","white");
+      shape.setAttribute("stroke-width","1.5");
+      shape.setAttribute("vector-effect","non-scaling-stroke");
+      shape.style.cursor="pointer";
+      shape.setAttribute("role","button");
+      shape.setAttribute("tabindex","0");
+      shape.setAttribute("aria-label",name);
+      shape.onclick=()=>kies(name,shape);
+      shape.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();kies(name,shape)}};
+      svg.append(shape);
+    });
+    pane.append(label,svg);wrap.append(pane);
+  });
+}
+
 const VAKKEN_RIK = {
   ...VAKKEN_VOLWASSEN,
-  topo: {...VAKKEN_VOLWASSEN.topo, levels: [...VAKKEN_VOLWASSEN.topo.levels, ...VS_LEVELS]}
+  topo: {...VAKKEN_VOLWASSEN.topo, levels: [...VAKKEN_VOLWASSEN.topo.levels, ...VS_LEVELS, ...VS_KAART_LEVELS]}
 };
 
 let VAKKEN = VAKKEN_KIND;
@@ -2077,6 +2144,7 @@ function maakVragen(vak, li) {
       return { type: "klok", uur, minuut, juist, opties: shuffle([juist, ...shuffle(andere).slice(0, 2)]), tip: L.tip };
     });
   }
+  if (L.vsKaart) return vsKaartVragen(L);
   if (vak === "topo" && !L.mc) return topoVragen(L);
   if (L.soort) return ["letterBegin","letterEind","letterRegen"].includes(L.soort) ? letterVragen(L.soort) : klankVragen(L.soort);
   if (L.mc) return shuffle(L.mc).slice(0, 10).map(([vraag, juist, fout, uitleg]) => ({ type: "mc", vraag, juist, opties: shuffle([juist, ...fout]), uitleg }));
@@ -2555,6 +2623,32 @@ const OEFENINGEN = {
       goed: () => { huis.querySelector(".q").textContent = q.n; huis.querySelector(".q").classList.add("ok"); say(`${NL[q.a]} en ${NL[q.n]} is ${NL[q.T]}`, { rate: 0.9 }); },
       fout: o => sayGetal(o) });
     setTimeout(() => say(zin), 350);
+  },
+
+  /* ===== VS-KAART ===== */
+  vsKaart(q) {
+    const c=$("card");c.innerHTML="";
+    c.append(el("p","prompt big","Tik op <b>"+q.naam+"</b>"));
+    const status=el("p","parent","De kaart wordt geladen…");
+    const map=el("div","");map.style.cssText="display:flex;flex-wrap:wrap;gap:8px";
+    const fb=el("p","feedback");
+    c.append(status,map,fb);
+    let done=false;
+    tekenVsKaart(map,(name,path)=>{
+      if(done)return;
+      if(name===q.naam){
+        done=true;path.setAttribute("fill","#7657c8");good(fb);
+      }else{
+        path.setAttribute("fill","#e85d75");
+        setTimeout(()=>{if(path.isConnected)path.setAttribute("fill","#a9d48f")},650);
+        tryAgain(fb,"Dat is "+name+".");
+      }
+    }).then(()=>{if(status.isConnected)status.remove()}).catch(()=>{
+      status.textContent="De kaart kon niet worden geladen. Controleer je internetverbinding.";
+      const retry=el("button","go","Opnieuw proberen");
+      retry.onclick=()=>this.vsKaart(q);c.append(retry);
+    });
+    say("Waar ligt "+q.naam+"?");
   },
 
   /* ===== TOPOGRAFIE ===== */
