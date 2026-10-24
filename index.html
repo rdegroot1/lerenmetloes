@@ -1543,18 +1543,36 @@ function ouderOverzicht() {
 const LOGIKWISSEN = [{"title":"De koffiekar","emoji":"☕","labels":["Voornaam","Achternaam","Drank","Kraam"],"sets":[["Anna","Bram","Celine","Daan","Eva"],["Bakker","Dekker","Jansen","Smit","Vermeer"],["Cappuccino","Espresso","Flat white","IJskoffie","Latte"],["1","2","3","4","5"]],"maps":[[2,4,0,3,1],[4,0,1,2,3],[4,1,0,2,3]]},{"title":"De boekenclub","emoji":"📚","labels":["Voornaam","Achternaam","Genre","Stoel"],"sets":[["Iris","Joost","Lena","Milan","Noor"],["Bos","Kuiper","Meijer","Prins","Visser"],["Fantasy","Historisch","Mystery","Roman","Thriller"],["1","2","3","4","5"]],"maps":[[0,4,2,3,1],[0,1,3,4,2],[2,0,3,1,4]]},{"title":"De bloemenkraam","emoji":"🌷","labels":["Voornaam","Achternaam","Bloem","Stand"],"sets":[["Eline","Fons","Hanne","Koen","Sara"],["De Vries","Koster","Mulder","Peters","Vos"],["Lelie","Orchidee","Roos","Tulp","Zonnebloem"],["1","2","3","4","5"]],"maps":[[1,2,0,4,3],[1,0,4,2,3],[0,4,2,1,3]]},{"title":"Het buurtfeest","emoji":"🎉","labels":["Voornaam","Achternaam","Taak","Starttijd"],"sets":[["Amir","Britt","Casper","Femke","Niels"],["De Boer","Jonker","Mol","Smit","Van Dijk"],["Bar","Licht","Muziek","Spelletjes","Versiering"],["18:00","18:30","19:00","19:30","20:00"]],"maps":[[0,1,4,2,3],[0,1,3,4,2],[2,4,0,3,1]]},{"title":"Het dierenasiel","emoji":"🐶","labels":["Voornaam","Achternaam","Dier","Hok"],"sets":[["Bo","Diederik","Lotte","Sam","Yara"],["Bakx","Groen","Hendriks","Kok","Rutten"],["Cavia","Hond","Kat","Konijn","Papegaai"],["1","2","3","4","5"]],"maps":[[4,2,0,3,1],[4,3,0,1,2],[2,4,1,3,0]]}];
 function logicaOpslag(){if(!P.logica)P.logica={};return P.logica;}
 function logicaOplossing(p,i,k){return p.sets[k][p.maps[k-1][i]];}
+const LOGICA_VERHALEN = ["Het is zaterdagmorgen en op de markt ruikt het naar versgemalen koffie. Vijf barista's hebben ieder een eigen kraam, achternaam en specialiteit. De organisatie is de bordjes kwijtgeraakt. Een verslaggever sprak met de verkopers en krabbelde allerlei opmerkingen in haar notitieboek. Sommige opmerkingen gaan over de persoon, andere over de drank of het kraamnummer. Kun jij uit de verhalen reconstrueren wie achter welke koffiekar staat?","Tijdens een regenachtige avond komt de boekenclub bijeen in de bibliotheek. Vijf leden zitten op verschillende stoelen en hebben elk een ander lievelingsgenre. Voor de ledenlijst moeten ook hun achternamen worden ingevuld, maar de lijst is door elkaar geraakt. De bibliothecaresse herinnerde zich flarden van de gesprekken. Combineer haar herinneringen om uit te vinden wie welk boek leest en op welke stoel zit.","De jaarlijkse bloemenmarkt is geopend. Vijf bloemisten hebben allemaal een eigen stand en verkopen ieder één soort bloem. Hun naambordjes zijn tijdens het opbouwen verwisseld. Gelukkig heeft een bezoeker gehoord wie wat zei en wie bij welke stand hoorde. Gebruik de aanwijzingen uit zijn marktverslag om de vijf verkopers, achternamen, bloemen en standnummers weer correct bij elkaar te zetten.","De voorbereidingen voor het buurtfeest verlopen chaotisch. Vijf vrijwilligers beginnen op verschillende tijdstippen en hebben elk een eigen taak. De coördinator heeft de namen, achternamen, taken en starttijden op losse briefjes geschreven. Voordat het feest begint, moeten die gegevens weer kloppen. Lees zijn aantekeningen zorgvuldig: soms vertelt hij wat iemand doet, soms wat juist niet, en soms wie eerder begint.","In het dierenasiel worden vandaag vijf hokken schoongemaakt. Iedere vrijwilliger verzorgt een ander dier, en op de takenlijst staan ook achternamen en hoknummers. Een windvlaag heeft de lijst verspreid. De beheerder weet gelukkig nog allerlei details over de ochtend. Ontcijfer zijn verslag om alle vrijwilligers aan het juiste dier en hok te koppelen."];
 function logicaHints(p){
+  const [names,surnames,things,places]=p.sets;
   const clues=[];
-  for(let i=0;i<5;i++) clues.push(p.sets[0][i]+" hoort bij "+p.sets[1][p.maps[0][i]]+".");
-  for(let i=0;i<5;i++) clues.push(p.sets[1][p.maps[0][i]]+" hoort bij "+p.sets[2][p.maps[1][i]]+".");
-  for(let i=0;i<5;i++) clues.push(p.sets[2][p.maps[1][i]]+" hoort bij "+p.sets[3][p.maps[2][i]]+".");
-  return clues;
+  // Vier koppelingen per schakel dwingen samen met de één-op-één-regel een unieke oplossing af.
+  // Andere aanwijzingen zijn nuttig om af te strepen en relaties tussen plaatsen te vinden.
+  const pick=(arr,i)=>arr[i];
+  const order=[2,0,4,1]; // persoon 3 ontbreekt: af te leiden door eliminatie
+  for(const i of order){
+    const person=names[i],surname=surnames[p.maps[0][i]],thing=things[p.maps[1][i]],place=places[p.maps[2][i]];
+    clues.push(person+" vertelde dat "+surname+" de achternaam op het naambordje is.");
+    clues.push("Volgens de notities is "+thing.toLowerCase()+" gekoppeld aan de achternaam "+surname+".");
+    clues.push("Bij "+thing.toLowerCase()+" hoort "+p.labels[3].toLowerCase()+" "+place+".");
+  }
+  for(let i=0;i<5;i++){
+    const own=p.maps[2][i],next=(own+1)%5,other=places[(own+2)%5];
+    clues.push(names[i]+" heeft niet "+p.labels[3].toLowerCase()+" "+other+".");
+  }
+  // Verhaalaanwijzingen over onderlinge volgorde, zonder extra directe antwoorden te verklappen.
+  const ordered=names.map((name,i)=>({name,pos:p.maps[2][i]})).sort((a,b)=>a.pos-b.pos);
+  clues.push(ordered[0].name+" staat in de volgorde vóór "+ordered[4].name+".");
+  clues.push("De plek van "+ordered[1].name+" ligt onmiddellijk vóór die van "+ordered[2].name+".");
+  clues.push("Tussen "+ordered[0].name+" en "+ordered[3].name+" liggen precies twee andere plekken.");
+  return [clues[8],clues[13],clues[1],clues[17],clues[4],clues[15],clues[6],clues[12],clues[0],clues[10],clues[18],clues[3],clues[14],clues[7],clues[16],clues[2],clues[9],clues[5],clues[11],clues[19]];
 }
 function logicaStart(){
   scherm="logica";round=null;document.body.classList.remove("game-mode");$("top").hidden=true;
   const c=nieuweKaart("map");c.append(el("h1","title","🧩 Logikwissen"));
   const back=el("button","go alt","← Terug");back.onclick=home;c.append(back);
-  c.append(el("p","parent","Vijf puzzels voor Judith en Lucie. Tik op een puzzel om op de iPad te spelen. Je voortgang wordt per speler bewaard."));
+  c.append(el("p","parent","Vijf uitgebreidere verhaalpuzzels voor Judith en Lucie. Combineer de aanwijzingen en streep mogelijkheden weg. Je voortgang wordt per speler bewaard."));
   LOGIKWISSEN.forEach((p,i)=>{
     const save=logicaOpslag()[i]||{};
     const b=el("button","logic-pick",p.emoji+" "+p.title+(save.klaar?" ✅":Object.keys(save.vakjes||{}).length?" ✏️":""));
@@ -1567,8 +1585,9 @@ function logicaSpeel(n){
   scherm="logica";round=null;
   const c=nieuweKaart("map");c.append(el("h1","title",p.emoji+" "+p.title));
   const back=el("button","go alt","← Alle puzzels");back.onclick=logicaStart;c.append(back);
+  c.append(el("p","parent",LOGICA_VERHALEN[n]));
   c.append(el("p","parent","Iedereen heeft één eigen achternaam, "+p.labels[2].toLowerCase()+" en "+p.labels[3].toLowerCase()+". Tik eenmaal voor ✓, tweemaal voor ✕ en driemaal om het vakje leeg te maken."));
-  const hints=el("details","logic-hints");const sum=document.createElement("summary");sum.textContent="📌 Alle 15 aanwijzingen (tik om te openen)";hints.append(sum);
+  const hints=el("details","logic-hints");const sum=document.createElement("summary");sum.textContent="📌 "+logicaHints(p).length+" aanwijzingen (tik om te openen)";hints.append(sum);
   const ol=document.createElement("ol");logicaHints(p).forEach(h=>{const li=document.createElement("li");li.textContent=h;ol.append(li)});hints.append(ol);hints.open=true;c.append(hints);
   const count=el("p","parent","");c.append(count);
   const pairs=[[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]];
