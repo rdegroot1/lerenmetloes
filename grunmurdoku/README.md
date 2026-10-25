@@ -75,3 +75,7 @@ Voor iedere definitieve plaatsing bewaart `notes.js` de concepten die daardoor v
 ## Extra inspiratiezaken
 
 Zaken 13–17 voegen Het aardbevingsdorp (fictief wierdedorp), Bommen Berend, Eurosonic, Noorderzon in het Noorderplantsoen en WinterWelVaart toe. De laatste drie kaarten hebben vijf gebieden, met kleinere ruimtes zoals backstage, garderobe en roef. De originele illustraties tonen onder meer een bouwsteiger, historisch kanon, gitaar, festivaltent, schip en winterkraam. De oorspronkelijke twaalf dossiers zijn byte-voor-byte behouden in de data; nieuwe dossiers hebben eigen opslag-ID’s. Het printboek telt zeventien liggende A4-pagina’s.
+
+## Spelregels openen
+
+De knop Spelregels staat in de kop en direct bij het speelveld. Beide openen dezelfde toegankelijke dialoog met doel, basisregels, de drieklikcyclus, originele voorbeelddiagrammen, begrippen en een aanpak. De uitleg beschrijft de werkelijke Grunmurdoku-regels: alle getekende voorwerpen blokkeren hun vakje; er wordt geen regel over bezetbare meubels uit het inspiratieboek gesuggereerd. De dialoog sluit met de sluitknop, Terug naar de zaak of Escape en verandert geen notities of voortgang.
