@@ -1,6 +1,6 @@
 import {solve,valid,region} from './engine.js';
-import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-festivals-notes';
-import {landmarkArt} from './art.js?v=20261026-festivals-notes';
+import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-arend';
+import {landmarkArt} from './art.js?v=20261026-arend';
 import {explain} from './explain.js';
 import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js';
 const $=id=>document.getElementById(id);
@@ -29,7 +29,7 @@ function render(){
  $('people').replaceChildren();
  p.people.forEach((person,i)=>{
   const card=document.createElement('div');card.className='person-card'+(selected===i?' selected':'');const head=document.createElement('button');head.className='person-header';head.setAttribute('aria-pressed',String(selected===i));
-  const pos=state.positions[i];head.innerHTML=`<span class="avatar">${portraitMarkup(i)}</span><span><strong>${person.name}</strong>${i===p.victim?'<span class="victim-tag">SLACHTOFFER</span>':''}<small>${person.role}</small></span><span class="placed">${pos==null?'○':`R${Math.floor(pos/p.size)+1} · K${pos%p.size+1}`}</span>`;
+  const pos=state.positions[i];head.innerHTML=`<span class="avatar">${portraitMarkup(i,person.name)}</span><span><strong>${person.name}</strong>${i===p.victim?'<span class="victim-tag">SLACHTOFFER</span>':''}<small>${person.role}</small></span><span class="placed">${pos==null?'○':`R${Math.floor(pos/p.size)+1} · K${pos%p.size+1}`}</span>`;
   head.onclick=()=>{if(Object.hasOwn(p.givens||{},i)){say(`${person.name} is een vaste startpositie.`);return;}selected=i;mode='place';render();say(`${person.name} geselecteerd. Eén klik maakt een concept; nogmaals maakt het definitief, een derde klik zet de eerdere aantekeningen terug.`);};card.append(head);
   if(i===p.victim){const heading=document.createElement('p');heading.className='victim-location-title';heading.textContent='Plaatsaanwijzing';card.append(heading);}
   p.clues.forEach((clue,j)=>{if(clue.a!==i)return;const label=document.createElement('label');label.className='clue';const input=document.createElement('input');input.type='checkbox';input.checked=state.checked.includes(j);input.onchange=()=>{snapshot();state.checked=input.checked?[...state.checked,j]:state.checked.filter(x=>x!==j);persist();};const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);card.append(label);});
