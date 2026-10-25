@@ -35,3 +35,24 @@ test('progression grows from 4x4 to 6x6 and preserves fixed starting places',()=
  assert.ok(puzzles.slice(2).every(p=>p.clues.some(c=>c.type!=='unary')));
  const p=puzzles[0];const cell=p.givens[0];assert.equal(valid(p,{0:(cell+1)%(p.size*p.size)}),false);
 });
+
+test('freeform districts are connected and extend beyond rectangles',()=>{
+ for(const p of puzzles.slice(1)){
+  let nonRectangular=0;
+  for(let area=0;area<p.areas.length;area++){
+   const cells=p.regions.map((a,c)=>a===area?c:-1).filter(c=>c>=0);
+   assert.ok(cells.length>0);
+   const seen=new Set([cells[0]]),queue=[cells[0]];
+   while(queue.length){const c=queue.pop(),r=Math.floor(c/p.size),col=c%p.size;
+    for(const [dr,dc] of [[-1,0],[1,0],[0,-1],[0,1]]){
+     const nr=r+dr,nc=col+dc,next=nr*p.size+nc;
+     if(nr>=0&&nr<p.size&&nc>=0&&nc<p.size&&p.regions[next]===area&&!seen.has(next)){seen.add(next);queue.push(next);}
+    }
+   }
+   assert.equal(seen.size,cells.length,`${p.id} district ${area} must be connected`);
+   const rows=cells.map(c=>Math.floor(c/p.size)),cols=cells.map(c=>c%p.size);
+   if((Math.max(...rows)-Math.min(...rows)+1)*(Math.max(...cols)-Math.min(...cols)+1)!==cells.length)nonRectangular++;
+  }
+  assert.ok(nonRectangular>=2,`${p.id} needs multiple freeform districts`);
+ }
+});
