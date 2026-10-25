@@ -1,10 +1,11 @@
 import {solve,valid,region} from './engine.js';
-import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js';
+import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-victim-clues';
 import {landmarkArt} from './art.js';
 import {explain} from './explain.js';
 const $=id=>document.getElementById(id);
+const DATA_VERSION='20261026-victim-clues';
 let puzzles;
-try{const response=await fetch('./puzzles.json');if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
+try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
 let index=0,p,state,selected=0,mode='place',history=[];
 const key=p=>'grunmurdoku:v1:'+p.id;
@@ -29,10 +30,11 @@ function render(){
   const card=document.createElement('div');card.className='person-card'+(selected===i?' selected':'');const head=document.createElement('button');head.className='person-header';head.setAttribute('aria-pressed',String(selected===i));
   const pos=state.positions[i];head.innerHTML=`<span class="avatar">${portraitMarkup(i)}</span><span><strong>${person.name}</strong>${i===p.victim?'<span class="victim-tag">SLACHTOFFER</span>':''}<small>${person.role}</small></span><span class="placed">${pos==null?'○':`R${Math.floor(pos/p.size)+1} · K${pos%p.size+1}`}</span>`;
   head.onclick=()=>{if(Object.hasOwn(p.givens||{},i)){say(`${person.name} is een vaste startpositie.`);return;}selected=i;mode='place';render();say(`${person.name} geselecteerd. Eén klik maakt een concept; nogmaals maakt het definitief, een derde klik maakt het leeg.`);};card.append(head);
+  if(i===p.victim){const heading=document.createElement('p');heading.className='victim-location-title';heading.textContent='Plaatsaanwijzing';card.append(heading);}
   p.clues.forEach((clue,j)=>{if(clue.a!==i)return;const label=document.createElement('label');label.className='clue';const input=document.createElement('input');input.type='checkbox';input.checked=state.checked.includes(j);input.onchange=()=>{snapshot();state.checked=input.checked?[...state.checked,j]:state.checked.filter(x=>x!==j);persist();};const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);card.append(label);});
   if(Object.hasOwn(p.givens||{},i)){const info=document.createElement('p');info.className='clue given-clue';info.textContent='Staat al op de kaart. Deze plek staat vast.';card.append(info);}
   if(!p.clues.some(c=>c.a===i)&&i!==p.victim&&!Object.hasOwn(p.givens||{},i)){const info=document.createElement('p');info.className='clue';info.textContent='Gebruik de andere aanwijzingen om mijn plek te vinden.';card.append(info);}
-  if(i===p.victim){const text=document.createElement('p');text.className='clue';text.textContent='Was alleen met de dader in hetzelfde gebied.';card.append(text);}$('people').append(card);
+  if(i===p.victim){const text=document.createElement('p');text.className='victim-rule';text.textContent='Spelregel: was alleen met de dader in hetzelfde gebied.';card.append(text);}$('people').append(card);
  });
  for(const m of ['place','cross','erase']){$(m).classList.toggle('active',mode===m);$(m).setAttribute('aria-pressed',String(mode===m));}$('undo').disabled=!history.length;
 }
@@ -71,7 +73,7 @@ $('landmarks').innerHTML=landmarkArt();
 $('printCase').onclick=()=>printPuzzles([p]);
 $('printAll').onclick=()=>printPuzzles(puzzles.slice(0,mainCount));
 $('nextCase').onclick=()=>{if(index<mainCount-1)load(index+1);};
-$('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch('./puzzles-archive.json');if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);const group=document.createElement('optgroup');group.label='Eerdere zaken — je oude voortgang';archive.forEach((q,i)=>{const option=document.createElement('option');option.value=String(i+mainCount);option.textContent=q.title;group.append(option);});$('caseSelect').append(group);}load(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
+$('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch(`./puzzles-archive.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);const group=document.createElement('optgroup');group.label='Eerdere zaken — je oude voortgang';archive.forEach((q,i)=>{const option=document.createElement('option');option.value=String(i+mainCount);option.textContent=q.title;group.append(option);});$('caseSelect').append(group);}load(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
 $('rules').onclick=()=>$('rulesDialog').showModal();document.querySelectorAll('dialog .close, .close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 $('accuse').onclick=()=>{
  if(Object.keys(state.positions).length!==p.people.length||!valid(p,state.positions,true)){say('Plaats eerst iedereen op de kaart en zorg dat alle aanwijzingen kloppen.');return;}

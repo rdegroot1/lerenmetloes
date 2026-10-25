@@ -712,8 +712,19 @@
         "a": 0,
         "b": 1,
         "text": "Stond links van Bram."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond naast een marktkraam.",
+        "cells": [
+          19,
+          26,
+          31
+        ]
       }
-    ]
+    ],
+    "clueVersion": 2
   },
   {
     "id": "zaak-4",
@@ -1169,8 +1180,22 @@
         "a": 3,
         "b": 4,
         "text": "Stond hoger op de kaart dan Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond in de onderste rij.",
+        "cells": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
       }
-    ]
+    ],
+    "clueVersion": 2
   },
   {
     "id": "stad-v2-2",
@@ -1452,8 +1477,21 @@
         "a": 3,
         "b": 4,
         "text": "Stond hoger op de kaart dan Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond in de onderste rij.",
+        "cells": [
+          20,
+          21,
+          22,
+          23,
+          24
+        ]
       }
-    ]
+    ],
+    "clueVersion": 2
   },
   {
     "id": "stad-v2-4",
@@ -1622,8 +1660,19 @@
         "a": 3,
         "b": 4,
         "text": "Stond hoger op de kaart dan Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast de Groningse vlag.",
+        "cells": [
+          16,
+          20,
+          22
+        ]
       }
-    ]
+    ],
+    "clueVersion": 2
   },
   {
     "id": "stad-v2-5",
@@ -2152,7 +2201,21 @@
         "a": 3,
         "b": 5,
         "text": "Stond links van Mees."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond in de onderste rij.",
+        "cells": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
       }
-    ]
+    ],
+    "clueVersion": 2
   }
 ]

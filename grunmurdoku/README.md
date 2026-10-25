@@ -63,3 +63,7 @@ Zaken 7–12 spelen rond de Hoornseplas, het Stadspark, het Noorderplantsoen, de
 De gebiedsnamen staan als serif-naambordjes op een horizontale strook van hun eigen gebied, zowel op scherm als papier. De labels blokkeren geen klik- of notitiedoelen. De ankers vermijden voorwerpen en gegeven posities waar mogelijk; letters gebruiken lokale Palatino/Georgia-fallbacks. De nieuwe illustraties voegen parasols, riet, podium, bar en lantaarns toe.
 
 Ieder slachtoffer krijgt minstens één eigen plaatsaanwijzing, naast de algemene slachtofferregel. Selecteer een nog niet geplaatste persoon, ook het slachtoffer, en vraag Een zetje om juist die persoon te plaatsen. De oorspronkelijke zes oplossingen en opslag-ID’s blijven gelijk; gewijzigde aanwijzingen vernieuwen alleen de afvinkjes. De reeksnavigatie, archiefgrens en printreeks volgen het aantal dossiers automatisch.
+
+## Slachtofferkaart in alle versies
+
+Ook de tien archiefzaken hebben een eigen plaatsaanwijzing voor het slachtoffer; deze aanvulling is afgeleid van hun bestaande unieke oplossing en verandert geen plaatsingen of opslag-ID’s. Alleen afvinkjes in de vijf aangevulde archiefzaken krijgen een nieuwe versie. De kaart en print tonen Plaatsaanwijzing apart van Spelregel, zodat de algemene slachtofferregel geen plaatsaanwijzing lijkt te vervangen. Puzzelgegevens worden met een versiesleutel en zonder browsercache opgehaald; de ingang en printdownload hebben dezelfde vernieuwingssleutel. Browsercontrole omvat alle 22 slachtofferkaarten op scherm en papier.
