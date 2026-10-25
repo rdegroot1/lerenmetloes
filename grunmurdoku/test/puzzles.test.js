@@ -18,3 +18,20 @@ for(const p of puzzles){
  const first=s[0];assert.equal(valid(p,{0:first,1:Math.floor(first/p.size)*p.size+(first+1)%p.size}),false);
  });
 }
+
+test('introductory case can be completed with immediate forced moves',()=>{
+ const p=puzzles[0];assert.equal(p.size,4);assert.equal(Object.keys(p.givens).length,2);
+ const positions={...p.givens};
+ while(Object.keys(positions).length<p.people.length){
+  const options=p.people.map((_,i)=>positions[i]!=null?[]:Array.from({length:p.size**2},(_,c)=>c).filter(c=>valid(p,{...positions,[i]:c})));
+  const who=options.findIndex(cells=>cells.length===1);assert.ok(who>=0,'no guessing needed in first case');positions[who]=options[who][0];
+ }
+ assert.ok(valid(p,positions,true));
+});
+
+test('progression grows from 4x4 to 6x6 and preserves fixed starting places',()=>{
+ assert.deepEqual(puzzles.map(p=>p.size),[4,4,5,5,6,6]);
+ assert.ok(puzzles.slice(0,2).every(p=>p.clues.every(c=>c.type==='unary')));
+ assert.ok(puzzles.slice(2).every(p=>p.clues.some(c=>c.type!=='unary')));
+ const p=puzzles[0];const cell=p.givens[0];assert.equal(valid(p,{0:(cell+1)%(p.size*p.size)}),false);
+});
