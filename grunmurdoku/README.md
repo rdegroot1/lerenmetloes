@@ -45,3 +45,7 @@ De oorspronkelijke vectorillustraties in `art.js` tekenen zes portretten en Gron
 Print deze zaak opent een blanco puzzel inclusief eventuele vaste startposities. Print de reeks geeft zes pagina’s: één zaak per liggend A4. `@page` stelt liggend A4 met marges van 10 mm in. De download `grunmurdoku-print.pdf` bevat dezelfde zes schone puzzels. Browsernotities en oplossingen worden niet geprint. Kies A4 en 100% schaal; schakel zo nodig browserkop- en voetteksten uit. Gebiedsgrenzen en labels werken ook zonder achtergrondkleuren.
 
 Gecontroleerd in Chromium op desktop en 390px mobiel: alle zaken, notities met twee klikken, meerdere concepten, herladen, hints, beschuldiging, archief, vaste posities, reset en terug. De PDF telt zes liggende A4’s; printinhoud is op overloop gecontroleerd.
+
+## Vrije gebiedsvormen
+
+Vanaf zaak 2 hebben de gebieden samenhangende L-vormen, inspringingen en smalle stroken. De eenvoudige introductie houdt haar oorspronkelijke kaart. Elk gebied blijft via zijden verbonden, en iedere nieuwe zaak heeft precies één oplossing. De vorige versies van de gewijzigde zaken staan met hun oorspronkelijke opslag-ID in Eerdere zaken; nieuwe kaarten gebruiken nieuwe IDs, zodat bestaande notities op de oude kaarten blijven passen. De PDF volgt de nieuwe gebiedsvormen.
