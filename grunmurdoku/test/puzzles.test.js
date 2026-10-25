@@ -68,7 +68,8 @@ test('names have distinct initials for concept notes',()=>{
 
 
 test('every victim has a location clue of their own',()=>{
- for(const p of puzzles)assert.ok(p.clues.some(c=>c.a===p.victim&&c.type==='unary'),p.id);
+ const archive=JSON.parse(readFileSync(new URL('../puzzles-archive.json',import.meta.url)));
+ for(const p of [...puzzles,...archive])assert.ok(p.clues.some(c=>c.a===p.victim&&c.type==='unary'),p.id);
 });
 
 test('new themed cases have distinct settings and varied victim rows',()=>{
