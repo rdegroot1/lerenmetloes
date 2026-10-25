@@ -1,6 +1,6 @@
 # grunmurdoku
 
-Een zelfstandige Nederlandstalige detectivepuzzel in Groningen. Zeventien zaken: een opbouw van heel makkelijk (4×4) naar uitdagend (6×6), gevolgd door elf Groningse themazaken. Tien oudere versies blijven in het archief beschikbaar. Oorspronkelijke zaken op de Grote Markt, Vismarkt, in het Noorderplantsoen en aan de Hoge der A. Alle personages en verhalen zijn fictief. Geen boekillustraties, teksten of bestaande puzzelindelingen overgenomen.
+Een zelfstandige Nederlandstalige detectivepuzzel in Groningen. Stadse speurtochten bevat zeventien zaken, van heel makkelijk tot uitdagend. Nacht in Stad voegt vier mugshot-dossiers toe: Stadsschouwburg, Suikerunieterrein, het Forum en een studentenhuis aan de Korreweg. Tien oudere versies blijven in het archief beschikbaar. Alle personages en verhalen zijn fictief; kaarten zijn schematisch. Geen boekillustraties, teksten of bestaande puzzelindelingen overgenomen.
 
 ## Spelen
 
@@ -24,7 +24,7 @@ Open http://localhost:8080. Dubbelklikken op index.html werkt niet vanwege het l
 npm test
 ```
 
-De tests lossen elk dossier onafhankelijk op en controleren uniciteit, één dader, verboden vakjes en de rij/kolomregels. `npm run generate` maakt dezelfde zeventien dossiers opnieuw met de vaste seed. De eerste zaak heeft twee vaste startposities en is met directe uitsluiting zonder gokken op te lossen. De eerste twee zaken gebruiken alleen plaatsaanwijzingen; daarna volgen vergelijkingen tussen personen. De vijf oorspronkelijke dossiers blijven bereikbaar via Eerdere zaken, met behoud van hun bestaande voortgang. De opgeslagen puzzels bevatten aanwijzingen, geen hardgecodeerde oplossing; de solver leidt de oplossing af.
+De tests lossen elk dossier onafhankelijk op en controleren uniciteit, één dader, verboden vakjes en de rij/kolomregels. `npm run generate` maakt dezelfde eenentwintig dossiers opnieuw met de vaste seed. De eerste zaak heeft twee vaste startposities en is met directe uitsluiting zonder gokken op te lossen. De eerste twee zaken gebruiken alleen plaatsaanwijzingen; daarna volgen vergelijkingen tussen personen. De vijf oorspronkelijke dossiers blijven bereikbaar via Eerdere zaken, met behoud van hun bestaande voortgang. De opgeslagen puzzels bevatten aanwijzingen, geen hardgecodeerde oplossing; de solver leidt de oplossing af.
 
 ## Publicatie onder Leren met Loes
 
@@ -42,9 +42,9 @@ De interface gebruikt lokale lettertypen. Puzzeldata en voortgang blijven in de 
 
 De oorspronkelijke vectorillustraties in `art.js` tekenen zes portretten en Groningse objecten: Martinitoren, Peerd van ome Loeks, Groningse vlag, eierballenkraam, viskraam, fietsrek, boom en bankje. Ze vereisen geen externe afbeeldingendienst of fonts.
 
-Print deze zaak opent een blanco puzzel inclusief eventuele vaste startposities. Print de reeks geeft zeventien pagina’s: één zaak per liggend A4. `@page` stelt liggend A4 met marges van 10 mm in. De download `grunmurdoku-print.pdf` bevat dezelfde zeventien schone puzzels. Browsernotities en oplossingen worden niet geprint. Kies A4 en 100% schaal; schakel zo nodig browserkop- en voetteksten uit. Gebiedsgrenzen en labels werken ook zonder achtergrondkleuren.
+Print deze zaak opent een blanco puzzel inclusief eventuele vaste startposities. Print deze serie geeft zeventien of vier pagina’s, afhankelijk van de gekozen serie: één zaak per liggend A4. `@page` stelt liggend A4 met marges van 10 mm in. De download `grunmurdoku-print.pdf` bevat alle eenentwintig schone puzzels; `grunmurdoku-nacht-in-stad.pdf` bevat alleen de vier nieuwe dossiers. Browsernotities en oplossingen worden niet geprint. Kies A4 en 100% schaal; schakel zo nodig browserkop- en voetteksten uit. Gebiedsgrenzen en labels werken ook zonder achtergrondkleuren.
 
-Gecontroleerd in Chromium op desktop en 390px mobiel: alle zaken, de drieklikcyclus, meerdere concepten, herladen, hints, beschuldiging, archief, vaste posities, reset en terug. De PDF telt zeventien liggende A4’s; printinhoud is op overloop gecontroleerd.
+Gecontroleerd in Chromium op desktop en 390px mobiel: alle zaken, de drieklikcyclus, meerdere concepten, herladen, hints, beschuldiging, archief, vaste posities, reset en terug. Het complete puzzelboek telt eenentwintig liggende A4’s; printinhoud is op overloop gecontroleerd.
 
 ## Vrije gebiedsvormen
 
@@ -62,7 +62,7 @@ Zaken 7–12 spelen rond de Hoornseplas, het Stadspark, het Noorderplantsoen, de
 
 De gebiedsnamen staan als serif-naambordjes op een horizontale strook van hun eigen gebied, zowel op scherm als papier. De labels blokkeren geen klik- of notitiedoelen. De ankers vermijden voorwerpen en gegeven posities waar mogelijk; letters gebruiken lokale Palatino/Georgia-fallbacks. De nieuwe illustraties voegen parasols, riet, podium, bar en lantaarns toe.
 
-Ieder slachtoffer krijgt minstens één eigen plaatsaanwijzing, naast de algemene slachtofferregel. Selecteer een nog niet geplaatste persoon, ook het slachtoffer, en vraag Een zetje om juist die persoon te plaatsen. De oorspronkelijke zes oplossingen en opslag-ID’s blijven gelijk; gewijzigde aanwijzingen vernieuwen alleen de afvinkjes. De reeksnavigatie, archiefgrens en printreeks volgen het aantal dossiers automatisch.
+In Stadse speurtochten krijgt het slachtoffer minstens één eigen plaatsaanwijzing. In Nacht in Stad staat bij het slachtoffer uitsluitend “Was samen met de moordenaar”, zoals door de gebruiker gevraagd; de overgebleven plek volgt uit de andere personen. Selecteer een nog niet geplaatste persoon, ook het slachtoffer, en vraag Een zetje om juist die persoon te plaatsen. De oorspronkelijke zes oplossingen en opslag-ID’s blijven gelijk; gewijzigde aanwijzingen vernieuwen alleen de afvinkjes. De reeksnavigatie, archiefgrens en printreeks volgen het aantal dossiers automatisch.
 
 ## Slachtofferkaart in alle versies
 
@@ -79,3 +79,13 @@ Zaken 13–17 voegen Het aardbevingsdorp (fictief wierdedorp), Bommen Berend, Eu
 ## Spelregels openen
 
 De knop Spelregels staat in de kop en direct bij het speelveld. Beide openen dezelfde toegankelijke dialoog met doel, basisregels, de drieklikcyclus, originele voorbeelddiagrammen, begrippen en een aanpak. De uitleg beschrijft de werkelijke Grunmurdoku-regels: alle getekende voorwerpen blokkeren hun vakje; er wordt geen regel over bezetbare meubels uit het inspiratieboek gesuggereerd. De dialoog sluit met de sluitknop, Terug naar de zaak of Escape en verandert geen notities of voortgang.
+
+## Nacht in Stad: serie 2
+
+De serieknoppen kiezen de oorspronkelijke zeventien zaken of de vier nieuwe mugshot-dossiers. De keuzelijst, volgende zaak en reeksnavigatie volgen de gekozen serie. `?serie=nacht` opent rechtstreeks de nieuwe reeks. Afvinkaanwijzingen hebben grotere toegankelijke checkboxen; ook op papier staan lege afvinkvakjes. Locatienamen zijn verfijnde naambordjes binnen hun eigen gebied.
+
+Nieuwe speelvelden hebben echte uitsparingen aan de buitenkant: `regions[cell] === -1` is geen speelvak. `isPlayable` bewaakt dit in solver, validatie, uitleg, opgeslagen notities en herstel. Transparante stukken blijven ook op papier transparant. Rijen en kolommen lopen door over de uitsparingen; de oorspronkelijke spelregels blijven geldig.
+
+De mugshots zijn oorspronkelijke vectorillustraties met hoogtelijnen, dossiernummer en een vastgehouden naambord. Arend blijft mannelijk afgebeeld. De oude portretten zijn ongewijzigd. Nieuwe voorwerpen: toneeldoek, theaterstoel, silo, opslagkrat, bierkrat, boekenkast, filmprojector en bank.
+
+De vier nieuwe slachtoffers hebben bewust geen eigen plaatsaanwijzingen; dit geldt alleen voor Nacht in Stad. Rechtstreekse aanwijzingen die de dader aan het slachtoffer koppelen blijven uitgesloten. Alle vier dossiers hebben precies één oplossing. De oorspronkelijke zeventien dossiers en opslag-ID’s zijn ongewijzigd.

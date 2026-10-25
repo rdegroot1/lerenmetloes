@@ -20,7 +20,11 @@ const specs=[
  [6,'Gronings Ontzet','Pittig','Na het laatste kanonschot','Stad viert Bommen Berend. Tussen vlaggen, muziek en de laatste eierballen verdwijnt Fokko uit beeld. Zes verklaringen vertellen wie waar was.',0],
  [6,'Van optreden naar optreden','Uitdagend','Het vergeten toegangsbandje','Het is Eurosonic in Stad. Na een avond vol optredens blijft Fokko’s toegangsbandje achter bij de garderobe. Wie heeft hem na de soundcheck nog gezien?',0],
  [6,'Theater tussen de bomen','Uitdagend','Achter het tentdoek','Noorderzon vult het plantsoen met licht en verhalen. Maar achter het tentdoek klopt één verhaal niet. Fokko was op weg naar de laatste voorstelling.',0],
- [6,'Een winteravond aan de A','Uitdagend','Het licht in de roef','Bij WinterWelVaart glinsteren de lichtjes langs de kade. Op een aangemeerd schip is Fokko’s sjaal blijven liggen. De laatste bezoekers spreken elkaar tegen.',0]
+ [6,'Een winteravond aan de A','Uitdagend','Het licht in de roef','Bij WinterWelVaart glinsteren de lichtjes langs de kade. Op een aangemeerd schip is Fokko’s sjaal blijven liggen. De laatste bezoekers spreken elkaar tegen.',0],
+ [6,'Achter het rode doek','Pittig','De laatste buiging','De voorstelling in de Stadsschouwburg is afgelopen. Fokko zou nog een toegift spelen, maar zijn muziek blijft op de lessenaar liggen. Wie bleef er na het applaus achter?',0],
+ [6,'Tussen silo en fabriekshal','Uitdagend','Het terrein na middernacht','Op het voormalige Suikerunieterrein dooft de verlichting van een evenement. Fokko’s sleutelbos ligt bij de machinekamer. Zes verklaringen laten een heel ander terrein zien.',0],
+ [6,'Van bioscoop tot dakterras','Uitdagend','De verdwenen filmrecensie','Een filmavond in het Forum eindigt met een ongelezen recensie. Fokko wilde nog even naar boven. Welke route volgden de bezoekers tussen bioscoop, bieb en dakterras?',0],
+ [6,'Een nacht aan de Korreweg','Uitdagend','De krat die bleef staan','Een fictief studentenhuis aan de Korreweg: een afwasrooster, een kapotte bank en veel te veel bierkratten. Na het huisfeest is Fokko’s gitaar er nog, maar hijzelf niet.',0]
 ];
 const types=[['tower','de Martinitoren'],['eierbal','de eierballenkraam'],['loeks','het Peerd van ome Loeks'],['flag','de Groningse vlag'],['tree','een boom'],['bike','een fietsrek'],['bench','een bankje'],['stall','een viskraam']];
 // Connected city districts with lanes, L-shapes and stepped boundaries.
@@ -42,7 +46,11 @@ const layouts=[
  ['111000','112200','112220','122230','122333','133333'],
  ['001111','000211','302211','332221','333221','443331'],
  ['400111','402211','002221','032221','333211','333331'],
- ['001111','000211','302211','332221','333221','443331']
+ ['001111','000211','302211','332221','333221','443331'],
+ ['.0011.','000111','002211','332244','333244','.3334.'],
+ ['..0011','.00011','330211','33222.','33324.','.3344.'],
+ ['..011.','.00011','330211','332244','.32244','..224.'],
+ ['00011.','000211','332211','332244','.32244','.3334.']
 ];
 const themes=[
  null,null,null,null,null,null,
@@ -56,7 +64,11 @@ const themes=[
  {name:'Bommen Berend',areas:['Grote Markt','Ossenmarkt','Vismarkt','Noorderhaven'],types:[['cannon','het kanon'],['flag','de Groningse vlag'],['eierbal','de eierballenkraam'],['stage','het podium'],['lamp','een lantaarn']]},
  {name:'Eurosonic',areas:['Vera','Simplon','Concertzaal','Backstage','Garderobe'],types:[['guitar','een gitaar'],['stage','het podium'],['bar','de bar'],['lamp','een lantaarn'],['bike','een fietsrek']]},
  {name:'Noorderzon',areas:['Spiegeltent','Muziektent','Eettentjes','Vijverrand','Backstage'],types:[['tent','de festivaltent'],['stage','het podium'],['tree','een boom'],['lamp','een lantaarn'],['bar','de bar']]},
- {name:'WinterWelVaart',areas:['Hoge der A','Lage der A','Scheepsruim','Winterkade','Roef'],types:[['ship','een schip'],['winterstall','een winterkraam'],['lamp','een lantaarn'],['bar','de bar'],['bench','een bankje']]}
+ {name:'WinterWelVaart',areas:['Hoge der A','Lage der A','Scheepsruim','Winterkade','Roef'],types:[['ship','een schip'],['winterstall','een winterkraam'],['lamp','een lantaarn'],['bar','de bar'],['bench','een bankje']]},
+ {name:'Stadsschouwburg',areas:['Foyer','Stalles','Orkestbak','Toneel','Balkon'],types:[['curtain','het toneeldoek'],['seat','een theaterstoel'],['stage','het podium'],['guitar','een gitaar'],['bar','de bar'],['lamp','een lantaarn']],roles:['de toneelmeester','de belichter','de actrice','de kaartcontroleur','de garderobemedewerker','de muzikant']},
+ {name:'Suikerunieterrein',areas:['Fabriekshal','Silo’s','Binnenplaats','Festivalterrein','Machinekamer'],types:[['silo','een silo'],['scaffold','de bouwsteiger'],['stage','het podium'],['crate','een opslagkrat'],['bench','een bankje'],['lamp','een lantaarn']],roles:['de terreinbeheerder','de monteur','de fotograaf','de evenementenbouwer','de rondleider','de geluidstechnicus']},
+ {name:'Het Forum',areas:['Entree','Bioscoop','Bibliotheek','Expositie','Dakterras'],types:[['books','een boekenkast'],['projector','de filmprojector'],['seat','een bioscoopstoel'],['bench','een bankje'],['bar','de bar'],['lamp','een lantaarn']],roles:['de filmoperateur','de technicus','de bibliothecaris','de bezoeker','de gastvrouw','de recensent']},
+ {name:'Studentenhuis Korreweg',areas:['Keuken','Huiskamer','Gang','Studentenkamer','Balkon'],types:[['beercrate','een bierkrat'],['sofa','de bank'],['guitar','een gitaar'],['bike','een fietsrek'],['bar','de keukenbar'],['books','een boekenkast']],roles:['de huisoudste','de eeuwige student','de geneeskundestudent','de feestcommissie','de rechtenstudent','de bandgitarist']}
 ];
 const cases=[];
 for(let k=0;k<specs.length;k++){
@@ -64,13 +76,14 @@ for(let k=0;k<specs.length;k++){
  const theme=themes[k];
  const areas=theme?.areas||['Grote Markt','Vismarkt','Noorderplantsoen','Hoge der A'];
  const localTypes=theme?.types||types;
- const regions=layouts[k].flatMap(row=>[...row].map(Number));
- let target;do{const columns=shuffle(Array.from({length:size},(_,i)=>i));const people=k<6?Array.from({length:size},(_,i)=>i):shuffle(Array.from({length:size},(_,i)=>i));target=Object.fromEntries(people.map((who,r)=>[who,r*size+columns[r]]));}while(Object.values(target).filter(c=>regions[c]===regions[target[size-1]]).length!==2);
- const objectCells=shuffle(Array.from({length:total},(_,i)=>i).filter(c=>!Object.values(target).includes(c))).slice(0,([4,4,5,6,8,9][k]||8));
+ const regions=layouts[k].flatMap(row=>[...row].map(c=>c==='.'?-1:Number(c)));
+ let target;do{const columns=shuffle(Array.from({length:size},(_,i)=>i));const people=k<6?Array.from({length:size},(_,i)=>i):shuffle(Array.from({length:size},(_,i)=>i));target=Object.fromEntries(people.map((who,r)=>[who,r*size+columns[r]]));}while(Object.values(target).some(c=>regions[c]<0)||Object.values(target).filter(c=>regions[c]===regions[target[size-1]]).length!==2);
+ const objectCells=shuffle(Array.from({length:total},(_,i)=>i).filter(c=>regions[c]>=0&&!Object.values(target).includes(c))).slice(0,([4,4,5,6,8,9][k]||8));
  const objects=objectCells.map((cell,i)=>({cell,type:localTypes[(i+k)%localTypes.length][0],name:localTypes[(i+k)%localTypes.length][1]}));
  const givens=Object.fromEntries(Object.entries(target).slice(0,givenCount));
- const p={id:k===0?'stad-v2-1':k<6?`stad-v3-${k+1}`:`stad-thema-v1-${k+1}`,number:k+1,clueVersion:[1,1,1,2,1,3][k]||1,theme:theme?.name||null,title,story,lesson,level,size,regions,areas,people:names.slice(0,size).map((name,i)=>({name,role:roles[i],color:['#b44d39','#437c78','#89703e','#6b6085','#3e7050','#8f5769'][i]})),objects,victim:size-1,givens,clues:[]};
- const cells=Array.from({length:total},(_,i)=>i),pool=[];
+ const p={id:k===0?'stad-v2-1':k<6?`stad-v3-${k+1}`:`stad-thema-v1-${k+1}`,number:k+1,clueVersion:[1,1,1,2,1,3][k]||1,theme:theme?.name||null,title,story,lesson,level,size,regions,areas,people:names.slice(0,size).map((name,i)=>({name,role:(theme?.roles||roles)[i],color:['#b44d39','#437c78','#89703e','#6b6085','#3e7050','#8f5769'][i]})),objects,victim:size-1,givens,clues:[]};
+ if(k>=17){p.seriesId='nacht';p.portraitStyle='mugshot';p.victimLocationClue=false;}
+ const cells=Array.from({length:total},(_,i)=>i).filter(c=>regions[c]>=0),pool=[];
  const unary=(a,text,pred)=>{const allowed=cells.filter(pred);if(allowed.includes(target[a])&&allowed.length<total&&allowed.length)pool.push({type:'unary',a,text,cells:allowed});};
  for(let a=0;a<size;a++){
   if(a in givens)continue;
@@ -91,14 +104,14 @@ for(let k=0;k<specs.length;k++){
   }
  }
  // Readable row clues are a fallback for the introductory, unary-only puzzles.
- const ordered=shuffle(pool).filter(c=>!(c.type==='same'&&(c.a===p.victim||c.b===p.victim)));
+ const ordered=shuffle(pool).filter(c=>!(c.type==='same'&&(c.a===p.victim||c.b===p.victim))&&(k<17||c.a!==p.victim));
  if(k===2){const i=ordered.findIndex(c=>c.type==='above');ordered.unshift(...ordered.splice(i,1));}
- for(let a=0;a<size;a++)if(!(a in givens))ordered.push({type:'unary',a,text:`Bevond zich in rij ${Math.floor(target[a]/size)+1}.`,cells:cells.filter(c=>Math.floor(c/size)===Math.floor(target[a]/size))});
- for(let a=0;a<size;a++)if(!(a in givens))ordered.push({type:'unary',a,text:`Bevond zich in kolom ${target[a]%size+1}.`,cells:cells.filter(c=>c%size===target[a]%size)});
+ for(let a=0;a<size;a++)if(!(a in givens)&&(k<17||a!==p.victim))ordered.push({type:'unary',a,text:`Bevond zich in rij ${Math.floor(target[a]/size)+1}.`,cells:cells.filter(c=>Math.floor(c/size)===Math.floor(target[a]/size))});
+ for(let a=0;a<size;a++)if(!(a in givens)&&(k<17||a!==p.victim))ordered.push({type:'unary',a,text:`Bevond zich in kolom ${target[a]%size+1}.`,cells:cells.filter(c=>c%size===target[a]%size)});
  for(const clue of ordered){if(solve(p,givens,2).length===1)break;p.clues.push(clue);}
  for(let i=p.clues.length-1;i>=0;i--){if(k===2&&p.clues[i].type==='above'&&p.clues.filter(c=>c.type==='above').length===1)continue;const [clue]=p.clues.splice(i,1);if(solve(p,givens,2).length!==1)p.clues.splice(i,0,clue);}
  // The victim always gets a real location clue, in addition to the victim rule.
- if(!p.clues.some(c=>c.a===p.victim&&c.type==='unary')){
+ if(k<17&&!p.clues.some(c=>c.a===p.victim&&c.type==='unary')){
   const victimClue=pool.filter(c=>c.a===p.victim&&c.type==='unary').sort((a,b)=>a.cells.length-b.cells.length)[0];
   if(!victimClue)throw Error('Geen plaatsaanwijzing voor slachtoffer');
   p.clues.push(victimClue);
