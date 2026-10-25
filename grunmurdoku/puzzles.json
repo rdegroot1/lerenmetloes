@@ -1,0 +1,1175 @@
+[
+  {
+    "id": "zaak-1",
+    "number": 1,
+    "title": "De laatste ronde",
+    "story": "Na het sluiten van de terrassen wordt een muzikant dood aangetroffen. Zes getuigen, vier plekken en één verhaal dat niet klopt.",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Sanne",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Mees",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 35,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 16,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 10,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 8,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      },
+      {
+        "cell": 17,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 0,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 7,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 23,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      }
+    ],
+    "victim": 5,
+    "clues": [
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Bevond zich op Noorderplantsoen.",
+        "cells": [
+          18,
+          19,
+          20,
+          24,
+          25,
+          26,
+          30,
+          31,
+          32
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond aan de buitenrand van de kaart.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "different",
+        "a": 0,
+        "b": 2,
+        "text": "Bevond zich in een ander gebied dan Fenna."
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 5,
+        "text": "Stond hoger op de kaart dan Mees."
+      },
+      {
+        "type": "left",
+        "a": 2,
+        "b": 3,
+        "text": "Stond links van Jurre."
+      },
+      {
+        "type": "above",
+        "a": 0,
+        "b": 1,
+        "text": "Stond hoger op de kaart dan Bram."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond naast een bankje.",
+        "cells": [
+          2,
+          7,
+          14,
+          22,
+          29
+        ]
+      },
+      {
+        "type": "left",
+        "a": 5,
+        "b": 4,
+        "text": "Stond links van Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond aan de buitenrand van de kaart.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond aan de buitenrand van de kaart.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zaak-2",
+    "number": 2,
+    "title": "Mist boven de markt",
+    "story": "Een ochtend vol marktkramen en koffie. Maar tussen de leveringen door is iemand verdwenen.",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Sanne",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Mees",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 26,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 27,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 17,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 12,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      },
+      {
+        "cell": 5,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 24,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 35,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      }
+    ],
+    "victim": 5,
+    "clues": [
+      {
+        "type": "above",
+        "a": 1,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 2,
+        "text": "Stond links van Fenna."
+      },
+      {
+        "type": "above",
+        "a": 0,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Bevond zich op Grote Markt.",
+        "cells": [
+          0,
+          1,
+          2,
+          6,
+          7,
+          8,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "type": "different",
+        "a": 0,
+        "b": 1,
+        "text": "Bevond zich in een ander gebied dan Bram."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Bevond zich in de onderste helft van de kaart.",
+        "cells": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast een fietsrek.",
+        "cells": [
+          11,
+          16,
+          29,
+          34
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond naast een marktkraam.",
+        "cells": [
+          18,
+          21,
+          25,
+          28,
+          30,
+          33
+        ]
+      },
+      {
+        "type": "above",
+        "a": 4,
+        "b": 5,
+        "text": "Stond hoger op de kaart dan Mees."
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 1,
+        "text": "Stond links van Bram."
+      }
+    ]
+  },
+  {
+    "id": "zaak-3",
+    "number": 3,
+    "title": "Een stille zondag",
+    "story": "De stad komt langzaam op gang. In het plantsoen blijkt de rust bedrieglijk.",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Sanne",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Mees",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 12,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 20,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 23,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 27,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      },
+      {
+        "cell": 22,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 32,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 30,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 8,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      }
+    ],
+    "victim": 5,
+    "clues": [
+      {
+        "type": "above",
+        "a": 1,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
+      {
+        "type": "left",
+        "a": 5,
+        "b": 0,
+        "text": "Stond links van Lieke."
+      },
+      {
+        "type": "above",
+        "a": 0,
+        "b": 1,
+        "text": "Stond hoger op de kaart dan Bram."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich op Hoge der A.",
+        "cells": [
+          21,
+          22,
+          23,
+          27,
+          28,
+          29,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "above",
+        "a": 4,
+        "b": 5,
+        "text": "Stond hoger op de kaart dan Mees."
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Bevond zich op Grote Markt.",
+        "cells": [
+          0,
+          1,
+          2,
+          6,
+          7,
+          8,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Sanne."
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 1,
+        "text": "Stond links van Bram."
+      }
+    ]
+  },
+  {
+    "id": "zaak-4",
+    "number": 4,
+    "title": "Het verdwenen optreden",
+    "story": "De soundcheck is klaar, de artiest komt nooit opdagen. Wat gebeurde er op weg naar het podium?",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Sanne",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Mees",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 11,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 10,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 23,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 34,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      },
+      {
+        "cell": 9,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 30,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 22,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 33,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      }
+    ],
+    "victim": 5,
+    "clues": [
+      {
+        "type": "above",
+        "a": 3,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Bevond zich in de rechterhelft van de kaart.",
+        "cells": [
+          3,
+          4,
+          5,
+          9,
+          10,
+          11,
+          15,
+          16,
+          17,
+          21,
+          22,
+          23,
+          27,
+          28,
+          29,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "above",
+        "a": 2,
+        "b": 3,
+        "text": "Stond hoger op de kaart dan Jurre."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Bevond zich op Hoge der A.",
+        "cells": [
+          21,
+          22,
+          23,
+          27,
+          28,
+          29,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
+      {
+        "type": "above",
+        "a": 0,
+        "b": 1,
+        "text": "Stond hoger op de kaart dan Bram."
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 0,
+        "text": "Stond links van Lieke."
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond aan de buitenrand van de kaart.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "left",
+        "a": 1,
+        "b": 3,
+        "text": "Stond links van Jurre."
+      }
+    ]
+  },
+  {
+    "id": "zaak-5",
+    "number": 5,
+    "title": "Nacht in Stad",
+    "story": "De laatste fietsers rijden naar huis. Eén van de zes heeft meer te verbergen dan een gestolen fiets.",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Sanne",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Mees",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 33,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 27,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 34,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 11,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      },
+      {
+        "cell": 1,
+        "type": "tree",
+        "name": "boom",
+        "icon": "🌳"
+      },
+      {
+        "cell": 4,
+        "type": "stall",
+        "name": "marktkraam",
+        "icon": "🍎"
+      },
+      {
+        "cell": 23,
+        "type": "bike",
+        "name": "fietsrek",
+        "icon": "🚲"
+      },
+      {
+        "cell": 10,
+        "type": "bench",
+        "name": "bankje",
+        "icon": "🪑"
+      }
+    ],
+    "victim": 5,
+    "clues": [
+      {
+        "type": "left",
+        "a": 1,
+        "b": 0,
+        "text": "Stond links van Lieke."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich op Hoge der A.",
+        "cells": [
+          21,
+          22,
+          23,
+          27,
+          28,
+          29,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 1,
+        "text": "Stond links van Bram."
+      },
+      {
+        "type": "left",
+        "a": 5,
+        "b": 2,
+        "text": "Stond links van Fenna."
+      },
+      {
+        "type": "above",
+        "a": 0,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
+      {
+        "type": "left",
+        "a": 2,
+        "b": 4,
+        "text": "Stond links van Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond niet aan de buitenrand van de kaart.",
+        "cells": [
+          7,
+          8,
+          9,
+          10,
+          13,
+          14,
+          15,
+          16,
+          19,
+          20,
+          21,
+          22,
+          25,
+          26,
+          27,
+          28
+        ]
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Sanne."
+      }
+    ]
+  }
+]
