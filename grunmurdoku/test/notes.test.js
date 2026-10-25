@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {confirmPlacement,restorePencilNotes,sanitizeBackups} from '../notes.js';
-const puzzle={size:4,people:[{},{},{},{}],objects:[],givens:{}};
+const puzzle={size:4,people:[{},{},{},{}],objects:[],givens:{},regions:Array(16).fill(0)};
 const fresh=()=>({positions:{},notes:{0:[0,1],5:[0,2],10:[3]},noteBackups:{},crosses:[],checked:[],solved:false});
 const sorted=notes=>Object.fromEntries(Object.entries(notes).map(([c,ids])=>[c,[...ids].sort()]));
 test('third click restores all suppressed pencil marks, including other possible cells',()=>{
@@ -29,4 +29,11 @@ test('undo restores both a definitive position and its saved pencil marks',()=>{
 });
 test('old saves without a note backup fall back to the person initial',()=>{
  const state={positions:{0:0},notes:{5:[2]},crosses:[],solved:false};restorePencilNotes(state,puzzle,0);assert.deepEqual(state.notes,{0:[0],5:[2]});
+});
+
+test('cut-out cells cannot receive restored or saved notes',()=>{
+ const p={...puzzle,regions:[-1,...Array(15).fill(0)]};
+ const state={positions:{0:5},notes:{},noteBackups:{0:{cell:5,notes:{0:[0,1],5:[0]}}},crosses:[],solved:false};
+ restorePencilNotes(state,p,0);assert.deepEqual(state.notes,{5:[0]});
+ assert.deepEqual(sanitizeBackups(p,{0:{cell:0,notes:{1:[0]}}}),{});
 });

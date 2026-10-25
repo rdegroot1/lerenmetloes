@@ -1,4 +1,4 @@
-import {solve,matches,region} from './engine.js';
+import {solve,matches,region,isPlayable} from './engine.js?v=20261026-nacht-series';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.
@@ -9,7 +9,7 @@ export function explain(p){
  const clues=i=>p.clues.filter(c=>c.a===i&&c.type==='unary');
  for(const [i,c]of Object.entries(p.givens||{}))result.push(`${name(i)} is gegeven: ${spot(c)}. In die rij en kolom kan niemand anders staan.`);
  const blocked=new Set(p.objects.map(o=>o.cell));
- const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>!blocked.has(c)&&clues(i).every(q=>q.cells.includes(c))));
+ const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>isPlayable(p,c)&&!blocked.has(c)&&clues(i).every(q=>q.cells.includes(c))));
  const reasons=p.people.map((_,i)=>new Set(clues(i).map(c=>`de aanwijzing “${c.text}”`)));
  const found=Symbol('forced placement');
  const remove=(i,forbidden,why)=>{const next=domains[i].filter(c=>!forbidden(c));if(next.length!==domains[i].length){domains[i]=next;reasons[i].add(why);if(next.length===1&&positions[i]==null)throw found;return true;}return false;};

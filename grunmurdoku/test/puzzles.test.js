@@ -62,18 +62,18 @@ test('clues never directly pair a suspect with the victim',()=>{
 });
 
 test('names have distinct initials for concept notes',()=>{
- assert.deepEqual(puzzles.at(-1).people.map(p=>p.name),['Arend','Bertus','Cora','Tammo','Geeske','Fokko']);
+ assert.deepEqual(puzzles[16].people.map(p=>p.name),['Arend','Bertus','Cora','Tammo','Geeske','Fokko']);
  for(const p of puzzles)assert.equal(new Set(p.people.map(person=>person.name[0])).size,p.people.length);
 });
 
 
 test('every victim has a location clue of their own',()=>{
  const archive=JSON.parse(readFileSync(new URL('../puzzles-archive.json',import.meta.url)));
- for(const p of [...puzzles,...archive])assert.ok(p.clues.some(c=>c.a===p.victim&&c.type==='unary'),p.id);
+ for(const p of [...puzzles,...archive]){if(p.victimLocationClue===false)assert.ok(p.clues.every(c=>c.a!==p.victim),p.id);else assert.ok(p.clues.some(c=>c.a===p.victim&&c.type==='unary'),p.id);}
 });
 
 test('new themed cases have distinct settings and varied victim rows',()=>{
- const themed=puzzles.slice(6);assert.equal(themed.length,11);
+ const themed=puzzles.slice(6);assert.equal(themed.length,15);
  for(const theme of ['Hoornseplas','Stadspark','Noorderplantsoen','Uitgaan in Stad'])assert.ok(themed.some(p=>p.theme===theme));
  assert.ok(themed.some(p=>p.areas.includes('De Negende Cirkel')&&p.areas.includes('Het Pakhuis')));
  assert.ok(new Set(themed.map(p=>Math.floor(solve(p)[0][p.victim]/p.size))).size>1);
@@ -83,4 +83,11 @@ test('new themed cases have distinct settings and varied victim rows',()=>{
 test('all five festival and village themes are present and include indoor spaces',()=>{
  for(const theme of ['Het aardbevingsdorp','Bommen Berend','Eurosonic','Noorderzon','WinterWelVaart'])assert.ok(puzzles.some(p=>p.theme===theme),theme);
  assert.ok(puzzles.slice(12).some(p=>p.areas.length===5));
+});
+
+
+test('new dossier series has mugshots, genuine cut-out outlines and no victim location clues',()=>{
+ const series=puzzles.filter(p=>p.seriesId==='nacht');assert.equal(series.length,4);
+ assert.deepEqual(series.map(p=>p.theme),['Stadsschouwburg','Suikerunieterrein','Het Forum','Studentenhuis Korreweg']);
+ for(const p of series){assert.equal(p.portraitStyle,'mugshot');assert.ok(p.regions.some(a=>a<0));assert.ok(p.clues.every(c=>c.a!==p.victim));const voids=p.regions.map((a,c)=>a<0?c:-1).filter(c=>c>=0);for(const c of voids)assert.equal(valid(p,{0:c}),false);}
 });
