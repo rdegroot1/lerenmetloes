@@ -30,7 +30,7 @@ test('introductory case can be completed with immediate forced moves',()=>{
 });
 
 test('progression grows from 4x4 to 6x6 and preserves fixed starting places',()=>{
- assert.deepEqual(puzzles.map(p=>p.size),[4,4,5,5,6,6]);
+ assert.deepEqual(puzzles.slice(0,6).map(p=>p.size),[4,4,5,5,6,6]);
  assert.ok(puzzles.slice(0,2).every(p=>p.clues.every(c=>c.type==='unary')));
  assert.ok(puzzles.slice(2).every(p=>p.clues.some(c=>c.type!=='unary')));
  const p=puzzles[0];const cell=p.givens[0];assert.equal(valid(p,{0:(cell+1)%(p.size*p.size)}),false);
@@ -64,4 +64,16 @@ test('clues never directly pair a suspect with the victim',()=>{
 test('names have distinct initials for concept notes',()=>{
  assert.deepEqual(puzzles.at(-1).people.map(p=>p.name),['Arend','Bertus','Cora','Tammo','Geeske','Fokko']);
  for(const p of puzzles)assert.equal(new Set(p.people.map(person=>person.name[0])).size,p.people.length);
+});
+
+
+test('every victim has a location clue of their own',()=>{
+ for(const p of puzzles)assert.ok(p.clues.some(c=>c.a===p.victim&&c.type==='unary'),p.id);
+});
+
+test('new themed cases have distinct settings and varied victim rows',()=>{
+ const themed=puzzles.slice(6);assert.equal(themed.length,6);
+ for(const theme of ['Hoornseplas','Stadspark','Noorderplantsoen','Uitgaan in Stad'])assert.ok(themed.some(p=>p.theme===theme));
+ assert.ok(themed.some(p=>p.areas.includes('De Negende Cirkel')&&p.areas.includes('Het Pakhuis')));
+ assert.ok(new Set(themed.map(p=>Math.floor(solve(p)[0][p.victim]/p.size))).size>1);
 });

@@ -5,6 +5,7 @@ import {explain} from './explain.js';
 const $=id=>document.getElementById(id);
 let puzzles;
 try{const response=await fetch('./puzzles.json');if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
+const mainCount=puzzles.length;
 let index=0,p,state,selected=0,mode='place',history=[];
 const key=p=>'grunmurdoku:v1:'+p.id;
 function load(i){index=i;p=puzzles[i];history=[];selected=0;mode='place';state={positions:{...p.givens},crosses:[],notes:{},checked:[],solved:false};try{const saved=JSON.parse(localStorage.getItem(key(p)));if(saved&&typeof saved.positions==='object'&&Array.isArray(saved.crosses)&&Array.isArray(saved.checked)){const entries=Object.entries(saved.positions);if(entries.every(([who,cell])=>/^\d+$/.test(who)&&+who<p.people.length&&Number.isInteger(cell)&&cell>=0&&cell<p.size*p.size&&!p.objects.some(o=>o.cell===cell))){state={...state,...saved,checked:(saved.clueVersion||1)===(p.clueVersion||1)?saved.checked:[],positions:{...saved.positions,...p.givens},notes:Object.fromEntries(Object.entries(saved.notes||{}).filter(([c,ids])=>Number.isInteger(+c)&&+c>=0&&+c<p.size*p.size&&!p.objects.some(o=>o.cell===+c)&&Array.isArray(ids)).map(([c,ids])=>[c,[...new Set(ids.filter(i=>Number.isInteger(i)&&i>=0&&i<p.people.length&&!Object.hasOwn(p.givens||{},i)))]]))};}}}catch{}selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));$('caseSelect').value=String(i);render();say(Object.keys(p.givens||{}).length?'Twee personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.':'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om te wissen.');}
@@ -12,7 +13,7 @@ function persist(){state.clueVersion=p.clueVersion||1;try{localStorage.setItem(k
 function snapshot(){history.push(JSON.stringify(state));if(history.length>100)history.shift();}
 function say(text){$('message').textContent=text;}
 function render(){
- $('caseNo').textContent=`ZAAK ${String(p.number).padStart(2,'0')} / STAD`;$('caseTitle').textContent=p.title;$('story').textContent=p.story;
+ $('caseNo').textContent=`ZAAK ${String(p.number).padStart(2,'0')} / ${p.theme||'STAD'}`;$('caseTitle').textContent=p.title;$('story').textContent=p.story;
  const count=Object.keys(state.positions).length;$('count').textContent=`${count} / ${p.people.length} geplaatst`;$('progress').textContent=state.solved?'Zaak opgelost':`${count} van ${p.people.length} alibi’s op de kaart`;
  $('board').style.setProperty('--size',p.size);$('board').innerHTML=boardMarkup(p,state.positions,state.crosses,false,state.notes,selected);
  $('board').querySelectorAll('[data-cell]').forEach(cell=>cell.onclick=()=>tap(+cell.dataset.cell));
@@ -20,8 +21,8 @@ function render(){
  $('miniBoard').style.setProperty('--size',p.size);$('miniBoard').innerHTML=boardMarkup(p,{},[],true);
  $('level').textContent=`${p.level||'Bonus'} · ${p.size} × ${p.size}`;
  $('lesson').textContent=p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — vul alleen de twee ontbrekende personen in.':p.number===2?' — nu helemaal zonder startposities.':p.number===3?' — vergelijk voor het eerst de rijen van personen.':p.number===4?' — combineer links, hoger en de plekken op de kaart.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
- $('nextCase').hidden=!state.solved||index>=5;
- $('caseTrail').innerHTML=puzzles.slice(0,6).map((q,i)=>`<button class="${index===i?'current':''}" data-case="${i}" aria-label="Zaak ${i+1}: ${q.level}" ${index===i?'aria-current="step"':''}><b>${i+1}</b><span>${q.level}</span></button>`).join('');
+ $('nextCase').hidden=!state.solved||index>=mainCount-1;
+ $('caseTrail').innerHTML=puzzles.slice(0,mainCount).map((q,i)=>`<button class="${index===i?'current':''}" data-case="${i}" aria-label="Zaak ${i+1}: ${q.level}" ${index===i?'aria-current="step"':''}><b>${i+1}</b><span>${q.theme||q.level}</span></button>`).join('');
  $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>load(+b.dataset.case));
  $('people').replaceChildren();
  p.people.forEach((person,i)=>{
@@ -50,7 +51,8 @@ function tap(c){
  }
  persist();render();say(mode==='place'?`${p.people[selected].name} definitief geplaatst. Controleer de aanwijzingen of kies de volgende persoon.`:'Notitie bijgewerkt.');
 }
-$('caseSelect').innerHTML=puzzles.map((p,i)=>`<option value="${i}">${String(p.number).padStart(2,'0')} · ${p.level} — ${p.title}</option>`).join('');$('caseSelect').onchange=e=>load(+e.target.value);
+$('printAll').textContent=`Print de reeks (${mainCount} A4)`;
+$('caseSelect').innerHTML=puzzles.map((p,i)=>`<option value="${i}">${String(p.number).padStart(2,'0')} · ${p.theme||p.level} — ${p.title}</option>`).join('');$('caseSelect').onchange=e=>load(+e.target.value);
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
 $('undo').onclick=()=>{if(history.length){state=JSON.parse(history.pop());persist();render();say('Laatste wijziging teruggedraaid.');}};
 $('reset').onclick=()=>{snapshot();state={positions:{...p.givens},crosses:[],notes:{},checked:[],solved:false};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
@@ -61,15 +63,15 @@ $('check').onclick=()=>{
 };
 $('hint').onclick=()=>{
  const solutions=solve(p,state.positions,1);if(!solutions.length){say('Deze plaatsingen kunnen niet samen kloppen. Wis een plaatsing of gebruik Terug en controleer de aanwijzingen.');return;}
- const who=p.people.findIndex((_,i)=>state.positions[i]==null);if(who<0){say('De kaart klopt. De dader is de enige andere persoon in het gebied van het slachtoffer.');return;}
+ const who=state.positions[selected]==null?selected:p.people.findIndex((_,i)=>state.positions[i]==null);if(who<0){say('De kaart klopt. De dader is de enige andere persoon in het gebied van het slachtoffer.');return;}
  snapshot();state.positions[who]=solutions[0][who];clearNotes(who,solutions[0][who]);state.crosses=state.crosses.filter(x=>x!==solutions[0][who]);selected=who;persist();render();say(`Zetje: ${p.people[who].name} staat in rij ${Math.floor(solutions[0][who]/p.size)+1}, kolom ${solutions[0][who]%p.size+1}. Deze plaatsing kun je terugdraaien.`);
 };
 $('explanation').onclick=()=>{const explanation=explain(p);$('explanationTitle').textContent=p.title+' — stap voor stap';$('explanationSteps').replaceChildren(...explanation.steps.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('explanationDialog').showModal();};
 $('landmarks').innerHTML=landmarkArt();
 $('printCase').onclick=()=>printPuzzles([p]);
-$('printAll').onclick=()=>printPuzzles(puzzles.slice(0,6));
-$('nextCase').onclick=()=>{if(index<5)load(index+1);};
-$('oldCases').onclick=async()=>{try{if(puzzles.length===6){const response=await fetch('./puzzles-archive.json');if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);const group=document.createElement('optgroup');group.label='Eerdere zaken — je oude voortgang';archive.forEach((q,i)=>{const option=document.createElement('option');option.value=String(i+6);option.textContent=q.title;group.append(option);});$('caseSelect').append(group);}load(6);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
+$('printAll').onclick=()=>printPuzzles(puzzles.slice(0,mainCount));
+$('nextCase').onclick=()=>{if(index<mainCount-1)load(index+1);};
+$('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch('./puzzles-archive.json');if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);const group=document.createElement('optgroup');group.label='Eerdere zaken — je oude voortgang';archive.forEach((q,i)=>{const option=document.createElement('option');option.value=String(i+mainCount);option.textContent=q.title;group.append(option);});$('caseSelect').append(group);}load(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
 $('rules').onclick=()=>$('rulesDialog').showModal();document.querySelectorAll('dialog .close, .close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 $('accuse').onclick=()=>{
  if(Object.keys(state.positions).length!==p.people.length||!valid(p,state.positions,true)){say('Plaats eerst iedereen op de kaart en zorg dat alle aanwijzingen kloppen.');return;}

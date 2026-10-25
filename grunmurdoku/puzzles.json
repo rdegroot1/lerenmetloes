@@ -3,6 +3,7 @@
     "id": "stad-v2-1",
     "number": 1,
     "clueVersion": 1,
+    "theme": null,
     "title": "Bij d’Olle Grieze",
     "story": "Na de bloemenmarkt wordt Tammo gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?",
     "lesson": "Je eerste zaak",
@@ -99,6 +100,7 @@
     "id": "stad-v3-2",
     "number": 2,
     "clueVersion": 1,
+    "theme": null,
     "title": "Een eierbal te veel",
     "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Tammo komt niet thuis. Wie was er nog bij hem?",
     "lesson": "Zelf op onderzoek",
@@ -212,6 +214,7 @@
     "id": "stad-v3-3",
     "number": 3,
     "clueVersion": 1,
+    "theme": null,
     "title": "Stilte in het plantsoen",
     "story": "Geeske wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
     "lesson": "Goed kijken",
@@ -378,7 +381,8 @@
   {
     "id": "stad-v3-4",
     "number": 4,
-    "clueVersion": 1,
+    "clueVersion": 2,
+    "theme": null,
     "title": "Het geheim van ome Loeks",
     "story": "Bij het Peerd van ome Loeks wachtte Geeske op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
     "lesson": "Verbanden leggen",
@@ -527,6 +531,18 @@
         "a": 3,
         "b": 4,
         "text": "Stond links van Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond in de onderste rij.",
+        "cells": [
+          20,
+          21,
+          22,
+          23,
+          24
+        ]
       }
     ]
   },
@@ -534,6 +550,7 @@
     "id": "stad-v3-5",
     "number": 5,
     "clueVersion": 1,
+    "theme": null,
     "title": "Schaduwen aan de A",
     "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Fokko zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
     "lesson": "Een stap verder",
@@ -764,7 +781,8 @@
   {
     "id": "stad-v3-6",
     "number": 6,
-    "clueVersion": 2,
+    "clueVersion": 3,
+    "theme": null,
     "title": "De nacht van de Grunneger vlag",
     "story": "Tijdens een stadsfeest verdwijnt Fokko uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
     "lesson": "Stadse speurneus",
@@ -978,6 +996,1452 @@
       {
         "type": "above",
         "a": 3,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond naast een fietsrek.",
+        "cells": [
+          21,
+          26,
+          28,
+          31,
+          33
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-thema-v1-7",
+    "number": 7,
+    "clueVersion": 1,
+    "theme": "Hoornseplas",
+    "title": "Een spoor in het zand",
+    "story": "Een zonnige middag bij de Hoornseplas eindigt met een vreemde vondst. Geeske werd voor het laatst gezien bij het water. Wie bleef er achter?",
+    "lesson": "Aan het water",
+    "level": "Gemiddeld",
+    "size": 5,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      2,
+      1,
+      1,
+      0,
+      2,
+      2,
+      2,
+      1,
+      3,
+      3,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      3,
+      1
+    ],
+    "areas": [
+      "Zandstrand",
+      "Zwemsteiger",
+      "Rietkraag",
+      "Strandpaviljoen"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bertus",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Tammo",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Geeske",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 23,
+        "type": "reeds",
+        "name": "een rietpol"
+      },
+      {
+        "cell": 17,
+        "type": "bench",
+        "name": "een bankje"
+      },
+      {
+        "cell": 18,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 8,
+        "type": "flag",
+        "name": "de Groningse vlag"
+      },
+      {
+        "cell": 12,
+        "type": "parasol",
+        "name": "een parasol"
+      },
+      {
+        "cell": 3,
+        "type": "reeds",
+        "name": "een rietpol"
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "een bankje"
+      },
+      {
+        "cell": 16,
+        "type": "bike",
+        "name": "een fietsrek"
+      }
+    ],
+    "victim": 4,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond naast een fietsrek.",
+        "cells": [
+          13,
+          15,
+          17,
+          21
+        ]
+      },
+      {
+        "type": "above",
+        "a": 2,
+        "b": 1,
+        "text": "Stond hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 2,
+        "text": "Stond links van Cora."
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Cora."
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 3,
+        "text": "Stond links van Tammo."
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 3,
+        "text": "Stond links van Tammo."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast een parasol.",
+        "cells": [
+          7,
+          11,
+          13,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-thema-v1-8",
+    "number": 8,
+    "clueVersion": 1,
+    "theme": "Stadspark",
+    "title": "De stille muziekkoepel",
+    "story": "In het Stadspark is het concert afgelopen, maar Geeske heeft haar fiets niet opgehaald. Vijf verhalen vertellen wat er die avond gebeurde.",
+    "lesson": "Tussen bomen en muziek",
+    "level": "Gemiddeld",
+    "size": 5,
+    "regions": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      2,
+      1,
+      3,
+      0,
+      2,
+      2,
+      1,
+      3,
+      3,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      2,
+      1
+    ],
+    "areas": [
+      "Vijver",
+      "Kinderboerderij",
+      "Drafbaan",
+      "Muziekkoepel"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bertus",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Tammo",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Geeske",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 14,
+        "type": "stage",
+        "name": "het podium"
+      },
+      {
+        "cell": 4,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 22,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 24,
+        "type": "tree",
+        "name": "een boom"
+      },
+      {
+        "cell": 1,
+        "type": "bench",
+        "name": "een bankje"
+      },
+      {
+        "cell": 15,
+        "type": "stage",
+        "name": "het podium"
+      },
+      {
+        "cell": 23,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 17,
+        "type": "lamp",
+        "name": "een lantaarn"
+      }
+    ],
+    "victim": 4,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond in de bovenste rij.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 2,
+        "text": "Stond links van Cora."
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 4,
+        "text": "Stond links van Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich in het gebied Muziekkoepel.",
+        "cells": [
+          10,
+          15,
+          16,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Bevond zich in het gebied Kinderboerderij.",
+        "cells": [
+          2,
+          3,
+          4,
+          9,
+          14,
+          19,
+          24
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Bevond zich in het gebied Vijver.",
+        "cells": [
+          0,
+          1,
+          5,
+          6,
+          7,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-thema-v1-9",
+    "number": 9,
+    "clueVersion": 1,
+    "theme": "Noorderplantsoen",
+    "title": "Onder de oude bomen",
+    "story": "Het Noorderplantsoen ligt er rustig bij. Fokko wilde nog een rondje wandelen. Een achtergelaten jas zet de recherche op een spoor.",
+    "lesson": "Een ommetje door het groen",
+    "level": "Pittig",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      3,
+      2,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      1
+    ],
+    "areas": [
+      "Zonneweide",
+      "Eendenvijver",
+      "Wandelpad",
+      "Muziekkoepel"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bertus",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Tammo",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Geeske",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 21,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 32,
+        "type": "tree",
+        "name": "een boom"
+      },
+      {
+        "cell": 17,
+        "type": "reeds",
+        "name": "een rietpol"
+      },
+      {
+        "cell": 11,
+        "type": "bench",
+        "name": "een bankje"
+      },
+      {
+        "cell": 18,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 29,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 35,
+        "type": "tree",
+        "name": "een boom"
+      }
+    ],
+    "victim": 5,
+    "givens": {},
+    "clues": [
+      {
+        "type": "different",
+        "a": 2,
+        "b": 3,
+        "text": "Was in een ander gebied dan Tammo."
+      },
+      {
+        "type": "above",
+        "a": 0,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Geeske."
+      },
+      {
+        "type": "same",
+        "a": 0,
+        "b": 4,
+        "text": "Was in hetzelfde gebied als Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich in het gebied Zonneweide.",
+        "cells": [
+          0,
+          1,
+          2,
+          6,
+          7,
+          12,
+          13,
+          18
+        ]
+      },
+      {
+        "type": "above",
+        "a": 2,
+        "b": 3,
+        "text": "Stond hoger op de kaart dan Tammo."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond in de eerste of laatste kolom.",
+        "cells": [
+          0,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond niet naast een boom.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          27,
+          28,
+          30,
+          32,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond in de eerste of laatste kolom.",
+        "cells": [
+          0,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          35
+        ]
+      },
+      {
+        "type": "different",
+        "a": 2,
+        "b": 5,
+        "text": "Was in een ander gebied dan Fokko."
+      }
+    ]
+  },
+  {
+    "id": "stad-thema-v1-10",
+    "number": 10,
+    "clueVersion": 1,
+    "theme": "Uitgaan in Stad",
+    "title": "De laatste ronde",
+    "story": "Een volledig verzonnen nachtelijk mysterie tussen de Groningse kroegen. Fokko zou bij de anderen aansluiten, maar zijn stoel blijft leeg.",
+    "lesson": "Na sluitingstijd",
+    "level": "Pittig",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      2,
+      1,
+      1,
+      3,
+      0,
+      2,
+      2,
+      2,
+      1,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      1
+    ],
+    "areas": [
+      "De Negende Cirkel",
+      "Het Pakhuis",
+      "De Drie Gezusters",
+      "Huize Maas"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bertus",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Tammo",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Geeske",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 30,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 17,
+        "type": "bar",
+        "name": "de bar"
+      },
+      {
+        "cell": 18,
+        "type": "stage",
+        "name": "het podium"
+      },
+      {
+        "cell": 4,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 3,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 11,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 27,
+        "type": "bar",
+        "name": "de bar"
+      },
+      {
+        "cell": 9,
+        "type": "stage",
+        "name": "het podium"
+      }
+    ],
+    "victim": 5,
+    "givens": {},
+    "clues": [
+      {
+        "type": "above",
+        "a": 0,
+        "b": 3,
+        "text": "Stond hoger op de kaart dan Tammo."
+      },
+      {
+        "type": "different",
+        "a": 0,
+        "b": 2,
+        "text": "Was in een ander gebied dan Cora."
+      },
+      {
+        "type": "left",
+        "a": 5,
+        "b": 0,
+        "text": "Stond links van Arend."
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond niet naast het podium.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          23,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich in het gebied De Negende Cirkel.",
+        "cells": [
+          0,
+          1,
+          6,
+          7,
+          8,
+          13
+        ]
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Geeske."
+      },
+      {
+        "type": "different",
+        "a": 0,
+        "b": 4,
+        "text": "Was in een ander gebied dan Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast de bar.",
+        "cells": [
+          11,
+          21,
+          23,
+          28
+        ]
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 1,
+        "text": "Stond links van Bertus."
+      },
+      {
+        "type": "left",
+        "a": 1,
+        "b": 4,
+        "text": "Stond links van Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond naast het podium.",
+        "cells": [
+          12,
+          15,
+          19,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-thema-v1-11",
+    "number": 11,
+    "clueVersion": 1,
+    "theme": "Festival in het groen",
+    "title": "Toen de lampjes doofden",
+    "story": "Het is festivalavond in het plantsoen. Als de laatste lampjes uitgaan, ontbreekt Fokko. De getuigen wijzen naar verschillende plekken op het terrein.",
+    "lesson": "Achter de festivallichten",
+    "level": "Uitdagend",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      2,
+      1,
+      0,
+      3,
+      2,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      2,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      1
+    ],
+    "areas": [
+      "Spiegeltent",
+      "Festivalweide",
+      "Foodtrucks",
+      "Waterkant"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bertus",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Tammo",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Geeske",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 21,
+        "type": "stage",
+        "name": "het podium"
+      },
+      {
+        "cell": 15,
+        "type": "parasol",
+        "name": "een parasol"
+      },
+      {
+        "cell": 34,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 0,
+        "type": "tree",
+        "name": "een boom"
+      },
+      {
+        "cell": 24,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 18,
+        "type": "stage",
+        "name": "het podium"
+      },
+      {
+        "cell": 28,
+        "type": "parasol",
+        "name": "een parasol"
+      },
+      {
+        "cell": 8,
+        "type": "lamp",
+        "name": "een lantaarn"
+      }
+    ],
+    "victim": 5,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de onderste rij.",
+        "cells": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 5,
+        "text": "Stond links van Fokko."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond niet naast de eierballenkraam.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          26,
+          27,
+          28,
+          29,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich in het gebied Waterkant.",
+        "cells": [
+          19,
+          24,
+          25,
+          26,
+          30,
+          31,
+          32,
+          33,
+          34
+        ]
+      },
+      {
+        "type": "different",
+        "a": 1,
+        "b": 3,
+        "text": "Was in een ander gebied dan Tammo."
+      },
+      {
+        "type": "left",
+        "a": 0,
+        "b": 4,
+        "text": "Stond links van Geeske."
+      },
+      {
+        "type": "above",
+        "a": 5,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Cora."
+      },
+      {
+        "type": "above",
+        "a": 2,
+        "b": 1,
+        "text": "Stond hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond in de bovenste rij.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 0,
+        "text": "Stond links van Arend."
+      },
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Bevond zich in het gebied Festivalweide.",
+        "cells": [
+          3,
+          4,
+          5,
+          10,
+          11,
+          17,
+          23,
+          28,
+          29,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-thema-v1-12",
+    "number": 12,
+    "clueVersion": 1,
+    "theme": "De kroegentocht",
+    "title": "Een alibi aan de bar",
+    "story": "Een fictieve kroegentocht door Stad: een vergeten sjaal, een laatste drankje en zes verklaringen. Waar was Fokko toen de groep uit elkaar ging?",
+    "lesson": "Het nachtelijke sluitstuk",
+    "level": "Uitdagend",
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      2,
+      1,
+      1,
+      3,
+      0,
+      2,
+      2,
+      1,
+      1,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      1
+    ],
+    "areas": [
+      "De Pintelier",
+      "Café De Toeter",
+      "Het Pakhuis",
+      "De Negende Cirkel"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bertus",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Tammo",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Geeske",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muzikant",
+        "color": "#8f5769"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 35,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 29,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 32,
+        "type": "stage",
+        "name": "het podium"
+      },
+      {
+        "cell": 19,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 17,
+        "type": "bar",
+        "name": "de bar"
+      },
+      {
+        "cell": 25,
+        "type": "lamp",
+        "name": "een lantaarn"
+      },
+      {
+        "cell": 18,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 9,
+        "type": "stage",
+        "name": "het podium"
+      }
+    ],
+    "victim": 5,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 5,
+        "text": "Stond niet naast het podium.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          27,
+          28,
+          29,
+          30,
+          32,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "left",
+        "a": 2,
+        "b": 0,
+        "text": "Stond links van Arend."
+      },
+      {
+        "type": "same",
+        "a": 1,
+        "b": 2,
+        "text": "Was in hetzelfde gebied als Cora."
+      },
+      {
+        "type": "left",
+        "a": 5,
+        "b": 4,
+        "text": "Stond links van Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond niet naast een fietsrek.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34
+        ]
+      },
+      {
+        "type": "left",
+        "a": 2,
+        "b": 4,
+        "text": "Stond links van Geeske."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond in de eerste of laatste kolom.",
+        "cells": [
+          0,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          35
+        ]
+      },
+      {
+        "type": "above",
+        "a": 5,
+        "b": 1,
+        "text": "Stond hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond niet naast de bar.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 3,
+        "text": "Stond links van Tammo."
+      },
+      {
+        "type": "above",
+        "a": 5,
         "b": 4,
         "text": "Stond hoger op de kaart dan Geeske."
       }

@@ -1,5 +1,23 @@
 import {portrait,objectArt,landmarkArt} from './art.js';
+// Place each name in a long contiguous strip of its own district. Keep object
+// and given cells free where possible; identical anchors are used on paper.
+export function areaLabels(p){
+ return p.areas.map((name,area)=>{
+  const runs=[];
+  for(let row=0;row<p.size;row++)for(let col=0;col<p.size;){
+   if(p.regions[row*p.size+col]!==area){col++;continue;}
+   const start=col;while(col<p.size&&p.regions[row*p.size+col]===area)col++;
+   const cells=Array.from({length:col-start},(_,i)=>row*p.size+start+i);
+   const blocked=cells.filter(c=>p.objects.some(o=>o.cell===c)||Object.values(p.givens||{}).includes(c)).length;
+   const boundary=cells.every(c=>row===p.size-1||p.regions[c+p.size]!==area);
+   runs.push({name,area,row,col:start,length:cells.length,cells,score:cells.length*12-blocked*7+(boundary?4:0)});
+  }
+  return runs.sort((a,b)=>b.score-a.score||a.row-b.row)[0];
+ });
+}
 export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},selected=-1){
+ const labels=mini?[]:areaLabels(p);
+ const band=new Set(labels.flatMap(label=>label.cells));
  return Array.from({length:p.size*p.size},(_,c)=>{
  const row=Math.floor(c/p.size),col=c%p.size,o=p.objects.find(o=>o.cell===c),who=Object.keys(positions).find(i=>positions[i]===c),area=p.regions[c];
  const walls=(col<p.size-1&&area!==p.regions[c+1]?' wall-right':'')+(row<p.size-1&&area!==p.regions[c+p.size]?' wall-bottom':'');
@@ -8,8 +26,8 @@ export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},select
  const noteLabel=candidates.length?', concept: '+candidates.map(i=>p.people[i].name).join(', '):'';
  const label=`Rij ${row+1}, kolom ${col+1}, ${p.areas[area]}${o?', '+o.name:who!=null?', '+p.people[who].name:crosses.includes(c)?', weggestreept':', leeg'}${noteLabel}`;
  const content=mini?(o?'<i class="obstacle-dot"></i>':''):(o?`<span class="object">${objectArt(o.type)}</span>`:who!=null?`<span class="person-token" style="background:${p.people[who].color}">${p.people[who].name[0]}</span><span class="token-name">${p.people[who].name}${given?' •':''}</span>`:crosses.includes(c)?'<span class="crossed">×</span>':'');
- return `<button type="button" class="cell area-${area}${walls}${given?' given':''}" data-cell="${c}" aria-label="${label}" ${o||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&!o&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
- }).join('');
+ return `<button type="button" class="cell area-${area}${walls}${given?' given':''}${band.has(c)?' name-band':''}" data-cell="${c}" aria-label="${label}" ${o||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&!o&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
+ }).join('')+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="left:${label.col/p.size*100}%;top:${(label.row+1)/p.size*100}%;width:${label.length/p.size*100}%">${label.name}</span>`).join('');
 }
 export function legendMarkup(p){return p.areas.map((name,i)=>`<span><i class="area-${i}"></i>${name}</span>`).join('');}
 export function portraitMarkup(i){return portrait(i);}
