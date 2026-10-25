@@ -12,6 +12,7 @@ export function matches(p, positions, clue, complete = false) {
   return true;
 }
 export function valid(p, positions, complete = false) {
+ if (Object.entries(p.givens || {}).some(([i,c]) => positions[i] != null && positions[i] !== c)) return false;
  const values = Object.values(positions);
  if (values.some(x => !Number.isInteger(x) || x < 0 || x >= p.size*p.size || p.objects.some(o=>o.cell===x))) return false;
  if(new Set(values.map(x=>Math.floor(x/p.size))).size!==values.length || new Set(values.map(x=>x%p.size)).size!==values.length) return false;
@@ -22,7 +23,7 @@ export function valid(p, positions, complete = false) {
 }
 export function solve(p, initial={}, limit=2) {
  if(!valid(p,initial))return [];
- const results=[], positions={...initial};
+ const results=[], positions={...p.givens,...initial};
  const domains=p.people.map((_,i)=>Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>!p.objects.some(o=>o.cell===c)&&p.clues.filter(q=>q.type==='unary'&&q.a===i).every(q=>q.cells.includes(c))));
  function visit(){
   if(results.length>=limit)return;

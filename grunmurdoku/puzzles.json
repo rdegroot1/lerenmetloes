@@ -1,45 +1,258 @@
 [
   {
-    "id": "zaak-1",
+    "id": "stad-v2-1",
     "number": 1,
-    "title": "De laatste ronde",
-    "story": "Na het sluiten van de terrassen wordt een muzikant dood aangetroffen. Zes getuigen, vier plekken en één verhaal dat niet klopt.",
-    "size": 6,
+    "title": "Bij d’Olle Grieze",
+    "story": "Na de bloemenmarkt wordt Jurre gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?",
+    "lesson": "Je eerste zaak",
+    "level": "Heel makkelijk",
+    "size": 4,
+    "regions": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 7,
+        "type": "tower",
+        "name": "de Martinitoren"
+      },
+      {
+        "cell": 0,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 15,
+        "type": "loeks",
+        "name": "het Peerd van ome Loeks"
+      },
+      {
+        "cell": 1,
+        "type": "flag",
+        "name": "de Groningse vlag"
+      }
+    ],
+    "victim": 3,
+    "givens": {
+      "0": 3,
+      "1": 6
+    },
+    "clues": [
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond in een hoek van de kaart.",
+        "cells": [
+          0,
+          3,
+          12,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-v2-2",
+    "number": 2,
+    "title": "Een eierbal te veel",
+    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Jurre komt niet thuis. Wie was er nog bij hem?",
+    "lesson": "Zelf op onderzoek",
+    "level": "Makkelijk",
+    "size": 4,
+    "regions": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 5,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 15,
+        "type": "loeks",
+        "name": "het Peerd van ome Loeks"
+      },
+      {
+        "cell": 10,
+        "type": "flag",
+        "name": "de Groningse vlag"
+      },
+      {
+        "cell": 3,
+        "type": "tree",
+        "name": "een boom"
+      }
+    ],
+    "victim": 3,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de bovenste rij.",
+        "cells": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond naast een boom.",
+        "cells": [
+          2,
+          7
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond in de eerste of laatste kolom.",
+        "cells": [
+          0,
+          3,
+          4,
+          7,
+          8,
+          11,
+          12,
+          15
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond in de onderste rij.",
+        "cells": [
+          12,
+          13,
+          14,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stad-v2-3",
+    "number": 3,
+    "title": "Stilte in het plantsoen",
+    "story": "Sanne wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
+    "lesson": "Goed kijken",
+    "level": "Rustig puzzelen",
+    "size": 5,
     "regions": [
       0,
       0,
       0,
       1,
       1,
+      0,
+      0,
+      0,
+      1,
       1,
       0,
       0,
       0,
       1,
       1,
-      1,
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
       2,
       2,
       2,
       3,
       3,
-      3,
       2,
       2,
       2,
-      3,
-      3,
-      3,
-      2,
-      2,
-      2,
-      3,
       3,
       3
     ],
@@ -74,577 +287,44 @@
         "name": "Sanne",
         "role": "de stadsgids",
         "color": "#3e7050"
-      },
-      {
-        "name": "Mees",
-        "role": "de muzikant",
-        "color": "#8f5769"
       }
     ],
     "objects": [
       {
-        "cell": 35,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 16,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
+        "cell": 0,
+        "type": "loeks",
+        "name": "het Peerd van ome Loeks"
       },
       {
         "cell": 10,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
+        "type": "flag",
+        "name": "de Groningse vlag"
       },
       {
-        "cell": 8,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
-      },
-      {
-        "cell": 17,
+        "cell": 15,
         "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 0,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
+        "name": "een boom"
       },
       {
         "cell": 7,
         "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
-      },
-      {
-        "cell": 23,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
-      }
-    ],
-    "victim": 5,
-    "clues": [
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Bevond zich op Noorderplantsoen.",
-        "cells": [
-          18,
-          19,
-          20,
-          24,
-          25,
-          26,
-          30,
-          31,
-          32
-        ]
-      },
-      {
-        "type": "unary",
-        "a": 2,
-        "text": "Stond aan de buitenrand van de kaart.",
-        "cells": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          11,
-          12,
-          17,
-          18,
-          23,
-          24,
-          29,
-          30,
-          31,
-          32,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "different",
-        "a": 0,
-        "b": 2,
-        "text": "Bevond zich in een ander gebied dan Fenna."
-      },
-      {
-        "type": "above",
-        "a": 3,
-        "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
-      },
-      {
-        "type": "left",
-        "a": 2,
-        "b": 3,
-        "text": "Stond links van Jurre."
-      },
-      {
-        "type": "above",
-        "a": 0,
-        "b": 1,
-        "text": "Stond hoger op de kaart dan Bram."
-      },
-      {
-        "type": "unary",
-        "a": 3,
-        "text": "Stond naast een bankje.",
-        "cells": [
-          2,
-          7,
-          14,
-          22,
-          29
-        ]
-      },
-      {
-        "type": "left",
-        "a": 5,
-        "b": 4,
-        "text": "Stond links van Sanne."
-      },
-      {
-        "type": "unary",
-        "a": 5,
-        "text": "Stond aan de buitenrand van de kaart.",
-        "cells": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          11,
-          12,
-          17,
-          18,
-          23,
-          24,
-          29,
-          30,
-          31,
-          32,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "unary",
-        "a": 1,
-        "text": "Stond aan de buitenrand van de kaart.",
-        "cells": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          11,
-          12,
-          17,
-          18,
-          23,
-          24,
-          29,
-          30,
-          31,
-          32,
-          33,
-          34,
-          35
-        ]
-      }
-    ]
-  },
-  {
-    "id": "zaak-2",
-    "number": 2,
-    "title": "Mist boven de markt",
-    "story": "Een ochtend vol marktkramen en koffie. Maar tussen de leveringen door is iemand verdwenen.",
-    "size": 6,
-    "regions": [
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3
-    ],
-    "areas": [
-      "Grote Markt",
-      "Vismarkt",
-      "Noorderplantsoen",
-      "Hoge der A"
-    ],
-    "people": [
-      {
-        "name": "Lieke",
-        "role": "de barista",
-        "color": "#b44d39"
-      },
-      {
-        "name": "Bram",
-        "role": "de fietsenmaker",
-        "color": "#437c78"
-      },
-      {
-        "name": "Fenna",
-        "role": "de student",
-        "color": "#89703e"
-      },
-      {
-        "name": "Jurre",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Sanne",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Mees",
-        "role": "de muzikant",
-        "color": "#8f5769"
-      }
-    ],
-    "objects": [
-      {
-        "cell": 26,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 27,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
-        "cell": 17,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
-      },
-      {
-        "cell": 12,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
-      },
-      {
-        "cell": 5,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 24,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
-        "cell": 35,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
-      },
-      {
-        "cell": 2,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
-      }
-    ],
-    "victim": 5,
-    "clues": [
-      {
-        "type": "above",
-        "a": 1,
-        "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
-      },
-      {
-        "type": "left",
-        "a": 0,
-        "b": 2,
-        "text": "Stond links van Fenna."
-      },
-      {
-        "type": "above",
-        "a": 0,
-        "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
-      },
-      {
-        "type": "unary",
-        "a": 1,
-        "text": "Bevond zich op Grote Markt.",
-        "cells": [
-          0,
-          1,
-          2,
-          6,
-          7,
-          8,
-          12,
-          13,
-          14
-        ]
-      },
-      {
-        "type": "different",
-        "a": 0,
-        "b": 1,
-        "text": "Bevond zich in een ander gebied dan Bram."
-      },
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Bevond zich in de onderste helft van de kaart.",
-        "cells": [
-          18,
-          19,
-          20,
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29,
-          30,
-          31,
-          32,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Stond naast een fietsrek.",
-        "cells": [
-          11,
-          16,
-          29,
-          34
-        ]
-      },
-      {
-        "type": "unary",
-        "a": 5,
-        "text": "Stond naast een marktkraam.",
-        "cells": [
-          18,
-          21,
-          25,
-          28,
-          30,
-          33
-        ]
-      },
-      {
-        "type": "above",
-        "a": 4,
-        "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
-      },
-      {
-        "type": "left",
-        "a": 3,
-        "b": 1,
-        "text": "Stond links van Bram."
-      }
-    ]
-  },
-  {
-    "id": "zaak-3",
-    "number": 3,
-    "title": "Een stille zondag",
-    "story": "De stad komt langzaam op gang. In het plantsoen blijkt de rust bedrieglijk.",
-    "size": 6,
-    "regions": [
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
-      0,
-      0,
-      0,
-      1,
-      1,
-      1,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3,
-      2,
-      2,
-      2,
-      3,
-      3,
-      3
-    ],
-    "areas": [
-      "Grote Markt",
-      "Vismarkt",
-      "Noorderplantsoen",
-      "Hoge der A"
-    ],
-    "people": [
-      {
-        "name": "Lieke",
-        "role": "de barista",
-        "color": "#b44d39"
-      },
-      {
-        "name": "Bram",
-        "role": "de fietsenmaker",
-        "color": "#437c78"
-      },
-      {
-        "name": "Fenna",
-        "role": "de student",
-        "color": "#89703e"
-      },
-      {
-        "name": "Jurre",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Sanne",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Mees",
-        "role": "de muzikant",
-        "color": "#8f5769"
-      }
-    ],
-    "objects": [
-      {
-        "cell": 12,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 20,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
-        "cell": 23,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
-      },
-      {
-        "cell": 27,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
-      },
-      {
-        "cell": 22,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 32,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
-        "cell": 30,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
+        "name": "een fietsrek"
       },
       {
         "cell": 8,
         "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
+        "name": "een bankje"
       }
     ],
-    "victim": 5,
+    "victim": 4,
+    "givens": {},
     "clues": [
+      {
+        "type": "above",
+        "a": 0,
+        "b": 2,
+        "text": "Stond hoger op de kaart dan Fenna."
+      },
       {
         "type": "above",
         "a": 1,
@@ -652,53 +332,41 @@
         "text": "Stond hoger op de kaart dan Fenna."
       },
       {
-        "type": "left",
-        "a": 5,
-        "b": 0,
-        "text": "Stond links van Lieke."
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich in het gebied Hoge der A.",
+        "cells": [
+          18,
+          19,
+          23,
+          24
+        ]
       },
       {
-        "type": "above",
+        "type": "unary",
         "a": 0,
-        "b": 1,
-        "text": "Stond hoger op de kaart dan Bram."
+        "text": "Stond naast een fietsrek.",
+        "cells": [
+          2,
+          6,
+          12
+        ]
       },
       {
         "type": "unary",
         "a": 3,
-        "text": "Bevond zich op Hoge der A.",
-        "cells": [
-          21,
-          22,
-          23,
-          27,
-          28,
-          29,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "above",
-        "a": 4,
-        "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
-      },
-      {
-        "type": "unary",
-        "a": 2,
-        "text": "Bevond zich op Grote Markt.",
+        "text": "Stond in de eerste of laatste kolom.",
         "cells": [
           0,
-          1,
-          2,
-          6,
-          7,
-          8,
-          12,
-          13,
-          14
+          4,
+          5,
+          9,
+          10,
+          14,
+          15,
+          19,
+          20,
+          24
         ]
       },
       {
@@ -706,20 +374,186 @@
         "a": 3,
         "b": 4,
         "text": "Stond hoger op de kaart dan Sanne."
-      },
-      {
-        "type": "left",
-        "a": 0,
-        "b": 1,
-        "text": "Stond links van Bram."
       }
     ]
   },
   {
-    "id": "zaak-4",
+    "id": "stad-v2-4",
     "number": 4,
-    "title": "Het verdwenen optreden",
-    "story": "De soundcheck is klaar, de artiest komt nooit opdagen. Wat gebeurde er op weg naar het podium?",
+    "title": "Het geheim van ome Loeks",
+    "story": "Bij het Peerd van ome Loeks wachtte Sanne op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
+    "lesson": "Verbanden leggen",
+    "level": "Gemiddeld",
+    "size": 5,
+    "regions": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "areas": [
+      "Grote Markt",
+      "Vismarkt",
+      "Noorderplantsoen",
+      "Hoge der A"
+    ],
+    "people": [
+      {
+        "name": "Lieke",
+        "role": "de barista",
+        "color": "#b44d39"
+      },
+      {
+        "name": "Bram",
+        "role": "de fietsenmaker",
+        "color": "#437c78"
+      },
+      {
+        "name": "Fenna",
+        "role": "de student",
+        "color": "#89703e"
+      },
+      {
+        "name": "Jurre",
+        "role": "de marktkoopman",
+        "color": "#6b6085"
+      },
+      {
+        "name": "Sanne",
+        "role": "de stadsgids",
+        "color": "#3e7050"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 21,
+        "type": "flag",
+        "name": "de Groningse vlag"
+      },
+      {
+        "cell": 12,
+        "type": "tree",
+        "name": "een boom"
+      },
+      {
+        "cell": 9,
+        "type": "bike",
+        "name": "een fietsrek"
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "een bankje"
+      },
+      {
+        "cell": 15,
+        "type": "stall",
+        "name": "een viskraam"
+      },
+      {
+        "cell": 11,
+        "type": "tower",
+        "name": "de Martinitoren"
+      }
+    ],
+    "victim": 4,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in een hoek van de kaart.",
+        "cells": [
+          0,
+          4,
+          20,
+          24
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Bevond zich in het gebied Noorderplantsoen.",
+        "cells": [
+          15,
+          16,
+          17,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond niet naast een fietsrek.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ]
+      },
+      {
+        "type": "left",
+        "a": 1,
+        "b": 4,
+        "text": "Stond links van Sanne."
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 4,
+        "text": "Stond hoger op de kaart dan Sanne."
+      }
+    ]
+  },
+  {
+    "id": "stad-v2-5",
+    "number": 5,
+    "title": "Schaduwen aan de A",
+    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Mees zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
+    "lesson": "Een stap verder",
+    "level": "Pittig",
     "size": 6,
     "regions": [
       0,
@@ -799,131 +633,65 @@
     ],
     "objects": [
       {
-        "cell": 11,
+        "cell": 28,
         "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
+        "name": "een boom"
       },
       {
-        "cell": 10,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
-        "cell": 23,
+        "cell": 13,
         "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
+        "name": "een fietsrek"
       },
       {
-        "cell": 34,
+        "cell": 18,
         "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
+        "name": "een bankje"
+      },
+      {
+        "cell": 11,
+        "type": "stall",
+        "name": "een viskraam"
+      },
+      {
+        "cell": 0,
+        "type": "tower",
+        "name": "de Martinitoren"
+      },
+      {
+        "cell": 15,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
       },
       {
         "cell": 9,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
+        "type": "loeks",
+        "name": "het Peerd van ome Loeks"
       },
       {
-        "cell": 30,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
-        "cell": 22,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
-      },
-      {
-        "cell": 33,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
+        "cell": 14,
+        "type": "flag",
+        "name": "de Groningse vlag"
       }
     ],
     "victim": 5,
+    "givens": {},
     "clues": [
+      {
+        "type": "different",
+        "a": 2,
+        "b": 5,
+        "text": "Was in een ander gebied dan Mees."
+      },
       {
         "type": "above",
         "a": 3,
-        "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "b": 5,
+        "text": "Stond hoger op de kaart dan Mees."
       },
       {
         "type": "unary",
         "a": 5,
-        "text": "Bevond zich in de rechterhelft van de kaart.",
-        "cells": [
-          3,
-          4,
-          5,
-          9,
-          10,
-          11,
-          15,
-          16,
-          17,
-          21,
-          22,
-          23,
-          27,
-          28,
-          29,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "above",
-        "a": 2,
-        "b": 3,
-        "text": "Stond hoger op de kaart dan Jurre."
-      },
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Bevond zich op Hoge der A.",
-        "cells": [
-          21,
-          22,
-          23,
-          27,
-          28,
-          29,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "above",
-        "a": 1,
-        "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
-      },
-      {
-        "type": "above",
-        "a": 0,
-        "b": 1,
-        "text": "Stond hoger op de kaart dan Bram."
-      },
-      {
-        "type": "left",
-        "a": 4,
-        "b": 0,
-        "text": "Stond links van Lieke."
-      },
-      {
-        "type": "unary",
-        "a": 2,
-        "text": "Stond aan de buitenrand van de kaart.",
+        "text": "Stond niet naast een boom.",
         "cells": [
           0,
           1,
@@ -932,12 +700,78 @@
           4,
           5,
           6,
+          7,
+          8,
+          9,
+          10,
           11,
           12,
+          13,
+          14,
+          15,
+          16,
           17,
           18,
+          19,
+          20,
+          21,
           23,
           24,
+          25,
+          26,
+          28,
+          30,
+          31,
+          32,
+          33,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de bovenste rij.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond niet naast een bankje.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          23,
+          25,
+          26,
+          27,
+          28,
           29,
           30,
           31,
@@ -948,18 +782,88 @@
         ]
       },
       {
-        "type": "left",
+        "type": "unary",
+        "a": 4,
+        "text": "Stond niet naast een boom.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          23,
+          24,
+          25,
+          26,
+          28,
+          30,
+          31,
+          32,
+          33,
+          35
+        ]
+      },
+      {
+        "type": "unary",
         "a": 1,
-        "b": 3,
-        "text": "Stond links van Jurre."
+        "text": "Stond naast een fietsrek.",
+        "cells": [
+          7,
+          12,
+          14
+        ]
+      },
+      {
+        "type": "same",
+        "a": 0,
+        "b": 1,
+        "text": "Was in hetzelfde gebied als Bram."
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond in de eerste of laatste kolom.",
+        "cells": [
+          0,
+          5,
+          6,
+          11,
+          12,
+          17,
+          18,
+          23,
+          24,
+          29,
+          30,
+          35
+        ]
       }
     ]
   },
   {
-    "id": "zaak-5",
-    "number": 5,
-    "title": "Nacht in Stad",
-    "story": "De laatste fietsers rijden naar huis. Eén van de zes heeft meer te verbergen dan een gestolen fiets.",
+    "id": "stad-v2-6",
+    "number": 6,
+    "title": "De nacht van de Grunneger vlag",
+    "story": "Tijdens een stadsfeest verdwijnt Mees uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
+    "lesson": "Stadse speurneus",
+    "level": "Uitdagend",
     "size": 6,
     "regions": [
       0,
@@ -1039,90 +943,54 @@
     ],
     "objects": [
       {
-        "cell": 33,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
-      },
-      {
-        "cell": 27,
-        "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
-      },
-      {
         "cell": 34,
         "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
-      },
-      {
-        "cell": 11,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
+        "name": "een fietsrek"
       },
       {
         "cell": 1,
-        "type": "tree",
-        "name": "boom",
-        "icon": "🌳"
+        "type": "bench",
+        "name": "een bankje"
       },
       {
-        "cell": 4,
+        "cell": 11,
         "type": "stall",
-        "name": "marktkraam",
-        "icon": "🍎"
+        "name": "een viskraam"
       },
       {
-        "cell": 23,
-        "type": "bike",
-        "name": "fietsrek",
-        "icon": "🚲"
+        "cell": 28,
+        "type": "tower",
+        "name": "de Martinitoren"
+      },
+      {
+        "cell": 7,
+        "type": "eierbal",
+        "name": "de eierballenkraam"
+      },
+      {
+        "cell": 25,
+        "type": "loeks",
+        "name": "het Peerd van ome Loeks"
       },
       {
         "cell": 10,
-        "type": "bench",
-        "name": "bankje",
-        "icon": "🪑"
+        "type": "flag",
+        "name": "de Groningse vlag"
+      },
+      {
+        "cell": 21,
+        "type": "tree",
+        "name": "een boom"
+      },
+      {
+        "cell": 35,
+        "type": "bike",
+        "name": "een fietsrek"
       }
     ],
     "victim": 5,
+    "givens": {},
     "clues": [
-      {
-        "type": "left",
-        "a": 1,
-        "b": 0,
-        "text": "Stond links van Lieke."
-      },
-      {
-        "type": "unary",
-        "a": 3,
-        "text": "Bevond zich op Hoge der A.",
-        "cells": [
-          21,
-          22,
-          23,
-          27,
-          28,
-          29,
-          33,
-          34,
-          35
-        ]
-      },
-      {
-        "type": "left",
-        "a": 4,
-        "b": 1,
-        "text": "Stond links van Bram."
-      },
-      {
-        "type": "left",
-        "a": 5,
-        "b": 2,
-        "text": "Stond links van Fenna."
-      },
       {
         "type": "above",
         "a": 0,
@@ -1130,45 +998,82 @@
         "text": "Stond hoger op de kaart dan Fenna."
       },
       {
-        "type": "left",
-        "a": 2,
-        "b": 4,
-        "text": "Stond links van Sanne."
-      },
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Stond niet aan de buitenrand van de kaart.",
-        "cells": [
-          7,
-          8,
-          9,
-          10,
-          13,
-          14,
-          15,
-          16,
-          19,
-          20,
-          21,
-          22,
-          25,
-          26,
-          27,
-          28
-        ]
-      },
-      {
-        "type": "above",
-        "a": 1,
+        "type": "same",
+        "a": 0,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Was in hetzelfde gebied als Fenna."
       },
       {
         "type": "above",
         "a": 3,
         "b": 4,
         "text": "Stond hoger op de kaart dan Sanne."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast een boom.",
+        "cells": [
+          22,
+          27
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond niet naast een viskraam.",
+        "cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond naast het Peerd van ome Loeks.",
+        "cells": [
+          19,
+          24,
+          26,
+          31
+        ]
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 5,
+        "text": "Stond links van Mees."
       }
     ]
   }

@@ -1,45 +1,54 @@
 import {solve} from './engine.js';
 import {writeFileSync} from 'node:fs';
-let state=76123;const rand=()=>((state=(Math.imul(state,1664525)+1013904223)>>>0)/2**32);
+let seed=18742;const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/2**32);
 const shuffle=a=>a.map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
-const names=['Lieke','Bram','Fenna','Jurre','Sanne','Mees'];
-const roles=['de barista','de fietsenmaker','de student','de marktkoopman','de stadsgids','de muzikant'];
-const stories=[['De laatste ronde','Na het sluiten van de terrassen wordt een muzikant dood aangetroffen. Zes getuigen, vier plekken en één verhaal dat niet klopt.'],['Mist boven de markt','Een ochtend vol marktkramen en koffie. Maar tussen de leveringen door is iemand verdwenen.'],['Een stille zondag','De stad komt langzaam op gang. In het plantsoen blijkt de rust bedrieglijk.'],['Het verdwenen optreden','De soundcheck is klaar, de artiest komt nooit opdagen. Wat gebeurde er op weg naar het podium?'],['Nacht in Stad','De laatste fietsers rijden naar huis. Eén van de zes heeft meer te verbergen dan een gestolen fiets.']];
+const names=['Lieke','Bram','Fenna','Jurre','Sanne','Mees'],roles=['de barista','de fietsenmaker','de student','de marktkoopman','de stadsgids','de muzikant'];
+const specs=[
+ [4,'Je eerste zaak','Heel makkelijk','Bij d’Olle Grieze','Na de bloemenmarkt wordt Jurre gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?',2],
+ [4,'Zelf op onderzoek','Makkelijk','Een eierbal te veel','Een laatste rondje langs de kraampjes op de Vismarkt. Jurre komt niet thuis. Wie was er nog bij hem?',0],
+ [5,'Goed kijken','Rustig puzzelen','Stilte in het plantsoen','Sanne wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.',0],
+ [5,'Verbanden leggen','Gemiddeld','Het geheim van ome Loeks','Bij het Peerd van ome Loeks wachtte Sanne op een oude bekende. Het afgesproken gesprek nam een duistere wending.',0],
+ [6,'Een stap verder','Pittig','Schaduwen aan de A','De pakhuizen aan de Hoge der A spiegelen in het water. Mees zou hier optreden, maar wordt vlak voor het concert dood gevonden.',0],
+ [6,'Stadse speurneus','Uitdagend','De nacht van de Grunneger vlag','Tijdens een stadsfeest verdwijnt Mees uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.',0]
+];
+const types=[['tower','de Martinitoren'],['eierbal','de eierballenkraam'],['loeks','het Peerd van ome Loeks'],['flag','de Groningse vlag'],['tree','een boom'],['bike','een fietsrek'],['bench','een bankje'],['stall','een viskraam']];
 const cases=[];
-for(let k=0;k<stories.length;k++){
- const size=6, regions=Array.from({length:36},(_,c)=>Math.floor(c/6)<3?(c%6<3?0:1):(c%6<3?2:3));
- let target;
- do{target=Object.fromEntries(shuffle([0,1,2,3,4,5]).map((c,r)=>[r,r*6+c]));}while(Object.values(target).filter(c=>regions[c]===regions[target[5]]).length!==2);
- const occupied=Object.values(target);
- const objectCells=shuffle(Array.from({length:36},(_,i)=>i).filter(c=>!occupied.includes(c))).slice(0,8);
- const types=[['tree','boom','🌳'],['stall','marktkraam','🍎'],['bike','fietsrek','🚲'],['bench','bankje','🪑']];
- const objects=objectCells.map((cell,i)=>({cell,type:types[i%4][0],name:types[i%4][1],icon:types[i%4][2]}));
- const p={id:`zaak-${k+1}`,number:k+1,title:stories[k][0],story:stories[k][1],size,regions,areas:['Grote Markt','Vismarkt','Noorderplantsoen','Hoge der A'],people:names.map((name,i)=>({name,role:roles[i],color:['#b44d39','#437c78','#89703e','#6b6085','#3e7050','#8f5769'][i]})),objects,victim:5,clues:[]};
- const cells=Array.from({length:36},(_,i)=>i),pool=[];
- const unary=(a,text,pred)=>{const allowed=cells.filter(pred);if(allowed.includes(target[a])&&allowed.length<30&&allowed.length>0)pool.push({type:'unary',a,text,cells:allowed});};
- for(let a=0;a<6;a++){
-  unary(a,`Bevond zich op ${p.areas[regions[target[a]]]}.`,c=>regions[c]===regions[target[a]]);
-  unary(a,'Stond aan de buitenrand van de kaart.',c=>Math.floor(c/6)===0||Math.floor(c/6)===5||c%6===0||c%6===5);
-  unary(a,'Stond niet aan de buitenrand van de kaart.',c=>Math.floor(c/6)>0&&Math.floor(c/6)<5&&c%6>0&&c%6<5);
-  unary(a,'Bevond zich in de bovenste helft van de kaart.',c=>c<18);
-  unary(a,'Bevond zich in de onderste helft van de kaart.',c=>c>=18);
-  unary(a,'Bevond zich in de linkerhelft van de kaart.',c=>c%6<3);
-  unary(a,'Bevond zich in de rechterhelft van de kaart.',c=>c%6>=3);
+for(let k=0;k<specs.length;k++){
+ const [size,lesson,level,title,story,givenCount]=specs[k],total=size*size,split=Math.ceil(size/2);
+ const areas=['Grote Markt','Vismarkt','Noorderplantsoen','Hoge der A'];
+ const regions=Array.from({length:total},(_,c)=>Math.floor(c/size)<split?(c%size<split?0:1):(c%size<split?2:3));
+ let target;do{target=Object.fromEntries(shuffle(Array.from({length:size},(_,i)=>i)).map((c,r)=>[r,r*size+c]));}while(Object.values(target).filter(c=>regions[c]===regions[target[size-1]]).length!==2);
+ const objectCells=shuffle(Array.from({length:total},(_,i)=>i).filter(c=>!Object.values(target).includes(c))).slice(0,[4,4,5,6,8,9][k]);
+ const objects=objectCells.map((cell,i)=>({cell,type:types[(i+k)%types.length][0],name:types[(i+k)%types.length][1]}));
+ const givens=Object.fromEntries(Object.entries(target).slice(0,givenCount));
+ const p={id:`stad-v2-${k+1}`,number:k+1,title,story,lesson,level,size,regions,areas,people:names.slice(0,size).map((name,i)=>({name,role:roles[i],color:['#b44d39','#437c78','#89703e','#6b6085','#3e7050','#8f5769'][i]})),objects,victim:size-1,givens,clues:[]};
+ const cells=Array.from({length:total},(_,i)=>i),pool=[];
+ const unary=(a,text,pred)=>{const allowed=cells.filter(pred);if(allowed.includes(target[a])&&allowed.length<total&&allowed.length)pool.push({type:'unary',a,text,cells:allowed});};
+ for(let a=0;a<size;a++){
+  if(a in givens)continue;
+  unary(a,`Bevond zich in het gebied ${areas[regions[target[a]]]}.`,c=>regions[c]===regions[target[a]]);
+  unary(a,'Stond in een hoek van de kaart.',c=>[0,size-1].includes(Math.floor(c/size))&&[0,size-1].includes(c%size));
+  unary(a,'Stond in de bovenste rij.',c=>c<size);
+  unary(a,'Stond in de onderste rij.',c=>c>=total-size);
+  unary(a,'Stond in de eerste of laatste kolom.',c=>[0,size-1].includes(c%size));
   for(const [type,name]of types){
-   const near=c=>objects.some(o=>o.type===type&&regions[c]===regions[o.cell]&&Math.abs(Math.floor(c/6)-Math.floor(o.cell/6))+Math.abs(c%6-o.cell%6)===1);
-   unary(a,`Stond naast een ${name}.`,near);
-   unary(a,`Stond niet naast een ${name}.`,c=>!near(c));
+   const near=c=>objects.some(o=>o.type===type&&regions[c]===regions[o.cell]&&Math.abs(Math.floor(c/size)-Math.floor(o.cell/size))+Math.abs(c%size-o.cell%size)===1);
+   unary(a,`Stond naast ${name}.`,near);
+   if(k>=3)unary(a,`Stond niet naast ${name}.`,c=>!near(c));
   }
-  for(let b=a+1;b<6;b++){
-   const above=Math.floor(target[a]/6)<Math.floor(target[b]/6);pool.push({type:'above',a:above?a:b,b:above?b:a,text:`Stond hoger op de kaart dan ${names[above?b:a]}.`});
-   const left=target[a]%6<target[b]%6;pool.push({type:'left',a:left?a:b,b:left?b:a,text:`Stond links van ${names[left?b:a]}.`});
-   const same=regions[target[a]]===regions[target[b]];pool.push({type:same?'same':'different',a,b,text:`Bevond zich ${same?'in hetzelfde gebied als':'in een ander gebied dan'} ${names[b]}.`});
+  if(k>=2)for(let b=a+1;b<size;b++){
+   const above=Math.floor(target[a]/size)<Math.floor(target[b]/size);pool.push({type:'above',a:above?a:b,b:above?b:a,text:`Stond hoger op de kaart dan ${names[above?b:a]}.`});
+   if(k>=3){const left=target[a]%size<target[b]%size;pool.push({type:'left',a:left?a:b,b:left?b:a,text:`Stond links van ${names[left?b:a]}.`});}
+   if(k>=4){const same=regions[target[a]]===regions[target[b]];pool.push({type:same?'same':'different',a,b,text:`Was ${same?'in hetzelfde gebied als':'in een ander gebied dan'} ${names[b]}.`});}
   }
  }
- for(const clue of shuffle(pool)){if(solve(p,{},2).length===1)break;p.clues.push(clue);}
- if(solve(p,{},2).length!==1)throw Error('Geen unieke puzzel');
- // Remove redundant statements while preserving the single solution.
- for(let i=p.clues.length-1;i>=0;i--){const [clue]=p.clues.splice(i,1);if(solve(p,{},2).length!==1)p.clues.splice(i,0,clue);}
- cases.push(p);console.log(p.id,p.clues.length,'aanwijzingen');
+ // Readable row clues are a fallback for the introductory, unary-only puzzles.
+ const ordered=shuffle(pool);
+ for(let a=0;a<size;a++)if(!(a in givens))ordered.push({type:'unary',a,text:`Bevond zich in rij ${Math.floor(target[a]/size)+1}.`,cells:cells.filter(c=>Math.floor(c/size)===Math.floor(target[a]/size))});
+ for(let a=0;a<size;a++)if(!(a in givens))ordered.push({type:'unary',a,text:`Bevond zich in kolom ${target[a]%size+1}.`,cells:cells.filter(c=>c%size===target[a]%size)});
+ for(const clue of ordered){if(solve(p,givens,2).length===1)break;p.clues.push(clue);}
+ for(let i=p.clues.length-1;i>=0;i--){const [clue]=p.clues.splice(i,1);if(solve(p,givens,2).length!==1)p.clues.splice(i,0,clue);}
+ if(solve(p,givens,2).length!==1)throw Error('Niet uniek');
+ cases.push(p);console.log(p.number,size,level,p.clues.length,'clues',p.clues.filter(c=>c.type!=='unary').length,'relations');
 }
 writeFileSync(new URL('./puzzles.json',import.meta.url),JSON.stringify(cases,null,2)+'\n');
