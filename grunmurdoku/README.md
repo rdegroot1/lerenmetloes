@@ -6,7 +6,7 @@ Een zelfstandige Nederlandstalige detectivepuzzel in Groningen. Zes nieuwe zaken
 
 Plaats alle zes personen in verschillende rijen en kolommen. Voorwerpen blokkeren hun vakje. Elke aanwijzing moet kloppen. Het slachtoffer was met precies één andere persoon in hetzelfde gebied: de dader.
 
-Selecteer een persoon. De eerste klik op een vrij vakje zet een klein conceptinitial in het hoekje. De tweede klik op dat vakje met dezelfde persoon geselecteerd maakt de plaatsing definitief. Meerdere concepten per vakje en per persoon zijn mogelijk. Alleen definitieve plaatsingen tellen mee voor de rij-, kolom- en gebiedsregels. Definitief plaatsen verwijdert de overige concepten van die persoon en alle concepten in het gekozen vakje. Wissel tussen plaatsen, wegstrepen en wissen. Een bezette cel selecteert de betreffende persoon om die te verplaatsen. Aanwijzingen kun je afvinken. Hints plaatsen één persoon; Terug draait wijzigingen terug. Voortgang blijft lokaal bewaard per zaak. Geen account, backend of API-sleutel nodig.
+Selecteer een persoon. De eerste klik op een vrij vakje zet een klein conceptinitial in het hoekje. De tweede klik op dat vakje met dezelfde persoon geselecteerd maakt de plaatsing definitief. Een derde klik verwijdert de persoon en maakt het vakje leeg; vaste startposities blijven staan. Meerdere concepten per vakje en per persoon zijn mogelijk. Alleen definitieve plaatsingen tellen mee voor de rij-, kolom- en gebiedsregels. Definitief plaatsen verwijdert de overige concepten van die persoon en alle concepten in het gekozen vakje. Wissel tussen plaatsen, wegstrepen en wissen. Een bezette cel selecteert de betreffende persoon om die te verplaatsen. Aanwijzingen kun je afvinken. Hints plaatsen één persoon; Terug draait wijzigingen terug. Voortgang blijft lokaal bewaard per zaak. Geen account, backend of API-sleutel nodig.
 
 ‘Naast’ is orthogonaal aangrenzend en binnen hetzelfde gebied. Hoger/links vergelijken rij- en kolomnummers zonder vereiste van directe nabijheid. ‘Alleen met’ betekent precies twee personen in dat gebied. De kaart is schematisch en geeft geen werkelijke stadsgeografie weer.
 
@@ -49,3 +49,9 @@ Gecontroleerd in Chromium op desktop en 390px mobiel: alle zaken, notities met t
 ## Vrije gebiedsvormen
 
 Vanaf zaak 2 hebben de gebieden samenhangende L-vormen, inspringingen en smalle stroken. De eenvoudige introductie houdt haar oorspronkelijke kaart. Elk gebied blijft via zijden verbonden, en iedere nieuwe zaak heeft precies één oplossing. De vorige versies van de gewijzigde zaken staan met hun oorspronkelijke opslag-ID in Eerdere zaken; nieuwe kaarten gebruiken nieuwe IDs, zodat bestaande notities op de oude kaarten blijven passen. De PDF volgt de nieuwe gebiedsvormen.
+
+## Namen en stap-voor-stapoplossing
+
+De nieuwe reeks gebruikt Arend, Bertus, Cora, Tammo, Geeske en Fokko; hun initialen zijn uniek. De aangepaste namen veranderen geen persoonindices, notities of plaatsingen. De gegenereerde aanwijzingen bevatten geen expliciete koppeling van een verdachte aan hetzelfde gebied als het slachtoffer. Een herziene aanwijzingenlijst wist alleen de afvinkvinkjes van die betreffende zaak; plaatsingen en conceptnotities blijven behouden.
+
+Bekijk oplossing (spoiler) opent een aparte dialoog met bulletpoints. `explain.js` past de publieke plaatsaanwijzingen, relaties, rij- en kolomuitsluiting, groepen met bezette rijen/kolommen en de slachtofferregel toe. Elke gevonden vaste plek wordt in volgorde uitgelegd. Waar deze afleidingen niet volstaan, benoemt de uitleg expliciet de overgebleven combinaties en toetst die met de volledige solver. De laatste bullet identificeert de dader. De uitleg verschijnt nooit vanzelf, plaatst geen personen en wordt niet in de blanco PDF opgenomen.

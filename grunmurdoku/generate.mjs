@@ -2,14 +2,14 @@ import {solve} from './engine.js';
 import {writeFileSync} from 'node:fs';
 let seed=18742;const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/2**32);
 const shuffle=a=>a.map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
-const names=['Lieke','Bram','Fenna','Jurre','Sanne','Mees'],roles=['de barista','de fietsenmaker','de student','de marktkoopman','de stadsgids','de muzikant'];
+const names=['Arend','Bertus','Cora','Tammo','Geeske','Fokko'],roles=['de barista','de fietsenmaker','de student','de marktkoopman','de stadsgids','de muzikant'];
 const specs=[
- [4,'Je eerste zaak','Heel makkelijk','Bij d’Olle Grieze','Na de bloemenmarkt wordt Jurre gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?',2],
- [4,'Zelf op onderzoek','Makkelijk','Een eierbal te veel','Een laatste rondje langs de kraampjes op de Vismarkt. Jurre komt niet thuis. Wie was er nog bij hem?',0],
- [5,'Goed kijken','Rustig puzzelen','Stilte in het plantsoen','Sanne wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.',0],
- [5,'Verbanden leggen','Gemiddeld','Het geheim van ome Loeks','Bij het Peerd van ome Loeks wachtte Sanne op een oude bekende. Het afgesproken gesprek nam een duistere wending.',0],
- [6,'Een stap verder','Pittig','Schaduwen aan de A','De pakhuizen aan de Hoge der A spiegelen in het water. Mees zou hier optreden, maar wordt vlak voor het concert dood gevonden.',0],
- [6,'Stadse speurneus','Uitdagend','De nacht van de Grunneger vlag','Tijdens een stadsfeest verdwijnt Mees uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.',0]
+ [4,'Je eerste zaak','Heel makkelijk','Bij d’Olle Grieze','Na de bloemenmarkt wordt Tammo gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?',2],
+ [4,'Zelf op onderzoek','Makkelijk','Een eierbal te veel','Een laatste rondje langs de kraampjes op de Vismarkt. Tammo komt niet thuis. Wie was er nog bij hem?',0],
+ [5,'Goed kijken','Rustig puzzelen','Stilte in het plantsoen','Geeske wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.',0],
+ [5,'Verbanden leggen','Gemiddeld','Het geheim van ome Loeks','Bij het Peerd van ome Loeks wachtte Geeske op een oude bekende. Het afgesproken gesprek nam een duistere wending.',0],
+ [6,'Een stap verder','Pittig','Schaduwen aan de A','De pakhuizen aan de Hoge der A spiegelen in het water. Fokko zou hier optreden, maar wordt vlak voor het concert dood gevonden.',0],
+ [6,'Stadse speurneus','Uitdagend','De nacht van de Grunneger vlag','Tijdens een stadsfeest verdwijnt Fokko uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.',0]
 ];
 const types=[['tower','de Martinitoren'],['eierbal','de eierballenkraam'],['loeks','het Peerd van ome Loeks'],['flag','de Groningse vlag'],['tree','een boom'],['bike','een fietsrek'],['bench','een bankje'],['stall','een viskraam']];
 // Connected city districts with lanes, L-shapes and stepped boundaries.
@@ -31,7 +31,7 @@ for(let k=0;k<specs.length;k++){
  const objectCells=shuffle(Array.from({length:total},(_,i)=>i).filter(c=>!Object.values(target).includes(c))).slice(0,[4,4,5,6,8,9][k]);
  const objects=objectCells.map((cell,i)=>({cell,type:types[(i+k)%types.length][0],name:types[(i+k)%types.length][1]}));
  const givens=Object.fromEntries(Object.entries(target).slice(0,givenCount));
- const p={id:k===0?'stad-v2-1':`stad-v3-${k+1}`,number:k+1,title,story,lesson,level,size,regions,areas,people:names.slice(0,size).map((name,i)=>({name,role:roles[i],color:['#b44d39','#437c78','#89703e','#6b6085','#3e7050','#8f5769'][i]})),objects,victim:size-1,givens,clues:[]};
+ const p={id:k===0?'stad-v2-1':`stad-v3-${k+1}`,number:k+1,clueVersion:k===5?2:1,title,story,lesson,level,size,regions,areas,people:names.slice(0,size).map((name,i)=>({name,role:roles[i],color:['#b44d39','#437c78','#89703e','#6b6085','#3e7050','#8f5769'][i]})),objects,victim:size-1,givens,clues:[]};
  const cells=Array.from({length:total},(_,i)=>i),pool=[];
  const unary=(a,text,pred)=>{const allowed=cells.filter(pred);if(allowed.includes(target[a])&&allowed.length<total&&allowed.length)pool.push({type:'unary',a,text,cells:allowed});};
  for(let a=0;a<size;a++){
@@ -53,7 +53,7 @@ for(let k=0;k<specs.length;k++){
   }
  }
  // Readable row clues are a fallback for the introductory, unary-only puzzles.
- const ordered=shuffle(pool);
+ const ordered=shuffle(pool).filter(c=>!(c.type==='same'&&(c.a===p.victim||c.b===p.victim)));
  if(k===2){const i=ordered.findIndex(c=>c.type==='above');ordered.unshift(...ordered.splice(i,1));}
  for(let a=0;a<size;a++)if(!(a in givens))ordered.push({type:'unary',a,text:`Bevond zich in rij ${Math.floor(target[a]/size)+1}.`,cells:cells.filter(c=>Math.floor(c/size)===Math.floor(target[a]/size))});
  for(let a=0;a<size;a++)if(!(a in givens))ordered.push({type:'unary',a,text:`Bevond zich in kolom ${target[a]%size+1}.`,cells:cells.filter(c=>c%size===target[a]%size)});

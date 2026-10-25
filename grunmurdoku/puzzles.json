@@ -2,8 +2,9 @@
   {
     "id": "stad-v2-1",
     "number": 1,
+    "clueVersion": 1,
     "title": "Bij d’Olle Grieze",
-    "story": "Na de bloemenmarkt wordt Jurre gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?",
+    "story": "Na de bloemenmarkt wordt Tammo gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?",
     "lesson": "Je eerste zaak",
     "level": "Heel makkelijk",
     "size": 4,
@@ -33,22 +34,22 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Arend",
         "role": "de barista",
         "color": "#b44d39"
       },
       {
-        "name": "Bram",
+        "name": "Bertus",
         "role": "de fietsenmaker",
         "color": "#437c78"
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
         "color": "#89703e"
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085"
       }
@@ -97,8 +98,9 @@
   {
     "id": "stad-v3-2",
     "number": 2,
+    "clueVersion": 1,
     "title": "Een eierbal te veel",
-    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Jurre komt niet thuis. Wie was er nog bij hem?",
+    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Tammo komt niet thuis. Wie was er nog bij hem?",
     "lesson": "Zelf op onderzoek",
     "level": "Makkelijk",
     "size": 4,
@@ -128,22 +130,22 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Arend",
         "role": "de barista",
         "color": "#b44d39"
       },
       {
-        "name": "Bram",
+        "name": "Bertus",
         "role": "de fietsenmaker",
         "color": "#437c78"
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
         "color": "#89703e"
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085"
       }
@@ -209,8 +211,9 @@
   {
     "id": "stad-v3-3",
     "number": 3,
+    "clueVersion": 1,
     "title": "Stilte in het plantsoen",
-    "story": "Sanne wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
+    "story": "Geeske wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
     "lesson": "Goed kijken",
     "level": "Rustig puzzelen",
     "size": 5,
@@ -249,27 +252,27 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Arend",
         "role": "de barista",
         "color": "#b44d39"
       },
       {
-        "name": "Bram",
+        "name": "Bertus",
         "role": "de fietsenmaker",
         "color": "#437c78"
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
         "color": "#89703e"
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085"
       },
       {
-        "name": "Sanne",
+        "name": "Geeske",
         "role": "de stadsgids",
         "color": "#3e7050"
       }
@@ -308,7 +311,7 @@
         "type": "above",
         "a": 2,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Geeske."
       },
       {
         "type": "unary",
@@ -375,8 +378,9 @@
   {
     "id": "stad-v3-4",
     "number": 4,
+    "clueVersion": 1,
     "title": "Het geheim van ome Loeks",
-    "story": "Bij het Peerd van ome Loeks wachtte Sanne op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
+    "story": "Bij het Peerd van ome Loeks wachtte Geeske op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
     "lesson": "Verbanden leggen",
     "level": "Gemiddeld",
     "size": 5,
@@ -415,27 +419,27 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Arend",
         "role": "de barista",
         "color": "#b44d39"
       },
       {
-        "name": "Bram",
+        "name": "Bertus",
         "role": "de fietsenmaker",
         "color": "#437c78"
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
         "color": "#89703e"
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085"
       },
       {
-        "name": "Sanne",
+        "name": "Geeske",
         "role": "de stadsgids",
         "color": "#3e7050"
       }
@@ -505,7 +509,7 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Jurre."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "unary",
@@ -522,15 +526,16 @@
         "type": "left",
         "a": 3,
         "b": 4,
-        "text": "Stond links van Sanne."
+        "text": "Stond links van Geeske."
       }
     ]
   },
   {
     "id": "stad-v3-5",
     "number": 5,
+    "clueVersion": 1,
     "title": "Schaduwen aan de A",
-    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Mees zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
+    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Fokko zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
     "lesson": "Een stap verder",
     "level": "Pittig",
     "size": 6,
@@ -580,32 +585,32 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Arend",
         "role": "de barista",
         "color": "#b44d39"
       },
       {
-        "name": "Bram",
+        "name": "Bertus",
         "role": "de fietsenmaker",
         "color": "#437c78"
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
         "color": "#89703e"
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085"
       },
       {
-        "name": "Sanne",
+        "name": "Geeske",
         "role": "de stadsgids",
         "color": "#3e7050"
       },
       {
-        "name": "Mees",
+        "name": "Fokko",
         "role": "de muzikant",
         "color": "#8f5769"
       }
@@ -699,25 +704,25 @@
         "type": "left",
         "a": 4,
         "b": 1,
-        "text": "Stond links van Bram."
+        "text": "Stond links van Bertus."
       },
       {
         "type": "different",
         "a": 2,
         "b": 5,
-        "text": "Was in een ander gebied dan Mees."
+        "text": "Was in een ander gebied dan Fokko."
       },
       {
         "type": "same",
         "a": 0,
         "b": 3,
-        "text": "Was in hetzelfde gebied als Jurre."
+        "text": "Was in hetzelfde gebied als Tammo."
       },
       {
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Geeske."
       },
       {
         "type": "unary",
@@ -736,7 +741,7 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Jurre."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "unary",
@@ -759,8 +764,9 @@
   {
     "id": "stad-v3-6",
     "number": 6,
+    "clueVersion": 2,
     "title": "De nacht van de Grunneger vlag",
-    "story": "Tijdens een stadsfeest verdwijnt Mees uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
+    "story": "Tijdens een stadsfeest verdwijnt Fokko uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
     "lesson": "Stadse speurneus",
     "level": "Uitdagend",
     "size": 6,
@@ -810,32 +816,32 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Arend",
         "role": "de barista",
         "color": "#b44d39"
       },
       {
-        "name": "Bram",
+        "name": "Bertus",
         "role": "de fietsenmaker",
         "color": "#437c78"
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
         "color": "#89703e"
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085"
       },
       {
-        "name": "Sanne",
+        "name": "Geeske",
         "role": "de stadsgids",
         "color": "#3e7050"
       },
       {
-        "name": "Mees",
+        "name": "Fokko",
         "role": "de muzikant",
         "color": "#8f5769"
       }
@@ -891,12 +897,6 @@
     "givens": {},
     "clues": [
       {
-        "type": "same",
-        "a": 4,
-        "b": 5,
-        "text": "Was in hetzelfde gebied als Mees."
-      },
-      {
         "type": "unary",
         "a": 2,
         "text": "Stond naast een boom.",
@@ -909,7 +909,7 @@
         "type": "same",
         "a": 2,
         "b": 3,
-        "text": "Was in hetzelfde gebied als Jurre."
+        "text": "Was in hetzelfde gebied als Tammo."
       },
       {
         "type": "unary",
@@ -928,7 +928,7 @@
         "type": "left",
         "a": 4,
         "b": 2,
-        "text": "Stond links van Fenna."
+        "text": "Stond links van Cora."
       },
       {
         "type": "unary",
@@ -970,10 +970,16 @@
         ]
       },
       {
+        "type": "different",
+        "a": 0,
+        "b": 5,
+        "text": "Was in een ander gebied dan Fokko."
+      },
+      {
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Geeske."
       }
     ]
   }

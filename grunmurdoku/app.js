@@ -1,13 +1,14 @@
 import {solve,valid,region} from './engine.js';
 import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js';
 import {landmarkArt} from './art.js';
+import {explain} from './explain.js';
 const $=id=>document.getElementById(id);
 let puzzles;
 try{const response=await fetch('./puzzles.json');if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 let index=0,p,state,selected=0,mode='place',history=[];
 const key=p=>'grunmurdoku:v1:'+p.id;
-function load(i){index=i;p=puzzles[i];history=[];selected=0;mode='place';state={positions:{...p.givens},crosses:[],notes:{},checked:[],solved:false};try{const saved=JSON.parse(localStorage.getItem(key(p)));if(saved&&typeof saved.positions==='object'&&Array.isArray(saved.crosses)&&Array.isArray(saved.checked)){const entries=Object.entries(saved.positions);if(entries.every(([who,cell])=>/^\d+$/.test(who)&&+who<p.people.length&&Number.isInteger(cell)&&cell>=0&&cell<p.size*p.size&&!p.objects.some(o=>o.cell===cell))){state={...state,...saved,positions:{...saved.positions,...p.givens},notes:Object.fromEntries(Object.entries(saved.notes||{}).filter(([c,ids])=>Number.isInteger(+c)&&+c>=0&&+c<p.size*p.size&&!p.objects.some(o=>o.cell===+c)&&Array.isArray(ids)).map(([c,ids])=>[c,[...new Set(ids.filter(i=>Number.isInteger(i)&&i>=0&&i<p.people.length&&!Object.hasOwn(p.givens||{},i)))]]))};}}}catch{}selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));$('caseSelect').value=String(i);render();say(Object.keys(p.givens||{}).length?'Twee personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.':'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen.');}
-function persist(){try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
+function load(i){index=i;p=puzzles[i];history=[];selected=0;mode='place';state={positions:{...p.givens},crosses:[],notes:{},checked:[],solved:false};try{const saved=JSON.parse(localStorage.getItem(key(p)));if(saved&&typeof saved.positions==='object'&&Array.isArray(saved.crosses)&&Array.isArray(saved.checked)){const entries=Object.entries(saved.positions);if(entries.every(([who,cell])=>/^\d+$/.test(who)&&+who<p.people.length&&Number.isInteger(cell)&&cell>=0&&cell<p.size*p.size&&!p.objects.some(o=>o.cell===cell))){state={...state,...saved,checked:(saved.clueVersion||1)===(p.clueVersion||1)?saved.checked:[],positions:{...saved.positions,...p.givens},notes:Object.fromEntries(Object.entries(saved.notes||{}).filter(([c,ids])=>Number.isInteger(+c)&&+c>=0&&+c<p.size*p.size&&!p.objects.some(o=>o.cell===+c)&&Array.isArray(ids)).map(([c,ids])=>[c,[...new Set(ids.filter(i=>Number.isInteger(i)&&i>=0&&i<p.people.length&&!Object.hasOwn(p.givens||{},i)))]]))};}}}catch{}selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));$('caseSelect').value=String(i);render();say(Object.keys(p.givens||{}).length?'Twee personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.':'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om te wissen.');}
+function persist(){state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
 function snapshot(){history.push(JSON.stringify(state));if(history.length>100)history.shift();}
 function say(text){$('message').textContent=text;}
 function render(){
@@ -26,7 +27,7 @@ function render(){
  p.people.forEach((person,i)=>{
   const card=document.createElement('div');card.className='person-card'+(selected===i?' selected':'');const head=document.createElement('button');head.className='person-header';head.setAttribute('aria-pressed',String(selected===i));
   const pos=state.positions[i];head.innerHTML=`<span class="avatar">${portraitMarkup(i)}</span><span><strong>${person.name}</strong>${i===p.victim?'<span class="victim-tag">SLACHTOFFER</span>':''}<small>${person.role}</small></span><span class="placed">${pos==null?'○':`R${Math.floor(pos/p.size)+1} · K${pos%p.size+1}`}</span>`;
-  head.onclick=()=>{if(Object.hasOwn(p.givens||{},i)){say(`${person.name} is een vaste startpositie.`);return;}selected=i;mode='place';render();say(`${person.name} geselecteerd. Eén klik maakt een concept; nogmaals op dat vakje maakt het definitief.`);};card.append(head);
+  head.onclick=()=>{if(Object.hasOwn(p.givens||{},i)){say(`${person.name} is een vaste startpositie.`);return;}selected=i;mode='place';render();say(`${person.name} geselecteerd. Eén klik maakt een concept; nogmaals maakt het definitief, een derde klik maakt het leeg.`);};card.append(head);
   p.clues.forEach((clue,j)=>{if(clue.a!==i)return;const label=document.createElement('label');label.className='clue';const input=document.createElement('input');input.type='checkbox';input.checked=state.checked.includes(j);input.onchange=()=>{snapshot();state.checked=input.checked?[...state.checked,j]:state.checked.filter(x=>x!==j);persist();};const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);card.append(label);});
   if(Object.hasOwn(p.givens||{},i)){const info=document.createElement('p');info.className='clue given-clue';info.textContent='Staat al op de kaart. Deze plek staat vast.';card.append(info);}
   if(!p.clues.some(c=>c.a===i)&&i!==p.victim&&!Object.hasOwn(p.givens||{},i)){const info=document.createElement('p');info.className='clue';info.textContent='Gebruik de andere aanwijzingen om mijn plek te vinden.';card.append(info);}
@@ -41,7 +42,7 @@ function tap(c){
  if(mode==='erase'){snapshot();if(who!=null)delete state.positions[who];state.crosses=state.crosses.filter(x=>x!==c);delete state.notes[c];state.solved=false;}
  else if(mode==='cross'){if(who!=null){say('Wis eerst de persoon uit dit vakje.');return;}snapshot();state.crosses=state.crosses.includes(c)?state.crosses.filter(x=>x!==c):[...state.crosses,c];delete state.notes[c];}
  else{
-  if(who!=null){selected=+who;render();say(`${p.people[who].name} geselecteerd. Tik op een ander vakje om te verplaatsen.`);return;}
+  if(who!=null){if(+who===selected){snapshot();delete state.positions[who];delete state.notes[c];state.solved=false;persist();render();say(`${p.people[who].name} verwijderd. Het vakje is weer leeg.`);return;}selected=+who;render();say(`${p.people[who].name} geselecteerd. Klik nogmaals om dit vakje leeg te maken, of noteer een andere plek.`);return;}
   if(!(state.notes[c]||[]).includes(selected)){snapshot();state.notes[c]=[...(state.notes[c]||[]),selected];state.crosses=state.crosses.filter(x=>x!==c);persist();render();say(`${p.people[selected].name} staat als concept in het hoekje. Klik met deze persoon geselecteerd nogmaals op dit vakje om definitief te plaatsen.`);return;}
   const clash=Object.entries(state.positions).find(([i,x])=>+i!==selected&&(Math.floor(x/p.size)===Math.floor(c/p.size)||x%p.size===c%p.size));
   if(clash){say(`${p.people[clash[0]].name} staat al in deze rij of kolom. Iedereen krijgt een eigen rij én kolom.`);return;}
@@ -63,6 +64,7 @@ $('hint').onclick=()=>{
  const who=p.people.findIndex((_,i)=>state.positions[i]==null);if(who<0){say('De kaart klopt. De dader is de enige andere persoon in het gebied van het slachtoffer.');return;}
  snapshot();state.positions[who]=solutions[0][who];clearNotes(who,solutions[0][who]);state.crosses=state.crosses.filter(x=>x!==solutions[0][who]);selected=who;persist();render();say(`Zetje: ${p.people[who].name} staat in rij ${Math.floor(solutions[0][who]/p.size)+1}, kolom ${solutions[0][who]%p.size+1}. Deze plaatsing kun je terugdraaien.`);
 };
+$('explanation').onclick=()=>{const explanation=explain(p);$('explanationTitle').textContent=p.title+' — stap voor stap';$('explanationSteps').replaceChildren(...explanation.steps.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('explanationDialog').showModal();};
 $('landmarks').innerHTML=landmarkArt();
 $('printCase').onclick=()=>printPuzzles([p]);
 $('printAll').onclick=()=>printPuzzles(puzzles.slice(0,6));

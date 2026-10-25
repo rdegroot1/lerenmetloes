@@ -1,0 +1,69 @@
+import {solve,matches,region} from './engine.js';
+
+// Constraint propagation only uses the public rules and clues. Exact search is
+// reserved for explicitly described elimination of remaining alternatives.
+export function explain(p){
+ const result=[],positions={...p.givens},n=p.people.length;
+ const name=i=>p.people[i].name,spot=c=>`rij ${Math.floor(c/p.size)+1}, kolom ${c%p.size+1}`;
+ const row=c=>Math.floor(c/p.size),col=c=>c%p.size;
+ const clues=i=>p.clues.filter(c=>c.a===i&&c.type==='unary');
+ for(const [i,c]of Object.entries(p.givens||{}))result.push(`${name(i)} is gegeven: ${spot(c)}. In die rij en kolom kan niemand anders staan.`);
+ const blocked=new Set(p.objects.map(o=>o.cell));
+ const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>!blocked.has(c)&&clues(i).every(q=>q.cells.includes(c))));
+ const reasons=p.people.map((_,i)=>new Set(clues(i).map(c=>`de aanwijzing “${c.text}”`)));
+ const found=Symbol('forced placement');
+ const remove=(i,forbidden,why)=>{const next=domains[i].filter(c=>!forbidden(c));if(next.length!==domains[i].length){domains[i]=next;reasons[i].add(why);if(next.length===1&&positions[i]==null)throw found;return true;}return false;};
+ const compatible=(i,a,j,b)=>row(a)!==row(b)&&col(a)!==col(b)&&p.clues.filter(c=>c.type!=='unary'&&((c.a===i&&c.b===j)||(c.a===j&&c.b===i))).every(c=>matches(p,{[i]:a,[j]:b},c));
+ function propagate(){
+  let change=true;
+  while(change){change=false;
+   for(let i=0;i<n;i++)for(let j=0;j<n;j++)if(i!==j){
+    const relations=p.clues.filter(c=>c.type!=='unary'&&((c.a===i&&c.b===j)||(c.a===j&&c.b===i)));
+    const why=relations.length?relations.map(c=>`${name(c.a)}: “${c.text}”`).join(' en '):domains[j].length===1?`${name(j)} bezet ${spot(domains[j][0])}; die rij en kolom vallen af`:`${name(i)} en ${name(j)} moeten verschillende rijen en kolommen hebben`;
+    change=remove(i,c=>!domains[j].some(d=>compatible(i,c,j,d)),why)||change;
+   }
+   // Hall sets: when a group uses exactly as many rows/columns as people,
+   // those rows/columns cannot be used by anyone outside that group.
+   for(const axis of [row,col])for(let mask=1;mask<(1<<n)-1;mask++){
+    const group=Array.from({length:n},(_,i)=>i).filter(i=>mask&(1<<i));
+    const values=new Set(group.flatMap(i=>domains[i].map(axis)));
+    if(values.size!==group.length)continue;
+    for(let i=0;i<n;i++)if(!(mask&(1<<i)))change=remove(i,c=>values.has(axis(c)),`de ${values.size===1?(axis===row?'rij':'kolom'):(axis===row?'rijen':'kolommen')} ${[...values].map(v=>v+1).join(', ')} ${values.size===1?'is':'zijn'} nodig voor ${group.map(name).join(', ')}`)||change;
+   }
+   const v=p.victim;
+   change=remove(v,c=>{
+    const r=region(p,c),others=domains.map((_,i)=>i).filter(i=>i!==v);
+    const sure=others.filter(i=>domains[i].length&&domains[i].every(d=>region(p,d)===r));
+    const possible=others.filter(i=>domains[i].some(d=>region(p,d)===r));
+    return sure.length>1||possible.length<1;
+   },`${name(v)} moet het gebied met precies één andere persoon delen`)||change;
+   const victimAreas=new Set(domains[v].map(c=>region(p,c)));
+   if(victimAreas.size===1){
+    const r=[...victimAreas][0],others=domains.map((_,i)=>i).filter(i=>i!==v);
+    const sure=others.filter(i=>domains[i].length&&domains[i].every(d=>region(p,d)===r));
+    const possible=others.filter(i=>domains[i].some(d=>region(p,d)===r));
+    if(sure.length===1)for(const i of others.filter(i=>i!==sure[0]))change=remove(i,c=>region(p,c)===r,`${name(v)} deelt ${p.areas[r]} al met ${name(sure[0])}; een derde persoon mag daar niet bij`)||change;
+    if(possible.length===1)change=remove(possible[0],c=>region(p,c)!==r,`alleen ${name(possible[0])} kan nog bij ${name(v)} in ${p.areas[r]} staan`)||change;
+   }
+   if(domains.some(d=>!d.length))throw Error('Contradictory puzzle in explanation');
+  }
+ }
+ while(Object.keys(positions).length<n){
+  let who=domains.findIndex((d,i)=>positions[i]==null&&d.length===1);
+  if(who<0){try{propagate();}catch(error){if(error!==found)throw error;}who=domains.findIndex((d,i)=>positions[i]==null&&d.length===1);}
+  if(who<0){
+   who=domains.map((d,i)=>({i,d})).filter(x=>positions[x.i]==null).sort((a,b)=>a.d.length-b.d.length)[0].i;
+   const alternatives=domains[who],possible=alternatives.filter(c=>solve(p,{...positions,[who]:c},1).length);
+   if(possible.length!==1)throw Error('Puzzle has no unique explanation');
+   const rejected=alternatives.filter(c=>c!==possible[0]);
+   result.push(`Vergelijk de overgebleven mogelijkheden voor ${name(who)}: ${alternatives.map(spot).join('; ')}. Bij ${rejected.map(spot).join('; ')} bestaat geen volledige plaatsing die aan alle aanwijzingen, de eigen rijen en kolommen én de slachtofferregel voldoet. Na het nalopen van die combinaties blijft alleen ${spot(possible[0])} over.`);
+   domains[who]=possible;
+  }
+  const cell=domains[who][0];positions[who]=cell;
+  const why=[...reasons[who]];
+  result.push(`${name(who)} staat in ${spot(cell)} (${p.areas[region(p,cell)]}). ${why.length?`Reden: ${why.join('; ')}. Daarmee blijft dit vakje over.`:'Dit is het enige overgebleven vakje na de eerdere uitsluitingen.'}`);
+ }
+ const killer=Object.keys(positions).find(i=>+i!==p.victim&&region(p,positions[i])===region(p,positions[p.victim]));
+ result.push(`${name(p.victim)} en ${name(killer)} zijn de enige twee personen in ${p.areas[region(p,positions[p.victim])]}. Het slachtoffer was alleen met de dader. Dus ${name(killer)} is de dader.`);
+ return {steps:result,positions,killer:+killer};
+}

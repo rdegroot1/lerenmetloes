@@ -56,3 +56,12 @@ test('freeform districts are connected and extend beyond rectangles',()=>{
   assert.ok(nonRectangular>=2,`${p.id} needs multiple freeform districts`);
  }
 });
+
+test('clues never directly pair a suspect with the victim',()=>{
+ for(const p of puzzles)assert.ok(p.clues.every(c=>c.type!=='same'||c.a!==p.victim&&c.b!==p.victim));
+});
+
+test('names have distinct initials for concept notes',()=>{
+ assert.deepEqual(puzzles.at(-1).people.map(p=>p.name),['Arend','Bertus','Cora','Tammo','Geeske','Fokko']);
+ for(const p of puzzles)assert.equal(new Set(p.people.map(person=>person.name[0])).size,p.people.length);
+});
