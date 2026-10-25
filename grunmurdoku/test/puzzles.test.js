@@ -73,8 +73,14 @@ test('every victim has a location clue of their own',()=>{
 });
 
 test('new themed cases have distinct settings and varied victim rows',()=>{
- const themed=puzzles.slice(6);assert.equal(themed.length,6);
+ const themed=puzzles.slice(6);assert.equal(themed.length,11);
  for(const theme of ['Hoornseplas','Stadspark','Noorderplantsoen','Uitgaan in Stad'])assert.ok(themed.some(p=>p.theme===theme));
  assert.ok(themed.some(p=>p.areas.includes('De Negende Cirkel')&&p.areas.includes('Het Pakhuis')));
  assert.ok(new Set(themed.map(p=>Math.floor(solve(p)[0][p.victim]/p.size))).size>1);
+});
+
+
+test('all five festival and village themes are present and include indoor spaces',()=>{
+ for(const theme of ['Het aardbevingsdorp','Bommen Berend','Eurosonic','Noorderzon','WinterWelVaart'])assert.ok(puzzles.some(p=>p.theme===theme),theme);
+ assert.ok(puzzles.slice(12).some(p=>p.areas.length===5));
 });

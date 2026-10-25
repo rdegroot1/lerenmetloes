@@ -15,7 +15,12 @@ const specs=[
  [6,'Een ommetje door het groen','Pittig','Onder de oude bomen','Het Noorderplantsoen ligt er rustig bij. Fokko wilde nog een rondje wandelen. Een achtergelaten jas zet de recherche op een spoor.',0],
  [6,'Na sluitingstijd','Pittig','De laatste ronde','Een volledig verzonnen nachtelijk mysterie tussen de Groningse kroegen. Fokko zou bij de anderen aansluiten, maar zijn stoel blijft leeg.',0],
  [6,'Achter de festivallichten','Uitdagend','Toen de lampjes doofden','Het is festivalavond in het plantsoen. Als de laatste lampjes uitgaan, ontbreekt Fokko. De getuigen wijzen naar verschillende plekken op het terrein.',0],
- [6,'Het nachtelijke sluitstuk','Uitdagend','Een alibi aan de bar','Een fictieve kroegentocht door Stad: een vergeten sjaal, een laatste drankje en zes verklaringen. Waar was Fokko toen de groep uit elkaar ging?',0]
+ [6,'Het nachtelijke sluitstuk','Uitdagend','Een alibi aan de bar','Een fictieve kroegentocht door Stad: een vergeten sjaal, een laatste drankje en zes verklaringen. Waar was Fokko toen de groep uit elkaar ging?',0],
+ [6,'Een raadsel op de wierde','Pittig','De scheur in het alibi','In een fictief Gronings wierdedorp bekijken de bewoners de versterkte huizen. Fokko blijft na de rondleiding achter. Zijn notitieboek wordt gevonden, maar zijn verhaal mist een bladzijde.',0],
+ [6,'Gronings Ontzet','Pittig','Na het laatste kanonschot','Stad viert Bommen Berend. Tussen vlaggen, muziek en de laatste eierballen verdwijnt Fokko uit beeld. Zes verklaringen vertellen wie waar was.',0],
+ [6,'Van optreden naar optreden','Uitdagend','Het vergeten toegangsbandje','Het is Eurosonic in Stad. Na een avond vol optredens blijft Fokko’s toegangsbandje achter bij de garderobe. Wie heeft hem na de soundcheck nog gezien?',0],
+ [6,'Theater tussen de bomen','Uitdagend','Achter het tentdoek','Noorderzon vult het plantsoen met licht en verhalen. Maar achter het tentdoek klopt één verhaal niet. Fokko was op weg naar de laatste voorstelling.',0],
+ [6,'Een winteravond aan de A','Uitdagend','Het licht in de roef','Bij WinterWelVaart glinsteren de lichtjes langs de kade. Op een aangemeerd schip is Fokko’s sjaal blijven liggen. De laatste bezoekers spreken elkaar tegen.',0]
 ];
 const types=[['tower','de Martinitoren'],['eierbal','de eierballenkraam'],['loeks','het Peerd van ome Loeks'],['flag','de Groningse vlag'],['tree','een boom'],['bike','een fietsrek'],['bench','een bankje'],['stall','een viskraam']];
 // Connected city districts with lanes, L-shapes and stepped boundaries.
@@ -32,7 +37,12 @@ const layouts=[
  ['000111','002211','002211','032221','333221','333331'],
  ['001111','000211','302221','332221','333221','333331'],
  ['000111','002211','002221','032221','333211','333331'],
- ['001111','000211','302211','332221','333221','333331']
+ ['001111','000211','302211','332221','333221','333331'],
+ ['000111','002211','022211','032221','333221','333331'],
+ ['111000','112200','112220','122230','122333','133333'],
+ ['001111','000211','302211','332221','333221','443331'],
+ ['400111','402211','002221','032221','333211','333331'],
+ ['001111','000211','302211','332221','333221','443331']
 ];
 const themes=[
  null,null,null,null,null,null,
@@ -41,7 +51,12 @@ const themes=[
  {name:'Noorderplantsoen',areas:['Zonneweide','Eendenvijver','Wandelpad','Muziekkoepel'],types:[['tree','een boom'],['reeds','een rietpol'],['bench','een bankje'],['lamp','een lantaarn'],['bike','een fietsrek']]},
  {name:'Uitgaan in Stad',areas:['De Negende Cirkel','Het Pakhuis','De Drie Gezusters','Huize Maas'],types:[['bar','de bar'],['stage','het podium'],['lamp','een lantaarn'],['bike','een fietsrek'],['eierbal','de eierballenkraam']]},
  {name:'Festival in het groen',areas:['Spiegeltent','Festivalweide','Foodtrucks','Waterkant'],types:[['stage','het podium'],['parasol','een parasol'],['lamp','een lantaarn'],['tree','een boom'],['eierbal','de eierballenkraam']]},
- {name:'De kroegentocht',areas:['De Pintelier','Café De Toeter','Het Pakhuis','De Negende Cirkel'],types:[['bar','de bar'],['lamp','een lantaarn'],['bike','een fietsrek'],['stage','het podium'],['eierbal','de eierballenkraam']]}
+ {name:'De kroegentocht',areas:['De Pintelier','Café De Toeter','Het Pakhuis','De Negende Cirkel'],types:[['bar','de bar'],['lamp','een lantaarn'],['bike','een fietsrek'],['stage','het podium'],['eierbal','de eierballenkraam']]},
+ {name:'Het aardbevingsdorp',areas:['Dorpsplein','Versterkingskeet','Dorpskerk','Dorpscafé'],types:[['scaffold','de bouwsteiger'],['bench','een bankje'],['flag','de Groningse vlag'],['bike','een fietsrek'],['lamp','een lantaarn']]},
+ {name:'Bommen Berend',areas:['Grote Markt','Ossenmarkt','Vismarkt','Noorderhaven'],types:[['cannon','het kanon'],['flag','de Groningse vlag'],['eierbal','de eierballenkraam'],['stage','het podium'],['lamp','een lantaarn']]},
+ {name:'Eurosonic',areas:['Vera','Simplon','Concertzaal','Backstage','Garderobe'],types:[['guitar','een gitaar'],['stage','het podium'],['bar','de bar'],['lamp','een lantaarn'],['bike','een fietsrek']]},
+ {name:'Noorderzon',areas:['Spiegeltent','Muziektent','Eettentjes','Vijverrand','Backstage'],types:[['tent','de festivaltent'],['stage','het podium'],['tree','een boom'],['lamp','een lantaarn'],['bar','de bar']]},
+ {name:'WinterWelVaart',areas:['Hoge der A','Lage der A','Scheepsruim','Winterkade','Roef'],types:[['ship','een schip'],['winterstall','een winterkraam'],['lamp','een lantaarn'],['bar','de bar'],['bench','een bankje']]}
 ];
 const cases=[];
 for(let k=0;k<specs.length;k++){
