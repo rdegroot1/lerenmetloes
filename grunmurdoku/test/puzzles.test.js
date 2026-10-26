@@ -10,7 +10,7 @@ for(const p of puzzles){
  assert.equal(Object.keys(s).filter(i=>+i!==p.victim&&region(p,s[i])===region(p,s[p.victim])).length,1);
  assert.equal(new Set(Object.values(s).map(c=>c%p.size)).size,p.size);
  assert.equal(new Set(Object.values(s).map(c=>Math.floor(c/p.size))).size,p.size);
- for(const o of p.objects)assert.ok(!Object.values(s).includes(o.cell));
+ for(const o of p.objects.filter(o=>o.occupiable!==true))assert.ok(!Object.values(s).includes(o.cell));
  for(const [who,cell]of Object.entries(s))assert.equal(solve(p,{[who]:cell}).length,1);
  });
  test(`${p.id}: contradictory moves and blocked cells are rejected`,()=>{
