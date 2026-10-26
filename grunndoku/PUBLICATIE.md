@@ -32,3 +32,12 @@ De vijf niveau-namen zijn informele, leesbare Groningse spreektaal met Nederland
 - [Rijksuniversiteit Groningen: voorbeelden met ‘eem’ en ‘nait’](https://www.rug.nl/education/student-blog/what-is-gronings?lang=en)
 - [Noorderland: ‘Kop d’r veur!’ als aanmoediging](https://noorderland.nl/artikel/642172/als-je-deze-uitspraken-kent-ben-je-een-echte-groninger)
 - [CGTC: WoordWaark en taalvariatie](https://cgtc.nl/over-woordwaark/)
+
+
+## Moord in de Martini — bronnen en eigen uitwerking
+
+De huidige Martinikerk is beschrijvende inspiratie voor orgelzone, preekstoel, koor, kapellen en sacristie. Feitelijke achtergrond: [Martinikerk](https://martinikerk.nl/) en [Rijksmonumentenregister, monument 18555](https://monumentenregister.cultureelerfgoed.nl/monumenten/18555). De monumentbeschrijving noemt onder meer de driebeukige kruiskerk, kooromgang, noordkapel en sacristie. Er zijn geen foto’s, logo’s of bestaande plattegrondillustraties overgenomen.
+
+De zes kerkkaarten, objectillustraties, introductie met oefenzaak, verhalen en fictieve aanwezigen zijn eigen uitwerkingen. De puzzelgebieden en hun grenslijnen zijn bewust vereenvoudigd en vormen geen actuele bezoekersplattegrond of weergave van alle echte muren. Geen samenwerking met de kerk of beschuldiging van echte medewerkers wordt gesuggereerd. De avondmaalstafel vervangt historische aankleding die niet past bij de gekozen huidige kerk.
+
+De PDF-indeling gebruikt eigen oefenpanelen en diagrammen. De aangeleverde boekfoto’s dienden als uitleg van de spelmechaniek; hun teksten, puzzels, afbeeldingen en kenmerkende pagina-indeling zijn niet overgenomen. Voor commerciële uitgave blijft de eerder beschreven naam- en rechtencontrole van toepassing.

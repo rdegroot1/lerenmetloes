@@ -8,9 +8,12 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Iedere verdachte heeft precies één eigen aanwijzing of een vaste startpositie. Het slachtoffer heeft uitsluitend ‘Was samen met de moordenaar.’ Geen aanwijzing van een persoon verwijst naar het slachtoffer.
 - Eén soort stoel: dezelfde tekening, naam en betekenis. Groen gemarkeerde meubels zijn bezetbaar. Grote voorwerpen hebben één doorlopende illustratie en echte deelvakken.
 - Behoud opslag-ID’s en bestaande oplossingen waar mogelijk. De oorspronkelijke opslagnamespace `grunmurdoku:v1:` is bewust behouden. Vernieuw alleen afvinkversies wanneer aanwijzingen wijzigen.
-- Eerste zaak blijft zonder gokken met directe uitsluiting oplosbaar. Moeilijkheid gebruikt vijf sterren en de gedeelde labels in `difficulty.js`.
+- Eerste zaak blijft zonder gokken met directe uitsluiting oplosbaar. Moeilijkheid gebruikt vijf sterren en de gedeelde labels in `difficulty.js`; de uitzonderlijke zesde Martini-zaak heeft zes sterren.
 - Drie klikken: concept, definitief, eerdere concepten herstellen. Controleer dit ook na herladen en op meubels.
-- PDF’s: één zaak per liggend A4, inclusief dezelfde illustraties, sterren en aanwijzingen als op scherm. Houd oude PDF-adressen bruikbaar.
+- PDF’s: bundels beginnen met twee eigen oefenpagina’s. Herhaal korte uitleg alleen bij de eerste zaken. Klassieke zaken passen op één liggend A4; Martini-zaken gebruiken één kaartpagina en één personagepagina. Houd oude PDF-adressen bruikbaar.
+
+- De Martini-serie gebruikt de huidige kerk als inspiratie: orgel, preekstoel, koor en kapellen; geen historische biechthokjes. Kaarten zijn eigen schematische puzzelindelingen, geen bezoekersplattegrond. Breedte en hoogte kunnen verschillen; gebruik de dimensioneringsfuncties uit `engine.js`.
+- Mugshots hebben hun naam uitsluitend op het vastgehouden bord; geen tweede naamstrook eronder. Archiefportretten mogen hun naamstrook behouden.
 
 ## Juridische uitgangspunten
 

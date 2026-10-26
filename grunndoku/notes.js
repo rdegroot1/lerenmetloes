@@ -1,4 +1,4 @@
-import {isPlayable,canStand} from './engine.js?v=20261026-grunndoku-city';
+import {isPlayable,canStand} from './engine.js?v=20261026-martini';
 // Save only the pencil marks removed by a placement, so restoring them never
 // rewinds other people's moves or notes made since that placement.
 const merge=(a={},b={})=>Object.fromEntries([...new Set([...Object.keys(a),...Object.keys(b)])].map(c=>[c,[...new Set([...(a[c]||[]),...(b[c]||[])])]]));

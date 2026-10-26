@@ -4977,5 +4977,4240 @@
     "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2,
     "difficultyStars": 5
+  },
+  {
+    "id": "martini-v1-1",
+    "number": 22,
+    "seriesId": "martini",
+    "seriesNumber": 1,
+    "theme": "Moord in de Martini",
+    "title": "De gesloten kapel",
+    "story": "Na een rondleiding blijft een muziekmap achter. Vier bezoekers staan al op de kaart. Zoek de laatste getuige en ontdek wie met Fokko achterbleef.",
+    "lesson": "Een nieuw spoor in de Martini",
+    "level": "Heel makkelijk",
+    "difficultyStars": 1,
+    "size": 8,
+    "width": 8,
+    "height": 6,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      1,
+      2,
+      2,
+      8,
+      8,
+      -1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      5,
+      8,
+      8,
+      0,
+      0,
+      1,
+      3,
+      3,
+      5,
+      8,
+      8,
+      -1,
+      -1,
+      1,
+      4,
+      4,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Torenportaal",
+      "Orgelzone",
+      "Noordbeuk",
+      "Middenschip",
+      "Zuidbeuk",
+      "Hoogkoor",
+      "Noorderkapel",
+      "Sacristie",
+      "Kooromgang",
+      "Zuidportaal"
+    ],
+    "areaColors": [
+      "#c7c8bd",
+      "#d4bf9a",
+      "#d5d7c4",
+      "#e7d8b9",
+      "#c8d2cd",
+      "#d8bfab",
+      "#c8c3d7",
+      "#d8cfaf",
+      "#e1d5c7",
+      "#b8cbc8"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de koster",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de organist",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de koorzangeres",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de restaurator",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muziekarchivaris",
+        "color": "#8c5964"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "dagger",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {
+      "0": 4,
+      "2": 31,
+      "3": 43,
+      "4": 10
+    },
+    "clues": [
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond tegen de noordrand van het hoogkoor.",
+        "cells": [
+          21
+        ]
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen schematische puzzelkaart, geïnspireerd op de huidige Martinikerk. Dikke lijnen begrenzen puzzelgebieden; ze zijn niet allemaal muren. Geen actuele bezoekplattegrond.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Sommige kolommen blijven leeg.",
+    "objects": [
+      {
+        "cell": 18,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-2-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 26,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-2-2",
+        "part": 1,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 19,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 27,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 22,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false
+      },
+      {
+        "cell": 28,
+        "type": "churchPulpit",
+        "name": "de preekstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 12,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 36,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 13,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 37,
+        "type": "churchLectern",
+        "name": "een lessenaar",
+        "occupiable": false
+      },
+      {
+        "cell": 4,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 43,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 10,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-v1-2",
+    "number": 23,
+    "seriesId": "martini",
+    "seriesNumber": 2,
+    "theme": "Moord in de Martini",
+    "title": "Een valse noot",
+    "story": "De repetitie is voorbij. Een stoel is verschoven en Fokko’s potlood ligt nog bij zijn aantekeningen. De laatste aanwezigen vertellen waar ze stonden.",
+    "lesson": "Een nieuw spoor in de Martini",
+    "level": "Makkelijk",
+    "difficultyStars": 2,
+    "size": 10,
+    "width": 10,
+    "height": 8,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      8,
+      8,
+      -1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      5,
+      8,
+      8,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      5,
+      8,
+      8,
+      -1,
+      -1,
+      1,
+      4,
+      4,
+      4,
+      4,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Torenportaal",
+      "Orgelzone",
+      "Noordbeuk",
+      "Middenschip",
+      "Zuidbeuk",
+      "Hoogkoor",
+      "Noorderkapel",
+      "Sacristie",
+      "Kooromgang",
+      "Zuidportaal"
+    ],
+    "areaColors": [
+      "#c7c8bd",
+      "#d4bf9a",
+      "#d5d7c4",
+      "#e7d8b9",
+      "#c8d2cd",
+      "#d8bfab",
+      "#c8c3d7",
+      "#d8cfaf",
+      "#e1d5c7",
+      "#b8cbc8"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de koster",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de organist",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de koorzangeres",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de restaurator",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muziekarchivaris",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de suppoost",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de orgelstemmer",
+        "color": "#a37a3e"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "wrench",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {
+      "3": 55,
+      "4": 28
+    },
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond precies 2 vakjes links van de preekstoel in het middenschip.",
+        "cells": [
+          44
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond tegen de westrand van de noorderkapel.",
+        "cells": [
+          6,
+          16
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond tegen de zuidrand van het zuidportaal.",
+        "cells": [
+          72,
+          73,
+          74
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond tegen de oostrand van het torenportaal.",
+        "cells": [
+          31,
+          41
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Bevond zich in de sacristie.",
+        "cells": [
+          8,
+          17,
+          18
+        ]
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen schematische puzzelkaart, geïnspireerd op de huidige Martinikerk. Dikke lijnen begrenzen puzzelgebieden; ze zijn niet allemaal muren. Geen actuele bezoekplattegrond.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Sommige kolommen blijven leeg.",
+    "objects": [
+      {
+        "cell": 32,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-3-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 42,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-3-2",
+        "part": 1,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 33,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-3-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 34,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-3-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 43,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 44,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 38,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false
+      },
+      {
+        "cell": 46,
+        "type": "churchPulpit",
+        "name": "de preekstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 24,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 54,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 27,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 57,
+        "type": "churchLectern",
+        "name": "een lessenaar",
+        "occupiable": false
+      },
+      {
+        "cell": 16,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 7,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 62,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 74,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 22,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-v1-3",
+    "number": 24,
+    "seriesId": "martini",
+    "seriesNumber": 3,
+    "theme": "Moord in de Martini",
+    "title": "De verdwenen sleutel",
+    "story": "De sleutelbos is nergens te vinden. Rond de kerkbanken en de preekstoel passen de verhalen niet zomaar in elkaar.",
+    "lesson": "Een nieuw spoor in de Martini",
+    "level": "Gemiddeld",
+    "difficultyStars": 3,
+    "size": 12,
+    "width": 12,
+    "height": 10,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      10,
+      10,
+      10,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      -1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      8,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      8,
+      -1,
+      -1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      -1,
+      11,
+      11,
+      11,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Torenportaal",
+      "Orgelzone",
+      "Noordbeuk",
+      "Middenschip",
+      "Zuidbeuk",
+      "Hoogkoor",
+      "Noorderkapel",
+      "Sacristie",
+      "Kooromgang",
+      "Zuidportaal",
+      "Noordnis",
+      "Zijgang"
+    ],
+    "areaColors": [
+      "#c7c8bd",
+      "#d4bf9a",
+      "#d5d7c4",
+      "#e7d8b9",
+      "#c8d2cd",
+      "#d8bfab",
+      "#c8c3d7",
+      "#d8cfaf",
+      "#e1d5c7",
+      "#b8cbc8",
+      "#d9c9be",
+      "#ccd2b7"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de koster",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de organist",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de koorzangeres",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de restaurator",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muziekarchivaris",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de suppoost",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de orgelstemmer",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de concertbezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de decorbouwer",
+        "color": "#527b66"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "poison",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de zuidoosthoek van het torenportaal.",
+        "cells": [
+          61
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond tegen de noordrand van de kooromgang.",
+        "cells": [
+          32,
+          34,
+          59,
+          93
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond precies 3 vakjes links van de preekstoel in het middenschip.",
+        "cells": [
+          76
+        ]
+      },
+      {
+        "type": "below",
+        "a": 3,
+        "b": 0,
+        "cells": [
+          103,
+          104,
+          105
+        ],
+        "text": "Bevond zich in de zijgang, lager op de kaart dan Arend."
+      },
+      {
+        "type": "below",
+        "a": 4,
+        "b": 6,
+        "cells": [
+          26,
+          38,
+          74,
+          86
+        ],
+        "text": "Bevond zich in de orgelzone, lager op de kaart dan Harm."
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond tegen de oostrand van de noordbeuk.",
+        "cells": [
+          31
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond direct onder een boekenkast in de sacristie.",
+        "cells": [
+          21
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond direct rechts van een zuil in de zuidbeuk.",
+        "cells": [
+          89
+        ]
+      },
+      {
+        "type": "left",
+        "a": 9,
+        "b": 6,
+        "cells": [
+          100,
+          101,
+          111,
+          112,
+          113
+        ],
+        "text": "Bevond zich in het zuidportaal, links van Harm."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "churchPew"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een kerkbank."
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen schematische puzzelkaart, geïnspireerd op de huidige Martinikerk. Dikke lijnen begrenzen puzzelgebieden; ze zijn niet allemaal muren. Geen actuele bezoekplattegrond.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Sommige kolommen blijven leeg.",
+    "objects": [
+      {
+        "cell": 50,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-4-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 62,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-4-2",
+        "part": 1,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 39,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-3-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 40,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-3-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 42,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 75,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 76,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 78,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 57,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false
+      },
+      {
+        "cell": 79,
+        "type": "churchPulpit",
+        "name": "de preekstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 28,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 88,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 33,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 92,
+        "type": "churchLectern",
+        "name": "een lessenaar",
+        "occupiable": false
+      },
+      {
+        "cell": 7,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 20,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 9,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 99,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 113,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 65,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-5-5",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 66,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-5-5",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 67,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-5-5",
+        "part": 2,
+        "tile": {
+          "x": 2,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 26,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-v1-4",
+    "number": 25,
+    "seriesId": "martini",
+    "seriesNumber": 4,
+    "theme": "Moord in de Martini",
+    "title": "Schaduw in de kooromgang",
+    "story": "Na de avondopenstelling gaan de lichten één voor één uit. Twaalf aanwezigen hebben ieder hun eigen verklaring.",
+    "lesson": "Een nieuw spoor in de Martini",
+    "level": "Pittig",
+    "difficultyStars": 4,
+    "size": 14,
+    "width": 14,
+    "height": 12,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      10,
+      10,
+      10,
+      -1,
+      -1,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      -1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      8,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      8,
+      -1,
+      -1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      11,
+      11,
+      11,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Torenportaal",
+      "Orgelzone",
+      "Noordbeuk",
+      "Middenschip",
+      "Zuidbeuk",
+      "Hoogkoor",
+      "Noorderkapel",
+      "Sacristie",
+      "Kooromgang",
+      "Zuidportaal",
+      "Noordnis",
+      "Zijgang"
+    ],
+    "areaColors": [
+      "#c7c8bd",
+      "#d4bf9a",
+      "#d5d7c4",
+      "#e7d8b9",
+      "#c8d2cd",
+      "#d8bfab",
+      "#c8c3d7",
+      "#d8cfaf",
+      "#e1d5c7",
+      "#b8cbc8",
+      "#d9c9be",
+      "#ccd2b7"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de koster",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de organist",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de koorzangeres",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de restaurator",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muziekarchivaris",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de suppoost",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de orgelstemmer",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de concertbezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de decorbouwer",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de rondleidster",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de boekbinder",
+        "color": "#897455"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "candlestick",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de noordoosthoek van het torenportaal.",
+        "cells": [
+          71
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond in de zuidwesthoek van het middenschip.",
+        "cells": [
+          101
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond tegen de zuidrand van het zuidportaal.",
+        "cells": [
+          157,
+          158,
+          159,
+          160
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond direct boven een kerkbank in de noorderkapel.",
+        "cells": [
+          24
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond tegen de zuidrand van de kooromgang.",
+        "cells": [
+          52,
+          97,
+          123,
+          124
+        ]
+      },
+      {
+        "type": "left",
+        "a": 6,
+        "b": 3,
+        "cells": [
+          45,
+          47,
+          48,
+          49,
+          51
+        ],
+        "text": "Bevond zich in de noordbeuk, links van Tammo."
+      },
+      {
+        "type": "right",
+        "a": 7,
+        "b": 2,
+        "cells": [
+          12,
+          25,
+          26,
+          39,
+          40
+        ],
+        "text": "Bevond zich in de sacristie, rechts van Cora."
+      },
+      {
+        "type": "right",
+        "a": 8,
+        "b": 11,
+        "cells": [
+          134,
+          135,
+          136
+        ],
+        "text": "Bevond zich in de zijgang, rechts van Lammert."
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond precies 3 vakjes links van een zuil in de zuidbeuk.",
+        "cells": [
+          117
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond direct rechts van een boekenkast in de sacristie.",
+        "cells": [
+          12
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond naast een kerkbank in het zuidportaal.",
+        "cells": [
+          146,
+          159
+        ]
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "churchPew"
+        ],
+        "count": 2,
+        "text": "Precies 2 personen zaten op een kerkbank."
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen schematische puzzelkaart, geïnspireerd op de huidige Martinikerk. Dikke lijnen begrenzen puzzelgebieden; ze zijn niet allemaal muren. Geen actuele bezoekplattegrond.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Sommige kolommen blijven leeg.",
+    "objects": [
+      {
+        "cell": 72,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-5-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 86,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-5-2",
+        "part": 1,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 59,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 60,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 62,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-6",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 63,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-6",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 101,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-7-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 102,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-7-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 104,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-7-6",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 105,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-7-6",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 94,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false
+      },
+      {
+        "cell": 107,
+        "type": "churchPulpit",
+        "name": "de preekstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 46,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 50,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 116,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 120,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 53,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 122,
+        "type": "churchLectern",
+        "name": "een lessenaar",
+        "occupiable": false
+      },
+      {
+        "cell": 9,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 38,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 11,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 129,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 160,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 89,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-6-5",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 90,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-6-5",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 91,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-6-5",
+        "part": 2,
+        "tile": {
+          "x": 2,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 44,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-v1-5",
+    "number": 26,
+    "seriesId": "martini",
+    "seriesNumber": 5,
+    "theme": "Moord in de Martini",
+    "title": "Het zwijgende orgel",
+    "story": "De laatste klank is weggestorven. Van torenportaal tot sacristie moet ieder alibi precies op zijn plaats vallen.",
+    "lesson": "Een nieuw spoor in de Martini",
+    "level": "Uitdagend",
+    "difficultyStars": 5,
+    "size": 18,
+    "width": 18,
+    "height": 14,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      10,
+      10,
+      10,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      8,
+      8,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      0,
+      0,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      8,
+      0,
+      0,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      8,
+      -1,
+      -1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      8,
+      8,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      11,
+      11,
+      11,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Torenportaal",
+      "Orgelzone",
+      "Noordbeuk",
+      "Middenschip",
+      "Zuidbeuk",
+      "Hoogkoor",
+      "Noorderkapel",
+      "Sacristie",
+      "Kooromgang",
+      "Zuidportaal",
+      "Noordnis",
+      "Zijgang"
+    ],
+    "areaColors": [
+      "#c7c8bd",
+      "#d4bf9a",
+      "#d5d7c4",
+      "#e7d8b9",
+      "#c8d2cd",
+      "#d8bfab",
+      "#c8c3d7",
+      "#d8cfaf",
+      "#e1d5c7",
+      "#b8cbc8",
+      "#d9c9be",
+      "#ccd2b7"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de koster",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de organist",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de koorzangeres",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de restaurator",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muziekarchivaris",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de suppoost",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de orgelstemmer",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de concertbezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de decorbouwer",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de rondleidster",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de boekbinder",
+        "color": "#897455"
+      },
+      {
+        "name": "Meint",
+        "role": "de lichttechnicus",
+        "color": "#4f7e85"
+      },
+      {
+        "name": "Sientje",
+        "role": "de violiste",
+        "color": "#a16b51"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "wrench",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond tegen de zuidrand van de kooromgang.",
+        "cells": [
+          66,
+          68,
+          69,
+          143,
+          193,
+          194,
+          195,
+          196
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond precies 3 vakjes boven de preekstoel in het middenschip.",
+        "cells": [
+          101
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond direct boven een loper in het middenschip.",
+        "cells": [
+          114,
+          115,
+          116
+        ]
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 8,
+        "cells": [
+          208,
+          209,
+          210
+        ],
+        "text": "Bevond zich in de zijgang, links van Jantje."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond tegen de oostrand van het zuidportaal.",
+        "cells": [
+          206,
+          224,
+          242
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond tegen de oostrand van de orgelzone.",
+        "cells": [
+          57,
+          75,
+          93,
+          147,
+          165,
+          183
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond tegen de westrand van het zuidportaal.",
+        "cells": [
+          221,
+          239
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond naast de avondmaalstafel in het hoogkoor.",
+        "cells": [
+          103,
+          104,
+          120,
+          123,
+          138,
+          141,
+          157,
+          158
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond tegen de noordrand van de noorderkapel.",
+        "cells": [
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond tegen de westrand van het middenschip.",
+        "cells": [
+          76,
+          94,
+          112,
+          130,
+          148,
+          166
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond precies 2 vakjes links van een zuil in de noordbeuk.",
+        "cells": [
+          61
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 12,
+        "text": "Stond tegen de zuidrand van het hoogkoor.",
+        "cells": [
+          174,
+          175,
+          176,
+          177
+        ]
+      },
+      {
+        "type": "above",
+        "a": 13,
+        "b": 11,
+        "cells": [
+          16,
+          33,
+          34,
+          51,
+          52
+        ],
+        "text": "Bevond zich in de sacristie, hoger op de kaart dan Lammert."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "churchPew"
+        ],
+        "count": 3,
+        "text": "Precies 3 personen zaten op een kerkbank."
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen schematische puzzelkaart, geïnspireerd op de huidige Martinikerk. Dikke lijnen begrenzen puzzelgebieden; ze zijn niet allemaal muren. Geen actuele bezoekplattegrond.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Sommige kolommen blijven leeg.",
+    "objects": [
+      {
+        "cell": 110,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-6-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 111,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-6-2",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 128,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-6-2",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 129,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-6-2",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 76,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-4",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 77,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-4",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 79,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-7",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 80,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-4-7",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 82,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 166,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-4",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 167,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-4",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 169,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-7",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 170,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-7",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 172,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 94,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-4",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 95,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-4",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 97,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-7",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 98,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-7",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 100,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 148,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-8-4",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 149,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-8-4",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 151,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-8-7",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 152,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-8-7",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 154,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 121,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-6-13",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 122,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-6-13",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 139,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-6-13",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 140,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-6-13",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 155,
+        "type": "churchPulpit",
+        "name": "de preekstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 59,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 63,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 185,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 189,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 67,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 192,
+        "type": "churchLectern",
+        "name": "een lessenaar",
+        "occupiable": false
+      },
+      {
+        "cell": 11,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 50,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 15,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 203,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 242,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 132,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-7-6",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 133,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-7-6",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 134,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-7-6",
+        "part": 2,
+        "tile": {
+          "x": 2,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 56,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-v1-6",
+    "number": 27,
+    "seriesId": "martini",
+    "seriesNumber": 6,
+    "theme": "Moord in de Martini",
+    "title": "De laatste orgeltoon",
+    "story": "Het grote slotdossier. Zestien fictieve aanwezigen, de hele kerk en één verklaring die alles met elkaar verbindt. Neem de tijd: dit is de Martini-proef.",
+    "lesson": "De Martini-proef — een groot slotdossier",
+    "level": "Extreem",
+    "difficultyStars": 6,
+    "size": 24,
+    "width": 24,
+    "height": 16,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      10,
+      10,
+      10,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      8,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      8,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      11,
+      11,
+      11,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      9,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Torenportaal",
+      "Orgelzone",
+      "Noordbeuk",
+      "Middenschip",
+      "Zuidbeuk",
+      "Hoogkoor",
+      "Noorderkapel",
+      "Sacristie",
+      "Kooromgang",
+      "Zuidportaal",
+      "Noordnis",
+      "Zijgang"
+    ],
+    "areaColors": [
+      "#c7c8bd",
+      "#d4bf9a",
+      "#d5d7c4",
+      "#e7d8b9",
+      "#c8d2cd",
+      "#d8bfab",
+      "#c8c3d7",
+      "#d8cfaf",
+      "#e1d5c7",
+      "#b8cbc8",
+      "#d9c9be",
+      "#ccd2b7"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de koster",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de organist",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de koorzangeres",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de restaurator",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de muziekarchivaris",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de suppoost",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de orgelstemmer",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de concertbezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de decorbouwer",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de rondleidster",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de boekbinder",
+        "color": "#897455"
+      },
+      {
+        "name": "Meint",
+        "role": "de lichttechnicus",
+        "color": "#4f7e85"
+      },
+      {
+        "name": "Sientje",
+        "role": "de violiste",
+        "color": "#a16b51"
+      },
+      {
+        "name": "Evert",
+        "role": "de historicus",
+        "color": "#777b49"
+      },
+      {
+        "name": "Dieuwertje",
+        "role": "de vrijwilligster",
+        "color": "#866c7b"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "dagger",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond naast de avondmaalstafel in het hoogkoor.",
+        "cells": [
+          162,
+          163,
+          185,
+          188,
+          209,
+          212,
+          234,
+          235
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond precies 2 vakjes boven een kerkbank in het zuidportaal.",
+        "cells": [
+          322
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond precies 3 vakjes rechts van een kandelaar in de kooromgang.",
+        "cells": [
+          117
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond precies 2 vakjes links van de preekstoel in het middenschip.",
+        "cells": [
+          230
+        ]
+      },
+      {
+        "type": "right",
+        "a": 4,
+        "b": 2,
+        "cells": [
+          22,
+          45,
+          46,
+          69,
+          70,
+          93,
+          94
+        ],
+        "text": "Bevond zich in de sacristie, rechts van Cora."
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond naast een kerkbank in de noorderkapel.",
+        "cells": [
+          68,
+          91
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond precies 3 vakjes links van een kerkbank in het zuidportaal.",
+        "cells": [
+          367
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond tegen de westrand van het zuidportaal.",
+        "cells": [
+          318,
+          342,
+          366
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond precies 3 vakjes links van een zuil in de zuidbeuk.",
+        "cells": [
+          271,
+          275
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond precies 3 vakjes rechts van een loper in het middenschip.",
+        "cells": [
+          204
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond precies 2 vakjes rechts van een kandelaar in de noorderkapel.",
+        "cells": [
+          18
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 12,
+        "text": "Stond in de noordoosthoek van het torenportaal.",
+        "cells": [
+          169
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 13,
+        "text": "Stond precies 2 vakjes rechts van een kandelaar in het zuidportaal.",
+        "cells": [
+          296
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 14,
+        "text": "Stond naast de preekstoel in het middenschip.",
+        "cells": [
+          208,
+          231,
+          256
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 15,
+        "text": "Stond tegen de westrand van de noordnis.",
+        "cells": [
+          76
+        ]
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "churchPew"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een kerkbank."
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen schematische puzzelkaart, geïnspireerd op de huidige Martinikerk. Dikke lijnen begrenzen puzzelgebieden; ze zijn niet allemaal muren. Geen actuele bezoekplattegrond.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Sommige kolommen blijven leeg.",
+    "objects": [
+      {
+        "cell": 170,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-7-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 3,
+          "height": 2
+        }
+      },
+      {
+        "cell": 171,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-7-2",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 3,
+          "height": 2
+        }
+      },
+      {
+        "cell": 172,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-7-2",
+        "part": 2,
+        "tile": {
+          "x": 2,
+          "y": 0,
+          "width": 3,
+          "height": 2
+        }
+      },
+      {
+        "cell": 194,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-7-2",
+        "part": 3,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 3,
+          "height": 2
+        }
+      },
+      {
+        "cell": 195,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-7-2",
+        "part": 4,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 3,
+          "height": 2
+        }
+      },
+      {
+        "cell": 196,
+        "type": "churchOrgan",
+        "name": "het orgel",
+        "occupiable": false,
+        "furnitureId": "churchOrgan-7-2",
+        "part": 5,
+        "tile": {
+          "x": 2,
+          "y": 1,
+          "width": 3,
+          "height": 2
+        }
+      },
+      {
+        "cell": 125,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-5",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 126,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-5",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 128,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-8",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 129,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-8",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 131,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-11",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 132,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-11",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 134,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-14",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 135,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-5-14",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 245,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-5",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 246,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-5",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 248,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-8",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 249,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-8",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 251,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-11",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 252,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-11",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 254,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-14",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 255,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-10-14",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 149,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-5",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 150,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-5",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 152,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-8",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 153,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-8",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 155,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-11",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 156,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-11",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 158,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-14",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 159,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-6-14",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 221,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-5",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 222,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-5",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 224,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-8",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 225,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-8",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 227,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-11",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 228,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-11",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 230,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-14",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 231,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true,
+        "furnitureId": "churchPew-9-14",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 186,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-7-18",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 187,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-7-18",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 210,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-7-18",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 211,
+        "type": "churchTable",
+        "name": "de avondmaalstafel",
+        "occupiable": false,
+        "furnitureId": "churchTable-7-18",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 232,
+        "type": "churchPulpit",
+        "name": "de preekstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 102,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 106,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 110,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 270,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 274,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 278,
+        "type": "churchColumn",
+        "name": "een zuil",
+        "occupiable": false
+      },
+      {
+        "cell": 114,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 281,
+        "type": "churchLectern",
+        "name": "een lessenaar",
+        "occupiable": false
+      },
+      {
+        "cell": 16,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 92,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 21,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 294,
+        "type": "churchCandle",
+        "name": "een kandelaar",
+        "occupiable": false
+      },
+      {
+        "cell": 370,
+        "type": "churchPew",
+        "name": "een kerkbank",
+        "occupiable": true
+      },
+      {
+        "cell": 199,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-8-7",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 200,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-8-7",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 201,
+        "type": "churchRug",
+        "name": "een loper",
+        "occupiable": true,
+        "furnitureId": "churchRug-8-7",
+        "part": 2,
+        "tile": {
+          "x": 2,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "cell": 98,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
   }
 ]
