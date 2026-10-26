@@ -112,7 +112,9 @@ export function buildMartiniClues(p,givenCount,rand){
     const next=offsetCells(o.type,a,dr,dc,1);
     fact(`Stond direct ${direction} ${o.name} ${location(a)}.`,next,2);
    }
-   // Explicit distances are used sparingly when no adjacent landmark identifies a side room.
+   // Legacy seeded construction only: general-clues.mjs replaces every published
+   // counted offset after the room upgrade. The final generator policy rejects
+   // any offset left over, including in future series.
    for(const distance of [2,3])for(const [direction,dr,dc]of [['boven',-1,0],['onder',1,0],['links van',0,-1],['rechts van',0,1]]){
     fact(`Stond precies ${distance} vakjes ${direction} ${o.name} ${location(a)}.`,offsetCells(o.type,a,dr,dc,distance),5);
    }

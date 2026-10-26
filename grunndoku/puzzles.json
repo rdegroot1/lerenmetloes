@@ -5415,14 +5415,16 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 3,
+    "clueVersion": 4,
     "givens": {},
     "clues": [
       {
-        "type": "unary",
+        "type": "below",
         "a": 0,
-        "text": "Stond precies 2 vakjes links van de preekstoel in het middenschip.",
+        "b": 6,
+        "text": "Bevond zich in kolom 5, in het gebied Middenschip, lager op de kaart dan Harm.",
         "cells": [
+          34,
           44
         ]
       },
@@ -5856,7 +5858,7 @@
     "victimWeapon": "poison",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {
@@ -5879,11 +5881,18 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 2,
-        "text": "Stond precies 3 vakjes links van de preekstoel in het middenschip.",
+        "b": 0,
+        "text": "Bevond zich in kolom 5, lager op de kaart dan Arend.",
         "cells": [
-          76
+          16,
+          40,
+          52,
+          64,
+          76,
+          100,
+          112
         ]
       },
       {
@@ -6451,7 +6460,7 @@
     "victimWeapon": "candlestick",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {
@@ -6548,9 +6557,18 @@
       {
         "type": "unary",
         "a": 9,
-        "text": "Stond precies 3 vakjes links van een zuil in de zuidbeuk.",
+        "text": "Bevond zich in kolom 6.",
         "cells": [
-          117
+          33,
+          47,
+          61,
+          75,
+          89,
+          103,
+          117,
+          131,
+          145,
+          159
         ]
       },
       {
@@ -7220,7 +7238,7 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {
@@ -7239,11 +7257,26 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 1,
-        "text": "Stond precies 3 vakjes boven de preekstoel in het middenschip.",
+        "b": 3,
+        "text": "Bevond zich in rij 6, rechts van Tammo.",
         "cells": [
-          101
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106
         ]
       },
       {
@@ -7344,11 +7377,23 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 11,
-        "text": "Stond precies 2 vakjes links van een zuil in de noordbeuk.",
+        "b": 2,
+        "text": "Bevond zich in rij 4, rechts van Cora.",
         "cells": [
-          61
+          56,
+          57,
+          58,
+          60,
+          61,
+          62,
+          64,
+          65,
+          66,
+          68,
+          69,
+          70
         ]
       },
       {
@@ -8381,7 +8426,7 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {
@@ -8400,27 +8445,61 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "above",
         "a": 1,
-        "text": "Stond precies 2 vakjes boven een kerkbank in het zuidportaal.",
+        "b": 8,
+        "text": "Bevond zich in kolom 11, hoger op de kaart dan Jantje.",
         "cells": [
-          322
+          130,
+          154,
+          178,
+          202,
+          226,
+          250,
+          298,
+          322,
+          346,
+          370
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 2,
-        "text": "Stond precies 3 vakjes rechts van een kandelaar in de kooromgang.",
+        "b": 0,
+        "text": "Bevond zich in rij 5, rechts van Arend.",
         "cells": [
-          117
+          98,
+          99,
+          100,
+          101,
+          103,
+          104,
+          105,
+          107,
+          108,
+          109,
+          111,
+          112,
+          113,
+          115,
+          116,
+          117,
+          118
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 3,
-        "text": "Stond precies 2 vakjes links van de preekstoel in het middenschip.",
+        "b": 10,
+        "text": "Bevond zich in kolom 15, lager op de kaart dan Neeltje.",
         "cells": [
-          230
+          134,
+          158,
+          182,
+          206,
+          230,
+          254,
+          302
         ]
       },
       {
@@ -8448,11 +8527,16 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "left",
         "a": 7,
-        "text": "Stond precies 3 vakjes links van een kerkbank in het zuidportaal.",
+        "b": 13,
+        "text": "Bevond zich in rij 16, links van Sientje.",
         "cells": [
-          367
+          366,
+          367,
+          368,
+          369,
+          370
         ]
       },
       {
@@ -8466,28 +8550,48 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 9,
-        "text": "Stond precies 3 vakjes links van een zuil in de zuidbeuk.",
+        "b": 14,
+        "text": "Bevond zich in kolom 12, lager op de kaart dan Evert.",
         "cells": [
-          271,
+          107,
+          131,
+          155,
+          179,
+          203,
+          227,
+          251,
           275
         ]
       },
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond precies 3 vakjes rechts van een loper in het middenschip.",
+        "text": "Stond op een leeg vloervak in kolom 13.",
         "cells": [
-          204
+          108,
+          180,
+          204,
+          276,
+          300
         ]
       },
       {
-        "type": "unary",
+        "type": "above",
         "a": 11,
-        "text": "Stond precies 2 vakjes rechts van een kandelaar in de noorderkapel.",
+        "b": 4,
+        "text": "Bevond zich in kolom 19, hoger op de kaart dan Geeske.",
         "cells": [
-          18
+          18,
+          42,
+          66,
+          90,
+          138,
+          162,
+          234,
+          258,
+          282
         ]
       },
       {
@@ -8499,11 +8603,15 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "above",
         "a": 13,
-        "text": "Stond precies 2 vakjes rechts van een kandelaar in het zuidportaal.",
+        "b": 1,
+        "text": "Bevond zich in kolom 9, in het gebied Zuidportaal, hoger op de kaart dan Bertus.",
         "cells": [
-          296
+          296,
+          320,
+          344,
+          368
         ]
       },
       {
@@ -9976,7 +10084,7 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -10052,10 +10160,16 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond precies 2 vakjes boven een luidklok in de klokkenzolder.",
+        "text": "Bevond zich in rij 5.",
         "cells": [
+          49,
+          50,
+          51,
+          54,
+          55,
           56,
-          57
+          57,
+          58
         ]
       },
       {
@@ -10623,7 +10737,7 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -10669,30 +10783,50 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 4,
-        "text": "Stond precies 2 vakjes onder een luidklok in de klokkenzolder.",
+        "b": 0,
+        "text": "Bevond zich in rij 9, rechts van Arend.",
         "cells": [
-          102,
-          103,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
           122,
-          123
+          123,
+          124
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 6,
-        "text": "Stond precies 2 vakjes links van een luidklok in de klokkenzolder.",
+        "b": 8,
+        "text": "Bevond zich in rij 7, rechts van Jantje.",
         "cells": [
-          92
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          96
         ]
       },
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond precies 2 vakjes boven de wenteltrap in het trappenhuis.",
+        "text": "Bevond zich in rij 8, in het gebied Trappenhuis.",
         "cells": [
-          99
+          99,
+          100
         ]
       },
       {
@@ -10704,11 +10838,24 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 9,
-        "text": "Stond precies 2 vakjes links van de vlaggenstok in de eerste trans.",
+        "b": 4,
+        "text": "Bevond zich in rij 4, rechts van Geeske.",
         "cells": [
-          53
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54
         ]
       },
       {
@@ -11587,7 +11734,7 @@
     "victimWeapon": "poison",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 3,
+    "clueVersion": 4,
     "givens": {},
     "clues": [
       {
@@ -11629,10 +11776,11 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond precies 2 vakjes onder een bed in de roef.",
+        "text": "Bevond zich in rij 7, in het gebied Roef.",
         "cells": [
           60,
-          61
+          61,
+          62
         ]
       },
       {
@@ -12185,7 +12333,7 @@
     "victimWeapon": "candlestick",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -12198,11 +12346,20 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "above",
         "a": 1,
-        "text": "Stond precies 2 vakjes onder een meerpaal op de Kleine der A.",
+        "b": 3,
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Tammo.",
         "cells": [
-          31
+          19,
+          31,
+          43,
+          55,
+          67,
+          79,
+          91,
+          103,
+          115
         ]
       },
       {
@@ -12215,11 +12372,14 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "left",
         "a": 3,
-        "text": "Stond precies 3 vakjes onder de vuurton op het vuurtonplein.",
+        "b": 9,
+        "text": "Bevond zich in rij 4, in het gebied Vuurtonplein, links van Wubbo.",
         "cells": [
-          45
+          45,
+          46,
+          47
         ]
       },
       {
@@ -12232,11 +12392,20 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 6,
-        "text": "Stond precies 3 vakjes boven de vuurton op de Pottebakkersrijge.",
+        "b": 2,
+        "text": "Bevond zich in kolom 2, lager op de kaart dan Cora.",
         "cells": [
-          73
+          1,
+          13,
+          25,
+          37,
+          49,
+          61,
+          73,
+          85,
+          97
         ]
       },
       {
@@ -12882,7 +13051,7 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -12905,10 +13074,21 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 2,
-        "text": "Stond precies 3 vakjes boven een bankje op het vuurtonplein.",
+        "b": 10,
+        "text": "Bevond zich in rij 9, rechts van Neeltje.",
         "cells": [
+          112,
+          113,
+          114,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          123,
           124,
           125
         ]
@@ -12987,7 +13167,7 @@
       {
         "type": "unary",
         "a": 11,
-        "text": "Stond precies 3 vakjes onder een bankje op de Kleine der A.",
+        "text": "Bevond zich in rij 11, in het gebied Kleine der A.",
         "cells": [
           148,
           149
@@ -13957,16 +14137,16 @@
     "victimWeapon": "rope",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond precies 2 vakjes onder het kunstpaneel in het kunstpakhuis.",
+        "text": "Bevond zich in kolom 13, in het gebied Kunstpakhuis.",
         "cells": [
-          120,
-          121
+          102,
+          120
         ]
       },
       {
@@ -13997,19 +14177,32 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 4,
-        "text": "Stond precies 3 vakjes links van een bankje op het vuurtonplein.",
+        "b": 1,
+        "text": "Bevond zich in kolom 14, lager op de kaart dan Bertus.",
         "cells": [
-          193
+          31,
+          49,
+          67,
+          103,
+          121,
+          139,
+          157,
+          175,
+          193,
+          229,
+          247
         ]
       },
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond precies 3 vakjes boven de vuurton op het vuurtonplein.",
+        "text": "Bevond zich in kolom 16, in het gebied Vuurtonplein.",
         "cells": [
-          141
+          141,
+          159,
+          177
         ]
       },
       {
@@ -14028,9 +14221,11 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond precies 2 vakjes rechts van de scheepskist in het scheepsruim.",
+        "text": "Bevond zich in kolom 9, in het gebied Scheepsruim.",
         "cells": [
-          62
+          62,
+          80,
+          98
         ]
       },
       {
@@ -14047,11 +14242,23 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 10,
-        "text": "Stond precies 2 vakjes boven de vuurton op de Lage der A.",
+        "b": 8,
+        "text": "Bevond zich in kolom 3, lager op de kaart dan Jantje.",
         "cells": [
-          74
+          2,
+          20,
+          38,
+          56,
+          74,
+          92,
+          128,
+          146,
+          164,
+          182,
+          200,
+          218
         ]
       },
       {
@@ -14064,11 +14271,24 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "left",
         "a": 12,
-        "text": "Stond precies 2 vakjes onder de tafel in de roef.",
+        "b": 8,
+        "text": "Bevond zich in rij 14, links van Jantje.",
         "cells": [
-          241
+          234,
+          235,
+          240,
+          241,
+          242,
+          243,
+          244,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251
         ]
       },
       {
@@ -15257,7 +15477,7 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -15281,11 +15501,25 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 2,
-        "text": "Stond precies 3 vakjes onder een meerpaal op de Hoge der A.",
+        "b": 0,
+        "text": "Bevond zich in kolom 15, lager op de kaart dan Arend.",
         "cells": [
-          86
+          38,
+          62,
+          86,
+          110,
+          134,
+          158,
+          182,
+          230,
+          254,
+          278,
+          302,
+          326,
+          350,
+          374
         ]
       },
       {
@@ -15299,9 +15533,24 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond precies 2 vakjes rechts van de mast op het voordek.",
+        "text": "Bevond zich in kolom 11.",
         "cells": [
-          10
+          10,
+          34,
+          58,
+          82,
+          106,
+          130,
+          154,
+          178,
+          202,
+          226,
+          250,
+          274,
+          298,
+          322,
+          346,
+          370
         ]
       },
       {
@@ -15332,11 +15581,26 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "below",
         "a": 9,
-        "text": "Stond precies 3 vakjes onder een gitaar in het kunstpakhuis.",
+        "b": 8,
+        "text": "Bevond zich in kolom 19, lager op de kaart dan Jantje.",
         "cells": [
-          186
+          18,
+          42,
+          66,
+          90,
+          138,
+          162,
+          186,
+          210,
+          234,
+          258,
+          282,
+          306,
+          330,
+          354,
+          378
         ]
       },
       {
@@ -15365,10 +15629,16 @@
         ]
       },
       {
-        "type": "unary",
+        "type": "right",
         "a": 12,
-        "text": "Stond precies 2 vakjes boven een bankje op het achterdek.",
+        "b": 0,
+        "text": "Bevond zich in rij 10, in het gebied Achterdek, rechts van Arend.",
         "cells": [
+          223,
+          224,
+          225,
+          226,
+          227,
           228,
           229
         ]

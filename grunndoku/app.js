@@ -1,15 +1,15 @@
-import {THEMES,tutorialFor} from './themes.js?v=20261026-rooms';
-import {personEntries} from './person-order.js?v=20261026-rooms';
-import {updateBoard} from './board-dom.js?v=20261026-rooms';
-import {reasoningHint} from './hints.js?v=20261026-rooms';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-rooms';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-rooms';
-import {landmarkArt,objectArt} from './art.js?v=20261026-rooms';
-import {explain} from './explain.js?v=20261026-rooms';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-rooms';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-rooms';
+import {THEMES,tutorialFor} from './themes.js?v=20261026-general';
+import {personEntries} from './person-order.js?v=20261026-general';
+import {updateBoard} from './board-dom.js?v=20261026-general';
+import {reasoningHint} from './hints.js?v=20261026-general';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-general';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-general';
+import {landmarkArt,objectArt} from './art.js?v=20261026-general';
+import {explain} from './explain.js?v=20261026-general';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-general';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-general';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-rooms';
+const DATA_VERSION='20261026-general';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
@@ -47,7 +47,7 @@ function showScreen(name){
 function route(screen,i,replace=false){const series=screen==='home'?null:(puzzles[i].seriesId||'stad');window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(series?'?serie='+series:''));}
 function showHome(record=true){showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
 function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
- introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-rooms';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-general';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
