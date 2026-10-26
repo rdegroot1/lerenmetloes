@@ -8,7 +8,10 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Iedere verdachte heeft precies één eigen aanwijzing of een vaste startpositie. Het slachtoffer heeft uitsluitend ‘Was samen met de moordenaar.’ Geen aanwijzing van een persoon verwijst naar het slachtoffer.
 - Eén soort stoel: dezelfde tekening, naam en betekenis. Groen gemarkeerde meubels zijn bezetbaar. Grote voorwerpen hebben één doorlopende illustratie en echte deelvakken.
 - Behoud opslag-ID’s en bestaande oplossingen waar mogelijk. De oorspronkelijke opslagnamespace `grunmurdoku:v1:` is bewust behouden. Vernieuw alleen afvinkversies wanneer aanwijzingen wijzigen.
-- Eerste zaak blijft zonder gokken met directe uitsluiting oplosbaar. Moeilijkheid gebruikt vijf sterren en de gedeelde labels in `difficulty.js`; de uitzonderlijke zesde Martini-zaak heeft zes sterren.
+- Eerste zaak blijft zonder gokken met directe uitsluiting oplosbaar. Moeilijkheid gebruikt vijf sterren en de gedeelde labels in `difficulty.js`; zesdelige themareeksen hebben een zesde XXL-zaak met zes sterren. Gebruik een label dat bij het thema past.
+- Hints tonen kleine redeneerstappen, zonder automatisch te plaatsen of de dader te noemen. Leid ze af uit de huidige definitieve plaatsingen en openbare regels.
+- Rechtsklik kruist af en behoudt het gereedschap. Initialen selecteren personen; onderdruk die sneltoetsen in invoervelden en geopende dialogen.
+- Niveau-feedback blijft lokaal tot de speler die bewust exporteert. Claim geen empirische kalibratie zonder proefspeelgegevens.
 - Drie klikken: concept, definitief, eerdere concepten herstellen. Controleer dit ook na herladen en op meubels.
 - PDF’s: bundels beginnen met twee eigen oefenpagina’s. Herhaal korte uitleg alleen bij de eerste zaken. Klassieke zaken passen op één liggend A4; kleine Martini- en torenzaken (t/m 10 personen op maximaal 12 × 10 vakken) passen op één A4; grotere gebruiken één kaartpagina en één personagepagina. Houd oude PDF-adressen bruikbaar.
 
@@ -26,3 +29,7 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Bewaar menselijke ontwerpkeuzes en versiegeschiedenis. Ga niet uit van auteursrecht op ieder AI-gegenereerd onderdeel.
 
 Zie `PUBLICATIE.md` voor bronnen en resterende aandachtspunten. Deze werkinstructies vormen geen juridische goedkeuring van het product.
+
+## Thematische uitbreiding
+
+Per nieuw thema: vijf normale niveaus plus een zesde XXL-zaak; varieer uitsneden, ruimtes en personages. WinterWelVaart is als eerste op deze manier toegevoegd. Behoud eerdere losse zaken en hun voortgang. De Euroborg en de andere bestaande thema’s staan in `ROADMAP.md`. Gebruik echte locaties alleen als beschrijvende inspiratie en maak eigen schematische plattegronden. Een waterzaak reconstrueert de posities vóór de val; het slachtoffer krijgt geen eigen plaatsaanwijzing.
