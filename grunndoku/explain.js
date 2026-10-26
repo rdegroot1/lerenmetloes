@@ -1,15 +1,18 @@
-import {solve,matches,region,isPlayable,canStand,furnitureCells} from './engine.js?v=20261026-grunndoku-city';
+import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261026-martini';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.
 export function explain(p){
  const result=[],positions={...p.givens},n=p.people.length;
- const name=i=>p.people[i].name,spot=c=>`rij ${Math.floor(c/p.size)+1}, kolom ${c%p.size+1}`;
- const row=c=>Math.floor(c/p.size),col=c=>c%p.size;
- const clues=i=>p.clues.filter(c=>c.a===i&&['unary','onObject','onlyOnObject'].includes(c.type));
+ const width=gridWidth(p),name=i=>p.people[i].name,spot=c=>`rij ${Math.floor(c/width)+1}, kolom ${c%width+1}`;
+ const row=c=>Math.floor(c/width),col=c=>c%width;
+ const clues=i=>p.clues.filter(c=>c.a===i&&['unary','onObject','onlyOnObject','roomAlone'].includes(c.type));
  for(const [i,c]of Object.entries(p.givens||{}))result.push(`${name(i)} is gegeven: ${spot(c)}. In die rij en kolom kan niemand anders staan.`);
  const blocked=new Set(p.objects.filter(o=>o.occupiable!==true).map(o=>o.cell));
- const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>isPlayable(p,c)&&!blocked.has(c)&&p.clues.every(q=>matches(p,{[i]:c},q))));
+ const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:cellCount(p)},(_,c)=>c).filter(c=>isPlayable(p,c)&&!blocked.has(c)&&p.clues.every(q=>matches(p,{[i]:c},q))));
+ const hallGroups=[];
+ function combinations(start,group){if(group.length)hallGroups.push(group);if(group.length>=Math.min(n-1,n>10?4:n-1))return;for(let i=start;i<n;i++)combinations(i+1,[...group,i]);}
+ combinations(0,[]);
  const reasons=p.people.map((_,i)=>new Set(clues(i).map(c=>`de aanwijzing “${c.text}”`)));
  const found=Symbol('forced placement');
  const remove=(i,forbidden,why)=>{const next=domains[i].filter(c=>!forbidden(c));if(next.length!==domains[i].length){domains[i]=next;reasons[i].add(why);if(next.length===1&&positions[i]==null)throw found;return true;}return false;};
@@ -24,11 +27,10 @@ export function explain(p){
    }
    // Hall sets: when a group uses exactly as many rows/columns as people,
    // those rows/columns cannot be used by anyone outside that group.
-   for(const axis of [row,col])for(let mask=1;mask<(1<<n)-1;mask++){
-    const group=Array.from({length:n},(_,i)=>i).filter(i=>mask&(1<<i));
+   for(const axis of [row,col])for(const group of hallGroups){
     const values=new Set(group.flatMap(i=>domains[i].map(axis)));
     if(values.size!==group.length)continue;
-    for(let i=0;i<n;i++)if(!(mask&(1<<i)))change=remove(i,c=>values.has(axis(c)),`de ${values.size===1?(axis===row?'rij':'kolom'):(axis===row?'rijen':'kolommen')} ${[...values].map(v=>v+1).join(', ')} ${values.size===1?'is':'zijn'} nodig voor ${group.map(name).join(', ')}`)||change;
+    for(let i=0;i<n;i++)if(!group.includes(i))change=remove(i,c=>values.has(axis(c)),`de ${values.size===1?(axis===row?'rij':'kolom'):(axis===row?'rijen':'kolommen')} ${[...values].map(v=>v+1).join(', ')} ${values.size===1?'is':'zijn'} nodig voor ${group.map(name).join(', ')}`)||change;
    }
    for(const rule of p.clues.filter(c=>c.type==='objectCount')){
     const cells=new Set(furnitureCells(p,rule.types));

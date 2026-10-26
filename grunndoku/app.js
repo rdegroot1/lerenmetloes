@@ -1,21 +1,21 @@
-import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-grunndoku-city';
-import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-grunndoku-city';
-import {landmarkArt} from './art.js?v=20261026-grunndoku-city';
-import {explain} from './explain.js?v=20261026-grunndoku-city';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-grunndoku-city';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-grunndoku-city';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-martini';
+import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-martini';
+import {landmarkArt} from './art.js?v=20261026-martini';
+import {explain} from './explain.js?v=20261026-martini';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-martini';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-martini';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-grunndoku-city';
+const DATA_VERSION='20261026-martini';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
 const seriesCases=()=>puzzles.slice(0,mainCount).filter(q=>(q.seriesId||'stad')===(p.seriesId||'stad'));
 const seriesIndices=()=>seriesCases().map(q=>puzzles.indexOf(q));
-let index=0,p,state,selected=0,mode='place',history=[];
+let index=0,p,state,selected=0,mode='place',history=[],zoom=1;
 // Keep the original storage namespace so existing browser progress survives the rename.
 const key=p=>'grunmurdoku:v1:'+p.id;
 function load(i){
- index=i;p=puzzles[i];history=[];selected=0;mode='place';
+ index=i;p=puzzles[i];history=[];zoom=1;selected=0;mode='place';
  const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false};state=defaults;
  try{
   const saved=JSON.parse(localStorage.getItem(key(p)));
@@ -27,7 +27,7 @@ function load(i){
   }
  }catch{}
  selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));$('caseSelect').value=String(i);render();
- say(Object.keys(p.givens||{}).length?'Twee personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.':'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
+ say(Object.keys(p.givens||{}).length?`${Object.keys(p.givens).length} personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.`:'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
 }
 function persist(){state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
 function snapshot(){history.push(JSON.stringify(state));if(history.length>100)history.shift();}
@@ -38,6 +38,16 @@ function clueLabel(clue,j){
  const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);return label;
 }
 function render(){
+ const church=p.seriesId==='martini',width=gridWidth(p),height=gridHeight(p);
+ document.querySelector('.book').classList.toggle('series-martini',church);
+ (church?$('martiniHeader'):document.querySelector('.clue-page')).prepend($('caseHeader'));
+ $('martiniHeader').hidden=!church;$('mapNavigation').hidden=!church;
+ $('mapNote').hidden=!church;$('mapNote').textContent=p.mapNote||'';
+ $('shapeNote').textContent=p.rulesNote||'Iedereen heeft een eigen rij én kolom.';
+ for(const id of ['board','miniBoard']){$(id).style.setProperty('--columns',width);$(id).style.setProperty('--rows',height);}
+ $('board').style.setProperty('--map-min',`${width*36*zoom}px`);
+ $('zoomValue').textContent=`${Math.round(zoom*100)}%`;
+ $('quickPerson').innerHTML=p.people.map((person,i)=>`<option value="${i}" ${i===selected?'selected':''} ${Object.hasOwn(p.givens||{},i)?'disabled':''}>${person.name}${state.positions[i]!=null?' ✓':''}</option>`).join('');
  $('caseNo').textContent=`ZAAK ${String(p.number).padStart(2,'0')} / ${p.theme||'STAD'}`;$('caseTitle').textContent=p.title;$('story').textContent=p.story;
  const count=Object.keys(state.positions).length;$('count').textContent=`${count} / ${p.people.length} geplaatst`;$('progress').textContent=state.solved?'Zaak opgelost':`${count} van ${p.people.length} alibi’s op de kaart`;
  $('board').classList.toggle('shaped',p.regions.some(a=>a<0));$('miniBoard').classList.toggle('shaped',p.regions.some(a=>a<0));document.querySelector('.book').classList.toggle('series-mugshot',p.portraitStyle==='mugshot');
@@ -45,17 +55,17 @@ function render(){
  $('board').querySelectorAll('[data-cell]').forEach(cell=>cell.onclick=()=>tap(+cell.dataset.cell));
  $('legend').innerHTML=legendMarkup(p);$('objectLegend').innerHTML=objectLegend(p);
  $('miniBoard').style.setProperty('--size',p.size);$('miniBoard').innerHTML=boardMarkup(p,{},[],true);
- $('level').innerHTML=difficultyMarkup(p)+`<span class="difficulty-size">${p.size} × ${p.size}</span>`;
- $('lesson').textContent=p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — vul alleen de twee ontbrekende personen in.':p.number===2?' — nu helemaal zonder startposities.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
+ $('level').innerHTML=difficultyMarkup(p)+`<span class="difficulty-size">${width} × ${height}</span>`;
+ $('lesson').textContent=church?`${p.people.length} personen · ${p.lesson||'Combineer de aanwijzingen en ontdek de dader.'}`:p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — vul alleen de twee ontbrekende personen in.':p.number===2?' — nu helemaal zonder startposities.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
- $('printAll').textContent=`Print deze serie (${seriesCases().length} A4)`;
- for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
+ $('printAll').textContent=`Print deze serie (${printPageCount(seriesCases())} A4)`;
+ for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht'],['martiniSeries','martini']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
  $('caseTrail').innerHTML=seriesCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" aria-label="Zaak ${q.number}: ${difficultyText(q)}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${q.theme||difficultyText(q)}</span></button>`;}).join('');
  $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>load(+b.dataset.case));
  $('people').replaceChildren();
  p.people.forEach((person,i)=>{
-  const card=document.createElement('div');card.className='person-card'+(selected===i?' selected':'');const head=document.createElement('button');head.className='person-header';head.setAttribute('aria-pressed',String(selected===i));
-  const pos=state.positions[i];head.innerHTML=`<span class="avatar">${portraitMarkup(i,person.name,p)}</span><span><strong>${person.name}</strong>${i===p.victim?'<span class="victim-tag">SLACHTOFFER</span>':''}<small>${person.role}</small></span><span class="placed">${pos==null?'○':`R${Math.floor(pos/p.size)+1} · K${pos%p.size+1}`}</span>`;
+  const card=document.createElement('div');card.className='person-card'+(selected===i?' selected':'')+(i===p.victim?' is-victim':'');const head=document.createElement('button');head.className='person-header';head.setAttribute('aria-pressed',String(selected===i));head.setAttribute('aria-label',`${person.name}, ${person.role}${i===p.victim?', slachtoffer':''}`);
+  const pos=state.positions[i];head.innerHTML=`<span class="avatar">${portraitMarkup(i,person.name,p)}</span><div class="portrait-caption">${p.portraitStyle==='mugshot'?'':`<strong>${person.name}</strong>`}${i===p.victim?'<span class="victim-tag">SLACHTOFFER</span>':''}<small>${person.role}</small></div><span class="placed">${pos==null?'○':`R${Math.floor(pos/p.size)+1} · K${pos%p.size+1}`}</span>`;
   head.onclick=()=>{if(Object.hasOwn(p.givens||{},i)){say(`${person.name} is een vaste startpositie.`);return;}selected=i;mode='place';render();say(`${person.name} geselecteerd. Eén klik maakt een concept; nogmaals maakt het definitief, een derde klik zet de eerdere aantekeningen terug.`);};card.append(head);
   if(i===p.victim&&p.clues.some(c=>c.a===i)){const heading=document.createElement('p');heading.className='victim-location-title';heading.textContent='Plaatsaanwijzing';card.append(heading);}
   p.clues.forEach((clue,j)=>{if(clue.a===i)card.append(clueLabel(clue,j));});
@@ -82,7 +92,7 @@ function tap(c){
  persist();render();say(mode==='place'?`${p.people[selected].name} definitief geplaatst. Controleer de aanwijzingen of kies de volgende persoon.`:'Notitie bijgewerkt.');
 }
 $('printAll').textContent=`Print de reeks (${mainCount} A4)`;
-$('caseSelect').innerHTML=['stad','nacht'].map(series=>`<optgroup label="${series==='nacht'?'Nacht in Stad — nieuwe serie':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${difficultyText(q)} · ${q.theme||'Stad'} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>load(+e.target.value);
+$('caseSelect').innerHTML=['stad','nacht','martini'].map(series=>`<optgroup label="${series==='martini'?'Moord in de Martini':series==='nacht'?'Nacht in Stad':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${difficultyText(q)} · ${q.theme||'Stad'} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>load(+e.target.value);
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
 $('undo').onclick=()=>{if(history.length){state=JSON.parse(history.pop());persist();render();say('Laatste wijziging teruggedraaid.');}};
 $('reset').onclick=()=>{snapshot();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
@@ -100,6 +110,10 @@ $('explanation').onclick=()=>{const explanation=explain(p);$('explanationTitle')
 $('landmarks').innerHTML=landmarkArt();
 $('printCase').onclick=()=>printPuzzles([p]);
 $('printAll').onclick=()=>printPuzzles(seriesCases());
+$('quickPerson').onchange=e=>{const who=+e.target.value;if(Object.hasOwn(p.givens||{},who)){say(`${p.people[who].name} is een vaste startpositie.`);return;}selected=who;mode='place';render();say(`${p.people[selected].name} geselecteerd.`);};
+$('zoomIn').onclick=()=>{zoom=Math.min(2,zoom+.25);render();};
+$('zoomOut').onclick=()=>{zoom=Math.max(.75,zoom-.25);render();};
+$('martiniSeries').onclick=()=>load(puzzles.findIndex(q=>q.seriesId==='martini'));
 $('classicSeries').onclick=()=>load(0);
 $('nightSeries').onclick=()=>load(puzzles.findIndex(q=>q.seriesId==='nacht'));
 $('nextCase').onclick=()=>{const cases=seriesIndices(),next=cases[cases.indexOf(index)+1];if(next!=null)load(next);};

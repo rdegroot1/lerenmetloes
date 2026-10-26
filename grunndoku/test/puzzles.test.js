@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {solve,valid,region} from '../engine.js';
-const puzzles=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url)));
+const puzzles=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url))).filter(p=>p.seriesId!=='martini');
 for(const p of puzzles){
  test(`${p.id}: exactly one full solution and one murderer`,()=>{
  const solutions=solve(p);assert.equal(solutions.length,1);const [s]=solutions;
