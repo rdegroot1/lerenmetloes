@@ -1,3 +1,4 @@
+import {finishDossier} from './starter-clues.mjs';
 import {createWinterSeries} from './winter.mjs';
 import {createMartiniSeries,createTowerSeries} from './martini.mjs';
 import {solve} from './engine.js';
@@ -127,4 +128,5 @@ for(let k=0;k<specs.length;k++){
  cases.push(p);console.log(p.number,size,level,p.clues.length,'clues',p.clues.filter(c=>c.type!=='unary').length,'relations');
 }
 cases.push(...createMartiniSeries(),...createTowerSeries(),...createWinterSeries());
+cases.forEach(finishDossier);
 writeFileSync(new URL('./puzzles.json',import.meta.url),JSON.stringify(cases,null,2)+'\n');

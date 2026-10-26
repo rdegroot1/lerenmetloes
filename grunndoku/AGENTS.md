@@ -5,7 +5,7 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 ## Puzzelkwaliteit
 
 - Iedere actuele zaak heeft precies één oplossing en één dader.
-- Iedere verdachte heeft precies één eigen aanwijzing of een vaste startpositie. Het slachtoffer heeft uitsluitend ‘Was samen met de moordenaar.’ Geen aanwijzing van een persoon verwijst naar het slachtoffer.
+- Iedere verdachte heeft precies één eigen aanwijzing. Actuele zaken beginnen zonder gegeven posities; vaste startplaatsen zijn alleen voor de oefenuitleg en het archief. Het slachtoffer heeft uitsluitend ‘Was samen met de moordenaar.’ Geen aanwijzing van een persoon verwijst naar het slachtoffer.
 - Eén soort stoel: dezelfde tekening, naam en betekenis. Groen gemarkeerde meubels zijn bezetbaar. Grote voorwerpen hebben één doorlopende illustratie en echte deelvakken.
 - Behoud opslag-ID’s en bestaande oplossingen waar mogelijk. De oorspronkelijke opslagnamespace `grunmurdoku:v1:` is bewust behouden. Vernieuw alleen afvinkversies wanneer aanwijzingen wijzigen.
 - Eerste zaak blijft zonder gokken met directe uitsluiting oplosbaar. Moeilijkheid gebruikt vijf sterren en de gedeelde labels in `difficulty.js`; zesdelige themareeksen hebben een zesde XXL-zaak met zes sterren. Gebruik een label dat bij het thema past.
@@ -19,6 +19,8 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - PDF’s: bundels beginnen met twee eigen oefenpagina’s. Herhaal korte uitleg alleen bij de eerste zaken. Klassieke zaken passen op één liggend A4; kleine Martini- en torenzaken (t/m 10 personen op maximaal 12 × 10 vakken) passen op één A4; grotere gebruiken één kaartpagina en één personagepagina. Houd oude PDF-adressen bruikbaar.
 
 - De Martini-serie gebruikt de huidige kerk als inspiratie: orgel, preekstoel, koor en kapellen; geen historische biechthokjes. Kaarten zijn eigen schematische puzzelindelingen, geen bezoekersplattegrond. Breedte en hoogte kunnen verschillen; gebruik de dimensioneringsfuncties uit `engine.js`.
+- Fokko is in actuele zaken het slachtoffer en staat als laatste in alle personagelijsten, ook op papier. Sorteer alleen de presentatie; behoud indices voor voortgang en aanwijzingen.
+- Ruimtenamen staan op de kaart; voeg geen tweede gebiedslegenda onder de kaart toe. Het overzicht van bezetbare en geblokkeerde voorwerpen staat bij de introductie en in Spelregels, niet onder iedere puzzel.
 - Mugshots hebben hun naam uitsluitend op het vastgehouden bord; geen tweede naamstrook eronder. Archiefportretten mogen hun naamstrook behouden.
 
 ## Juridische uitgangspunten

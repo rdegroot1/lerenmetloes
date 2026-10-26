@@ -2,11 +2,11 @@
   {
     "id": "stad-v2-1",
     "number": 1,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "theme": null,
     "title": "Bij d’Olle Grieze",
-    "story": "Na de bloemenmarkt wordt Tammo gevonden bij de Martinitoren. Twee getuigen staan al op de kaart. Kun jij de andere twee plaatsen?",
-    "lesson": "Je eerste zaak",
+    "story": "Na de bloemenmarkt wordt Fokko gevonden bij de Martinitoren. Drie getuigen vertellen waar ze waren. Plaats iedereen en ontdek wie bij Fokko was.",
+    "lesson": "Lees de drie aanwijzingen en begin bij het enige passende vak",
     "level": "Heel makkelijk",
     "size": 4,
     "regions": [
@@ -50,9 +50,10 @@
         "color": "#89703e"
       },
       {
-        "name": "Tammo",
+        "name": "Fokko",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -84,10 +85,7 @@
       }
     ],
     "victim": 3,
-    "givens": {
-      "0": 3,
-      "1": 6
-    },
+    "givens": {},
     "clues": [
       {
         "type": "onObject",
@@ -96,6 +94,22 @@
           "chair"
         ],
         "text": "Zat op een stoel."
+      },
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de noordoosthoek van de Vismarkt.",
+        "cells": [
+          3
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond direct links van de Martinitoren.",
+        "cells": [
+          6
+        ]
       }
     ],
     "victimLocationClue": false,
@@ -110,7 +124,7 @@
     "clueVersion": 2,
     "theme": null,
     "title": "Een eierbal te veel",
-    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Tammo komt niet thuis. Wie was er nog bij hem?",
+    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Fokko komt niet thuis. Wie was er nog bij hem?",
     "lesson": "Zelf op onderzoek",
     "level": "Makkelijk",
     "size": 4,
@@ -155,9 +169,10 @@
         "color": "#89703e"
       },
       {
-        "name": "Tammo",
+        "name": "Fokko",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -246,7 +261,7 @@
     "clueVersion": 2,
     "theme": null,
     "title": "Stilte in het plantsoen",
-    "story": "Geeske wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
+    "story": "Fokko wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt zijn tas gevonden. De getuigen vertellen waar ze waren.",
     "lesson": "Goed kijken",
     "level": "Rustig puzzelen",
     "size": 5,
@@ -305,9 +320,10 @@
         "color": "#6b6085"
       },
       {
-        "name": "Geeske",
+        "name": "Fokko",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -405,7 +421,7 @@
     "clueVersion": 3,
     "theme": null,
     "title": "Het geheim van ome Loeks",
-    "story": "Bij het Peerd van ome Loeks wachtte Geeske op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
+    "story": "Bij het Peerd van ome Loeks wachtte Fokko op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
     "lesson": "Verbanden leggen",
     "level": "Gemiddeld",
     "size": 5,
@@ -464,9 +480,10 @@
         "color": "#6b6085"
       },
       {
-        "name": "Geeske",
+        "name": "Fokko",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1106,7 +1123,7 @@
     "clueVersion": 2,
     "theme": "Hoornseplas",
     "title": "Een spoor in het zand",
-    "story": "Een zonnige middag bij de Hoornseplas eindigt met een vreemde vondst. Geeske werd voor het laatst gezien bij het water. Wie bleef er achter?",
+    "story": "Een zonnige middag bij de Hoornseplas eindigt met een vreemde vondst. Fokko werd voor het laatst gezien bij het water. Wie bleef er achter?",
     "lesson": "Aan het water",
     "level": "Gemiddeld",
     "size": 5,
@@ -1165,9 +1182,10 @@
         "color": "#6b6085"
       },
       {
-        "name": "Geeske",
+        "name": "Fokko",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1353,7 +1371,7 @@
     "clueVersion": 2,
     "theme": "Stadspark",
     "title": "De stille muziekkoepel",
-    "story": "In het Stadspark is het concert afgelopen, maar Geeske heeft haar fiets niet opgehaald. Vijf verhalen vertellen wat er die avond gebeurde.",
+    "story": "In het Stadspark is het concert afgelopen, maar Fokko heeft zijn fiets niet opgehaald. Vijf verhalen vertellen wat er die avond gebeurde.",
     "lesson": "Tussen bomen en muziek",
     "level": "Gemiddeld",
     "size": 5,
@@ -1412,9 +1430,10 @@
         "color": "#6b6085"
       },
       {
-        "name": "Geeske",
+        "name": "Fokko",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -4985,7 +5004,7 @@
     "seriesNumber": 1,
     "theme": "Moord in de Martini",
     "title": "De gesloten kapel",
-    "story": "Na een rondleiding blijft een muziekmap achter. Vier bezoekers staan al op de kaart. Zoek de laatste getuige en ontdek wie met Fokko achterbleef.",
+    "story": "Na een rondleiding blijft een muziekmap achter. Vijf bezoekers vertellen waar ze stonden. Volg hun aanwijzingen en ontdek wie met Fokko achterbleef.",
     "lesson": "Een nieuw spoor in de Martini",
     "level": "Heel makkelijk",
     "difficultyStars": 1,
@@ -5103,13 +5122,8 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
-    "givens": {
-      "0": 4,
-      "2": 31,
-      "3": 43,
-      "4": 10
-    },
+    "clueVersion": 2,
+    "givens": {},
     "clues": [
       {
         "type": "unary",
@@ -5117,6 +5131,39 @@
         "text": "Stond tegen de noordrand van het hoogkoor.",
         "cells": [
           21
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Zat op een kerkbank in de noorderkapel.",
+        "cells": [
+          4
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond in de vierde rij, in de kooromgang.",
+        "cells": [
+          30,
+          31
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Zat op een kerkbank in het zuidportaal.",
+        "cells": [
+          43
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Zat op een stoel.",
+        "cells": [
+          10
         ]
       }
     ],
@@ -5387,11 +5434,8 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
-    "givens": {
-      "3": 55,
-      "4": 28
-    },
+    "clueVersion": 2,
+    "givens": {},
     "clues": [
       {
         "type": "unary",
@@ -5437,6 +5481,22 @@
           8,
           17,
           18
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond direct rechts van een zuil in de zuidbeuk.",
+        "cells": [
+          55
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond direct boven de avondmaalstafel in de kooromgang.",
+        "cells": [
+          28
         ]
       }
     ],
@@ -10980,7 +11040,7 @@
     "setting": "winter",
     "theme": "WinterWelVaart",
     "title": "Het laatste lied in de roef",
-    "story": "Aan boord van een fictieve winterklipper is het laatste lied gezongen. Vier aanwezigen staan al vast. Zoek de twee ontbrekende personen en ontdek wie met Fokko achterbleef.",
+    "story": "Aan boord van een fictieve winterklipper is het laatste lied gezongen. Vijf aanwezigen vertellen waar ze waren. Zoek hun plekken en ontdek wie met Fokko achterbleef.",
     "lesson": "Een nieuw winters dossier",
     "level": "Heel makkelijk",
     "difficultyStars": 1,
@@ -11088,13 +11148,8 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
-    "givens": {
-      "0": 11,
-      "1": 38,
-      "2": 25,
-      "4": 42
-    },
+    "clueVersion": 2,
+    "givens": {},
     "clues": [
       {
         "type": "unary",
@@ -11102,6 +11157,41 @@
         "text": "Stond direct rechts van de scheepskist in het scheepsruim.",
         "cells": [
           4
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond op een vloerkleed in het scheepsruim.",
+        "cells": [
+          11,
+          12,
+          19,
+          20
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Zat op de rechterhelft van een bankje op het achterdek.",
+        "cells": [
+          38
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Zat op de rechterhelft van een bankje op het voordek.",
+        "cells": [
+          25
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond in de zuidwesthoek van de roef.",
+        "cells": [
+          42
         ]
       }
     ],
@@ -11512,11 +11602,8 @@
     "victimWeapon": "poison",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
-    "givens": {
-      "0": 52,
-      "1": 48
-    },
+    "clueVersion": 2,
+    "givens": {},
     "clues": [
       {
         "type": "onlyOnObject",
@@ -11561,6 +11648,22 @@
         "cells": [
           60,
           61
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond direct onder de tafel in de roef.",
+        "cells": [
+          52
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond direct boven de linkerhelft van een bankje op het vuurtonplein.",
+        "cells": [
+          48
         ]
       }
     ],
