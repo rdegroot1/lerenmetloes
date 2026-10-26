@@ -4058,6 +4058,7 @@
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
     "victimLocationClue": false,
+    "victimWeapon": "dagger",
     "furnitureRulesVersion": 2
   },
   {
@@ -4371,6 +4372,7 @@
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
     "victimLocationClue": false,
+    "victimWeapon": "wrench",
     "furnitureRulesVersion": 2
   },
   {
@@ -4653,6 +4655,7 @@
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
     "victimLocationClue": false,
+    "victimWeapon": "poison",
     "furnitureRulesVersion": 2
   },
   {
@@ -5011,6 +5014,7 @@
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
     "victimLocationClue": false,
+    "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2
   }
 ]

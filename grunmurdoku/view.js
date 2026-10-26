@@ -1,5 +1,5 @@
-import {canStand} from './engine.js?v=20261026-witness-clues';
-import {portrait,mugshot,objectArt,landmarkArt} from './art.js?v=20261026-witness-clues';
+import {canStand} from './engine.js?v=20261026-victim-art';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-victim-art';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
 export function areaLabels(p){
@@ -39,7 +39,7 @@ export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},select
  }).join('')+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="right:calc(${(p.size-label.col-label.length)/p.size*100}% + 4px);top:calc(${(label.row+1)/p.size*100}% - 4px);max-width:calc(${label.length/p.size*100}% - 8px)">${label.name}</span>`).join('');
 }
 export function legendMarkup(p){return p.areas.map((name,i)=>`<span><i class="area-${i}"></i>${name}</span>`).join('');}
-export function portraitMarkup(i,name,p){return p?.portraitStyle==='mugshot'?mugshot(i,name,p.number):portrait(i,name);}
+export function portraitMarkup(i,name,p){return p?.victimWeapon&&i===p.victim?victimPortrait(i,name,p.victimWeapon):p?.portraitStyle==='mugshot'?mugshot(i,name,p.number):portrait(i,name);}
 export function objectLegend(p){
  const kinds=[...new Map(p.objects.map(o=>[o.type,o])).values()];
  return [true,false].map(allowed=>{const objects=kinds.filter(o=>(o.occupiable===true)===allowed);return objects.length?`<section class="object-legend-group"><strong>${allowed?'Hier kan iemand staan, zitten of liggen':'Deze voorwerpen blokkeren hun vakje'}</strong><div>${objects.map(o=>`<span>${objectArt(o.type)}<b>${o.name}</b></span>`).join('')}</div></section>`:'';}).join('');
