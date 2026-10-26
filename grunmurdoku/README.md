@@ -103,3 +103,7 @@ Alle vier herziene dossiers hebben één oplossing, met dezelfde plaatsingen en 
 In Nacht in Stad heeft elke verdachte precies één eigen aanwijzing. Geen persoonsaanwijzing verwijst naar het slachtoffer, dat alleen de algemene slachtofferregel krijgt. Groepsaanwijzingen blijven apart afvinkbaar. Alle stoelen hebben dezelfde tekening, de naam ‘een stoel’ en dezelfde betekenis in aanwijzingen. De herziening behoudt de oplossingen en opslag-ID’s; alleen afvinkjes krijgen een nieuwe versie.
 
 Ruimtenamen staan in compacte sierlijke linten tegen een onderste hoek van hun eigen gebied. De ankers vermijden voorwerpen en vaste startposities waar mogelijk. De banners laten het midden van de ruimte vrij, klikken door naar het rooster en worden ook op liggend A4 geprint.
+
+## Slachtofferillustraties
+
+Fokko krijgt in ieder Nacht in Stad-dossier een eigen slachtofferportret met een ander getekend moordwapen: dolk, moersleutel, gifflacon en kandelaar. Deze vectorillustraties staan op scherm en in beide PDF’s. De verdachten houden hun mugshots. Het wapen is decoratief en vormt geen plaatsaanwijzing; de slachtofferkaart houdt uitsluitend ‘Was samen met de moordenaar’. Puzzelregels, oplossingen, aanwijzingenversies en opgeslagen voortgang blijven gelijk.

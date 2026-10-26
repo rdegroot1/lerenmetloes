@@ -61,6 +61,7 @@ export function enrichNight(p,index){
  }
  if(p.clues.some(c=>c.b===p.victim))throw Error('Clues cannot refer to the victim');
  const final=solve(p);if(final.length!==1||!valid(p,target,true)||JSON.stringify(final[0])!==JSON.stringify(target))throw Error('Furniture changed the original solution');
+ p.victimWeapon=['dagger','wrench','poison','candlestick'][index];
  p.furnitureRulesVersion=2;p.clueVersion=(p.clueVersion||1)+2;
  return p;
 }
