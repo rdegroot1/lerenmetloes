@@ -36,7 +36,7 @@ De eigen schematische kerkkaarten bevatten orgel, preekstoel, kerkbanken, koor, 
 
 ## Schermindeling en sfeer
 
-Kleine zaken (maximaal 10 personen op een rooster van hoogstens 12 × 10) tonen vanaf 760 pixels schermbreedte de personen links en de kaart rechts. De compacte portretten hebben hun aanwijzing ernaast. Op smalle telefoons worden de delen onder elkaar getoond. Thema’s/downloads, de kaarttoelichting en het kladrooster zijn openklapbaar. Gebiedsnamen staan alleen op de kaart. Het voorwerpoverzicht staat vooraan en blijft bereikbaar via Spelregels; in de PDF staat het op de introductiebladen. Een gekozen zaak brengt je rechtstreeks naar de puzzel.
+Kleine zaken (maximaal 10 personen op een rooster van hoogstens 12 × 10) tonen vanaf 760 pixels schermbreedte de personen links en de kaart rechts. De compacte portretten hebben hun aanwijzing ernaast. Op smalle telefoons worden de delen onder elkaar getoond. Thema’s/downloads, de kaarttoelichting en het kladrooster zijn openklapbaar. Gebiedsnamen staan alleen op de kaart. Het voorwerpoverzicht staat vooraan en blijft bereikbaar via Spelregels; in de PDF staat het op de introductiebladen. Ook de algemene fictietoelichting staat daar één keer; losse puzzels hebben geen herhaald uitlegblok of publicatietekst. Een gekozen zaak brengt je rechtstreeks naar de puzzel.
 
 De personen hebben aparte plus/min-knoppen (70–150%) voor portretten en aanwijzingen. De kaartknoppen (50–200%) veranderen echt de kaartgrootte. Een klik op het percentage herstelt 100%. Voorkeuren staan apart onder `grunndoku:view:v1`; spelvoortgang behoudt de oorspronkelijke sleutel. De basismaat van kleine kaarten past zich aan de schermhoogte aan, met een ondergrens voor leesbare vakken.
 

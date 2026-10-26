@@ -16,7 +16,7 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Behoud vakknoppen tijdens het noteren. Verifieer snelle dubbele klikken en aanrakingen; de derde klik herstelt de eerdere concepten. Meldingen mogen het doelvak niet verplaatsen.
 - Vloerpatronen zijn eigen sfeertekeningen, met behoud van gebiedskleuren en leesbare rastergrenzen. Gebruik dezelfde patronen op papier.
 - Drie klikken: concept, definitief, eerdere concepten herstellen. Controleer dit ook na herladen en op meubels.
-- PDF’s: bundels beginnen met twee eigen oefenpagina’s. Herhaal korte uitleg alleen bij de eerste zaken. Klassieke zaken passen op één liggend A4; kleine Martini- en torenzaken (t/m 10 personen op maximaal 12 × 10 vakken) passen op één A4; grotere gebruiken één kaartpagina en één personagepagina. Houd oude PDF-adressen bruikbaar.
+- PDF’s: bundels beginnen met twee eigen oefenpagina’s. Speluitleg en de algemene fictietoelichting staan bij de introductie; voeg geen herhaald ‘Even op weg’-blok of fictiedisclaimer aan losse puzzels toe. Klassieke zaken passen op één liggend A4; kleine Martini- en torenzaken (t/m 10 personen op maximaal 12 × 10 vakken) passen op één A4; grotere gebruiken één kaartpagina en één personagepagina. Houd oude PDF-adressen bruikbaar.
 
 - De Martini-serie gebruikt de huidige kerk als inspiratie: orgel, preekstoel, koor en kapellen; geen historische biechthokjes. Kaarten zijn eigen schematische puzzelindelingen, geen bezoekersplattegrond. Breedte en hoogte kunnen verschillen; gebruik de dimensioneringsfuncties uit `engine.js`.
 - Fokko is in actuele zaken het slachtoffer en staat als laatste in alle personagelijsten, ook op papier. Sorteer alleen de presentatie; behoud indices voor voortgang en aanwijzingen.
