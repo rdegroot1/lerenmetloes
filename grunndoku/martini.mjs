@@ -78,9 +78,9 @@ export function createMartiniSeries(){
  });
 }
 
-function buildMartiniClues(p,givenCount,rand){
+export function buildMartiniClues(p,givenCount,rand){
  const width=p.width,level=p.difficultyStars,available=Array.from({length:p.width*p.height},(_,c)=>c).filter(c=>canStand(p,c));
- const roomText=area=>(['Torenportaal','Middenschip','Hoogkoor','Zuidportaal'].includes(p.areas[area])?'het ':'de ')+p.areas[area].toLowerCase();
+ const roomText=area=>(['Torenportaal','Middenschip','Hoogkoor','Zuidportaal','Trappenhuis'].includes(p.areas[area])?'het ':'de ')+p.areas[area].toLowerCase();
  const areaCells=p.areas.map((_,a)=>available.filter(c=>p.regions[c]===a));
  const groups=[...new Map(p.objects.map(o=>[o.type,o])).values()];
  const adjacent=new Map(groups.map(o=>[o.type,adjacentCells(p,[o.type])]));
@@ -168,4 +168,54 @@ function buildMartiniClues(p,givenCount,rand){
  }
  const final=solve(p);if(final.length!==1||!valid(p,target,true)||JSON.stringify(final[0])!==JSON.stringify(target))throw Error('Martini construction lost its unique solution');
  for(const clue of p.clues)if(clue.a===p.victim||clue.b===p.victim||clue.text.includes(p.people[p.victim].name))throw Error('Martini clue refers to victim');
+}
+
+
+// A puzzle cutaway: successive floors are unfolded into one continuous grid.
+// This is an original diagram, not a visitor floor plan or a scale drawing.
+export function towerPlan(width,height){
+ const names=['Uurwerkzolder','Filmzolder','Eerste trans','Trappenhuis','Klokkenzolder','Luidzolder','Torenentree'];
+ const regions=Array(width*height).fill(-1),mid=Math.floor(width/2),topLeft=Math.floor(width/3),topRight=width-topLeft;
+ for(let row=0;row<height;row++)for(let col=0;col<width;col++){
+  let area=-1;
+  if(row<2&&col>=topLeft&&col<topRight)area=0;
+  else if(row>=2&&row<4)area=col<2?3:col<=mid?1:2;
+  else if(row>=4&&row<height-2&&col>=1&&col<width-1)area=col<3?3:4;
+  else if(row>=height-2)area=col<3?3:col<=mid?5:6;
+  regions[row*width+col]=area;
+ }
+ return {width,height,regions,areas:names,areaColors:['#c7cec5','#d8ccb4','#bdd2d4','#d2b8a0','#c8ba92','#d8c5b1','#c3cbb0']};
+}
+export function furnishTower(p){
+ const width=p.width,height=p.height,mid=Math.floor(width/2),objects=[];let sequence=0;
+ const place=(row,col,w,h,type,name,occupiable=false)=>{
+  const cells=Array.from({length:h},(_,y)=>Array.from({length:w},(_,x)=>(row+y)*width+col+x)).flat(),area=p.regions[cells[0]];
+  if(row<0||col<0||row+h>height||col+w>width||area<0||cells.some(c=>p.regions[c]!==area||objects.some(o=>o.cell===c)))return false;
+  const id=`tower-${type}-${sequence++}`;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++)objects.push({cell:(row+y)*width+col+x,type,name,occupiable,...(w*h>1?{furnitureId:id,tile:{x,y,width:w,height:h}}:{})});return true;
+ };
+ place(0,Math.floor(width/3),2,1,'towerClock','het uurwerk');
+ place(2,2,2,1,'towerScreen','het filmscherm');
+ place(3,mid,1,1,'chair','een stoel',true);
+ place(2,width-2,2,1,'towerRailing','de balustrade');
+ place(3,width-1,1,1,'towerFlag','de vlaggenstok');
+ place(2,0,1,2,'towerStairs','de wenteltrap',true);
+ place(height-3,1,1,2,'towerStairs','de wenteltrap',true);
+ place(4,4,2,2,'towerBell','een luidklok');
+ if(height>=10)place(6,width-4,2,1,'towerBell','een luidklok');
+ place(height-2,3,1,2,'towerRope','het luidtouw');
+ place(height-1,mid,1,1,'bench','een bankje',true);
+ place(height-1,width-2,2,1,'towerChest','de gereedschapskist');
+ p.objects=objects;return p;
+}
+export function createTowerSeries(){
+ const specs=[
+  [10,8,8,3,'De laatste slag','Een rondleiding eindigt met één onverwachte klokslag. Acht fictieve bezoekers waren nog in de toren. Wie bleef met Fokko achter?'],
+  [12,10,10,4,'Mist rond de trans','Vanaf de eerste trans verdwijnt de stad langzaam in de mist. Binnen liggen een filmkaartje en een vergeten sleutelbos. Tien verhalen moeten op hun plek vallen.'],
+  [14,12,12,4,'Stilte boven de Markt','De toren is gesloten, maar boven klinkt nog een voetstap. Van luidzolder tot uurwerkzolder vertellen twaalf aanwezigen waar ze waren.']
+ ];
+ return specs.map(([width,height,count,stars,title,story],index)=>{
+  const p={id:`martinitoren-v1-${index+1}`,number:28+index,seriesId:'martini',seriesNumber:7+index,setting:'tower',theme:'Moord in de Martinitoren',title,story,lesson:'Een extra torenzaak — lees de uitgeklapte kaart als één rooster',level:stars===3?'Gemiddeld':'Pittig',difficultyStars:stars,size:width,width,height,...towerPlan(width,height),people:NAMES.slice(0,count).map((name,i)=>({name,role:['de torenwachter','de klokkenluider','de filmmaakster','de gids','de fotograaf','de archiefbezoeker','de uurwerkmaker','de timmerman','de bezoekster','de restaurator','de vrijwilligster','de sleutelbeheerder'][i],color:COLORS[i]})),victim:5,victimLocationClue:false,victimWeapon:['candlestick','wrench','dagger'][index],portraitStyle:'mugshot',furnitureRulesVersion:2,clueVersion:1,givens:{},clues:[],printLayout:'church',mapNote:'Eigen uitgeklapte doorsnede van de Martinitoren. Verdiepingen en de trans zijn vereenvoudigde puzzelgebieden, geen actuele bezoekplattegrond. De wenteltrap met groen merkje is bezetbaar; klokken en het uurwerk blokkeren hun hele oppervlak.',rulesNote:'Eén doorlopend rooster: iedere persoon heeft een eigen rij én kolom, over alle verdiepingen heen. Hoger/lager verwijst naar rijen op deze kaart.',mapOrientation:'UITGEKLAPTE TOREN · HOGER OP DE KAART ↑',mapCaption:'Schematische, uitgeklapte torenkaart. Rijen en kolommen lopen door over alle verdiepingen.'};
+  furnishTower(p);buildMartiniClues(p,0,random(94037+index*2017));return p;
+ });
 }

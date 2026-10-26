@@ -1,4 +1,4 @@
-import {createMartiniSeries} from './martini.mjs';
+import {createMartiniSeries,createTowerSeries} from './martini.mjs';
 import {solve} from './engine.js';
 import {enrichNight} from './enrich-night.mjs';
 import {enrichCity} from './enrich-city.mjs';
@@ -125,5 +125,5 @@ for(let k=0;k<specs.length;k++){
  p.difficultyStars=difficultyFor(p);
  cases.push(p);console.log(p.number,size,level,p.clues.length,'clues',p.clues.filter(c=>c.type!=='unary').length,'relations');
 }
-cases.push(...createMartiniSeries());
+cases.push(...createMartiniSeries(),...createTowerSeries());
 writeFileSync(new URL('./puzzles.json',import.meta.url),JSON.stringify(cases,null,2)+'\n');
