@@ -2,7 +2,7 @@
 
 Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Zesendertig fictieve zaken in vier reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers, negen zaken Moord in de Martini (zes kerkzaken en drie torenzaken) en zes WinterWelVaart-zaken. Tien historische versies blijven bereikbaar via Eerdere zaken. `person-order.js` zet het slachtoffer achteraan zonder opslagindices te wijzigen. `starter-clues.mjs` vervangt de vijf oude beginsituaties met gegeven personen door gewone aanwijzingen en bewaart hun oplossingen. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
 
-Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` opent de tweede reeks; `?serie=martini` opent de kerkserie; `?serie=winter` opent WinterWelVaart.
+Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` opent het startblad van de tweede reeks; `?serie=martini` opent het startblad van de kerkserie; `?serie=winter` opent het startblad van WinterWelVaart.
 
 ## Spelen
 
@@ -36,13 +36,15 @@ De eigen schematische kerkkaarten bevatten orgel, preekstoel, kerkbanken, koor, 
 
 ## Schermindeling en sfeer
 
-Kleine zaken (maximaal 10 personen op een rooster van hoogstens 12 × 10) tonen vanaf 760 pixels schermbreedte de personen links en de kaart rechts. De compacte portretten hebben hun aanwijzing ernaast. Op smalle telefoons worden de delen onder elkaar getoond. Thema’s/downloads, de kaarttoelichting en het kladrooster zijn openklapbaar. Gebiedsnamen staan alleen op de kaart. Het voorwerpoverzicht staat vooraan en blijft bereikbaar via Spelregels; in de PDF staat het op de introductiebladen. Ook de algemene fictietoelichting staat daar één keer; losse puzzels hebben geen herhaald uitlegblok of publicatietekst. Een gekozen zaak brengt je rechtstreeks naar de puzzel.
+Kleine zaken (maximaal 10 personen op een rooster van hoogstens 12 × 10) tonen vanaf 760 pixels schermbreedte de personen links en de kaart rechts. De compacte portretten hebben hun aanwijzing ernaast. Op smalle telefoons worden de delen onder elkaar getoond. De homepage bevat vier even grote, brede themakaarten onder elkaar, elk met een eigen PDF-download, plus een algemeen startblad. Na de themakeuze verschijnt een eigen startblad met een stapsgewijs voorbeeld en de voorwerpen van het thema. Daarna opent de speler een zaak. Terug naar het startblad, de homepage en browser-Terug behouden spelvoortgang. Er zijn geen kladroosters of losse initialenlijstjes; notities en kaarttokens gebruiken nog wel initialen. De kaarttoelichting is openklapbaar. Gebiedsnamen staan alleen op de kaart. Het voorwerpoverzicht staat vooraan en blijft bereikbaar via Spelregels; in de PDF staat het op de introductiebladen. Ook de algemene fictietoelichting staat daar één keer; losse puzzels hebben geen herhaald uitlegblok of publicatietekst. Een zaak binnen het gekozen thema opent direct; wisselen van thema toont eerst het bijbehorende startblad.
 
 De personen hebben aparte plus/min-knoppen (70–150%) voor portretten en aanwijzingen. De kaartknoppen (50–200%) veranderen echt de kaartgrootte. Een klik op het percentage herstelt 100%. Voorkeuren staan apart onder `grunndoku:view:v1`; spelvoortgang behoudt de oorspronkelijke sleutel. De basismaat van kleine kaarten past zich aan de schermhoogte aan, met een ondergrens voor leesbare vakken.
 
 `board-dom.js` houdt de bestaande vakknoppen vast tussen klikken, inclusief focus. Klikken en rechtsklikken worden op het rooster afgehandeld. De meldingsruimte heeft een vaste hoogte, zodat het doelvak tijdens een snelle tweede klik niet verschuift. De derde klik herstelt de eerdere concepten, ook na opnieuw openen.
 
 `surfaces.js` kiest eigen vloerpatronen: planken en houtnerf voor scheepsruimtes; golven voor water buiten het rooster; tegels voor pakhuizen; stenen kerkplaten, houten orgelzone/zolders en baksteen voor het trappenhuis in de Martini. Gebiedskleuren blijven zichtbaar. De herhalende SVG-patronen zijn eigen tekeningen. Op scherm gebruikt CSS ze als achtergrond; op papier deelt één SVG-laag de patroondefinities, zodat de downloads klein blijven. Ze zijn geen weergave van iedere echte vloer.
+
+De stadsreeks heeft ook een eigen bundel van 19 A4-pagina’s (`grunndoku-stadse-speurtochten.pdf`). De vier thema’s hebben eigen oefenvoorbeelden in `themes.js`; de PDF-startbladen gebruiken dezelfde voorbeelden.
 
 Een optionele echte browsercontrole staat in `scripts/browser-check.mjs`. Start de lokale server en gebruik een geïnstalleerde Playwright-versie:
 
