@@ -1,7 +1,23 @@
 export const isPlayable=(p,c)=>Number.isInteger(c)&&c>=0&&c<p.size*p.size&&Number.isInteger(p.regions[c])&&p.regions[c]>=0;
+export const canStand=(p,c)=>isPlayable(p,c)&&!p.objects.some(o=>o.cell===c&&o.occupiable!==true);
+export const furnitureCells=(p,types)=>p.objects.filter(o=>o.occupiable===true&&types.includes(o.type)).map(o=>o.cell);
+export function adjacentCells(p,types){
+ const groups=new Map();
+ for(const o of p.objects.filter(o=>types.includes(o.type))){const id=o.furnitureId||`${o.type}:${o.cell}`;if(!groups.has(id))groups.set(id,[]);groups.get(id).push(o.cell);}
+ return Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>isPlayable(p,c)&&[...groups.values()].some(cells=>!cells.includes(c)&&cells.some(d=>p.regions[c]===p.regions[d]&&Math.abs(Math.floor(c/p.size)-Math.floor(d/p.size))+Math.abs(c%p.size-d%p.size)===1)));
+}
 export const region = (p, cell) => p.regions[cell];
 export function matches(p, positions, clue, complete = false) {
   const a = positions[clue.a], b = positions[clue.b];
+  if(clue.type==='onObject'||clue.type==='onlyOnObject'){
+   const cells=furnitureCells(p,clue.types);
+   if(a!=null&&!cells.includes(a))return false;
+   return clue.type!=='onlyOnObject'||!Object.entries(positions).some(([i,c])=>+i!==clue.a&&cells.includes(c));
+  }
+  if(clue.type==='objectCount'){
+   const cells=furnitureCells(p,clue.types),count=Object.values(positions).filter(c=>cells.includes(c)).length,unplaced=p.people.length-Object.keys(positions).length;
+   return count<=clue.count&&count+unplaced>=clue.count&&(!complete||count===clue.count);
+  }
   if (clue.type === 'unary') return a == null || clue.cells.includes(a);
   if (a == null || b == null) return true;
   switch (clue.type) {
@@ -15,7 +31,7 @@ export function matches(p, positions, clue, complete = false) {
 export function valid(p, positions, complete = false) {
  if (Object.entries(p.givens || {}).some(([i,c]) => positions[i] != null && positions[i] !== c)) return false;
  const values = Object.values(positions);
- if (values.some(x => !isPlayable(p,x) || p.objects.some(o=>o.cell===x))) return false;
+ if (values.some(x => !canStand(p,x))) return false;
  if(new Set(values.map(x=>Math.floor(x/p.size))).size!==values.length || new Set(values.map(x=>x%p.size)).size!==values.length) return false;
  if(!p.clues.every(c=>matches(p,positions,c,complete))) return false;
  const victim=positions[p.victim];
@@ -25,7 +41,7 @@ export function valid(p, positions, complete = false) {
 export function solve(p, initial={}, limit=2) {
  if(!valid(p,initial))return [];
  const results=[], positions={...p.givens,...initial};
- const domains=p.people.map((_,i)=>Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>isPlayable(p,c)&&!p.objects.some(o=>o.cell===c)&&p.clues.filter(q=>q.type==='unary'&&q.a===i).every(q=>q.cells.includes(c))));
+ const domains=p.people.map((_,i)=>Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>canStand(p,c)&&p.clues.filter(q=>q.type==='unary'&&q.a===i).every(q=>q.cells.includes(c))));
  function visit(){
   if(results.length>=limit)return;
   if(Object.keys(positions).length===p.people.length){if(valid(p,positions,true))results.push({...positions});return;}

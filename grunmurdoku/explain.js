@@ -1,4 +1,4 @@
-import {solve,matches,region,isPlayable} from './engine.js?v=20261026-nacht-series';
+import {solve,matches,region,isPlayable,canStand,furnitureCells} from './engine.js?v=20261026-furniture';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.
@@ -6,10 +6,10 @@ export function explain(p){
  const result=[],positions={...p.givens},n=p.people.length;
  const name=i=>p.people[i].name,spot=c=>`rij ${Math.floor(c/p.size)+1}, kolom ${c%p.size+1}`;
  const row=c=>Math.floor(c/p.size),col=c=>c%p.size;
- const clues=i=>p.clues.filter(c=>c.a===i&&c.type==='unary');
+ const clues=i=>p.clues.filter(c=>c.a===i&&['unary','onObject','onlyOnObject'].includes(c.type));
  for(const [i,c]of Object.entries(p.givens||{}))result.push(`${name(i)} is gegeven: ${spot(c)}. In die rij en kolom kan niemand anders staan.`);
- const blocked=new Set(p.objects.map(o=>o.cell));
- const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>isPlayable(p,c)&&!blocked.has(c)&&clues(i).every(q=>q.cells.includes(c))));
+ const blocked=new Set(p.objects.filter(o=>o.occupiable!==true).map(o=>o.cell));
+ const domains=p.people.map((_,i)=>Object.hasOwn(positions,i)?[positions[i]]:Array.from({length:p.size*p.size},(_,c)=>c).filter(c=>isPlayable(p,c)&&!blocked.has(c)&&p.clues.every(q=>matches(p,{[i]:c},q))));
  const reasons=p.people.map((_,i)=>new Set(clues(i).map(c=>`de aanwijzing “${c.text}”`)));
  const found=Symbol('forced placement');
  const remove=(i,forbidden,why)=>{const next=domains[i].filter(c=>!forbidden(c));if(next.length!==domains[i].length){domains[i]=next;reasons[i].add(why);if(next.length===1&&positions[i]==null)throw found;return true;}return false;};
@@ -29,6 +29,13 @@ export function explain(p){
     const values=new Set(group.flatMap(i=>domains[i].map(axis)));
     if(values.size!==group.length)continue;
     for(let i=0;i<n;i++)if(!(mask&(1<<i)))change=remove(i,c=>values.has(axis(c)),`de ${values.size===1?(axis===row?'rij':'kolom'):(axis===row?'rijen':'kolommen')} ${[...values].map(v=>v+1).join(', ')} ${values.size===1?'is':'zijn'} nodig voor ${group.map(name).join(', ')}`)||change;
+   }
+   for(const rule of p.clues.filter(c=>c.type==='objectCount')){
+    const cells=new Set(furnitureCells(p,rule.types));
+    const certain=domains.map((d,i)=>d.every(c=>cells.has(c))?i:-1).filter(i=>i>=0),possible=domains.map((d,i)=>d.some(c=>cells.has(c))?i:-1).filter(i=>i>=0);
+    if(certain.length>rule.count||possible.length<rule.count)throw Error('Contradictory furniture count');
+    if(certain.length===rule.count)for(let i=0;i<n;i++)if(!certain.includes(i))change=remove(i,c=>cells.has(c),`“${rule.text}” De ${rule.count} plekken zijn al nodig voor ${certain.map(name).join(', ')}`)||change;
+    if(possible.length===rule.count)for(const i of possible)change=remove(i,c=>!cells.has(c),`“${rule.text}” Alleen ${possible.map(name).join(', ')} kunnen nog op deze voorwerpen staan` )||change;
    }
    const v=p.victim;
    change=remove(v,c=>{

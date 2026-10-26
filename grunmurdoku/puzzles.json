@@ -3762,7 +3762,7 @@
   {
     "id": "stad-thema-v1-18",
     "number": 18,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "theme": "Stadsschouwburg",
     "title": "De laatste buiging",
     "story": "De voorstelling in de Stadsschouwburg is afgelopen. Fokko zou nog een toegift spelen, maar zijn muziek blijft op de lessenaar liggen. Wie bleef er na het applaus achter?",
@@ -3860,7 +3860,8 @@
       {
         "cell": 10,
         "type": "seat",
-        "name": "een theaterstoel"
+        "name": "een theaterstoel",
+        "occupiable": true
       },
       {
         "cell": 4,
@@ -3886,11 +3887,157 @@
         "cell": 17,
         "type": "curtain",
         "name": "het toneeldoek"
+      },
+      {
+        "cell": 23,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "foyer-table",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 29,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "foyer-table",
+        "part": 1,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 19,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 3,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 25,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-0",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 26,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-0",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 31,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-0",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 32,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-0",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 18,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 8,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
+      },
+      {
+        "cell": 33,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 16,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
       }
     ],
     "victim": 5,
     "givens": {},
     "clues": [
+      {
+        "type": "onObject",
+        "a": 0,
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "text": "Zat op een stoel."
+      },
+      {
+        "type": "onlyOnObject",
+        "a": 4,
+        "types": [
+          "rug"
+        ],
+        "text": "Was de enige persoon op een vloerkleed."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "count": 2,
+        "text": "Precies twee personen zaten op een stoel."
+      },
       {
         "type": "unary",
         "a": 1,
@@ -3913,82 +4060,17 @@
         "a": 2,
         "b": 0,
         "text": "Stond links van Arend."
-      },
-      {
-        "type": "different",
-        "a": 2,
-        "b": 3,
-        "text": "Was in een ander gebied dan Tammo."
-      },
-      {
-        "type": "above",
-        "a": 1,
-        "b": 2,
-        "text": "Stond hoger op de kaart dan Cora."
-      },
-      {
-        "type": "above",
-        "a": 1,
-        "b": 0,
-        "text": "Stond hoger op de kaart dan Arend."
-      },
-      {
-        "type": "left",
-        "a": 0,
-        "b": 4,
-        "text": "Stond links van Geeske."
-      },
-      {
-        "type": "unary",
-        "a": 2,
-        "text": "Stond niet naast een lantaarn.",
-        "cells": [
-          1,
-          2,
-          3,
-          4,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          19,
-          20,
-          21,
-          22,
-          23,
-          24,
-          26,
-          27,
-          29,
-          31,
-          32,
-          33,
-          34
-        ]
-      },
-      {
-        "type": "above",
-        "a": 3,
-        "b": 4,
-        "text": "Stond hoger op de kaart dan Geeske."
       }
     ],
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
-    "victimLocationClue": false
+    "victimLocationClue": false,
+    "furnitureRulesVersion": 2
   },
   {
     "id": "stad-thema-v1-19",
     "number": 19,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "theme": "Suikerunieterrein",
     "title": "Het terrein na middernacht",
     "story": "Op het voormalige Suikerunieterrein dooft de verlichting van een evenement. Fokko’s sleutelbos ligt bij de machinekamer. Zes verklaringen laten een heel ander terrein zien.",
@@ -4096,7 +4178,8 @@
       {
         "cell": 7,
         "type": "bench",
-        "name": "een bankje"
+        "name": "een bankje",
+        "occupiable": true
       },
       {
         "cell": 28,
@@ -4112,11 +4195,157 @@
         "cell": 16,
         "type": "scaffold",
         "name": "de bouwsteiger"
+      },
+      {
+        "cell": 2,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "factory-table",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 3,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "factory-table",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 8,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "factory-table",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 9,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "factory-table",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 19,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 33,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 25,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-1",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 26,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-1",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 17,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 15,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
+      },
+      {
+        "cell": 21,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 32,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
       }
     ],
     "victim": 5,
     "givens": {},
     "clues": [
+      {
+        "type": "onObject",
+        "a": 1,
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "text": "Zat op een stoel."
+      },
+      {
+        "type": "onlyOnObject",
+        "a": 3,
+        "types": [
+          "rug"
+        ],
+        "text": "Was de enige persoon op een vloerkleed."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "count": 2,
+        "text": "Precies twee personen zaten op een stoel."
+      },
       {
         "type": "unary",
         "a": 2,
@@ -4124,53 +4353,6 @@
         "cells": [
           31,
           32,
-          33,
-          34
-        ]
-      },
-      {
-        "type": "unary",
-        "a": 1,
-        "text": "Bevond zich in het gebied Festivalterrein.",
-        "cells": [
-          12,
-          13,
-          18,
-          19,
-          24,
-          25,
-          26,
-          31,
-          32
-        ]
-      },
-      {
-        "type": "unary",
-        "a": 3,
-        "text": "Stond niet naast een silo.",
-        "cells": [
-          2,
-          3,
-          4,
-          5,
-          7,
-          8,
-          9,
-          10,
-          11,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          20,
-          21,
-          22,
-          26,
-          27,
-          28,
-          31,
           33,
           34
         ]
@@ -4189,22 +4371,6 @@
         ]
       },
       {
-        "type": "unary",
-        "a": 3,
-        "text": "Bevond zich in het gebied Festivalterrein.",
-        "cells": [
-          12,
-          13,
-          18,
-          19,
-          24,
-          25,
-          26,
-          31,
-          32
-        ]
-      },
-      {
         "type": "left",
         "a": 4,
         "b": 1,
@@ -4213,12 +4379,13 @@
     ],
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
-    "victimLocationClue": false
+    "victimLocationClue": false,
+    "furnitureRulesVersion": 2
   },
   {
     "id": "stad-thema-v1-20",
     "number": 20,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "theme": "Het Forum",
     "title": "De verdwenen filmrecensie",
     "story": "Een filmavond in het Forum eindigt met een ongelezen recensie. Fokko wilde nog even naar boven. Welke route volgden de bezoekers tussen bioscoop, bieb en dakterras?",
@@ -4311,12 +4478,14 @@
       {
         "cell": 17,
         "type": "seat",
-        "name": "een bioscoopstoel"
+        "name": "een bioscoopstoel",
+        "occupiable": true
       },
       {
         "cell": 28,
         "type": "bench",
-        "name": "een bankje"
+        "name": "een bankje",
+        "occupiable": true
       },
       {
         "cell": 4,
@@ -4341,29 +4510,136 @@
       {
         "cell": 8,
         "type": "seat",
-        "name": "een bioscoopstoel"
+        "name": "een bioscoopstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 29,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 12,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 26,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-2",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 27,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-2",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 32,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-2",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 33,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-2",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 20,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 15,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
+      },
+      {
+        "cell": 14,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 18,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
       }
     ],
     "victim": 5,
     "givens": {},
     "clues": [
       {
+        "type": "onObject",
+        "a": 0,
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "text": "Zat op een stoel."
+      },
+      {
+        "type": "onlyOnObject",
+        "a": 2,
+        "types": [
+          "rug"
+        ],
+        "text": "Was de enige persoon op een vloerkleed."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "count": 2,
+        "text": "Precies twee personen zaten op een stoel."
+      },
+      {
         "type": "above",
         "a": 1,
         "b": 5,
         "text": "Stond hoger op de kaart dan Fokko."
-      },
-      {
-        "type": "different",
-        "a": 1,
-        "b": 5,
-        "text": "Was in een ander gebied dan Fokko."
-      },
-      {
-        "type": "above",
-        "a": 0,
-        "b": 2,
-        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "above",
@@ -4412,27 +4688,17 @@
           22,
           23
         ]
-      },
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Bevond zich in kolom 2.",
-        "cells": [
-          7,
-          13,
-          19,
-          25
-        ]
       }
     ],
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
-    "victimLocationClue": false
+    "victimLocationClue": false,
+    "furnitureRulesVersion": 2
   },
   {
     "id": "stad-thema-v1-21",
     "number": 21,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "theme": "Studentenhuis Korreweg",
     "title": "De krat die bleef staan",
     "story": "Een fictief studentenhuis aan de Korreweg: een afwasrooster, een kapotte bank en veel te veel bierkratten. Na het huisfeest is Fokko’s gitaar er nog, maar hijzelf niet.",
@@ -4545,7 +4811,16 @@
       {
         "cell": 23,
         "type": "sofa",
-        "name": "de bank"
+        "name": "de bank",
+        "occupiable": true,
+        "furnitureId": "balcony-sofa",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
       },
       {
         "cell": 20,
@@ -4556,91 +4831,212 @@
         "cell": 21,
         "type": "bike",
         "name": "een fietsrek"
+      },
+      {
+        "cell": 31,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "student-bed",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 32,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "student-bed",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 22,
+        "type": "sofa",
+        "name": "de bank",
+        "occupiable": true,
+        "furnitureId": "balcony-sofa",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 1,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "kitchen-table",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 2,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "kitchen-table",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 7,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "kitchen-table",
+        "part": 2,
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 8,
+        "type": "table",
+        "name": "de grote tafel",
+        "occupiable": false,
+        "furnitureId": "kitchen-table",
+        "part": 3,
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 18,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 9,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 26,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-3",
+        "part": 0,
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 27,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "main-rug-3",
+        "part": 1,
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 19,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 14,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
+      },
+      {
+        "cell": 29,
+        "type": "chair",
+        "name": "een klapstoel",
+        "occupiable": true
+      },
+      {
+        "cell": 6,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true
       }
     ],
     "victim": 5,
     "givens": {},
     "clues": [
       {
-        "type": "above",
-        "a": 4,
-        "b": 2,
-        "text": "Stond hoger op de kaart dan Cora."
-      },
-      {
-        "type": "unary",
-        "a": 4,
-        "text": "Stond niet naast de bank.",
-        "cells": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-          21,
-          23,
-          25,
-          26,
-          27,
-          28,
-          31,
-          32,
-          33,
-          34
-        ]
-      },
-      {
-        "type": "unary",
+        "type": "onObject",
         "a": 1,
-        "text": "Bevond zich in het gebied Studentenkamer.",
-        "cells": [
-          12,
-          13,
-          18,
-          19,
-          25,
-          31,
-          32,
-          33
-        ]
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "text": "Zat op een stoel."
       },
       {
-        "type": "unary",
+        "type": "onlyOnObject",
+        "a": 2,
+        "types": [
+          "rug"
+        ],
+        "text": "Was de enige persoon op een vloerkleed."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "seat",
+          "chair"
+        ],
+        "count": 2,
+        "text": "Precies twee personen zaten op een stoel."
+      },
+      {
+        "type": "onObject",
         "a": 0,
-        "text": "Stond in de onderste rij.",
-        "cells": [
-          31,
-          32,
-          33,
-          34
-        ]
+        "types": [
+          "bed"
+        ],
+        "text": "Lag op het bed."
       },
       {
         "type": "same",
         "a": 2,
         "b": 4,
         "text": "Was in hetzelfde gebied als Geeske."
-      },
-      {
-        "type": "left",
-        "a": 0,
-        "b": 4,
-        "text": "Stond links van Geeske."
       },
       {
         "type": "above",
@@ -4651,6 +5047,7 @@
     ],
     "seriesId": "nacht",
     "portraitStyle": "mugshot",
-    "victimLocationClue": false
+    "victimLocationClue": false,
+    "furnitureRulesVersion": 2
   }
 ]

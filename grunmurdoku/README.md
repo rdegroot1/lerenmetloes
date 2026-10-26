@@ -4,7 +4,7 @@ Een zelfstandige Nederlandstalige detectivepuzzel in Groningen. Stadse speurtoch
 
 ## Spelen
 
-Plaats alle personen in verschillende rijen en kolommen. Voorwerpen blokkeren hun vakje. Elke aanwijzing moet kloppen. Het slachtoffer was met precies één andere persoon in hetzelfde gebied: de dader.
+Plaats alle personen in verschillende rijen en kolommen. In Stadse speurtochten blokkeren voorwerpen hun vakje. In Nacht in Stad kun je op groen gemarkeerde stoelen, banken, bedden en vloerkleden plaatsen; andere voorwerpen blokkeren hun hele oppervlak. Elke aanwijzing moet kloppen. Het slachtoffer was met precies één andere persoon in hetzelfde gebied: de dader.
 
 Selecteer een persoon. De eerste klik op een vrij vakje zet een klein conceptinitial in het hoekje. De tweede klik op dat vakje met dezelfde persoon geselecteerd maakt de plaatsing definitief. Een derde klik haalt de definitieve plaatsing weg en herstelt de eerdere conceptaantekeningen in dat vakje en op andere mogelijke plekken van die persoon; vaste startposities blijven staan. Meerdere concepten per vakje en per persoon zijn mogelijk. Alleen definitieve plaatsingen tellen mee voor de rij-, kolom- en gebiedsregels. Definitief plaatsen verbergt de overige concepten van die persoon en alle concepten in het gekozen vakje. Wissel tussen plaatsen, wegstrepen en wissen. Een bezette cel selecteert de betreffende persoon om die te verplaatsen. Aanwijzingen kun je afvinken. Hints plaatsen één persoon; Terug draait wijzigingen terug. Voortgang blijft lokaal bewaard per zaak. Geen account, backend of API-sleutel nodig.
 
@@ -78,7 +78,7 @@ Zaken 13–17 voegen Het aardbevingsdorp (fictief wierdedorp), Bommen Berend, Eu
 
 ## Spelregels openen
 
-De knop Spelregels staat in de kop en direct bij het speelveld. Beide openen dezelfde toegankelijke dialoog met doel, basisregels, de drieklikcyclus, originele voorbeelddiagrammen, begrippen en een aanpak. De uitleg beschrijft de werkelijke Grunmurdoku-regels: alle getekende voorwerpen blokkeren hun vakje; er wordt geen regel over bezetbare meubels uit het inspiratieboek gesuggereerd. De dialoog sluit met de sluitknop, Terug naar de zaak of Escape en verandert geen notities of voortgang.
+De knop Spelregels staat in de kop en direct bij het speelveld. Beide openen dezelfde toegankelijke dialoog met doel, basisregels, de drieklikcyclus, originele voorbeelddiagrammen, begrippen en een aanpak. De uitleg maakt onderscheid tussen de oorspronkelijke serie met geblokkeerde voorwerpen en Nacht in Stad met bezetbare meubels. Voorwerpen over meerdere vakjes, exclusieve meubelaanwijzingen en exacte aantallen worden met voorbeelden uitgelegd. De dialoog sluit met de sluitknop, Terug naar de zaak of Escape en verandert geen notities of voortgang.
 
 ## Nacht in Stad: serie 2
 
@@ -89,3 +89,11 @@ Nieuwe speelvelden hebben echte uitsparingen aan de buitenkant: `regions[cell] =
 De mugshots zijn oorspronkelijke vectorillustraties met hoogtelijnen, dossiernummer en een vastgehouden naambord. Arend blijft mannelijk afgebeeld. De oude portretten zijn ongewijzigd. Nieuwe voorwerpen: toneeldoek, theaterstoel, silo, opslagkrat, bierkrat, boekenkast, filmprojector en bank.
 
 De vier nieuwe slachtoffers hebben bewust geen eigen plaatsaanwijzingen; dit geldt alleen voor Nacht in Stad. Rechtstreekse aanwijzingen die de dader aan het slachtoffer koppelen blijven uitgesloten. Alle vier dossiers hebben precies één oplossing. De oorspronkelijke zeventien dossiers en opslag-ID’s zijn ongewijzigd.
+
+## Bezetbare meubels en grotere voorwerpen
+
+Nacht in Stad gebruikt stoelen, banken, bedden en vloerkleden als mogelijke plekken. Kleine groene markeringen geven de bezetbare vakken aan. Een bed of bank kan twee vakken beslaan, een vloerkleed vier; grote tafels blokkeren twee of vier vakken. De illustratie loopt door over het hele voorwerp. Elk deelvak telt als een mogelijke plek, maar personen blijven in verschillende rijen en kolommen. ‘Naast’ betekent buiten het hele voorwerp, direct aan een zijkant en in hetzelfde gebied.
+
+Extra aanwijzingen onder de persoonskaarten zijn ook afvinkbaar. ‘Precies twee personen zaten op een stoel’ telt personen op alle stoelen samen, inclusief het slachtoffer. ‘De enige persoon op een vloerkleed’ sluit alle andere personen uit van alle vloerkleden. Bij het slachtoffer blijft uitsluitend ‘Was samen met de moordenaar’ staan. De stap-voor-stapuitleg verwerkt deze regels.
+
+Alle vier herziene dossiers hebben één oplossing, met dezelfde plaatsingen en opslag-ID’s als ervoor. Alleen afvinkjes worden vernieuwd vanwege de gewijzigde aanwijzingen. Notities op bezetbare meubels, terugzetten met de derde klik en herladen blijven werken. De eerste zeventien puzzelgegevens zijn ongewijzigd. Beide PDF’s bevatten de nieuwe meubels en extra aanwijzingen.
