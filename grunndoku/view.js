@@ -1,7 +1,8 @@
-import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-winter';
-import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-winter';
-import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-winter';
-import {difficultyMarkup} from './difficulty.js?v=20261026-winter';
+import {surfaceFor,printFloorPlane} from './surfaces.js?v=20261026-compact';
+import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-compact';
+import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-compact';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-compact';
+import {difficultyMarkup} from './difficulty.js?v=20261026-compact';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
 export function areaLabels(p){
@@ -39,8 +40,8 @@ export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},select
  const furniture=o?`<span class="object">${objectArt(o.type,o.part,o.tile)}</span>`:'';
  const mark=who!=null?`<span class="person-token" style="background:${p.people[who].color}">${p.people[who].name[0]}</span><span class="token-name">${p.people[who].name}${given?' •':''}</span>`:crosses.includes(c)?'<span class="crossed">×</span>':'';
  const content=mini?(o?`<i class="obstacle-dot${o.occupiable?' allowed-dot':''}"></i>`:''):furniture+mark+(o?.occupiable?'<span class="surface-mark" aria-hidden="true"></span>':'');
- return `<button type="button" class="cell area-${area}${p.setting==='winter'?(p.areas[area].match(/dek|roef|scheepsruim|stuurhut/i)?' deck-floor':' quay-floor'):''}${walls}${given?' given':''}${band.has(c)?' name-band':''}${o?.occupiable?' surface-cell':''}${who!=null?' has-person':''}${o?.tile?' footprint-cell':''}"${p.areaColors?` style="--area:${p.areaColors[area]}"`:''} data-cell="${c}" aria-label="${label}" ${!canStand(p,c)||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&canStand(p,c)&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
- }).join('')+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="right:calc(${(width-label.col-label.length)/width*100}% + 4px);top:calc(${(label.row+1)/height*100}% - 4px);max-width:calc(${label.length/width*100}% - 8px)">${label.name}</span>`).join('');
+ return `<button type="button" class="cell area-${area}${surfaceFor(p,area)?' floor-'+surfaceFor(p,area):''}${walls}${given?' given':''}${band.has(c)?' name-band':''}${o?.occupiable?' surface-cell':''}${who!=null?' has-person':''}${o?.tile?' footprint-cell':''}"${p.areaColors?` style="--area:${p.areaColors[area]}"`:''} data-cell="${c}" aria-label="${label}" ${!canStand(p,c)||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&canStand(p,c)&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
+ }).join('')+(mini?'':printFloorPlane(p))+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="right:calc(${(width-label.col-label.length)/width*100}% + 4px);top:calc(${(label.row+1)/height*100}% - 4px);max-width:calc(${label.length/width*100}% - 8px)">${label.name}</span>`).join('');
 }
 export function legendMarkup(p){return p.areas.map((name,i)=>`<span><i class="area-${i}"${p.areaColors?` style="--area:${p.areaColors[i]};background-color:var(--area)"`:''}></i>${name}</span>`).join('');}
 export function portraitMarkup(i,name,p){const face=p?.people[i]?.portraitIndex??i;return p?.victimWeapon&&i===p.victim?victimPortrait(face,name,p.victimWeapon):p?.portraitStyle==='mugshot'?mugshot(face,name,p.number,p.seriesId==='winter'?'GRUN · WINTERDIENST':p.seriesId==='martini'?'GRUN · MARTINI':'GRUN · NACHTDIENST'):portrait(face,name);}

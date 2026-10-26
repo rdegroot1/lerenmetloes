@@ -12,6 +12,9 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Hints tonen kleine redeneerstappen, zonder automatisch te plaatsen of de dader te noemen. Leid ze af uit de huidige definitieve plaatsingen en openbare regels.
 - Rechtsklik kruist af en behoudt het gereedschap. Initialen selecteren personen; onderdruk die sneltoetsen in invoervelden en geopende dialogen.
 - Niveau-feedback blijft lokaal tot de speler die bewust exporteert. Claim geen empirische kalibratie zonder proefspeelgegevens.
+- Kleine zaken staan vanaf 760 pixels naast elkaar. Houd aparte schaalregelaars voor personen en kaart, zonder spelvoortgang te veranderen.
+- Behoud vakknoppen tijdens het noteren. Verifieer snelle dubbele klikken en aanrakingen; de derde klik herstelt de eerdere concepten. Meldingen mogen het doelvak niet verplaatsen.
+- Vloerpatronen zijn eigen sfeertekeningen, met behoud van gebiedskleuren en leesbare rastergrenzen. Gebruik dezelfde patronen op papier.
 - Drie klikken: concept, definitief, eerdere concepten herstellen. Controleer dit ook na herladen en op meubels.
 - PDF’s: bundels beginnen met twee eigen oefenpagina’s. Herhaal korte uitleg alleen bij de eerste zaken. Klassieke zaken passen op één liggend A4; kleine Martini- en torenzaken (t/m 10 personen op maximaal 12 × 10 vakken) passen op één A4; grotere gebruiken één kaartpagina en één personagepagina. Houd oude PDF-adressen bruikbaar.
 

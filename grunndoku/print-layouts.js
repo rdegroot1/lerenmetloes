@@ -1,6 +1,6 @@
-import {gridWidth,gridHeight} from './engine.js?v=20261026-winter';
-import {difficultyMarkup} from './difficulty.js?v=20261026-winter';
-import {objectArt} from './art.js?v=20261026-winter';
+import {gridWidth,gridHeight} from './engine.js?v=20261026-compact';
+import {difficultyMarkup} from './difficulty.js?v=20261026-compact';
+import {objectArt} from './art.js?v=20261026-compact';
 
 export const churchPageCount=p=>p.people.length<=10&&gridWidth(p)<=12&&gridHeight(p)<=10?1:2;
 const heading=(p,suffix)=>`<div class="print-head"><span>GRUNNDOKU · ${p.printLabel||(p.setting==='tower'?'MOORD IN DE MARTINITOREN':'MOORD IN DE MARTINI')} · ${suffix}</span><span class="print-difficulty"><b>ZAAK ${p.seriesNumber}</b>${difficultyMarkup(p)}<span>${p.people.length} personen</span></span></div>`;
