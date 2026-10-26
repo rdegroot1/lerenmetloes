@@ -1,4 +1,4 @@
-// Original vector illustrations, drawn for Grunmurdoku. No external image dependencies.
+// Original vector illustrations, drawn for Grundoku. No external image dependencies.
 const svg=(body,view='0 0 100 100')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view}" aria-hidden="true" focusable="false">${body}</svg>`;
 export function portrait(i,personName='Arend',plain=false,deceased=false){
  const arend=personName==='Arend';
