@@ -1,6 +1,6 @@
 # Grunndoku
 
-Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Zevenentwintig fictieve zaken in drie reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers en zes zaken Moord in de Martini. Tien historische versies blijven bereikbaar via Eerdere zaken. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
+Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Dertig fictieve zaken in drie reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers en negen zaken Moord in de Martini (zes kerkzaken en drie torenzaken). Tien historische versies blijven bereikbaar via Eerdere zaken. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
 
 Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` opent de tweede reeks; `?serie=martini` opent de kerkserie.
 
@@ -26,9 +26,9 @@ Een zetje plaatst één persoon. Bekijk oplossing (spoiler) geeft een redenering
 
 De sterren en namen komen uit `difficulty.js` en staan op scherm, in de zaakkeuze en op papier. Het zijn informele, leesbare namen met een Groningse knipoog, geen uniforme streektaalspelling. Bronnen en taalnuances staan in `PUBLICATIE.md`. De eerste zaak heeft twee gegeven personen en is met directe uitsluiting zonder gokken oplosbaar.
 
-De Martini-serie heeft 6, 8, 10, 12, 14 en 16 personages. De zesde zaak heeft uitzonderlijk zes sterren: Extreem · de Martini-proef. De langwerpige kerk met zijkapellen heeft verschillende breedte en hoogte (tot 24 × 16 vakken). Personen bezetten ieder een eigen rij en kolom; sommige kolommen blijven leeg. De eerste twee zaken hebben vier respectievelijk twee vaste personen. Een kaartkiezer en zoomknoppen helpen op kleinere schermen.
+De Martini-serie heeft 6, 8, 10, 12, 14 en 16 personages. De zesde zaak heeft uitzonderlijk zes sterren: Extreem · de Martini-proef. De langwerpige kerk met zijkapellen heeft verschillende breedte en hoogte (tot 24 × 16 vakken). Personen bezetten ieder een eigen rij en kolom; sommige kolommen blijven leeg. De eerste twee zaken hebben vier respectievelijk twee vaste personen. Een kaartkiezer en zoomknoppen helpen op kleinere schermen. De aanwijzing van de geselecteerde persoon staat direct boven de kaart. De zaaknavigatie onderscheidt kerk en toren.
 
-De eigen schematische kaarten bevatten orgel, preekstoel, kerkbanken, koor, kapellen en sacristie. Ze zijn geen actuele bezoekplattegrond. Grote banken en andere meubels hebben echte deelvakken. Afstanden tot een meubel worden vanaf de buitenrand van het hele voorwerp geteld.
+De eigen schematische kerkkaarten bevatten orgel, preekstoel, kerkbanken, koor, kapellen en sacristie. De drie extra Martinitoren-zaken hebben 8, 10 en 12 personages, op niveaus 3, 4 en 4. Hun uitgeklapte doorsnede bevat uurwerkzolder, filmzolder, eerste trans, klokkenzolder, luidzolder, trappenhuis en entree. Wenteltrappen en bankjes zijn bezetbaar; luidklokken, uurwerk en overige objecten blokkeren hun hele oppervlak. De verdiepingen vormen samen één doorlopend rooster. Hoger/lager betekent een hogere/lagere rij op deze puzzelkaart. Ze zijn geen actuele bezoekplattegrond. Grote banken en andere meubels hebben echte deelvakken. Afstanden tot een meubel worden vanaf de buitenrand van het hele voorwerp geteld.
 
 ## Lokaal en tests
 
@@ -52,11 +52,12 @@ De vaste seed en deterministische verrijkingen produceren dezelfde data. De gene
 
 Print deze zaak geeft een schone puzzel zonder introductie. Een bundel begint met twee originele oefenpagina’s: zelf proberen, daarna stap voor stap beredeneren. Korte spelregels worden alleen bij de eerste zaken herhaald. Browsernotities en zaakoplossingen worden niet geprint; het oefenvoorbeeld heeft wel een uitgewerkte oplossing.
 
-Stadse en nachtelijke zaken gebruiken één liggend A4 per zaak. Voor iedere Martini-zaak staan de volledige kerkkaart en alle personages elk op één eigen liggend A4. Alle zestien personages van de finale passen op één dossierpagina. Mugshotnamen staan alleen op het vastgehouden bord.
+Stadse en nachtelijke zaken gebruiken één liggend A4 per zaak. Kleine Martini-zaken (maximaal 10 personen op een kaart van hoogstens 12 × 10 vakken) combineren de kaart en personages op één liggend A4. Grotere zaken gebruiken één kaartpagina plus één personagepagina. Alle zestien personages van de finale passen op één dossierpagina. Mugshotnamen staan alleen op het vastgehouden bord.
 
-- `grunndoku-print.pdf`: alle 27 zaken, 35 pagina’s inclusief introductie.
+- `grunndoku-print.pdf`: alle 30 zaken, 36 pagina’s inclusief introductie.
 - `grunndoku-nacht-in-stad.pdf`: vier nachtelijke zaken, 6 pagina’s inclusief introductie.
-- `grunndoku-moord-in-de-martini.pdf`: zes Martini-zaken, 14 pagina’s inclusief introductie.
+- `grunndoku-moord-in-de-martini.pdf`: negen kerk- en torenzaken, 15 pagina’s inclusief introductie.
+- `grunndoku-martinitoren.pdf`: alleen de drie torenzaken, 6 pagina’s inclusief introductie.
 
 Kies A4 en 100% schaal; schakel browserkop- en voetteksten uit. Gebiedsgrenzen blijven ook zonder achtergrondkleuren zichtbaar.
 

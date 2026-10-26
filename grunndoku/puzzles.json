@@ -9212,5 +9212,1764 @@
         "occupiable": true
       }
     ]
+  },
+  {
+    "id": "martinitoren-v1-1",
+    "number": 28,
+    "seriesId": "martini",
+    "seriesNumber": 7,
+    "setting": "tower",
+    "theme": "Moord in de Martinitoren",
+    "title": "De laatste slag",
+    "story": "Een rondleiding eindigt met één onverwachte klokslag. Acht fictieve bezoekers waren nog in de toren. Wie bleef met Fokko achter?",
+    "lesson": "Een extra torenzaak — lees de uitgeklapte kaart als één rooster",
+    "level": "Gemiddeld",
+    "difficultyStars": 3,
+    "size": 10,
+    "width": 10,
+    "height": 8,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6
+    ],
+    "areas": [
+      "Uurwerkzolder",
+      "Filmzolder",
+      "Eerste trans",
+      "Trappenhuis",
+      "Klokkenzolder",
+      "Luidzolder",
+      "Torenentree"
+    ],
+    "areaColors": [
+      "#c7cec5",
+      "#d8ccb4",
+      "#bdd2d4",
+      "#d2b8a0",
+      "#c8ba92",
+      "#d8c5b1",
+      "#c3cbb0"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de torenwachter",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de klokkenluider",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de filmmaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de gids",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de fotograaf",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de archiefbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de uurwerkmaker",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de timmerman",
+        "color": "#a37a3e"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "candlestick",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond tegen de oostrand van het trappenhuis.",
+        "cells": [
+          21,
+          31,
+          42,
+          52,
+          62,
+          72
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond direct links van de balustrade in de eerste trans.",
+        "cells": [
+          27
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond tegen de westrand van het trappenhuis.",
+        "cells": [
+          20,
+          30,
+          41,
+          51,
+          60,
+          70
+        ]
+      },
+      {
+        "type": "below",
+        "a": 3,
+        "b": 6,
+        "cells": [
+          66,
+          67,
+          68,
+          69,
+          76,
+          77
+        ],
+        "text": "Bevond zich in de torenentree, lager op de kaart dan Harm."
+      },
+      {
+        "type": "above",
+        "a": 4,
+        "b": 6,
+        "cells": [
+          5,
+          6,
+          13,
+          14,
+          15,
+          16
+        ],
+        "text": "Bevond zich in de uurwerkzolder, hoger op de kaart dan Harm."
+      },
+      {
+        "type": "onlyOnObject",
+        "a": 6,
+        "types": [
+          "towerStairs"
+        ],
+        "text": "Was de enige persoon op de wenteltrap."
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond in de zuidoosthoek van de uurwerkzolder.",
+        "cells": [
+          16
+        ]
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen uitgeklapte doorsnede van de Martinitoren. Verdiepingen en de trans zijn vereenvoudigde puzzelgebieden, geen actuele bezoekplattegrond. De wenteltrap met groen merkje is bezetbaar; klokken en het uurwerk blokkeren hun hele oppervlak.",
+    "rulesNote": "Eén doorlopend rooster: iedere persoon heeft een eigen rij én kolom, over alle verdiepingen heen. Hoger/lager verwijst naar rijen op deze kaart.",
+    "mapOrientation": "UITGEKLAPTE TOREN · HOGER OP DE KAART ↑",
+    "mapCaption": "Schematische, uitgeklapte torenkaart. Rijen en kolommen lopen door over alle verdiepingen.",
+    "objects": [
+      {
+        "cell": 3,
+        "type": "towerClock",
+        "name": "het uurwerk",
+        "occupiable": false,
+        "furnitureId": "tower-towerClock-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 4,
+        "type": "towerClock",
+        "name": "het uurwerk",
+        "occupiable": false,
+        "furnitureId": "tower-towerClock-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 22,
+        "type": "towerScreen",
+        "name": "het filmscherm",
+        "occupiable": false,
+        "furnitureId": "tower-towerScreen-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "towerScreen",
+        "name": "het filmscherm",
+        "occupiable": false,
+        "furnitureId": "tower-towerScreen-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 35,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 28,
+        "type": "towerRailing",
+        "name": "de balustrade",
+        "occupiable": false,
+        "furnitureId": "tower-towerRailing-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 29,
+        "type": "towerRailing",
+        "name": "de balustrade",
+        "occupiable": false,
+        "furnitureId": "tower-towerRailing-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 39,
+        "type": "towerFlag",
+        "name": "de vlaggenstok",
+        "occupiable": false
+      },
+      {
+        "cell": 20,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 30,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-5",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 51,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 61,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-6",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 44,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 45,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 54,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 55,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 63,
+        "type": "towerRope",
+        "name": "het luidtouw",
+        "occupiable": false,
+        "furnitureId": "tower-towerRope-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 73,
+        "type": "towerRope",
+        "name": "het luidtouw",
+        "occupiable": false,
+        "furnitureId": "tower-towerRope-8",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 75,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true
+      },
+      {
+        "cell": 78,
+        "type": "towerChest",
+        "name": "de gereedschapskist",
+        "occupiable": false,
+        "furnitureId": "tower-towerChest-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 79,
+        "type": "towerChest",
+        "name": "de gereedschapskist",
+        "occupiable": false,
+        "furnitureId": "tower-towerChest-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "martinitoren-v1-2",
+    "number": 29,
+    "seriesId": "martini",
+    "seriesNumber": 8,
+    "setting": "tower",
+    "theme": "Moord in de Martinitoren",
+    "title": "Mist rond de trans",
+    "story": "Vanaf de eerste trans verdwijnt de stad langzaam in de mist. Binnen liggen een filmkaartje en een vergeten sleutelbos. Tien verhalen moeten op hun plek vallen.",
+    "lesson": "Een extra torenzaak — lees de uitgeklapte kaart als één rooster",
+    "level": "Pittig",
+    "difficultyStars": 4,
+    "size": 12,
+    "width": 12,
+    "height": 10,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "areas": [
+      "Uurwerkzolder",
+      "Filmzolder",
+      "Eerste trans",
+      "Trappenhuis",
+      "Klokkenzolder",
+      "Luidzolder",
+      "Torenentree"
+    ],
+    "areaColors": [
+      "#c7cec5",
+      "#d8ccb4",
+      "#bdd2d4",
+      "#d2b8a0",
+      "#c8ba92",
+      "#d8c5b1",
+      "#c3cbb0"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de torenwachter",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de klokkenluider",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de filmmaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de gids",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de fotograaf",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de archiefbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de uurwerkmaker",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de timmerman",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de bezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de restaurator",
+        "color": "#527b66"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "wrench",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond naast de gereedschapskist in de torenentree.",
+        "cells": [
+          106,
+          107,
+          117
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond direct onder een luidklok in de klokkenzolder.",
+        "cells": [
+          76,
+          77,
+          92,
+          93
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond naast het filmscherm in de filmzolder.",
+        "cells": [
+          28,
+          38,
+          39
+        ]
+      },
+      {
+        "type": "onlyOnObject",
+        "a": 3,
+        "types": [
+          "towerStairs"
+        ],
+        "text": "Was de enige persoon op de wenteltrap."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond tegen de zuidrand van de filmzolder.",
+        "cells": [
+          38,
+          39,
+          40,
+          41,
+          42
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond tegen de oostrand van de klokkenzolder.",
+        "cells": [
+          58,
+          70,
+          82,
+          94
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond in de zuidoosthoek van de uurwerkzolder.",
+        "cells": [
+          19
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond precies 2 vakjes boven een luidklok in de klokkenzolder.",
+        "cells": [
+          56,
+          57
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond in de zuidwesthoek van de klokkenzolder.",
+        "cells": [
+          87
+        ]
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen uitgeklapte doorsnede van de Martinitoren. Verdiepingen en de trans zijn vereenvoudigde puzzelgebieden, geen actuele bezoekplattegrond. De wenteltrap met groen merkje is bezetbaar; klokken en het uurwerk blokkeren hun hele oppervlak.",
+    "rulesNote": "Eén doorlopend rooster: iedere persoon heeft een eigen rij én kolom, over alle verdiepingen heen. Hoger/lager verwijst naar rijen op deze kaart.",
+    "mapOrientation": "UITGEKLAPTE TOREN · HOGER OP DE KAART ↑",
+    "mapCaption": "Schematische, uitgeklapte torenkaart. Rijen en kolommen lopen door over alle verdiepingen.",
+    "objects": [
+      {
+        "cell": 4,
+        "type": "towerClock",
+        "name": "het uurwerk",
+        "occupiable": false,
+        "furnitureId": "tower-towerClock-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 5,
+        "type": "towerClock",
+        "name": "het uurwerk",
+        "occupiable": false,
+        "furnitureId": "tower-towerClock-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 26,
+        "type": "towerScreen",
+        "name": "het filmscherm",
+        "occupiable": false,
+        "furnitureId": "tower-towerScreen-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 27,
+        "type": "towerScreen",
+        "name": "het filmscherm",
+        "occupiable": false,
+        "furnitureId": "tower-towerScreen-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 42,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 34,
+        "type": "towerRailing",
+        "name": "de balustrade",
+        "occupiable": false,
+        "furnitureId": "tower-towerRailing-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 35,
+        "type": "towerRailing",
+        "name": "de balustrade",
+        "occupiable": false,
+        "furnitureId": "tower-towerRailing-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 47,
+        "type": "towerFlag",
+        "name": "de vlaggenstok",
+        "occupiable": false
+      },
+      {
+        "cell": 24,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 36,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-5",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 85,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 97,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-6",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 52,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 53,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 64,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 65,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 80,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 81,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 99,
+        "type": "towerRope",
+        "name": "het luidtouw",
+        "occupiable": false,
+        "furnitureId": "tower-towerRope-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 111,
+        "type": "towerRope",
+        "name": "het luidtouw",
+        "occupiable": false,
+        "furnitureId": "tower-towerRope-9",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 114,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true
+      },
+      {
+        "cell": 118,
+        "type": "towerChest",
+        "name": "de gereedschapskist",
+        "occupiable": false,
+        "furnitureId": "tower-towerChest-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 119,
+        "type": "towerChest",
+        "name": "de gereedschapskist",
+        "occupiable": false,
+        "furnitureId": "tower-towerChest-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "martinitoren-v1-3",
+    "number": 30,
+    "seriesId": "martini",
+    "seriesNumber": 9,
+    "setting": "tower",
+    "theme": "Moord in de Martinitoren",
+    "title": "Stilte boven de Markt",
+    "story": "De toren is gesloten, maar boven klinkt nog een voetstap. Van luidzolder tot uurwerkzolder vertellen twaalf aanwezigen waar ze waren.",
+    "lesson": "Een extra torenzaak — lees de uitgeklapte kaart als één rooster",
+    "level": "Pittig",
+    "difficultyStars": 4,
+    "size": 14,
+    "width": 14,
+    "height": 12,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -1,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "areas": [
+      "Uurwerkzolder",
+      "Filmzolder",
+      "Eerste trans",
+      "Trappenhuis",
+      "Klokkenzolder",
+      "Luidzolder",
+      "Torenentree"
+    ],
+    "areaColors": [
+      "#c7cec5",
+      "#d8ccb4",
+      "#bdd2d4",
+      "#d2b8a0",
+      "#c8ba92",
+      "#d8c5b1",
+      "#c3cbb0"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de torenwachter",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de klokkenluider",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de filmmaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de gids",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de fotograaf",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de archiefbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de uurwerkmaker",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de timmerman",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de bezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de restaurator",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de vrijwilligster",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de sleutelbeheerder",
+        "color": "#897455"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "dagger",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond in de zuidoosthoek van de uurwerkzolder.",
+        "cells": [
+          23
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond op de wenteltrap in het trappenhuis.",
+        "cells": [
+          28,
+          42,
+          127,
+          141
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond direct rechts van het luidtouw in de luidzolder.",
+        "cells": [
+          144,
+          158
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond naast de wenteltrap in het trappenhuis.",
+        "cells": [
+          29,
+          43,
+          113,
+          128,
+          140,
+          142,
+          155
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond precies 2 vakjes onder een luidklok in de klokkenzolder.",
+        "cells": [
+          102,
+          103,
+          122,
+          123
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond precies 2 vakjes links van een luidklok in de klokkenzolder.",
+        "cells": [
+          92
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond precies 2 vakjes boven de wenteltrap in het trappenhuis.",
+        "cells": [
+          99
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond op een bankje in de luidzolder.",
+        "cells": [
+          161
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond precies 2 vakjes links van de vlaggenstok in de eerste trans.",
+        "cells": [
+          53
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond tegen de westrand van de klokkenzolder.",
+        "cells": [
+          59,
+          73,
+          87,
+          101,
+          115,
+          129
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond in de noordoosthoek van de klokkenzolder.",
+        "cells": [
+          68
+        ]
+      }
+    ],
+    "printLayout": "church",
+    "mapNote": "Eigen uitgeklapte doorsnede van de Martinitoren. Verdiepingen en de trans zijn vereenvoudigde puzzelgebieden, geen actuele bezoekplattegrond. De wenteltrap met groen merkje is bezetbaar; klokken en het uurwerk blokkeren hun hele oppervlak.",
+    "rulesNote": "Eén doorlopend rooster: iedere persoon heeft een eigen rij én kolom, over alle verdiepingen heen. Hoger/lager verwijst naar rijen op deze kaart.",
+    "mapOrientation": "UITGEKLAPTE TOREN · HOGER OP DE KAART ↑",
+    "mapCaption": "Schematische, uitgeklapte torenkaart. Rijen en kolommen lopen door over alle verdiepingen.",
+    "objects": [
+      {
+        "cell": 4,
+        "type": "towerClock",
+        "name": "het uurwerk",
+        "occupiable": false,
+        "furnitureId": "tower-towerClock-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 5,
+        "type": "towerClock",
+        "name": "het uurwerk",
+        "occupiable": false,
+        "furnitureId": "tower-towerClock-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 30,
+        "type": "towerScreen",
+        "name": "het filmscherm",
+        "occupiable": false,
+        "furnitureId": "tower-towerScreen-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 31,
+        "type": "towerScreen",
+        "name": "het filmscherm",
+        "occupiable": false,
+        "furnitureId": "tower-towerScreen-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 49,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 40,
+        "type": "towerRailing",
+        "name": "de balustrade",
+        "occupiable": false,
+        "furnitureId": "tower-towerRailing-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 41,
+        "type": "towerRailing",
+        "name": "de balustrade",
+        "occupiable": false,
+        "furnitureId": "tower-towerRailing-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 55,
+        "type": "towerFlag",
+        "name": "de vlaggenstok",
+        "occupiable": false
+      },
+      {
+        "cell": 28,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 42,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-5",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 127,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 141,
+        "type": "towerStairs",
+        "name": "de wenteltrap",
+        "occupiable": true,
+        "furnitureId": "tower-towerStairs-6",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 60,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 61,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 74,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 75,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-7",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 94,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 95,
+        "type": "towerBell",
+        "name": "een luidklok",
+        "occupiable": false,
+        "furnitureId": "tower-towerBell-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 143,
+        "type": "towerRope",
+        "name": "het luidtouw",
+        "occupiable": false,
+        "furnitureId": "tower-towerRope-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 157,
+        "type": "towerRope",
+        "name": "het luidtouw",
+        "occupiable": false,
+        "furnitureId": "tower-towerRope-9",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "cell": 161,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true
+      },
+      {
+        "cell": 166,
+        "type": "towerChest",
+        "name": "de gereedschapskist",
+        "occupiable": false,
+        "furnitureId": "tower-towerChest-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 167,
+        "type": "towerChest",
+        "name": "de gereedschapskist",
+        "occupiable": false,
+        "furnitureId": "tower-towerChest-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
   }
 ]
