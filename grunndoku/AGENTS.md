@@ -12,6 +12,8 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Hints tonen kleine redeneerstappen, zonder automatisch te plaatsen of de dader te noemen. Leid ze af uit de huidige definitieve plaatsingen en openbare regels.
 - Rechtsklik kruist af en behoudt het gereedschap. Initialen selecteren personen; onderdruk die sneltoetsen in invoervelden en geopende dialogen.
 - Niveau-feedback blijft lokaal tot de speler die bewust exporteert. Claim geen empirische kalibratie zonder proefspeelgegevens.
+- De homepage toont uitsluitend vier even grote, brede themakaarten onder elkaar met eigen PDF-link en een algemeen startblad. Elk thema opent eerst een eigen startblad met voorbeeld en voorwerpoverzicht; pas daarna verschijnen de puzzels. Bewaar schermnavigatie en browser-Terug zonder spelvoortgang te wijzigen.
+- Geen kladroosters of losse initialenlijstjes op scherm of papier. Kleine letters in conceptnotities en initialen in geplaatste tokens blijven functioneel.
 - Kleine zaken staan vanaf 760 pixels naast elkaar. Houd aparte schaalregelaars voor personen en kaart, zonder spelvoortgang te veranderen.
 - Behoud vakknoppen tijdens het noteren. Verifieer snelle dubbele klikken en aanrakingen; de derde klik herstelt de eerdere concepten. Meldingen mogen het doelvak niet verplaatsen.
 - Vloerpatronen zijn eigen sfeertekeningen, met behoud van gebiedskleuren en leesbare rastergrenzen. Gebruik dezelfde patronen op papier.
@@ -20,6 +22,7 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 
 - De Martini-serie gebruikt de huidige kerk als inspiratie: orgel, preekstoel, koor en kapellen; geen historische biechthokjes. Kaarten zijn eigen schematische puzzelindelingen, geen bezoekersplattegrond. Breedte en hoogte kunnen verschillen; gebruik de dimensioneringsfuncties uit `engine.js`.
 - Fokko is in actuele zaken het slachtoffer en staat als laatste in alle personagelijsten, ook op papier. Sorteer alleen de presentatie; behoud indices voor voortgang en aanwijzingen.
+- Toon geen oriëntatiekop met noord/west/zuid/oost boven de kaart, ook niet op papier. Windrichtingen mogen wel in aanwijzingen en de spelregels staan.
 - Ruimtenamen staan op de kaart; voeg geen tweede gebiedslegenda onder de kaart toe. Het overzicht van bezetbare en geblokkeerde voorwerpen staat bij de introductie en in Spelregels, niet onder iedere puzzel.
 - Mugshots hebben hun naam uitsluitend op het vastgehouden bord; geen tweede naamstrook eronder. Archiefportretten mogen hun naamstrook behouden.
 

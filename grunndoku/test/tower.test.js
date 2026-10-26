@@ -14,7 +14,7 @@ for(const p of cases)test(`${p.id}: unique public solution, real tower features 
  const bell=p.objects.find(o=>o.type==='towerBell');assert.equal(canStand(p,bell.cell),false);assert.ok(!adjacentCells(p,['towerBell']).includes(bell.cell));
  assert.ok(Object.values(s).some(c=>p.objects.some(o=>o.cell===c&&o.type==='towerStairs')),'stairs play a genuine role');
  for(let area=0;area<p.areas.length;area++){const cells=p.regions.flatMap((a,c)=>a===area?[c]:[]),seen=new Set([cells[0]]),queue=[cells[0]];while(queue.length){const c=queue.pop();for(const d of [c-1,c+1,c-p.width,c+p.width])if(p.regions[d]===area&&Math.abs(Math.floor(d/p.width)-Math.floor(c/p.width))+Math.abs(d%p.width-c%p.width)===1&&!seen.has(d)){seen.add(d);queue.push(d);}}assert.equal(seen.size,cells.length);}
- const paper=printSheet(p);assert.ok(paper.includes('UITGEKLAPTE TOREN'));assert.ok(!paper.includes('NOORD ↑'));assert.equal((paper.match(/Was samen met de moordenaar\./g)||[]).length,1);
+ const paper=printSheet(p);assert.ok(!paper.includes('UITGEKLAPTE TOREN · HOGER OP DE KAART'));assert.ok(!paper.includes('NOORD ↑'));assert.equal((paper.match(/Was samen met de moordenaar\./g)||[]).length,1);
 });
 
 test('standalone tower introduction explains stairs and continuous floor coordinates',()=>{const paper=introductionSheets({boardMarkup,legendMarkup,portraitMarkup},{church:true,tower:true});assert.ok(paper.includes('Wenteltrap'));assert.ok(paper.includes('Luidklok'));assert.ok(paper.includes('rijen en kolommen lopen overal door'));assert.ok(!paper.includes('De zesde Martini-zaak'));});

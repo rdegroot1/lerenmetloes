@@ -1,14 +1,15 @@
-import {personEntries} from './person-order.js?v=20261026-clean-pages';
-import {updateBoard} from './board-dom.js?v=20261026-clean-pages';
-import {reasoningHint} from './hints.js?v=20261026-clean-pages';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-clean-pages';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-clean-pages';
-import {landmarkArt} from './art.js?v=20261026-clean-pages';
-import {explain} from './explain.js?v=20261026-clean-pages';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-clean-pages';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-clean-pages';
+import {THEMES,tutorialFor} from './themes.js?v=20261026-themes';
+import {personEntries} from './person-order.js?v=20261026-themes';
+import {updateBoard} from './board-dom.js?v=20261026-themes';
+import {reasoningHint} from './hints.js?v=20261026-themes';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-themes';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-themes';
+import {landmarkArt,objectArt} from './art.js?v=20261026-themes';
+import {explain} from './explain.js?v=20261026-themes';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-themes';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-themes';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-clean-pages';
+const DATA_VERSION='20261026-themes';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
@@ -21,7 +22,7 @@ function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify(
 // Keep the original storage namespace so existing browser progress survives the rename.
 const key=p=>'grunmurdoku:v1:'+p.id;
 function load(i){
- index=i;p=puzzles[i];$('seriesLibrary').open=false;mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
+ index=i;p=puzzles[i];mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
  const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,hintsUsed:0,difficultyFeedback:null};state=defaults;
  try{
   const saved=JSON.parse(localStorage.getItem(key(p)));
@@ -35,7 +36,27 @@ function load(i){
  $('mapGuide').open=false;$('mapContext').open=false;selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));$('caseSelect').value=String(i);render();
  say(Object.keys(p.givens||{}).length?`${Object.keys(p.givens).length} personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.`:'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
 }
-function openCase(i){$('startGuide').open=false;load(i);document.querySelector('.book').scrollIntoView({block:'start'});}
+let currentScreen='home',introIndex=0,example=0;
+function showScreen(name){
+ currentScreen=name;for(const [id,value]of [['homeScreen','home'],['themeStartScreen','theme'],['puzzleScreen','puzzle']])$(id).hidden=name!==value;
+ $('backHome').hidden=name==='home';$('backTheme').hidden=name!=='puzzle';
+}
+function route(screen,i,replace=false){const series=screen==='home'?null:(puzzles[i].seriesId||'stad');window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(series?'?serie='+series:''));}
+function showHome(record=true){showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
+function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-themes';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent=`Begin met zaak ${seriesCases().indexOf(p)+1} →`;example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+}
+function renderExample(){
+ const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
+ $('exampleClue').textContent=`Arend en Bertus staan al op de kaart. Cora: ${sample.clues[0].text} Fokko was samen met de moordenaar.`;
+ $('exampleBoard').innerHTML=boardMarkup(sample,positions);
+ $('exampleReason').textContent=example===0?'Begin bij Cora’s aanwijzing. Zoek het meubel met het groene merkje.':example===1?'Voor Cora past één plek: rij 3, kolom 2. Haar rij en kolom vallen nu af voor de anderen.':`Voor Fokko blijft rij 4, kolom 4 over. Alleen Bertus deelt het gebied ${sample.areas[1]} met hem: in dit voorbeeld is Bertus de dader.`;
+ $('exampleStep').textContent=example===2?'Begin het voorbeeld opnieuw ↺':example===0?'Toon de eerste denkstap →':'Toon de tweede denkstap →';
+}
+function openCase(i,record=true){const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}
+$('backHome').onclick=()=>showHome();$('backTheme').onclick=()=>showTheme(p.seriesId||'stad',index);$('beginTheme').onclick=()=>openCase(introIndex);$('exampleStep').onclick=()=>{example=(example+1)%3;renderExample();};
+window.addEventListener('popstate',event=>{const state=event.state;if(state?.screen==='puzzle')openCase(state.index,false);else if(state?.screen==='theme')showTheme(puzzles[state.index].seriesId||'stad',state.index,false);else showHome(false);});
+
 function persist(){state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
 function snapshot(){history.push(JSON.stringify(state));if(history.length>100)history.shift();}
 function say(text){$('message').textContent=text;}
@@ -54,13 +75,12 @@ function render(){
  if($('caseHeader').parentElement!==headerParent)headerParent.prepend($('caseHeader'));
  $('martiniHeader').hidden=!church;$('mapNavigation').hidden=false;
  $('mapGuide').hidden=!church;$('mapContext').hidden=!church;$('mapNote').hidden=!church;$('mapNote').textContent=p.mapNote||'';
- $('mapOrientation').textContent=p.mapOrientation||'NOORD ↑';
  $('activeClue').hidden=!church;
  $('returnToMap').hidden=!church;
  const own=p.clues.find(c=>c.a===selected),given=p.givens?.[selected];
  $('activeClue').textContent=`${p.people[selected]?.name||'Kies een persoon'} · ${selected===p.victim?'Was samen met de moordenaar.':given!=null?`Vaste startpositie: rij ${Math.floor(given/width)+1}, kolom ${given%width+1}.`:own?.text||'Kies een persoon bij de kaart.'}`;
  $('shapeNote').textContent=p.rulesNote||'Iedereen heeft een eigen rij én kolom.';
- for(const id of ['board','miniBoard']){$(id).style.setProperty('--columns',width);$(id).style.setProperty('--rows',height);}
+ for(const id of ['board']){$(id).style.setProperty('--columns',width);$(id).style.setProperty('--rows',height);}
  $('board').style.setProperty('--map-min',`${width*(compactCase(p)?30:36)*zoom}px`);
  $('board').style.setProperty('--map-scale',zoom);$('board').style.width=mapBase?`${mapBase*zoom}px`:'100%';
  $('zoomValue').textContent=`${Math.round(zoom*100)}%`;
@@ -70,12 +90,11 @@ function render(){
  $('activeSeriesName').textContent=({stad:'Stadse speurtochten',nacht:'Nacht in Stad',martini:'Moord in de Martini',winter:'WinterWelVaart'})[p.seriesId||'stad'];
  $('caseNo').textContent=`ZAAK ${String(p.number).padStart(2,'0')} / ${p.theme||'STAD'}`;$('caseTitle').textContent=p.title;$('story').textContent=p.story;
  const count=Object.keys(state.positions).length;$('count').textContent=`${count} / ${p.people.length} geplaatst`;$('progress').textContent=state.solved?'Zaak opgelost':`${count} van ${p.people.length} alibi’s op de kaart`;
- $('board').classList.toggle('shaped',p.regions.some(a=>a<0));$('miniBoard').classList.toggle('shaped',p.regions.some(a=>a<0));document.querySelector('.book').classList.toggle('series-mugshot',p.portraitStyle==='mugshot');
+ $('board').classList.toggle('shaped',p.regions.some(a=>a<0));document.querySelector('.book').classList.toggle('series-mugshot',p.portraitStyle==='mugshot');
  $('board').style.setProperty('--size',p.size);updateBoard($('board'),boardMarkup(p,state.positions,state.crosses,false,state.notes,selected),p.id);
 
  if(hintSession&&hintSession.key!==hintKey()){$('hintPanel').hidden=true;hintSession=null;}
- $('startObjectLegend').innerHTML=objectLegend({objects:(index>=mainCount?[p]:seriesCases()).flatMap(q=>q.objects)});$('rulesObjectLegend').innerHTML=$('startObjectLegend').innerHTML;
- $('miniBoard').style.setProperty('--size',p.size);$('miniBoard').innerHTML=boardMarkup(p,{},[],true);
+ $('themeObjectLegend').innerHTML=objectLegend({objects:(index>=mainCount?[p]:seriesCases()).flatMap(q=>q.objects)});$('rulesObjectLegend').innerHTML=$('themeObjectLegend').innerHTML;
  $('level').innerHTML=difficultyMarkup(p)+`<span class="difficulty-size">${width} × ${height}</span>`;
  $('lesson').textContent=church?`${p.people.length} personen · ${p.lesson||'Combineer de aanwijzingen en ontdek de dader.'}`:p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — iedereen begint nog buiten de kaart.':p.number===2?' — volg de aanwijzingen stap voor stap.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
@@ -132,7 +151,7 @@ function tap(c,tool=mode){
  persist();render();say(tool==='place'?`${p.people[selected].name} definitief geplaatst. Een derde klik herstelt je eerdere concepten.`:'Notitie bijgewerkt.');
 }
 $('printAll').textContent=`Print de reeks (${mainCount} A4)`;
-$('caseSelect').innerHTML=['stad','nacht','martini','winter'].map(series=>`<optgroup label="${series==='winter'?'WinterWelVaart — zes niveaus':series==='martini'?'Moord in de Martini':series==='nacht'?'Nacht in Stad':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${difficultyText(q)} · ${q.theme||'Stad'} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>openCase(+e.target.value);
+$('caseSelect').innerHTML=['stad','nacht','martini','winter'].map(series=>`<optgroup label="${series==='winter'?'WinterWelVaart — zes niveaus':series==='martini'?'Moord in de Martini':series==='nacht'?'Nacht in Stad':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${difficultyText(q)} · ${q.theme||'Stad'} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>{const i=+e.target.value,series=puzzles[i].seriesId||'stad';if(series!==(p.seriesId||'stad'))showTheme(series,i);else openCase(i);};
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
 $('undo').onclick=()=>{if(history.length){state=JSON.parse(history.pop());persist();render();say('Laatste wijziging teruggedraaid.');}};
 $('reset').onclick=()=>{$('hintPanel').hidden=true;hintSession=null;snapshot();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,hintsUsed:0,difficultyFeedback:state.difficultyFeedback||null};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
@@ -154,7 +173,7 @@ $('hint').onclick=showReasoningHint;
 $('hintNext').onclick=showReasoningHint;
 $('hintClose').onclick=()=>{$('hintPanel').hidden=true;hintSession=null;};
 document.addEventListener('keydown',event=>{
- if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey||event.repeat||event.isComposing||document.querySelector('dialog[open]')||event.target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
+ if(currentScreen!=='puzzle'||event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey||event.repeat||event.isComposing||document.querySelector('dialog[open]')||event.target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
  if(event.key.length!==1)return;const who=p.people.findIndex(person=>person.name[0].toLocaleLowerCase('nl')===event.key.toLocaleLowerCase('nl'));if(who<0)return;
  event.preventDefault();if(Object.hasOwn(p.givens||{},who)){say(`${p.people[who].name} is een vaste startpositie.`);return;}
  selected=who;mode='place';render();say(`${p.people[who].name} geselecteerd met ${p.people[who].name[0]}.`);
@@ -171,10 +190,10 @@ $('zoomValue').onclick=()=>{zoom=1;saveView();render();};
 $('peopleZoomIn').onclick=()=>{peopleZoom=Math.min(1.5,Math.round((peopleZoom+.1)*10)/10);saveView();render();};
 $('peopleZoomOut').onclick=()=>{peopleZoom=Math.max(.7,Math.round((peopleZoom-.1)*10)/10);saveView();render();};
 $('peopleZoomValue').onclick=()=>{peopleZoom=1;saveView();render();};
-$('winterSeries').onclick=()=>openCase(puzzles.findIndex(q=>q.seriesId==='winter'));
-$('martiniSeries').onclick=()=>openCase(puzzles.findIndex(q=>q.seriesId==='martini'));
-$('classicSeries').onclick=()=>openCase(0);
-$('nightSeries').onclick=()=>openCase(puzzles.findIndex(q=>q.seriesId==='nacht'));
+$('winterSeries').onclick=()=>showTheme('winter');
+$('martiniSeries').onclick=()=>showTheme('martini');
+$('classicSeries').onclick=()=>showTheme('stad');
+$('nightSeries').onclick=()=>showTheme('nacht');
 $('nextCase').onclick=()=>{const cases=seriesIndices(),next=cases[cases.indexOf(index)+1];if(next!=null)openCase(next);};
 $('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch(`./puzzles-archive.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);const group=document.createElement('optgroup');group.label='Eerdere zaken — je oude voortgang';archive.forEach((q,i)=>{const option=document.createElement('option');option.value=String(i+mainCount);option.textContent=q.title;group.append(option);});$('caseSelect').append(group);}openCase(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
 for(const id of ['rules','boardRules'])$(id).onclick=()=>$('rulesDialog').showModal();document.querySelectorAll('dialog .close, .close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
@@ -202,3 +221,7 @@ $('accuse').onclick=()=>{
 const requestedSeries=new URLSearchParams(document.location.search).get('serie');
 const initialIndex=puzzles.findIndex(q=>(q.seriesId||'stad')===requestedSeries);
 load(initialIndex>=0?initialIndex:0);
+const generalObjects=[['chair','een stoel',true],['bench','een bankje',true],['bed','een bed',true],['rug','een kleed',true],['table','een tafel',false],['tree','een boom',false],['books','een boekenkast',false]].map(([type,name,occupiable])=>({type,name,occupiable}));
+$('startObjectLegend').innerHTML=objectLegend({objects:generalObjects});
+document.querySelectorAll('[data-theme-art]').forEach(el=>{const meta=THEMES[el.dataset.themeArt];el.innerHTML=meta.art.map(type=>`<span>${objectArt(type)}</span>`).join('');});
+if(initialIndex>=0){showTheme(requestedSeries,initialIndex,false);route('theme',initialIndex,true);}else{showHome(false);route('home',0,true);}
