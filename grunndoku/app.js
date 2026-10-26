@@ -1,14 +1,14 @@
-import {personEntries} from './person-order.js?v=20261026-start';
-import {updateBoard} from './board-dom.js?v=20261026-start';
-import {reasoningHint} from './hints.js?v=20261026-start';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-start';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-start';
-import {landmarkArt} from './art.js?v=20261026-start';
-import {explain} from './explain.js?v=20261026-start';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-start';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-start';
+import {personEntries} from './person-order.js?v=20261026-clean-pages';
+import {updateBoard} from './board-dom.js?v=20261026-clean-pages';
+import {reasoningHint} from './hints.js?v=20261026-clean-pages';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-clean-pages';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-clean-pages';
+import {landmarkArt} from './art.js?v=20261026-clean-pages';
+import {explain} from './explain.js?v=20261026-clean-pages';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-clean-pages';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-clean-pages';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-start';
+const DATA_VERSION='20261026-clean-pages';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
