@@ -60,7 +60,7 @@ Bekijk oplossing (spoiler) opent een aparte dialoog met bulletpoints. `explain.j
 
 Zaken 7–12 spelen rond de Hoornseplas, het Stadspark, het Noorderplantsoen, de binnenstadskroegen en een festival in het groen. Gebieden zijn onder meer zandstrand, zwemsteiger, rietkraag, De Negende Cirkel, Het Pakhuis, De Drie Gezusters, Huize Maas, De Pintelier en Café De Toeter. Kaarten en verhalen zijn fictief en schematisch.
 
-De gebiedsnamen staan als serif-naambordjes op een horizontale strook van hun eigen gebied, zowel op scherm als papier. De labels blokkeren geen klik- of notitiedoelen. De ankers vermijden voorwerpen en gegeven posities waar mogelijk; letters gebruiken lokale Palatino/Georgia-fallbacks. De nieuwe illustraties voegen parasols, riet, podium, bar en lantaarns toe.
+De gebiedsnamen staan als compacte serif-linten in een hoek van hun eigen gebied, zowel op scherm als papier. De labels blokkeren geen klik- of notitiedoelen. De ankers vermijden voorwerpen en gegeven posities waar mogelijk; letters gebruiken lokale Palatino/Georgia-fallbacks. De nieuwe illustraties voegen parasols, riet, podium, bar en lantaarns toe.
 
 In Stadse speurtochten krijgt het slachtoffer minstens één eigen plaatsaanwijzing. In Nacht in Stad staat bij het slachtoffer uitsluitend “Was samen met de moordenaar”, zoals door de gebruiker gevraagd; de overgebleven plek volgt uit de andere personen. Selecteer een nog niet geplaatste persoon, ook het slachtoffer, en vraag Een zetje om juist die persoon te plaatsen. De oorspronkelijke zes oplossingen en opslag-ID’s blijven gelijk; gewijzigde aanwijzingen vernieuwen alleen de afvinkjes. De reeksnavigatie, archiefgrens en printreeks volgen het aantal dossiers automatisch.
 
@@ -97,3 +97,9 @@ Nacht in Stad gebruikt stoelen, banken, bedden en vloerkleden als mogelijke plek
 Extra aanwijzingen onder de persoonskaarten zijn ook afvinkbaar. ‘Precies twee personen zaten op een stoel’ telt personen op alle stoelen samen, inclusief het slachtoffer. ‘De enige persoon op een vloerkleed’ sluit alle andere personen uit van alle vloerkleden. Bij het slachtoffer blijft uitsluitend ‘Was samen met de moordenaar’ staan. De stap-voor-stapuitleg verwerkt deze regels.
 
 Alle vier herziene dossiers hebben één oplossing, met dezelfde plaatsingen en opslag-ID’s als ervoor. Alleen afvinkjes worden vernieuwd vanwege de gewijzigde aanwijzingen. Notities op bezetbare meubels, terugzetten met de derde klik en herladen blijven werken. De eerste zeventien puzzelgegevens zijn ongewijzigd. Beide PDF’s bevatten de nieuwe meubels en extra aanwijzingen.
+
+## Eenduidige aanwijzingen en ruimtebanners
+
+In Nacht in Stad heeft elke verdachte precies één eigen aanwijzing. Geen persoonsaanwijzing verwijst naar het slachtoffer, dat alleen de algemene slachtofferregel krijgt. Groepsaanwijzingen blijven apart afvinkbaar. Alle stoelen hebben dezelfde tekening, de naam ‘een stoel’ en dezelfde betekenis in aanwijzingen. De herziening behoudt de oplossingen en opslag-ID’s; alleen afvinkjes krijgen een nieuwe versie.
+
+Ruimtenamen staan in compacte sierlijke linten tegen een onderste hoek van hun eigen gebied. De ankers vermijden voorwerpen en vaste startposities waar mogelijk. De banners laten het midden van de ruimte vrij, klikken door naar het rooster en worden ook op liggend A4 geprint.

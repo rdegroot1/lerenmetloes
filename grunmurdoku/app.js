@@ -1,10 +1,10 @@
-import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-furniture';
-import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-furniture';
-import {landmarkArt} from './art.js?v=20261026-furniture';
-import {explain} from './explain.js?v=20261026-furniture';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-furniture';
+import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-witness-clues';
+import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-witness-clues';
+import {landmarkArt} from './art.js?v=20261026-witness-clues';
+import {explain} from './explain.js?v=20261026-witness-clues';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-witness-clues';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-furniture';
+const DATA_VERSION='20261026-witness-clues';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;

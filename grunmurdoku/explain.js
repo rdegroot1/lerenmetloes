@@ -1,4 +1,4 @@
-import {solve,matches,region,isPlayable,canStand,furnitureCells} from './engine.js?v=20261026-furniture';
+import {solve,matches,region,isPlayable,canStand,furnitureCells} from './engine.js?v=20261026-witness-clues';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.

@@ -20,6 +20,21 @@ test('pencil notes on furniture survive save loading and third-click restoration
  state.noteBackups=sanitizeBackups(p,state.noteBackups);restorePencilNotes(state,p,0);assert.deepEqual(state.notes,{0:[0],10:[0,1]});
 });
 const night=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url))).filter(p=>p.seriesId==='nacht');
+test('each night witness has exactly one clue and nobody refers to the victim',()=>{
+ for(const p of night){
+  for(let who=0;who<p.people.length;who++)assert.equal(p.clues.filter(c=>c.a===who).length,who===p.victim?0:1,`${p.theme}: ${p.people[who].name}`);
+  assert.ok(p.clues.every(c=>c.a!==p.victim&&c.b!==p.victim&&!c.text.includes(p.people[p.victim].name)),p.theme);
+ }
+});
+test('night dossiers use one chair type, name and clue category',()=>{
+ for(const p of night){
+  assert.ok(p.objects.some(o=>o.type==='chair'));
+  assert.ok(p.objects.filter(o=>/stoel/.test(o.name)).every(o=>o.type==='chair'&&o.name==='een stoel'&&o.occupiable===true));
+  assert.ok(p.objects.every(o=>o.type!=='seat'));
+  assert.ok(p.clues.filter(c=>c.types?.includes('chair')).every(c=>c.types.length===1));
+  assert.ok(p.clues.every(c=>!/klapstoel|theaterstoel|bioscoopstoel/.test(c.text)));
+ }
+});
 test('all night dossiers use on-furniture, exclusive-furniture and exact-count deductions',()=>{
  for(const p of night){assert.ok(p.clues.some(c=>c.type==='onObject'));assert.ok(p.clues.some(c=>c.type==='onlyOnObject'));assert.ok(p.clues.some(c=>c.type==='objectCount'));assert.ok(p.clues.every(c=>c.a!==p.victim));const s=solve(p);assert.equal(s.length,1);assert.ok(Object.values(s[0]).some(c=>p.objects.some(o=>o.cell===c&&o.occupiable)));}
  assert.ok(night.some(p=>solve({...p,clues:p.clues.filter(c=>c.type!=='objectCount')}).length>1),'count clues affect the solution');

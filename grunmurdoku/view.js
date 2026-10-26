@@ -1,17 +1,20 @@
-import {canStand} from './engine.js?v=20261026-furniture';
-import {portrait,mugshot,objectArt,landmarkArt} from './art.js?v=20261026-furniture';
-// Place each name in a long contiguous strip of its own district. Keep object
-// and given cells free where possible; identical anchors are used on paper.
+import {canStand} from './engine.js?v=20261026-witness-clues';
+import {portrait,mugshot,objectArt,landmarkArt} from './art.js?v=20261026-witness-clues';
+// Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
+// use the same stable anchors on screen and paper.
 export function areaLabels(p){
  return p.areas.map((name,area)=>{
   const runs=[];
   for(let row=0;row<p.size;row++)for(let col=0;col<p.size;){
-   if(p.regions[row*p.size+col]!==area){col++;continue;}
-   const start=col;while(col<p.size&&p.regions[row*p.size+col]===area)col++;
-   const cells=Array.from({length:col-start},(_,i)=>row*p.size+start+i);
-   const blocked=cells.filter(c=>p.objects.some(o=>o.cell===c)||Object.values(p.givens||{}).includes(c)).length;
-   const boundary=cells.every(c=>row===p.size-1||p.regions[c+p.size]!==area);
-   runs.push({name,area,row,col:start,length:cells.length,cells,score:cells.length*12-blocked*7+(boundary?4:0)});
+   const bottom=c=>p.regions[c]===area&&(row===p.size-1||p.regions[c+p.size]!==area);
+   if(!bottom(row*p.size+col)){col++;continue;}
+   const start=col;while(col<p.size&&bottom(row*p.size+col))col++;
+   const length=Math.min(col-start,Math.ceil(name.length/8));
+   const anchor=col-length,cells=Array.from({length},(_,i)=>row*p.size+anchor+i);
+   const objects=cells.filter(c=>p.objects.some(o=>o.cell===c)).length;
+   const given=cells.filter(c=>Object.values(p.givens||{}).includes(c)).length;
+   const corner=col===p.size||p.regions[row*p.size+col]!==area;
+   runs.push({name,area,row,col:anchor,length,cells,score:length*30-objects*20-given*100+(corner?10:0)+row});
   }
   return runs.sort((a,b)=>b.score-a.score||a.row-b.row)[0];
  });
@@ -33,7 +36,7 @@ export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},select
  const mark=who!=null?`<span class="person-token" style="background:${p.people[who].color}">${p.people[who].name[0]}</span><span class="token-name">${p.people[who].name}${given?' •':''}</span>`:crosses.includes(c)?'<span class="crossed">×</span>':'';
  const content=mini?(o?`<i class="obstacle-dot${o.occupiable?' allowed-dot':''}"></i>`:''):furniture+mark+(o?.occupiable?'<span class="surface-mark" aria-hidden="true"></span>':'');
  return `<button type="button" class="cell area-${area}${walls}${given?' given':''}${band.has(c)?' name-band':''}${o?.occupiable?' surface-cell':''}${who!=null?' has-person':''}${o?.tile?' footprint-cell':''}" data-cell="${c}" aria-label="${label}" ${!canStand(p,c)||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&canStand(p,c)&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
- }).join('')+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="left:calc(${label.col/p.size*100}% + 3px);top:calc(${(label.row+1)/p.size*100}% - 1px);width:calc(${label.length/p.size*100}% - 6px)">${label.name}</span>`).join('');
+ }).join('')+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="right:calc(${(p.size-label.col-label.length)/p.size*100}% + 4px);top:calc(${(label.row+1)/p.size*100}% - 4px);max-width:calc(${label.length/p.size*100}% - 8px)">${label.name}</span>`).join('');
 }
 export function legendMarkup(p){return p.areas.map((name,i)=>`<span><i class="area-${i}"></i>${name}</span>`).join('');}
 export function portraitMarkup(i,name,p){return p?.portraitStyle==='mugshot'?mugshot(i,name,p.number):portrait(i,name);}
