@@ -31,7 +31,7 @@ test('introductory case can be completed with immediate forced moves',()=>{
 
 test('progression grows from 4x4 to 6x6 and preserves fixed starting places',()=>{
  assert.deepEqual(puzzles.slice(0,6).map(p=>p.size),[4,4,5,5,6,6]);
- assert.ok(puzzles.slice(0,2).every(p=>p.clues.every(c=>c.type==='unary')));
+ assert.ok(puzzles.slice(0,2).every(p=>p.clues.every(c=>['unary','onObject','onlyOnObject'].includes(c.type))));
  assert.ok(puzzles.slice(2).every(p=>p.clues.some(c=>c.type!=='unary')));
  const p=puzzles[0];const cell=p.givens[0];assert.equal(valid(p,{0:(cell+1)%(p.size*p.size)}),false);
 });
@@ -57,8 +57,8 @@ test('freeform districts are connected and extend beyond rectangles',()=>{
  }
 });
 
-test('clues never directly pair a suspect with the victim',()=>{
- for(const p of puzzles)assert.ok(p.clues.every(c=>c.type!=='same'||c.a!==p.victim&&c.b!==p.victim));
+test('current clues never refer to the victim',()=>{
+ for(const p of puzzles)assert.ok(p.clues.every(c=>c.a!==p.victim&&c.b!==p.victim&&!c.text.includes(p.people[p.victim].name)));
 });
 
 test('names have distinct initials for concept notes',()=>{
@@ -67,9 +67,19 @@ test('names have distinct initials for concept notes',()=>{
 });
 
 
-test('every victim has a location clue of their own',()=>{
+test('victim cards preserve the current and archived rule formats',()=>{
  const archive=JSON.parse(readFileSync(new URL('../puzzles-archive.json',import.meta.url)));
  for(const p of [...puzzles,...archive]){if(p.victimLocationClue===false)assert.ok(p.clues.every(c=>c.a!==p.victim),p.id);else assert.ok(p.clues.some(c=>c.a===p.victim&&c.type==='unary'),p.id);}
+});
+
+test('all current witnesses have one clue or a fixed starting place and share the upgraded art',()=>{
+ for(const p of puzzles){
+  assert.equal(p.portraitStyle,'mugshot');assert.ok(p.victimWeapon);assert.equal(p.victimLocationClue,false);
+  for(let who=0;who<p.people.length;who++)assert.equal(p.clues.filter(c=>c.a===who).length,who===p.victim||Object.hasOwn(p.givens,who)?0:1,`${p.id}: ${who}`);
+  assert.ok(p.objects.filter(o=>/stoel/.test(o.name)).every(o=>o.type==='chair'&&o.name==='een stoel'&&o.occupiable));
+  assert.ok(Number.isInteger(p.difficultyStars)&&p.difficultyStars>=1&&p.difficultyStars<=5);
+ }
+ assert.deepEqual(puzzles.slice(0,6).map(p=>p.difficultyStars),[1,2,2,3,4,5]);
 });
 
 test('new themed cases have distinct settings and varied victim rows',()=>{

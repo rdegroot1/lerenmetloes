@@ -10,6 +10,15 @@ test('on and only-on furniture clues include all persons, including the victim',
  const on={type:'onObject',a:0,types:['chair']};assert.equal(matches(p,{0:0},on),true);assert.equal(matches(p,{0:1},on),false);
  const only={type:'onlyOnObject',a:0,types:['chair']};assert.equal(matches(p,{0:0,3:5},only),false);assert.equal(matches(p,{0:0,3:6},only),true);
 });
+test('a chair clue can identify a room or the outermost chair',()=>{
+ const q={...p,regions:[0,0,0,0,1,1,1,1,...Array(8).fill(0)]};
+ const area={type:'onObject',a:0,types:['chair'],area:1};assert.equal(matches(q,{0:5},area),true);assert.equal(matches(q,{0:0},area),false);
+ const side={type:'onObject',a:0,types:['chair'],cells:[0]};assert.equal(matches(p,{0:0},side),true);assert.equal(matches(p,{0:5},side),false);
+});
+test('below and right compare whole rows and columns',()=>{
+ assert.equal(matches(p,{0:10,1:0},{type:'below',a:0,b:1}),true);assert.equal(matches(p,{0:0,1:10},{type:'below',a:0,b:1}),false);
+ assert.equal(matches(p,{0:10,1:0},{type:'right',a:0,b:1}),true);assert.equal(matches(p,{0:8,1:0},{type:'right',a:0,b:1}),false);
+});
 test('exact furniture counts work in partial and complete placements',()=>{
  const c={type:'objectCount',types:['chair'],count:2};assert.equal(matches(p,{0:0},c),true);assert.equal(matches(p,{0:0,3:5,1:10,2:14},c,true),true);
  assert.equal(matches(p,{0:0,3:6,1:10,2:14},c,true),false);

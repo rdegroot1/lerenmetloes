@@ -1,5 +1,7 @@
 import {solve} from './engine.js';
 import {enrichNight} from './enrich-night.mjs';
+import {enrichCity} from './enrich-city.mjs';
+import {difficultyFor} from './difficulty.js';
 import {writeFileSync} from 'node:fs';
 let seed=18742;const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/2**32);
 const shuffle=a=>a.map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
@@ -118,7 +120,8 @@ for(let k=0;k<specs.length;k++){
   p.clues.push(victimClue);
  }
  if(solve(p,givens,2).length!==1)throw Error('Niet uniek');
- if(k>=17)enrichNight(p,k-17);
+ if(k>=17)enrichNight(p,k-17);else enrichCity(p,k);
+ p.difficultyStars=difficultyFor(p);
  cases.push(p);console.log(p.number,size,level,p.clues.length,'clues',p.clues.filter(c=>c.type!=='unary').length,'relations');
 }
 writeFileSync(new URL('./puzzles.json',import.meta.url),JSON.stringify(cases,null,2)+'\n');
