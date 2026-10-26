@@ -1,16 +1,17 @@
-import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-victim-art';
-import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-victim-art';
-import {landmarkArt} from './art.js?v=20261026-victim-art';
-import {explain} from './explain.js?v=20261026-victim-art';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-victim-art';
+import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-grundoku';
+import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-grundoku';
+import {landmarkArt} from './art.js?v=20261026-grundoku';
+import {explain} from './explain.js?v=20261026-grundoku';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-grundoku';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-victim-art';
+const DATA_VERSION='20261026-grundoku';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
 const seriesCases=()=>puzzles.slice(0,mainCount).filter(q=>(q.seriesId||'stad')===(p.seriesId||'stad'));
 const seriesIndices=()=>seriesCases().map(q=>puzzles.indexOf(q));
 let index=0,p,state,selected=0,mode='place',history=[];
+// Keep the original storage namespace so existing browser progress survives the rename.
 const key=p=>'grunmurdoku:v1:'+p.id;
 function load(i){
  index=i;p=puzzles[i];history=[];selected=0;mode='place';
