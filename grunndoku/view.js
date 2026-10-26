@@ -1,9 +1,9 @@
-import {personEntries} from './person-order.js?v=20261026-rooms';
-import {surfaceFor,printFloorPlane} from './surfaces.js?v=20261026-rooms';
-import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-rooms';
-import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-rooms';
-import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-rooms';
-import {difficultyMarkup} from './difficulty.js?v=20261026-rooms';
+import {personEntries} from './person-order.js?v=20261026-general';
+import {surfaceFor,printFloorPlane} from './surfaces.js?v=20261026-general';
+import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-general';
+import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-general';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-general';
+import {difficultyMarkup} from './difficulty.js?v=20261026-general';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
 export function areaLabels(p){
