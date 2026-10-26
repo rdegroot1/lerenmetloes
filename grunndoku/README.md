@@ -34,6 +34,24 @@ De Martini-serie heeft 6, 8, 10, 12, 14 en 16 personages. De zesde zaak heeft ui
 
 De eigen schematische kerkkaarten bevatten orgel, preekstoel, kerkbanken, koor, kapellen en sacristie. De drie extra Martinitoren-zaken hebben 8, 10 en 12 personages, op niveaus 3, 4 en 4. Hun uitgeklapte doorsnede bevat uurwerkzolder, filmzolder, eerste trans, klokkenzolder, luidzolder, trappenhuis en entree. Wenteltrappen en bankjes zijn bezetbaar; luidklokken, uurwerk en overige objecten blokkeren hun hele oppervlak. De verdiepingen vormen samen één doorlopend rooster. Hoger/lager betekent een hogere/lagere rij op deze puzzelkaart. Ze zijn geen actuele bezoekplattegrond. Grote banken en andere meubels hebben echte deelvakken. Afstanden tot een meubel worden vanaf de buitenrand van het hele voorwerp geteld.
 
+## Schermindeling en sfeer
+
+Kleine zaken (maximaal 10 personen op een rooster van hoogstens 12 × 10) tonen vanaf 760 pixels schermbreedte de personen links en de kaart rechts. De compacte portretten hebben hun aanwijzing ernaast. Op smalle telefoons worden de delen onder elkaar getoond. Thema’s/downloads, kaartlegenda en kladrooster zijn openklapbaar. Een gekozen zaak brengt je rechtstreeks naar de puzzel.
+
+De personen hebben aparte plus/min-knoppen (70–150%) voor portretten en aanwijzingen. De kaartknoppen (50–200%) veranderen echt de kaartgrootte. Een klik op het percentage herstelt 100%. Voorkeuren staan apart onder `grunndoku:view:v1`; spelvoortgang behoudt de oorspronkelijke sleutel. De basismaat van kleine kaarten past zich aan de schermhoogte aan, met een ondergrens voor leesbare vakken.
+
+`board-dom.js` houdt de bestaande vakknoppen vast tussen klikken, inclusief focus. Klikken en rechtsklikken worden op het rooster afgehandeld. De meldingsruimte heeft een vaste hoogte, zodat het doelvak tijdens een snelle tweede klik niet verschuift. De derde klik herstelt de eerdere concepten, ook na opnieuw openen.
+
+`surfaces.js` kiest eigen vloerpatronen: planken en houtnerf voor scheepsruimtes; golven voor water buiten het rooster; tegels voor pakhuizen; stenen kerkplaten, houten orgelzone/zolders en baksteen voor het trappenhuis in de Martini. Gebiedskleuren blijven zichtbaar. De herhalende SVG-patronen zijn eigen tekeningen. Op scherm gebruikt CSS ze als achtergrond; op papier deelt één SVG-laag de patroondefinities, zodat de downloads klein blijven. Ze zijn geen weergave van iedere echte vloer.
+
+Een optionele echte browsercontrole staat in `scripts/browser-check.mjs`. Start de lokale server en gebruik een geïnstalleerde Playwright-versie:
+
+```sh
+PLAYWRIGHT_MODULE=/pad/naar/playwright/index.mjs CHROMIUM_PATH=/pad/naar/chromium node grunndoku/scripts/browser-check.mjs
+```
+
+Die controle test onder meer echte dubbele klikken, snelle aanrakingen, stabiele knoppen, herstel bij de derde klik, rechtsklik, onafhankelijke vergroting en bewaren van voorkeuren.
+
 ## WinterWelVaart
 
 Zes eigen zaken met 6, 8, 10, 12, 14 en 16 personen: een schip met roef en stuurhut; glühwein aan de Hoge der A; vuurtonnen bij de Kleine der A en het Pomphuis; een kunstpakhuis; een reconstructie vlak vóór een val in het water; en de XXL-route met Hoge, Lage en Kleine der A en de Pottebakkersrijge. De eerste twee zaken hebben vier en twee vaste personen. Gebieden en uitsneden variëren per niveau. De blauwe waterdelen horen niet bij het speelrooster. Bezetbare bedden, banken en kleden hebben echte deelvakken. Schepen, interieurs en gebeurtenissen zijn fictief; de kaarten zijn geen bezoekersroute.
