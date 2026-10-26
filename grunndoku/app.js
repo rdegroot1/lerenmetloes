@@ -1,10 +1,11 @@
-import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-grundoku';
-import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-grundoku';
-import {landmarkArt} from './art.js?v=20261026-grundoku';
-import {explain} from './explain.js?v=20261026-grundoku';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-grundoku';
+import {solve,valid,region,isPlayable,canStand} from './engine.js?v=20261026-grunndoku-city';
+import {boardMarkup,legendMarkup,portraitMarkup,objectLegend,printPuzzles} from './view.js?v=20261026-grunndoku-city';
+import {landmarkArt} from './art.js?v=20261026-grunndoku-city';
+import {explain} from './explain.js?v=20261026-grunndoku-city';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-grunndoku-city';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-grunndoku-city';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-grundoku';
+const DATA_VERSION='20261026-grunndoku-city';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
@@ -44,12 +45,12 @@ function render(){
  $('board').querySelectorAll('[data-cell]').forEach(cell=>cell.onclick=()=>tap(+cell.dataset.cell));
  $('legend').innerHTML=legendMarkup(p);$('objectLegend').innerHTML=objectLegend(p);
  $('miniBoard').style.setProperty('--size',p.size);$('miniBoard').innerHTML=boardMarkup(p,{},[],true);
- $('level').textContent=`${p.level||'Bonus'} · ${p.size} × ${p.size}`;
- $('lesson').textContent=p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — vul alleen de twee ontbrekende personen in.':p.number===2?' — nu helemaal zonder startposities.':p.number===3?' — vergelijk voor het eerst de rijen van personen.':p.number===4?' — combineer links, hoger en de plekken op de kaart.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
+ $('level').innerHTML=difficultyMarkup(p)+`<span class="difficulty-size">${p.size} × ${p.size}</span>`;
+ $('lesson').textContent=p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — vul alleen de twee ontbrekende personen in.':p.number===2?' — nu helemaal zonder startposities.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
  $('printAll').textContent=`Print deze serie (${seriesCases().length} A4)`;
  for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
- $('caseTrail').innerHTML=seriesCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" aria-label="Zaak ${q.number}: ${q.level}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${q.theme||q.level}</span></button>`;}).join('');
+ $('caseTrail').innerHTML=seriesCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" aria-label="Zaak ${q.number}: ${difficultyText(q)}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${q.theme||difficultyText(q)}</span></button>`;}).join('');
  $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>load(+b.dataset.case));
  $('people').replaceChildren();
  p.people.forEach((person,i)=>{
@@ -81,7 +82,7 @@ function tap(c){
  persist();render();say(mode==='place'?`${p.people[selected].name} definitief geplaatst. Controleer de aanwijzingen of kies de volgende persoon.`:'Notitie bijgewerkt.');
 }
 $('printAll').textContent=`Print de reeks (${mainCount} A4)`;
-$('caseSelect').innerHTML=['stad','nacht'].map(series=>`<optgroup label="${series==='nacht'?'Nacht in Stad — nieuwe serie':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${q.theme||q.level} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>load(+e.target.value);
+$('caseSelect').innerHTML=['stad','nacht'].map(series=>`<optgroup label="${series==='nacht'?'Nacht in Stad — nieuwe serie':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${difficultyText(q)} · ${q.theme||'Stad'} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>load(+e.target.value);
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
 $('undo').onclick=()=>{if(history.length){state=JSON.parse(history.pop());persist();render();say('Laatste wijziging teruggedraaid.');}};
 $('reset').onclick=()=>{snapshot();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};

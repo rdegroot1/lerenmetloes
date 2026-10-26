@@ -10,7 +10,7 @@ export const region = (p, cell) => p.regions[cell];
 export function matches(p, positions, clue, complete = false) {
   const a = positions[clue.a], b = positions[clue.b];
   if(clue.type==='onObject'||clue.type==='onlyOnObject'){
-   const cells=furnitureCells(p,clue.types);
+   const cells=furnitureCells(p,clue.types).filter(c=>(clue.area==null||region(p,c)===clue.area)&&(!clue.cells||clue.cells.includes(c)));
    if(a!=null&&!cells.includes(a))return false;
    return clue.type!=='onlyOnObject'||!Object.entries(positions).some(([i,c])=>+i!==clue.a&&cells.includes(c));
   }
@@ -22,7 +22,9 @@ export function matches(p, positions, clue, complete = false) {
   if (a == null || b == null) return true;
   switch (clue.type) {
     case 'above': return Math.floor(a / p.size) < Math.floor(b / p.size);
+    case 'below': return Math.floor(a / p.size) > Math.floor(b / p.size);
     case 'left': return a % p.size < b % p.size;
+    case 'right': return a % p.size > b % p.size;
     case 'same': return region(p,a) === region(p,b);
     case 'different': return region(p,a) !== region(p,b);
   }
