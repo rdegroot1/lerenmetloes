@@ -10971,5 +10971,5003 @@
         }
       }
     ]
+  },
+  {
+    "id": "winterwelvaart-v1-1",
+    "number": 31,
+    "seriesId": "winter",
+    "seriesNumber": 1,
+    "setting": "winter",
+    "theme": "WinterWelVaart",
+    "title": "Het laatste lied in de roef",
+    "story": "Aan boord van een fictieve winterklipper is het laatste lied gezongen. Vier aanwezigen staan al vast. Zoek de twee ontbrekende personen en ontdek wie met Fokko achterbleef.",
+    "lesson": "Een nieuw winters dossier",
+    "level": "Heel makkelijk",
+    "difficultyStars": 1,
+    "size": 8,
+    "width": 8,
+    "height": 6,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      2,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      2,
+      2,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      -1,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      -1,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      4,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Scheepsruim",
+      "Stuurhut",
+      "Voordek",
+      "Roef",
+      "Achterdek"
+    ],
+    "areaColors": [
+      "#d7c9ac",
+      "#b5cad1",
+      "#ddd4bb",
+      "#c4ccaf",
+      "#c8b8a1"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de schipper",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de scheepstimmerman",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de verhalenvertelster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kraamhouder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de zangeres",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "dagger",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {
+      "0": 11,
+      "1": 38,
+      "2": 25,
+      "4": 42
+    },
+    "clues": [
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond direct rechts van de scheepskist in het scheepsruim.",
+        "cells": [
+          4
+        ]
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "WINTERWELVAART · EEN FICTIEF WINTERDOSSIER",
+    "mapNoun": "festivalkaart",
+    "mapBackdrop": "water",
+    "mapOrientation": "SCHEMATISCHE KAART · NOORD ↑",
+    "mapCaption": "Eigen schematische uitsnede van het A-kwartier. Blauwe waterdelen horen niet bij het speelrooster.",
+    "mapNote": "Fictieve zaak, eigen schematische puzzelkaart. Geïnspireerd op de kades en activiteiten van WinterWelVaart; geen actuele routekaart of officiële samenwerking. Schepen en interieurindelingen zijn verzonnen.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Blauwe waterdelen zijn buiten het speelrooster; groen gemarkeerde meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "bed": "Lag op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "bed"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "bed": "een bed",
+      "chair": "een stoel"
+    },
+    "properAreaNames": [
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "A-brug",
+      "Pomphuis"
+    ],
+    "roomArticles": {
+      "Voordek": "het",
+      "Achterdek": "het",
+      "Scheepsruim": "het",
+      "Vuurtonplein": "het",
+      "Glühweinterras": "het",
+      "Kunstpakhuis": "het",
+      "Muziekpakhuis": "het",
+      "Pomphuis": "het"
+    },
+    "outdoorAreas": [
+      "Voordek",
+      "Achterdek",
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "Glühweinterras",
+      "Vuurtonplein",
+      "A-brug",
+      "Loopplank"
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 3,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 11,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 12,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 19,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-1",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 20,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-1",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 5,
+        "type": "winterWheel",
+        "name": "het stuurwiel",
+        "occupiable": false
+      },
+      {
+        "cell": 9,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 24,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 25,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 26,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 27,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 28,
+        "type": "table",
+        "name": "de tafel",
+        "occupiable": false
+      },
+      {
+        "cell": 29,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 37,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 38,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "winterwelvaart-v1-2",
+    "number": 32,
+    "seriesId": "winter",
+    "seriesNumber": 2,
+    "setting": "winter",
+    "theme": "WinterWelVaart",
+    "title": "Een koude beker glühwein",
+    "story": "Op de Hoge der A staan bekers bij de glühweinkraam. De vuurton gloeit nog en aan boord is het stil. Acht fictieve bezoekers vertellen waar ze stonden.",
+    "lesson": "Een nieuw winters dossier",
+    "level": "Makkelijk",
+    "difficultyStars": 2,
+    "size": 10,
+    "width": 10,
+    "height": 8,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      -1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      -1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      -1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      5,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      -1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      -1,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6
+    ],
+    "areas": [
+      "Hoge der A",
+      "Glühweinterras",
+      "Voordek",
+      "Vuurtonplein",
+      "Roef",
+      "Loopplank",
+      "Muziekpakhuis"
+    ],
+    "areaColors": [
+      "#d7c9ac",
+      "#b5cad1",
+      "#ddd4bb",
+      "#c4ccaf",
+      "#c8b8a1",
+      "#c4c4d4",
+      "#d9c8b5"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de schipper",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de scheepstimmerman",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de verhalenvertelster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kraamhouder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de zangeres",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de havenwacht",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de lichttechnicus",
+        "color": "#a37a3e"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "poison",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {
+      "0": 52,
+      "1": 48
+    },
+    "clues": [
+      {
+        "type": "onlyOnObject",
+        "a": 2,
+        "types": [
+          "rug"
+        ],
+        "text": "Was de enige persoon op een vloerkleed."
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond naast een meerpaal op de Hoge der A.",
+        "cells": [
+          5,
+          14
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond direct onder de mast op het voordek.",
+        "cells": [
+          20
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond naast een bankje op het glühweinterras.",
+        "cells": [
+          17,
+          18,
+          26,
+          29
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond precies 2 vakjes onder een bed in de roef.",
+        "cells": [
+          60,
+          61
+        ]
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "WINTERWELVAART · EEN FICTIEF WINTERDOSSIER",
+    "mapNoun": "festivalkaart",
+    "mapBackdrop": "water",
+    "mapOrientation": "SCHEMATISCHE KAART · NOORD ↑",
+    "mapCaption": "Eigen schematische uitsnede van het A-kwartier. Blauwe waterdelen horen niet bij het speelrooster.",
+    "mapNote": "Fictieve zaak, eigen schematische puzzelkaart. Geïnspireerd op de kades en activiteiten van WinterWelVaart; geen actuele routekaart of officiële samenwerking. Schepen en interieurindelingen zijn verzonnen.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Blauwe waterdelen zijn buiten het speelrooster; groen gemarkeerde meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "bed": "Lag op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "bed"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "bed": "een bed",
+      "chair": "een stoel"
+    },
+    "properAreaNames": [
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "A-brug",
+      "Pomphuis"
+    ],
+    "roomArticles": {
+      "Voordek": "het",
+      "Achterdek": "het",
+      "Scheepsruim": "het",
+      "Vuurtonplein": "het",
+      "Glühweinterras": "het",
+      "Kunstpakhuis": "het",
+      "Muziekpakhuis": "het",
+      "Pomphuis": "het"
+    },
+    "outdoorAreas": [
+      "Voordek",
+      "Achterdek",
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "Glühweinterras",
+      "Vuurtonplein",
+      "A-brug",
+      "Loopplank"
+    ],
+    "objects": [
+      {
+        "cell": 4,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 75,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 14,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 15,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 6,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 7,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 29,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 27,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 28,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 31,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 32,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 36,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 58,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 59,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 40,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 41,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 42,
+        "type": "table",
+        "name": "de tafel",
+        "occupiable": false
+      },
+      {
+        "cell": 43,
+        "type": "winterGangplank",
+        "name": "de loopplank",
+        "occupiable": true
+      },
+      {
+        "cell": 66,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 67,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 68,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 78,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-15",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 79,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-15",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "winterwelvaart-v1-3",
+    "number": 33,
+    "seriesId": "winter",
+    "seriesNumber": 3,
+    "setting": "winter",
+    "theme": "WinterWelVaart",
+    "title": "De vonk bij het Pomphuis",
+    "story": "Langs de Kleine der A is het nog gezellig bij de vuurtonnen. Maar één van de tien aanwezigen vertelt een verhaal dat niet bij de anderen past.",
+    "lesson": "Een nieuw winters dossier",
+    "level": "Gemiddeld",
+    "difficultyStars": 3,
+    "size": 12,
+    "width": 12,
+    "height": 10,
+    "regions": [
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      1,
+      1,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      1,
+      1,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      -1,
+      6,
+      6,
+      6,
+      1,
+      1,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      -1,
+      6,
+      6,
+      6,
+      1,
+      1,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      -1,
+      6,
+      6,
+      6,
+      1,
+      1,
+      5,
+      5,
+      5
+    ],
+    "areas": [
+      "Pottebakkersrijge",
+      "Kleine der A",
+      "Vuurtonplein",
+      "A-brug",
+      "Voordek",
+      "Pomphuis",
+      "Roef"
+    ],
+    "areaColors": [
+      "#d7c9ac",
+      "#b5cad1",
+      "#ddd4bb",
+      "#c4ccaf",
+      "#c8b8a1",
+      "#c4c4d4",
+      "#d9c8b5"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de schipper",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de scheepstimmerman",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de verhalenvertelster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kraamhouder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de zangeres",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de havenwacht",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de lichttechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de bezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de glühweinschenker",
+        "color": "#527b66"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "candlestick",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond direct onder een bankje op de Pottebakkersrijge.",
+        "cells": [
+          13,
+          14
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond precies 2 vakjes onder een meerpaal op de Kleine der A.",
+        "cells": [
+          31
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond tegen de westrand van het voordek.",
+        "cells": [
+          64,
+          76
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond precies 3 vakjes onder de vuurton op het vuurtonplein.",
+        "cells": [
+          45
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond tegen de oostrand van de roef.",
+        "cells": [
+          102,
+          114
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond precies 3 vakjes boven de vuurton op de Pottebakkersrijge.",
+        "cells": [
+          73
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond naast de tafel in de roef.",
+        "cells": [
+          89,
+          102
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond naast de vuurton op de Pottebakkersrijge.",
+        "cells": [
+          97,
+          108
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond naast de vuurton op het vuurtonplein.",
+        "cells": [
+          10,
+          21
+        ]
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bed"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon lag op een bed."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "WINTERWELVAART · EEN FICTIEF WINTERDOSSIER",
+    "mapNoun": "festivalkaart",
+    "mapBackdrop": "water",
+    "mapOrientation": "SCHEMATISCHE KAART · NOORD ↑",
+    "mapCaption": "Eigen schematische uitsnede van het A-kwartier. Blauwe waterdelen horen niet bij het speelrooster.",
+    "mapNote": "Fictieve zaak, eigen schematische puzzelkaart. Geïnspireerd op de kades en activiteiten van WinterWelVaart; geen actuele routekaart of officiële samenwerking. Schepen en interieurindelingen zijn verzonnen.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Blauwe waterdelen zijn buiten het speelrooster; groen gemarkeerde meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "bed": "Lag op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "bed"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "bed": "een bed",
+      "chair": "een stoel"
+    },
+    "properAreaNames": [
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "A-brug",
+      "Pomphuis"
+    ],
+    "roomArticles": {
+      "Voordek": "het",
+      "Achterdek": "het",
+      "Scheepsruim": "het",
+      "Vuurtonplein": "het",
+      "Glühweinterras": "het",
+      "Kunstpakhuis": "het",
+      "Muziekpakhuis": "het",
+      "Pomphuis": "het"
+    },
+    "outdoorAreas": [
+      "Voordek",
+      "Achterdek",
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "Glühweinterras",
+      "Vuurtonplein",
+      "A-brug",
+      "Loopplank"
+    ],
+    "objects": [
+      {
+        "cell": 0,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 110,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 1,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 109,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 7,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 116,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 19,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 20,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 9,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 58,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 59,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 27,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 28,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 52,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 77,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 78,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 69,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "winter-bar-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 70,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "winter-bar-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 119,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 81,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-14",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 82,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-14",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 88,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-15",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 89,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-15",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 90,
+        "type": "table",
+        "name": "de tafel",
+        "occupiable": false
+      }
+    ]
+  },
+  {
+    "id": "winterwelvaart-v1-4",
+    "number": 34,
+    "seriesId": "winter",
+    "seriesNumber": 4,
+    "setting": "winter",
+    "theme": "WinterWelVaart",
+    "title": "Het verdwenen winterdoek",
+    "story": "De kunstroute loopt langs pakhuizen en verlichte schepen. Na het laatste optreden ontbreekt een winterdoek — en Fokko. Leg twaalf verklaringen naast elkaar.",
+    "lesson": "Een nieuw winters dossier",
+    "level": "Pittig",
+    "difficultyStars": 4,
+    "size": 14,
+    "width": 14,
+    "height": 12,
+    "regions": [
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      4,
+      4,
+      4,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6,
+      6,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      8,
+      8,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      -1,
+      -1,
+      9,
+      9,
+      9,
+      8,
+      8,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      8,
+      8,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      -1,
+      9,
+      9,
+      9,
+      9,
+      8,
+      8,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      8,
+      8,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      -1,
+      -1,
+      11,
+      11,
+      11,
+      8,
+      8,
+      10,
+      10,
+      10,
+      10
+    ],
+    "areas": [
+      "Lage der A",
+      "Voordek",
+      "Hoge der A",
+      "Kunstpakhuis",
+      "Scheepsruim",
+      "Glühweinterras",
+      "A-brug",
+      "Pottebakkersrijge",
+      "Kleine der A",
+      "Achterdek",
+      "Vuurtonplein",
+      "Roef"
+    ],
+    "areaColors": [
+      "#d7c9ac",
+      "#b5cad1",
+      "#ddd4bb",
+      "#c4ccaf",
+      "#c8b8a1",
+      "#c4c4d4",
+      "#d9c8b5",
+      "#b4c7c0",
+      "#d6bf9b",
+      "#c6c9b1",
+      "#b9c8ce",
+      "#cec0b2"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de schipper",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de scheepstimmerman",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de verhalenvertelster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kraamhouder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de zangeres",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de havenwacht",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de lichttechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de bezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de glühweinschenker",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de kunstenares",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de accordeonist",
+        "color": "#897455"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "wrench",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond tegen de oostrand van de A-brug.",
+        "cells": [
+          77,
+          91
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond tegen de westrand van het kunstpakhuis.",
+        "cells": [
+          24,
+          38,
+          52
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond precies 3 vakjes boven een bankje op het vuurtonplein.",
+        "cells": [
+          124,
+          125
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Stond naast een gitaar in het kunstpakhuis.",
+        "cells": [
+          13,
+          26
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast een lantaarn op de Pottebakkersrijge.",
+        "cells": [
+          142,
+          155
+        ]
+      },
+      {
+        "type": "above",
+        "a": 6,
+        "b": 0,
+        "cells": [
+          48,
+          49,
+          61,
+          62,
+          63
+        ],
+        "text": "Bevond zich in het scheepsruim, hoger op de kaart dan Arend."
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond naast de mast op het voordek.",
+        "cells": [
+          6,
+          19
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond tegen de oostrand van de Pottebakkersrijge.",
+        "cells": [
+          86,
+          100,
+          114,
+          128,
+          142
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond naast een meerpaal op de Kleine der A.",
+        "cells": [
+          93,
+          106
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond naast de glühweinkraam op het glühweinterras.",
+        "cells": [
+          68,
+          80,
+          81
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond precies 3 vakjes onder een bankje op de Kleine der A.",
+        "cells": [
+          148,
+          149
+        ]
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "rug"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon stond op een vloerkleed."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "WINTERWELVAART · EEN FICTIEF WINTERDOSSIER",
+    "mapNoun": "festivalkaart",
+    "mapBackdrop": "water",
+    "mapOrientation": "SCHEMATISCHE KAART · NOORD ↑",
+    "mapCaption": "Eigen schematische uitsnede van het A-kwartier. Blauwe waterdelen horen niet bij het speelrooster.",
+    "mapNote": "Fictieve zaak, eigen schematische puzzelkaart. Geïnspireerd op de kades en activiteiten van WinterWelVaart; geen actuele routekaart of officiële samenwerking. Schepen en interieurindelingen zijn verzonnen.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Blauwe waterdelen zijn buiten het speelrooster; groen gemarkeerde meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "bed": "Lag op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "bed"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "bed": "een bed",
+      "chair": "een stoel"
+    },
+    "properAreaNames": [
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "A-brug",
+      "Pomphuis"
+    ],
+    "roomArticles": {
+      "Voordek": "het",
+      "Achterdek": "het",
+      "Scheepsruim": "het",
+      "Vuurtonplein": "het",
+      "Glühweinterras": "het",
+      "Kunstpakhuis": "het",
+      "Muziekpakhuis": "het",
+      "Pomphuis": "het"
+    },
+    "outdoorAreas": [
+      "Voordek",
+      "Achterdek",
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "Glühweinterras",
+      "Vuurtonplein",
+      "A-brug",
+      "Loopplank"
+    ],
+    "objects": [
+      {
+        "cell": 0,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 72,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 1,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 5,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 34,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 35,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 8,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 79,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 22,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 11,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 12,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 54,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 55,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 46,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 47,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 48,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 49,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 62,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-12",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 63,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-12",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 66,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 67,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 111,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 109,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-15",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 110,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-15",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 73,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-16",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 74,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-16",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 84,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 156,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 85,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-19",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 86,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-19",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 92,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 163,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 106,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-22",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 107,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-22",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 103,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 132,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-24",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 133,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-24",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 122,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 166,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-26",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 167,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-26",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 165,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 144,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-28",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 145,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-28",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 146,
+        "type": "table",
+        "name": "de tafel",
+        "occupiable": false
+      }
+    ]
+  },
+  {
+    "id": "winterwelvaart-v1-5",
+    "number": 35,
+    "seriesId": "winter",
+    "seriesNumber": 5,
+    "setting": "winter",
+    "theme": "WinterWelVaart",
+    "title": "De val aan de A",
+    "story": "Fokko is in het water gevallen. Wat eerst een ongeluk lijkt, blijkt opzet. Reconstrueer waar iedereen vlak vóór de val stond; het slachtoffer was toen samen met precies één andere persoon.",
+    "lesson": "Een nieuw winters dossier",
+    "level": "Uitdagend",
+    "difficultyStars": 5,
+    "size": 18,
+    "width": 18,
+    "height": 14,
+    "regions": [
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      8,
+      8,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      -1,
+      10,
+      10,
+      10,
+      10,
+      8,
+      8,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      10,
+      10,
+      10,
+      10,
+      10,
+      8,
+      8,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      10,
+      10,
+      10,
+      10,
+      10,
+      8,
+      8,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      11,
+      8,
+      8,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      11,
+      8,
+      8,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      8,
+      8,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "areas": [
+      "Lage der A",
+      "Voordek",
+      "Hoge der A",
+      "Glühweinterras",
+      "Scheepsruim",
+      "Kunstpakhuis",
+      "A-brug",
+      "Pottebakkersrijge",
+      "Kleine der A",
+      "Vuurtonplein",
+      "Achterdek",
+      "Roef",
+      "Pomphuis"
+    ],
+    "areaColors": [
+      "#d7c9ac",
+      "#b5cad1",
+      "#ddd4bb",
+      "#c4ccaf",
+      "#c8b8a1",
+      "#c4c4d4",
+      "#d9c8b5",
+      "#b4c7c0",
+      "#d6bf9b",
+      "#c6c9b1",
+      "#b9c8ce",
+      "#cec0b2",
+      "#d8d0b7"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de schipper",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de scheepstimmerman",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de verhalenvertelster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kraamhouder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de zangeres",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de havenwacht",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de lichttechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de bezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de glühweinschenker",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de kunstenares",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de accordeonist",
+        "color": "#897455"
+      },
+      {
+        "name": "Meint",
+        "role": "de kok",
+        "color": "#4f7e85"
+      },
+      {
+        "name": "Sientje",
+        "role": "de violiste",
+        "color": "#a16b51"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "rope",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond precies 2 vakjes onder het kunstpaneel in het kunstpakhuis.",
+        "cells": [
+          120,
+          121
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond tegen de westrand van het achterdek.",
+        "cells": [
+          167,
+          185
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond naast een stoel in het Pomphuis.",
+        "cells": [
+          233,
+          250
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Lag op een bed in de roef.",
+        "cells": [
+          203,
+          204
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond precies 3 vakjes links van een bankje op het vuurtonplein.",
+        "cells": [
+          193
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond precies 3 vakjes boven de vuurton op het vuurtonplein.",
+        "cells": [
+          141
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond tegen de westrand van de Lage der A.",
+        "cells": [
+          18,
+          36,
+          54,
+          72,
+          90,
+          108
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond precies 2 vakjes rechts van de scheepskist in het scheepsruim.",
+        "cells": [
+          62
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond tegen de oostrand van de Hoge der A.",
+        "cells": [
+          11,
+          29,
+          47,
+          65,
+          83,
+          101
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond precies 2 vakjes boven de vuurton op de Lage der A.",
+        "cells": [
+          74
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond direct onder een bankje op de Pottebakkersrijge.",
+        "cells": [
+          145,
+          146
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 12,
+        "text": "Stond precies 2 vakjes onder de tafel in de roef.",
+        "cells": [
+          241
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 13,
+        "text": "Stond direct boven een vloerkleed in het kunstpakhuis.",
+        "cells": [
+          106,
+          107
+        ]
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bed"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon lag op een bed."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "WINTERWELVAART · EEN FICTIEF WINTERDOSSIER",
+    "mapNoun": "festivalkaart",
+    "mapBackdrop": "water",
+    "mapOrientation": "SCHEMATISCHE KAART · NOORD ↑",
+    "mapCaption": "Reconstrueer de posities vlak vóór de val. Blauw water hoort niet bij het speelrooster.",
+    "mapNote": "Fictieve zaak, eigen schematische puzzelkaart. Geïnspireerd op de kades en activiteiten van WinterWelVaart; geen actuele routekaart of officiële samenwerking. Schepen en interieurindelingen zijn verzonnen.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Blauwe waterdelen zijn buiten het speelrooster; groen gemarkeerde meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "bed": "Lag op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "bed"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "bed": "een bed",
+      "chair": "een stoel"
+    },
+    "properAreaNames": [
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "A-brug",
+      "Pomphuis"
+    ],
+    "roomArticles": {
+      "Voordek": "het",
+      "Achterdek": "het",
+      "Scheepsruim": "het",
+      "Vuurtonplein": "het",
+      "Glühweinterras": "het",
+      "Kunstpakhuis": "het",
+      "Muziekpakhuis": "het",
+      "Pomphuis": "het"
+    },
+    "outdoorAreas": [
+      "Voordek",
+      "Achterdek",
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "Glühweinterras",
+      "Vuurtonplein",
+      "A-brug",
+      "Loopplank"
+    ],
+    "objects": [
+      {
+        "cell": 0,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 111,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 1,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 110,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 6,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 44,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 45,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 119,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 28,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 29,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 12,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 13,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 71,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 69,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 70,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 59,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 60,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 80,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 81,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 98,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 99,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 84,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-14",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 85,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-14",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 86,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 124,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-16",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 125,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-16",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 112,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-17",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 113,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-17",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 126,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 237,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 127,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-20",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 128,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-20",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 236,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 136,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 245,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 154,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-24",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 155,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-24",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 138,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 196,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-26",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 197,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-26",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 195,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 150,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 188,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-29",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 189,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-29",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 203,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-30",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 204,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-30",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 205,
+        "type": "table",
+        "name": "de tafel",
+        "occupiable": false
+      },
+      {
+        "cell": 210,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "winter-bar-32",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 211,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "winter-bar-32",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 251,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 212,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-34",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 213,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-34",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "winterwelvaart-v1-6",
+    "number": 36,
+    "seriesId": "winter",
+    "seriesNumber": 6,
+    "setting": "winter",
+    "theme": "WinterWelVaart",
+    "title": "De nacht van het laatste licht",
+    "story": "Het XXL-slotdossier: langs Hoge, Lage en Kleine der A en de Pottebakkersrijge doven de lichtjes. Zestien fictieve aanwezigen, schepen, kramen en één sluitende reconstructie.",
+    "lesson": "XXL — de hele winterroute aan de A",
+    "level": "Extreem",
+    "difficultyStars": 6,
+    "difficultyLabel": "XXL · de winterproef",
+    "size": 24,
+    "width": 24,
+    "height": 16,
+    "regions": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      -1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      9,
+      9,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      9,
+      9,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      9,
+      9,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      9,
+      9,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      9,
+      9,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      9,
+      9,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      9,
+      9,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      -1,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      9,
+      9,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "areas": [
+      "Lage der A",
+      "Voordek",
+      "Hoge der A",
+      "Glühweinterras",
+      "Scheepsruim",
+      "Kunstpakhuis",
+      "A-brug",
+      "Pottebakkersrijge",
+      "Achterdek",
+      "Kleine der A",
+      "Vuurtonplein",
+      "Roef",
+      "Pomphuis"
+    ],
+    "areaColors": [
+      "#d7c9ac",
+      "#b5cad1",
+      "#ddd4bb",
+      "#c4ccaf",
+      "#c8b8a1",
+      "#c4c4d4",
+      "#d9c8b5",
+      "#b4c7c0",
+      "#d6bf9b",
+      "#c6c9b1",
+      "#b9c8ce",
+      "#cec0b2",
+      "#d8d0b7"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de schipper",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de scheepstimmerman",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de verhalenvertelster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kraamhouder",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de zangeres",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de havenwacht",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de lichttechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de bezoekster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de glühweinschenker",
+        "color": "#527b66"
+      },
+      {
+        "name": "Neeltje",
+        "role": "de kunstenares",
+        "color": "#77648e"
+      },
+      {
+        "name": "Lammert",
+        "role": "de accordeonist",
+        "color": "#897455"
+      },
+      {
+        "name": "Meint",
+        "role": "de kok",
+        "color": "#4f7e85"
+      },
+      {
+        "name": "Sientje",
+        "role": "de violiste",
+        "color": "#a16b51"
+      },
+      {
+        "name": "Evert",
+        "role": "de buurtbewoner",
+        "color": "#777b49"
+      },
+      {
+        "name": "Dieuwertje",
+        "role": "de vrijwilligster",
+        "color": "#866c7b"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "dagger",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond naast een bankje op het voordek.",
+        "cells": [
+          36,
+          37,
+          59
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond tegen de westrand van het vuurtonplein.",
+        "cells": [
+          232,
+          256,
+          280
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond precies 3 vakjes onder een meerpaal op de Hoge der A.",
+        "cells": [
+          86
+        ]
+      },
+      {
+        "type": "onlyOnObject",
+        "a": 3,
+        "types": [
+          "rug"
+        ],
+        "text": "Was de enige persoon op een vloerkleed."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond precies 2 vakjes rechts van de mast op het voordek.",
+        "cells": [
+          10
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Stond in de zuidwesthoek van de roef.",
+        "cells": [
+          343,
+          368
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Stond naast de vuurton op de Pottebakkersrijge.",
+        "cells": [
+          340,
+          363
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 8,
+        "text": "Stond tegen de oostrand van de A-brug.",
+        "cells": [
+          157,
+          181
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 9,
+        "text": "Stond precies 3 vakjes onder een gitaar in het kunstpakhuis.",
+        "cells": [
+          186
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 10,
+        "text": "Stond tegen de oostrand van de Pottebakkersrijge.",
+        "cells": [
+          197,
+          221,
+          245,
+          269,
+          293,
+          317,
+          341
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 11,
+        "text": "Stond tegen de oostrand van het vuurtonplein.",
+        "cells": [
+          215,
+          239,
+          263,
+          287
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 12,
+        "text": "Stond precies 2 vakjes boven een bankje op het achterdek.",
+        "cells": [
+          228,
+          229
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 13,
+        "text": "Stond naast het kunstpaneel in het kunstpakhuis.",
+        "cells": [
+          136,
+          137
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 14,
+        "text": "Stond direct boven een bankje op het vuurtonplein.",
+        "cells": [
+          262,
+          263
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 15,
+        "text": "Stond tegen de westrand van het scheepsruim.",
+        "cells": [
+          103,
+          128
+        ]
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "rug"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon stond op een vloerkleed."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "WINTERWELVAART · EEN FICTIEF WINTERDOSSIER",
+    "mapNoun": "festivalkaart",
+    "mapBackdrop": "water",
+    "mapOrientation": "SCHEMATISCHE KAART · NOORD ↑",
+    "mapCaption": "Eigen schematische uitsnede van het A-kwartier. Blauwe waterdelen horen niet bij het speelrooster.",
+    "mapNote": "Fictieve zaak, eigen schematische puzzelkaart. Geïnspireerd op de kades en activiteiten van WinterWelVaart; geen actuele routekaart of officiële samenwerking. Schepen en interieurindelingen zijn verzonnen.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Blauwe waterdelen zijn buiten het speelrooster; groen gemarkeerde meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "bed": "Lag op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "bed"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "bed": "een bed",
+      "chair": "een stoel"
+    },
+    "properAreaNames": [
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "A-brug",
+      "Pomphuis"
+    ],
+    "roomArticles": {
+      "Voordek": "het",
+      "Achterdek": "het",
+      "Scheepsruim": "het",
+      "Vuurtonplein": "het",
+      "Glühweinterras": "het",
+      "Kunstpakhuis": "het",
+      "Muziekpakhuis": "het",
+      "Pomphuis": "het"
+    },
+    "outdoorAreas": [
+      "Voordek",
+      "Achterdek",
+      "Hoge der A",
+      "Lage der A",
+      "Kleine der A",
+      "Pottebakkersrijge",
+      "Glühweinterras",
+      "Vuurtonplein",
+      "A-brug",
+      "Loopplank"
+    ],
+    "objects": [
+      {
+        "cell": 0,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 173,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 1,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 2,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 172,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 8,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 60,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 61,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 14,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 183,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 38,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 39,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 16,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 17,
+        "type": "winterGluhwein",
+        "name": "de glühweinkraam",
+        "occupiable": false,
+        "furnitureId": "winter-winterGluhwein-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 95,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 93,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 94,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 79,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 80,
+        "type": "winterCrate",
+        "name": "de scheepskist",
+        "occupiable": false,
+        "furnitureId": "winter-winterCrate-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 108,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 109,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 132,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 133,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-13",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 112,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-14",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 113,
+        "type": "winterArt",
+        "name": "het kunstpaneel",
+        "occupiable": false,
+        "furnitureId": "winter-winterArt-14",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 114,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 190,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-16",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 191,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-16",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 150,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-17",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 151,
+        "type": "winterRail",
+        "name": "de brugleuning",
+        "occupiable": false,
+        "furnitureId": "winter-winterRail-17",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 192,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 365,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 193,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-20",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 194,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-20",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 364,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 200,
+        "type": "winterMast",
+        "name": "de mast",
+        "occupiable": false
+      },
+      {
+        "cell": 276,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-23",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 277,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-23",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 206,
+        "type": "winterBollard",
+        "name": "een meerpaal",
+        "occupiable": false
+      },
+      {
+        "cell": 375,
+        "type": "lamp",
+        "name": "een lantaarn",
+        "occupiable": false
+      },
+      {
+        "cell": 230,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-26",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 231,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-26",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 208,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 286,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-28",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 287,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "winter-bench-28",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 285,
+        "type": "winterFire",
+        "name": "de vuurton",
+        "occupiable": false
+      },
+      {
+        "cell": 295,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-30",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 296,
+        "type": "bed",
+        "name": "een bed",
+        "occupiable": true,
+        "furnitureId": "winter-bed-30",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 297,
+        "type": "table",
+        "name": "de tafel",
+        "occupiable": false
+      },
+      {
+        "cell": 304,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "winter-bar-32",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 305,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "winter-bar-32",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 383,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 306,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-34",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 307,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "winter-rug-34",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      }
+    ]
   }
 ]

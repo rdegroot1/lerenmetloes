@@ -1,9 +1,9 @@
-import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261026-toren';
+import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261026-winter';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.
-export function explain(p){
- const result=[],positions={...p.givens},n=p.people.length;
+export function explain(p,options={}){
+ const result=[],deductions=[],positions={...p.givens,...options.initial},n=p.people.length;
  const width=gridWidth(p),name=i=>p.people[i].name,spot=c=>`rij ${Math.floor(c/width)+1}, kolom ${c%width+1}`;
  const row=c=>Math.floor(c/width),col=c=>c%width;
  const clues=i=>p.clues.filter(c=>c.a===i&&['unary','onObject','onlyOnObject','roomAlone'].includes(c.type));
@@ -22,7 +22,7 @@ export function explain(p){
   while(change){change=false;
    for(let i=0;i<n;i++)for(let j=0;j<n;j++)if(i!==j){
     const relations=p.clues.filter(c=>c.type!=='unary'&&((c.a===i&&c.b===j)||(c.a===j&&c.b===i)));
-    const why=relations.length?relations.map(c=>`${name(c.a)}: “${c.text}”`).join(' en '):domains[j].length===1?`${name(j)} bezet ${spot(domains[j][0])}; die rij en kolom vallen af`:`${name(i)} en ${name(j)} moeten verschillende rijen en kolommen hebben`;
+    const why=relations.length?relations.map(c=>`${name(c.a)}: “${c.text}”`).join(' en '):domains[j].length===1?`${name(j)} ${positions[j]==null?'kan alleen staan op':'staat op'} ${spot(domains[j][0])}; die rij en kolom vallen af`:`${name(i)} en ${name(j)} moeten verschillende rijen en kolommen hebben`;
     change=remove(i,c=>!domains[j].some(d=>compatible(i,c,j,d)),why)||change;
    }
    // Hall sets: when a group uses exactly as many rows/columns as people,
@@ -60,9 +60,11 @@ export function explain(p){
  while(Object.keys(positions).length<n){
   let who=domains.findIndex((d,i)=>positions[i]==null&&d.length===1);
   if(who<0){try{propagate();}catch(error){if(error!==found)throw error;}who=domains.findIndex((d,i)=>positions[i]==null&&d.length===1);}
+  let searched=false,alternatives=[];
   if(who<0){
+   searched=true;
    who=domains.map((d,i)=>({i,d})).filter(x=>positions[x.i]==null).sort((a,b)=>a.d.length-b.d.length)[0].i;
-   const alternatives=domains[who],possible=alternatives.filter(c=>solve(p,{...positions,[who]:c},1).length);
+   alternatives=[...domains[who]];const possible=alternatives.filter(c=>solve(p,{...positions,[who]:c},1).length);
    if(possible.length!==1)throw Error('Puzzle has no unique explanation');
    const rejected=alternatives.filter(c=>c!==possible[0]);
    result.push(`Vergelijk de overgebleven mogelijkheden voor ${name(who)}: ${alternatives.map(spot).join('; ')}. Bij ${rejected.map(spot).join('; ')} bestaat geen volledige plaatsing die aan alle aanwijzingen, de eigen rijen en kolommen én de slachtofferregel voldoet. Na het nalopen van die combinaties blijft alleen ${spot(possible[0])} over.`);
@@ -70,9 +72,11 @@ export function explain(p){
   }
   const cell=domains[who][0];positions[who]=cell;
   const why=[...reasons[who]];
+  deductions.push({who,cell,reasons:why,searched,alternatives});
   result.push(`${name(who)} staat in ${spot(cell)} (${p.areas[region(p,cell)]}). ${why.length?`Reden: ${why.join('; ')}. Daarmee blijft dit vakje over.`:'Dit is het enige overgebleven vakje na de eerdere uitsluitingen.'}`);
+  if(deductions.length>=(options.maxPlacements||Infinity))return {steps:result,positions,deductions};
  }
  const killer=Object.keys(positions).find(i=>+i!==p.victim&&region(p,positions[i])===region(p,positions[p.victim]));
  result.push(`${name(p.victim)} en ${name(killer)} zijn de enige twee personen in ${p.areas[region(p,positions[p.victim])]}. Het slachtoffer was alleen met de dader. Dus ${name(killer)} is de dader.`);
- return {steps:result,positions,killer:+killer};
+ return {steps:result,positions,killer:+killer,deductions};
 }

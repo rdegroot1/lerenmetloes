@@ -1,8 +1,8 @@
 import {solve,valid,canStand,adjacentCells,gridWidth,rowOf,columnOf,matches} from './engine.js';
 
-const NAMES=['Arend','Bertus','Cora','Tammo','Geeske','Fokko','Harm','Roelf','Jantje','Wubbo','Neeltje','Lammert','Meint','Sientje','Evert','Dieuwertje'];
+export const NAMES=['Arend','Bertus','Cora','Tammo','Geeske','Fokko','Harm','Roelf','Jantje','Wubbo','Neeltje','Lammert','Meint','Sientje','Evert','Dieuwertje'];
 const ROLES=['de koster','de organist','de koorzangeres','de sleutelbeheerder','de restaurator','de muziekarchivaris','de suppoost','de orgelstemmer','de concertbezoekster','de decorbouwer','de rondleidster','de boekbinder','de lichttechnicus','de violiste','de historicus','de vrijwilligster'];
-const COLORS=['#a95c42','#497c78','#847341','#79638e','#4f7955','#8c5964','#4c718d','#a37a3e','#ae6d80','#527b66','#77648e','#897455','#4f7e85','#a16b51','#777b49','#866c7b'];
+export const COLORS=['#a95c42','#497c78','#847341','#79638e','#4f7955','#8c5964','#4c718d','#a37a3e','#ae6d80','#527b66','#77648e','#897455','#4f7e85','#a16b51','#777b49','#866c7b'];
 const AREAS=['Torenportaal','Orgelzone','Noordbeuk','Middenschip','Zuidbeuk','Hoogkoor','Noorderkapel','Sacristie','Kooromgang','Zuidportaal','Noordnis','Zijgang'];
 const AREA_COLORS=['#c7c8bd','#d4bf9a','#d5d7c4','#e7d8b9','#c8d2cd','#d8bfab','#c8c3d7','#d8cfaf','#e1d5c7','#b8cbc8','#d9c9be','#ccd2b7'];
 const SPECS=[
@@ -80,7 +80,8 @@ export function createMartiniSeries(){
 
 export function buildMartiniClues(p,givenCount,rand){
  const width=p.width,level=p.difficultyStars,available=Array.from({length:p.width*p.height},(_,c)=>c).filter(c=>canStand(p,c));
- const roomText=area=>(['Torenportaal','Middenschip','Hoogkoor','Zuidportaal','Trappenhuis'].includes(p.areas[area])?'het ':'de ')+p.areas[area].toLowerCase();
+ const roomText=area=>(p.roomArticles?.[p.areas[area]]||(['Torenportaal','Middenschip','Hoogkoor','Zuidportaal','Trappenhuis'].includes(p.areas[area])?'het':'de'))+' '+(p.properAreaNames?.includes(p.areas[area])?p.areas[area]:p.areas[area].toLowerCase());
+ const location=area=>(p.outdoorAreas?.includes(p.areas[area])?'op ':'in ')+roomText(area);
  const areaCells=p.areas.map((_,a)=>available.filter(c=>p.regions[c]===a));
  const groups=[...new Map(p.objects.map(o=>[o.type,o])).values()];
  const adjacent=new Map(groups.map(o=>[o.type,adjacentCells(p,[o.type])]));
@@ -98,22 +99,22 @@ export function buildMartiniClues(p,givenCount,rand){
  const fact=(text,cells,rank=1)=>{if(cells.length)unaryFacts.push({text,cells,rank});};
  for(let a=0;a<p.areas.length;a++){
   const cells=areaCells[a],where=roomText(a),has=(r,c)=>r>=0&&r<p.height&&c>=0&&c<width&&p.regions[r*width+c]===a;
-  fact(`Bevond zich in ${where}.`,cells,2);
+  fact(`Bevond zich ${location(a)}.`,cells,2);
   for(const [side,dr,dc]of [['noord',-1,0],['zuid',1,0],['west',0,-1],['oost',0,1]])fact(`Stond tegen de ${side}rand van ${where}.`,cells.filter(c=>!has(rowOf(p,c)+dr,columnOf(p,c)+dc)),3);
   for(const [corner,dr,dc]of [['noordwest',-1,-1],['noordoost',-1,1],['zuidwest',1,-1],['zuidoost',1,1]])fact(`Stond in de ${corner}hoek van ${where}.`,cells.filter(c=>!has(rowOf(p,c)+dr,columnOf(p,c))&&!has(rowOf(p,c),columnOf(p,c)+dc)),4);
   for(const o of groups){
    const on=p.objects.filter(q=>q.type===o.type&&q.occupiable).map(q=>q.cell).filter(c=>p.regions[c]===a);
-   const verb=o.type==='churchPew'||o.type==='chair'?'Zat op':o.type==='churchPulpit'?'Stond op':'Stond op';
-   if(on.length)fact(`${verb} ${o.name} in ${where}.`,on,1);
+   const verb=p.surfaceVerbs?.[o.type]||(o.type==='churchPew'||o.type==='chair'?'Zat op':'Stond op');
+   if(on.length)fact(`${verb} ${o.name} ${location(a)}.`,on,1);
    const near=adjacent.get(o.type).filter(c=>canStand(p,c)&&p.regions[c]===a);
-   fact(`Stond naast ${o.name} in ${where}.`,near,1);
+   fact(`Stond naast ${o.name} ${location(a)}.`,near,1);
    for(const [direction,dr,dc]of [['boven',-1,0],['onder',1,0],['links van',0,-1],['rechts van',0,1]]){
     const next=offsetCells(o.type,a,dr,dc,1);
-    fact(`Stond direct ${direction} ${o.name} in ${where}.`,next,2);
+    fact(`Stond direct ${direction} ${o.name} ${location(a)}.`,next,2);
    }
    // Explicit distances are used sparingly when no adjacent landmark identifies a side room.
    for(const distance of [2,3])for(const [direction,dr,dc]of [['boven',-1,0],['onder',1,0],['links van',0,-1],['rechts van',0,1]]){
-    fact(`Stond precies ${distance} vakjes ${direction} ${o.name} in ${where}.`,offsetCells(o.type,a,dr,dc,distance),5);
+    fact(`Stond precies ${distance} vakjes ${direction} ${o.name} ${location(a)}.`,offsetCells(o.type,a,dr,dc,distance),5);
    }
   }
  }
@@ -138,18 +139,18 @@ export function buildMartiniClues(p,givenCount,rand){
    const candidates=witnesses.map(a=>{
     const onTypes=[...new Set(p.objects.filter(o=>o.cell===positions[a]&&o.occupiable).map(o=>o.type))],own=factsAt(positions[a]).map(f=>({type:'unary',a,text:f.text,cells:f.cells,rank:f.rank}));
     const occupancy=counts[p.regions[positions[a]]];
-    if(occupancy===1)own.push({type:'roomAlone',a,area:p.regions[positions[a]],text:`Was alleen in ${roomText(p.regions[positions[a]])}.`,rank:2});
+    if(occupancy===1)own.push({type:'roomAlone',a,area:p.regions[positions[a]],text:`Was alleen ${location(p.regions[positions[a]])}.`,rank:2});
     if(onTypes.length&&Object.entries(positions).filter(([i,c])=>+i!==a&&p.objects.some(o=>o.cell===c&&onTypes.includes(o.type))).length===0)own.push({type:'onlyOnObject',a,types:onTypes,text:`Was de enige persoon op ${p.objects.find(o=>o.cell===positions[a]).name}.`,rank:2});
     if(level>=3)for(const b of witnesses.filter(i=>i!==a)){
      const r=rowOf(p,positions[a])<rowOf(p,positions[b])?'above':'below',h=positions[a]%width<positions[b]%width?'left':'right';
      const scoped=areaCells[p.regions[positions[a]]];
-     own.push({type:r,a,b,cells:scoped,text:`Bevond zich in ${roomText(p.regions[positions[a]])}, ${r==='above'?'hoger':'lager'} op de kaart dan ${p.people[b].name}.`,rank:1});
-     own.push({type:h,a,b,cells:scoped,text:`Bevond zich in ${roomText(p.regions[positions[a]])}, ${h==='left'?'links':'rechts'} van ${p.people[b].name}.`,rank:1});
+     own.push({type:r,a,b,cells:scoped,text:`Bevond zich ${location(p.regions[positions[a]])}, ${r==='above'?'hoger':'lager'} op de kaart dan ${p.people[b].name}.`,rank:1});
+     own.push({type:h,a,b,cells:scoped,text:`Bevond zich ${location(p.regions[positions[a]])}, ${h==='left'?'links':'rechts'} van ${p.people[b].name}.`,rank:1});
     }
     return own.map(({rank,...clue})=>({clue,rank,domain:available.filter(c=>matches(p,{[a]:c},clue))})).sort((x,y)=>x.domain.length-y.domain.length||x.rank-y.rank);
    });
    p.clues=witnesses.filter(i=>!givens.includes(i)).map(a=>candidates[witnesses.indexOf(a)][0].clue);
-   for(const types of [['churchPew'],['churchRug'],['chair']])if(level>=3&&p.objects.some(o=>types.includes(o.type))){const count=Object.values(positions).filter(c=>p.objects.some(o=>o.cell===c&&types.includes(o.type)&&o.occupiable)).length;const verb=types[0]==='churchRug'?(count===1?'stond':'stonden'):(count===1?'zat':'zaten');if(count>0)p.clues.push({type:'objectCount',types,count,text:`Precies ${count} ${count===1?'persoon':'personen'} ${verb} op ${types[0]==='churchPew'?'een kerkbank':types[0]==='churchRug'?'een loper':'een stoel'}.`});}
+   for(const types of p.countGroups||[['churchPew'],['churchRug'],['chair']])if(level>=3&&p.objects.some(o=>types.includes(o.type))){const count=Object.values(positions).filter(c=>p.objects.some(o=>o.cell===c&&types.includes(o.type)&&o.occupiable)).length;const verb=types[0]==='bed'?(count===1?'lag':'lagen'):['churchRug','rug'].includes(types[0])?(count===1?'stond':'stonden'):(count===1?'zat':'zaten');if(count>0)p.clues.push({type:'objectCount',types,count,text:`Precies ${count} ${count===1?'persoon':'personen'} ${verb} op ${p.countLabels?.[types[0]]||(types[0]==='churchPew'?'een kerkbank':types[0]==='churchRug'?'een loper':'een stoel')}.`});}
    let solved;try{solved=solve(p,{},2,{maxNodes:3000});}catch(error){if(error.code==='SEARCH_LIMIT')continue;throw error;}
    if(solved.length!==1)continue;
    target=positions;pools=candidates;break;

@@ -1,8 +1,8 @@
 # Grunndoku
 
-Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Dertig fictieve zaken in drie reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers en negen zaken Moord in de Martini (zes kerkzaken en drie torenzaken). Tien historische versies blijven bereikbaar via Eerdere zaken. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
+Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Zesendertig fictieve zaken in vier reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers, negen zaken Moord in de Martini (zes kerkzaken en drie torenzaken) en zes WinterWelVaart-zaken. Tien historische versies blijven bereikbaar via Eerdere zaken. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
 
-Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` opent de tweede reeks; `?serie=martini` opent de kerkserie.
+Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` opent de tweede reeks; `?serie=martini` opent de kerkserie; `?serie=winter` opent WinterWelVaart.
 
 ## Spelen
 
@@ -14,7 +14,11 @@ Groen gemarkeerde stoelen, bankjes, bedden en kleden zijn bezetbaar. Andere voor
 
 Selecteer een persoon. Eerste klik: concept in het hoekje. Tweede klik: definitief plaatsen. Derde klik: de eerdere concepten herstellen, ook op andere vakjes van die persoon. Dit werkt na herladen en met Terug. Latere onafhankelijke aantekeningen blijven behouden. Vaste startposities blijven vaststaan. Wegstrepen en Wissen zijn afzonderlijke gereedschappen.
 
-Een zetje plaatst één persoon. Bekijk oplossing (spoiler) geeft een redenering in bulletpoints op basis van de openbare regels; waar nodig benoemt de uitleg expliciet het toetsen van resterende combinaties. Oplossingen verschijnen nooit vanzelf en worden niet in de blanco PDF opgenomen.
+Een denkstap geeft drie kleine hints op basis van de huidige definitieve plaatsingen: een richting, een uitsluiting en pas als laatste de overgebleven plek. Er wordt niets automatisch geplaatst. De gebruiker plaatst zelf, en nieuwe plaatsingen starten een nieuwe hint. Foute definitieve plaatsingen krijgen eerst een melding om die te controleren. Potloodnotities worden niet als bewezen feiten behandeld. Bekijk oplossing (spoiler) geeft een redenering in bulletpoints op basis van de openbare regels; waar nodig benoemt de uitleg expliciet het toetsen van resterende combinaties. Oplossingen verschijnen nooit vanzelf en worden niet in de blanco PDF opgenomen.
+
+Rechtsklikken op een speelbaar vak zet of verwijdert een kruisje en behoudt het gekozen gereedschap. Een definitief geplaatste persoon wordt daarmee niet gewist. Met een initiaal op het toetsenbord selecteer je de bijbehorende persoon (A voor Arend, B voor Bertus, enzovoort). Sneltoetsen werken niet in invoervelden, met Ctrl/Alt/Command, of in geopende dialogen.
+
+Na het oplossen kunnen proefspelers aangeven of de sterren passend voelden. De beoordeling, de gebruikte sterren, aanwijzingsversie en het aantal gevraagde hints worden lokaal bij de zaak bewaard. Download proefspeelnotities exporteert deze beoordelingen als JSON om ze vrijwillig te delen. Er is geen automatische verzending of reeds uitgevoerde kalibratie met proefspelers.
 
 ## Vijf niveaus
 
@@ -29,6 +33,10 @@ De sterren en namen komen uit `difficulty.js` en staan op scherm, in de zaakkeuz
 De Martini-serie heeft 6, 8, 10, 12, 14 en 16 personages. De zesde zaak heeft uitzonderlijk zes sterren: Extreem · de Martini-proef. De langwerpige kerk met zijkapellen heeft verschillende breedte en hoogte (tot 24 × 16 vakken). Personen bezetten ieder een eigen rij en kolom; sommige kolommen blijven leeg. De eerste twee zaken hebben vier respectievelijk twee vaste personen. Een kaartkiezer en zoomknoppen helpen op kleinere schermen. De aanwijzing van de geselecteerde persoon staat direct boven de kaart. De zaaknavigatie onderscheidt kerk en toren.
 
 De eigen schematische kerkkaarten bevatten orgel, preekstoel, kerkbanken, koor, kapellen en sacristie. De drie extra Martinitoren-zaken hebben 8, 10 en 12 personages, op niveaus 3, 4 en 4. Hun uitgeklapte doorsnede bevat uurwerkzolder, filmzolder, eerste trans, klokkenzolder, luidzolder, trappenhuis en entree. Wenteltrappen en bankjes zijn bezetbaar; luidklokken, uurwerk en overige objecten blokkeren hun hele oppervlak. De verdiepingen vormen samen één doorlopend rooster. Hoger/lager betekent een hogere/lagere rij op deze puzzelkaart. Ze zijn geen actuele bezoekplattegrond. Grote banken en andere meubels hebben echte deelvakken. Afstanden tot een meubel worden vanaf de buitenrand van het hele voorwerp geteld.
+
+## WinterWelVaart
+
+Zes eigen zaken met 6, 8, 10, 12, 14 en 16 personen: een schip met roef en stuurhut; glühwein aan de Hoge der A; vuurtonnen bij de Kleine der A en het Pomphuis; een kunstpakhuis; een reconstructie vlak vóór een val in het water; en de XXL-route met Hoge, Lage en Kleine der A en de Pottebakkersrijge. De eerste twee zaken hebben vier en twee vaste personen. Gebieden en uitsneden variëren per niveau. De blauwe waterdelen horen niet bij het speelrooster. Bezetbare bedden, banken en kleden hebben echte deelvakken. Schepen, interieurs en gebeurtenissen zijn fictief; de kaarten zijn geen bezoekersroute.
 
 ## Lokaal en tests
 
@@ -54,10 +62,11 @@ Print deze zaak geeft een schone puzzel zonder introductie. Een bundel begint me
 
 Stadse en nachtelijke zaken gebruiken één liggend A4 per zaak. Kleine Martini-zaken (maximaal 10 personen op een kaart van hoogstens 12 × 10 vakken) combineren de kaart en personages op één liggend A4. Grotere zaken gebruiken één kaartpagina plus één personagepagina. Alle zestien personages van de finale passen op één dossierpagina. Mugshotnamen staan alleen op het vastgehouden bord.
 
-- `grunndoku-print.pdf`: alle 30 zaken, 36 pagina’s inclusief introductie.
+- `grunndoku-print.pdf`: alle 36 zaken, 45 pagina’s inclusief introductie.
 - `grunndoku-nacht-in-stad.pdf`: vier nachtelijke zaken, 6 pagina’s inclusief introductie.
 - `grunndoku-moord-in-de-martini.pdf`: negen kerk- en torenzaken, 15 pagina’s inclusief introductie.
 - `grunndoku-martinitoren.pdf`: alleen de drie torenzaken, 6 pagina’s inclusief introductie.
+- `grunndoku-winterwelvaart.pdf`: zes winterzaken, 11 pagina’s inclusief introductie.
 
 Kies A4 en 100% schaal; schakel browserkop- en voetteksten uit. Gebiedsgrenzen blijven ook zonder achtergrondkleuren zichtbaar.
 
