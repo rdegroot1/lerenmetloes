@@ -1,4 +1,4 @@
-import {gridWidth,gridHeight} from './engine.js?v=20261026-compact';
+import {gridWidth,gridHeight} from './engine.js?v=20261026-start';
 // Original, schematic floor finishes. They add atmosphere while room colours
 // and thick boundaries continue to carry the puzzle information.
 export function surfaceFor(p,area){

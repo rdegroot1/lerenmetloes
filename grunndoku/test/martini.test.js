@@ -6,7 +6,7 @@ import {printSheet,printPageCount,boardMarkup,legendMarkup,portraitMarkup} from 
 import {TUTORIAL,introductionSheets} from '../print-layouts.js';
 import {explain} from '../explain.js';
 const all=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url))),cases=all.filter(p=>p.seriesId==='martini'&&p.setting!=='tower');
-test('Martini progresses from six people to an exceptional sixteen-person finale',()=>{assert.equal(cases.length,6);assert.deepEqual(cases.map(p=>p.people.length),[6,8,10,12,14,16]);assert.deepEqual(cases.map(p=>p.difficultyStars),[1,2,3,4,5,6]);assert.deepEqual(cases.map(p=>Object.keys(p.givens).length),[4,2,0,0,0,0]);});
+test('Martini progresses from six people to an exceptional sixteen-person finale',()=>{assert.equal(cases.length,6);assert.deepEqual(cases.map(p=>p.people.length),[6,8,10,12,14,16]);assert.deepEqual(cases.map(p=>p.difficultyStars),[1,2,3,4,5,6]);assert.deepEqual(cases.map(p=>Object.keys(p.givens).length),[0,0,0,0,0,0]);});
 for(const p of cases)test(`${p.id}: rectangular church, public clues, unique solution and printable dossier`,()=>{
  assert.equal(p.regions.length,gridWidth(p)*gridHeight(p));assert.ok(p.width>p.height);assert.ok(p.regions.includes(-1));
  assert.equal(new Set(p.objects.map(o=>o.cell)).size,p.objects.length);
