@@ -121,7 +121,7 @@
   {
     "id": "stad-v3-2",
     "number": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "theme": null,
     "title": "Een eierbal te veel",
     "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Fokko komt niet thuis. Wie was er nog bij hem?",
@@ -143,14 +143,13 @@
       1,
       2,
       2,
-      3,
-      3
+      2,
+      2
     ],
     "areas": [
       "Grote Markt",
       "Vismarkt",
-      "Noorderplantsoen",
-      "Hoge der A"
+      "Noorderplantsoen"
     ],
     "people": [
       {
@@ -3042,7 +3041,7 @@
   {
     "id": "stad-thema-v1-15",
     "number": 15,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "theme": "Eurosonic",
     "title": "Het vergeten toegangsbandje",
     "story": "Het is Eurosonic in Stad. Na een avond vol optredens blijft Fokko’s toegangsbandje achter bij de garderobe. Wie heeft hem na de soundcheck nog gezien?",
@@ -3080,8 +3079,8 @@
       2,
       2,
       1,
-      4,
-      4,
+      3,
+      3,
       3,
       3,
       3,
@@ -3091,8 +3090,7 @@
       "Vera",
       "Simplon",
       "Concertzaal",
-      "Backstage",
-      "Garderobe"
+      "Backstage"
     ],
     "people": [
       {
@@ -3281,7 +3279,7 @@
   {
     "id": "stad-thema-v1-16",
     "number": 16,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "theme": "Noorderzon",
     "title": "Achter het tentdoek",
     "story": "Noorderzon vult het plantsoen met licht en verhalen. Maar achter het tentdoek klopt één verhaal niet. Fokko was op weg naar de laatste voorstelling.",
@@ -3289,13 +3287,13 @@
     "level": "Uitdagend",
     "size": 6,
     "regions": [
-      4,
+      0,
       0,
       0,
       1,
       1,
       -1,
-      4,
+      0,
       0,
       2,
       2,
@@ -3330,8 +3328,7 @@
       "Spiegeltent",
       "Muziektent",
       "Eettentjes",
-      "Vijverrand",
-      "Backstage"
+      "Vijverrand"
     ],
     "people": [
       {
@@ -3529,7 +3526,7 @@
   {
     "id": "stad-thema-v1-17",
     "number": 17,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "theme": "WinterWelVaart",
     "title": "Het licht in de roef",
     "story": "Bij WinterWelVaart glinsteren de lichtjes langs de kade. Op een aangemeerd schip is Fokko’s sjaal blijven liggen. De laatste bezoekers spreken elkaar tegen.",
@@ -3568,7 +3565,7 @@
       2,
       1,
       -1,
-      4,
+      3,
       3,
       3,
       3,
@@ -3578,8 +3575,7 @@
       "Hoge der A",
       "Lage der A",
       "Scheepsruim",
-      "Winterkade",
-      "Roef"
+      "Winterkade"
     ],
     "people": [
       {
@@ -4041,7 +4037,7 @@
   {
     "id": "stad-thema-v1-19",
     "number": 19,
-    "clueVersion": 3,
+    "clueVersion": 4,
     "theme": "Suikerunieterrein",
     "title": "Het terrein na middernacht",
     "story": "Op het voormalige Suikerunieterrein dooft de verlichting van een evenement. Fokko’s sleutelbos ligt bij de machinekamer. Zes verklaringen laten een heel ander terrein zien.",
@@ -4077,21 +4073,20 @@
       3,
       3,
       2,
-      4,
+      3,
       -1,
       -1,
       3,
       3,
-      4,
-      4,
+      3,
+      3,
       -1
     ],
     "areas": [
       "Fabriekshal",
       "Silo’s",
       "Binnenplaats",
-      "Festivalterrein",
-      "Machinekamer"
+      "Festivalterrein"
     ],
     "people": [
       {
@@ -4320,11 +4315,9 @@
         "a": 0,
         "text": "Stond in de eerste of laatste kolom.",
         "cells": [
-          5,
           11,
           12,
           17,
-          18,
           24
         ]
       },
@@ -4333,10 +4326,8 @@
         "a": 2,
         "text": "Stond in de onderste rij.",
         "cells": [
-          31,
           32,
-          33,
-          34
+          33
         ]
       },
       {
@@ -5016,46 +5007,46 @@
       -1,
       -1,
       -1,
-      6,
-      7,
-      7,
+      3,
+      3,
+      3,
       -1,
       -1,
       -1,
+      1,
+      3,
+      3,
+      4,
+      4,
+      -1,
+      0,
+      0,
       1,
       2,
       2,
-      8,
-      8,
-      -1,
-      0,
-      0,
-      1,
-      3,
-      3,
-      5,
-      8,
-      8,
-      0,
-      0,
-      1,
-      3,
-      3,
-      5,
-      8,
-      8,
-      -1,
-      -1,
-      1,
+      2,
       4,
       4,
-      8,
-      8,
+      0,
+      0,
+      1,
+      2,
+      2,
+      2,
+      4,
+      4,
+      -1,
+      -1,
+      1,
+      5,
+      5,
+      4,
+      4,
       -1,
       -1,
       -1,
-      9,
-      9,
+      5,
+      5,
       -1,
       -1,
       -1,
@@ -5064,24 +5055,16 @@
     "areas": [
       "Torenportaal",
       "Orgelzone",
-      "Noordbeuk",
-      "Middenschip",
-      "Zuidbeuk",
       "Hoogkoor",
       "Noorderkapel",
-      "Sacristie",
       "Kooromgang",
       "Zuidportaal"
     ],
     "areaColors": [
       "#c7c8bd",
       "#d4bf9a",
-      "#d5d7c4",
-      "#e7d8b9",
-      "#c8d2cd",
       "#d8bfab",
       "#c8c3d7",
-      "#d8cfaf",
       "#e1d5c7",
       "#b8cbc8"
     ],
@@ -5122,7 +5105,7 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {
@@ -5130,6 +5113,8 @@
         "a": 1,
         "text": "Stond tegen de noordrand van het hoogkoor.",
         "cells": [
+          19,
+          20,
           21
         ]
       },
@@ -5288,50 +5273,50 @@
       -1,
       -1,
       -1,
-      6,
-      7,
-      7,
-      -1,
-      -1,
-      -1,
-      -1,
-      -1,
-      -1,
-      -1,
-      6,
-      7,
-      7,
-      -1,
-      -1,
-      -1,
-      1,
-      2,
-      2,
-      2,
-      2,
-      8,
-      8,
-      -1,
-      0,
-      0,
-      1,
-      3,
-      3,
-      3,
-      3,
       5,
-      8,
-      8,
-      0,
-      0,
-      1,
-      3,
-      3,
-      3,
-      3,
       5,
-      8,
-      8,
+      5,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      5,
+      5,
+      5,
+      -1,
+      -1,
+      -1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      6,
+      6,
+      -1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      6,
+      6,
+      0,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      6,
+      6,
       -1,
       -1,
       1,
@@ -5339,14 +5324,14 @@
       4,
       4,
       4,
-      8,
-      8,
+      6,
+      6,
       -1,
       -1,
       -1,
-      9,
-      9,
-      9,
+      7,
+      7,
+      7,
       -1,
       -1,
       -1,
@@ -5354,9 +5339,9 @@
       -1,
       -1,
       -1,
-      9,
-      9,
-      9,
+      7,
+      7,
+      7,
       -1,
       -1,
       -1,
@@ -5369,8 +5354,6 @@
       "Noordbeuk",
       "Middenschip",
       "Zuidbeuk",
-      "Hoogkoor",
-      "Noorderkapel",
       "Sacristie",
       "Kooromgang",
       "Zuidportaal"
@@ -5381,8 +5364,6 @@
       "#d5d7c4",
       "#e7d8b9",
       "#c8d2cd",
-      "#d8bfab",
-      "#c8c3d7",
       "#d8cfaf",
       "#e1d5c7",
       "#b8cbc8"
@@ -5434,7 +5415,7 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {
@@ -5448,7 +5429,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de westrand van de noorderkapel.",
+        "text": "Stond tegen de westrand van de sacristie.",
         "cells": [
           6,
           16
@@ -5478,7 +5459,9 @@
         "a": 7,
         "text": "Bevond zich in de sacristie.",
         "cells": [
+          6,
           8,
+          16,
           17,
           18
         ]
@@ -5687,9 +5670,9 @@
       -1,
       -1,
       -1,
-      10,
-      10,
-      10,
+      2,
+      2,
+      2,
       6,
       6,
       7,
@@ -5774,9 +5757,9 @@
       9,
       9,
       -1,
-      11,
-      11,
-      11,
+      4,
+      4,
+      4,
       -1,
       -1,
       -1,
@@ -5802,9 +5785,7 @@
       "Noorderkapel",
       "Sacristie",
       "Kooromgang",
-      "Zuidportaal",
-      "Noordnis",
-      "Zijgang"
+      "Zuidportaal"
     ],
     "areaColors": [
       "#c7c8bd",
@@ -5816,9 +5797,7 @@
       "#c8c3d7",
       "#d8cfaf",
       "#e1d5c7",
-      "#b8cbc8",
-      "#d9c9be",
-      "#ccd2b7"
+      "#b8cbc8"
     ],
     "people": [
       {
@@ -5877,7 +5856,7 @@
     "victimWeapon": "poison",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -5912,11 +5891,15 @@
         "a": 3,
         "b": 0,
         "cells": [
+          87,
+          89,
+          90,
+          91,
           103,
           104,
           105
         ],
-        "text": "Bevond zich in de zijgang, lager op de kaart dan Arend."
+        "text": "Bevond zich in de zuidbeuk, lager op de kaart dan Arend."
       },
       {
         "type": "below",
@@ -5935,6 +5918,7 @@
         "a": 6,
         "text": "Stond tegen de oostrand van de noordbeuk.",
         "cells": [
+          18,
           31
         ]
       },
@@ -6239,9 +6223,9 @@
       -1,
       -1,
       -1,
-      10,
-      10,
-      10,
+      2,
+      2,
+      2,
       -1,
       -1,
       6,
@@ -6341,9 +6325,9 @@
       9,
       9,
       -1,
-      11,
-      11,
-      11,
+      4,
+      4,
+      4,
       -1,
       -1,
       -1,
@@ -6386,9 +6370,7 @@
       "Noorderkapel",
       "Sacristie",
       "Kooromgang",
-      "Zuidportaal",
-      "Noordnis",
-      "Zijgang"
+      "Zuidportaal"
     ],
     "areaColors": [
       "#c7c8bd",
@@ -6400,9 +6382,7 @@
       "#c8c3d7",
       "#d8cfaf",
       "#e1d5c7",
-      "#b8cbc8",
-      "#d9c9be",
-      "#ccd2b7"
+      "#b8cbc8"
     ],
     "people": [
       {
@@ -6471,7 +6451,7 @@
     "victimWeapon": "candlestick",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -6525,6 +6505,9 @@
         "a": 6,
         "b": 3,
         "cells": [
+          32,
+          33,
+          34,
           45,
           47,
           48,
@@ -6551,11 +6534,16 @@
         "a": 8,
         "b": 11,
         "cells": [
+          115,
+          117,
+          118,
+          119,
+          121,
           134,
           135,
           136
         ],
-        "text": "Bevond zich in de zijgang, rechts van Lammert."
+        "text": "Bevond zich in de zuidbeuk, rechts van Lammert."
       },
       {
         "type": "unary",
@@ -6918,9 +6906,9 @@
       -1,
       -1,
       -1,
-      10,
-      10,
-      10,
+      2,
+      2,
+      2,
       -1,
       -1,
       -1,
@@ -7086,9 +7074,9 @@
       9,
       9,
       -1,
-      11,
-      11,
-      11,
+      4,
+      4,
+      4,
       -1,
       -1,
       -1,
@@ -7141,9 +7129,7 @@
       "Noorderkapel",
       "Sacristie",
       "Kooromgang",
-      "Zuidportaal",
-      "Noordnis",
-      "Zijgang"
+      "Zuidportaal"
     ],
     "areaColors": [
       "#c7c8bd",
@@ -7155,9 +7141,7 @@
       "#c8c3d7",
       "#d8cfaf",
       "#e1d5c7",
-      "#b8cbc8",
-      "#d9c9be",
-      "#ccd2b7"
+      "#b8cbc8"
     ],
     "people": [
       {
@@ -7236,7 +7220,7 @@
     "victimWeapon": "wrench",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -7277,11 +7261,17 @@
         "a": 3,
         "b": 8,
         "cells": [
+          184,
+          186,
+          187,
+          188,
+          190,
+          191,
           208,
           209,
           210
         ],
-        "text": "Bevond zich in de zijgang, links van Jantje."
+        "text": "Bevond zich in de zuidbeuk, links van Jantje."
       },
       {
         "type": "unary",
@@ -7971,9 +7961,9 @@
       -1,
       -1,
       -1,
-      10,
-      10,
-      10,
+      2,
+      2,
+      2,
       -1,
       -1,
       -1,
@@ -8195,9 +8185,9 @@
       9,
       9,
       -1,
-      11,
-      11,
-      11,
+      4,
+      4,
+      4,
       -1,
       -1,
       -1,
@@ -8290,9 +8280,7 @@
       "Noorderkapel",
       "Sacristie",
       "Kooromgang",
-      "Zuidportaal",
-      "Noordnis",
-      "Zijgang"
+      "Zuidportaal"
     ],
     "areaColors": [
       "#c7c8bd",
@@ -8304,9 +8292,7 @@
       "#c8c3d7",
       "#d8cfaf",
       "#e1d5c7",
-      "#b8cbc8",
-      "#d9c9be",
-      "#ccd2b7"
+      "#b8cbc8"
     ],
     "people": [
       {
@@ -8395,7 +8381,7 @@
     "victimWeapon": "dagger",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 1,
+    "clueVersion": 2,
     "givens": {},
     "clues": [
       {
@@ -8533,9 +8519,10 @@
       {
         "type": "unary",
         "a": 15,
-        "text": "Stond tegen de westrand van de noordnis.",
+        "text": "Stond tegen de westrand van de noordbeuk.",
         "cells": [
-          76
+          76,
+          101
         ]
       },
       {
@@ -11499,43 +11486,43 @@
       4,
       4,
       4,
+      0,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      -1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      -1,
+      0,
+      0,
       5,
-      0,
-      0,
-      3,
-      3,
-      3,
-      3,
-      4,
-      4,
-      4,
-      -1,
-      0,
-      0,
-      3,
-      3,
-      3,
-      3,
-      4,
-      4,
-      4,
-      -1,
-      0,
-      0,
-      6,
-      6,
-      6,
-      6,
+      5,
+      5,
+      5,
       -1,
       -1,
       -1,
       -1,
       0,
       0,
-      6,
-      6,
-      6,
-      6
+      5,
+      5,
+      5,
+      5
     ],
     "areas": [
       "Hoge der A",
@@ -11543,7 +11530,6 @@
       "Voordek",
       "Vuurtonplein",
       "Roef",
-      "Loopplank",
       "Muziekpakhuis"
     ],
     "areaColors": [
@@ -11552,7 +11538,6 @@
       "#ddd4bb",
       "#c4ccaf",
       "#c8b8a1",
-      "#c4c4d4",
       "#d9c8b5"
     ],
     "people": [
@@ -11602,7 +11587,7 @@
     "victimWeapon": "poison",
     "portraitStyle": "mugshot",
     "furnitureRulesVersion": 2,
-    "clueVersion": 2,
+    "clueVersion": 3,
     "givens": {},
     "clues": [
       {

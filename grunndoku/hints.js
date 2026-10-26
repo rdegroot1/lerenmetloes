@@ -1,5 +1,5 @@
-import {solve,gridWidth} from './engine.js?v=20261026-themes';
-import {explain} from './explain.js?v=20261026-themes';
+import {solve,gridWidth} from './engine.js?v=20261026-rooms';
+import {explain} from './explain.js?v=20261026-rooms';
 // Hint text is derived from public constraint propagation. It never writes to
 // player state, trusts pencil marks or silently places a solution on the board.
 export function reasoningHint(p,initial={}){

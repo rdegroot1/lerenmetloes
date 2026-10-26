@@ -1,28 +1,31 @@
-import {THEMES,tutorialFor} from './themes.js?v=20261026-themes';
-import {personEntries} from './person-order.js?v=20261026-themes';
-import {updateBoard} from './board-dom.js?v=20261026-themes';
-import {reasoningHint} from './hints.js?v=20261026-themes';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-themes';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-themes';
-import {landmarkArt,objectArt} from './art.js?v=20261026-themes';
-import {explain} from './explain.js?v=20261026-themes';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-themes';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-themes';
+import {THEMES,tutorialFor} from './themes.js?v=20261026-rooms';
+import {personEntries} from './person-order.js?v=20261026-rooms';
+import {updateBoard} from './board-dom.js?v=20261026-rooms';
+import {reasoningHint} from './hints.js?v=20261026-rooms';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-rooms';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-rooms';
+import {landmarkArt,objectArt} from './art.js?v=20261026-rooms';
+import {explain} from './explain.js?v=20261026-rooms';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-rooms';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-rooms';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-themes';
+const DATA_VERSION='20261026-rooms';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
 const seriesCases=()=>puzzles.slice(0,mainCount).filter(q=>(q.seriesId||'stad')===(p.seriesId||'stad'));
 const seriesIndices=()=>seriesCases().map(q=>puzzles.indexOf(q));
+const choiceCases=()=>index>=mainCount?puzzles.slice(mainCount):seriesCases();
+const caseOptions=()=>choiceCases().map(q=>`<option value="${puzzles.indexOf(q)}">Zaak ${q.number} · ${q.title}</option>`).join('');
 let index=0,p,state,selected=0,mode='place',history=[],zoom=1,peopleZoom=1,hintSession=null,mapBase=0;
-try{const preferences=JSON.parse(localStorage.getItem('grunndoku:view:v1'));if(preferences){if(Number.isFinite(preferences.map))zoom=Math.min(2,Math.max(.5,preferences.map));if(Number.isFinite(preferences.people))peopleZoom=Math.min(1.5,Math.max(.7,preferences.people));}}catch{}
+try{const preferences=JSON.parse(localStorage.getItem('grunndoku:view:v1'));if(preferences){if(Number.isFinite(preferences.map))zoom=Math.min(3,Math.max(.5,preferences.map));if(Number.isFinite(preferences.people))peopleZoom=Math.min(1.5,Math.max(.7,preferences.people));}}catch{}
 const compactCase=q=>q.people.length<=10&&gridWidth(q)<=12&&gridHeight(q)<=10;
+const largeCase=q=>['martini','winter'].includes(q.seriesId)&&!compactCase(q);
 function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify({map:zoom,people:peopleZoom}));}catch{}}
 // Keep the original storage namespace so existing browser progress survives the rename.
 const key=p=>'grunmurdoku:v1:'+p.id;
 function load(i){
- index=i;p=puzzles[i];mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
+ index=i;p=puzzles[i];document.querySelector('.clue-page').scrollTop=0;mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
  const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,hintsUsed:0,difficultyFeedback:null};state=defaults;
  try{
   const saved=JSON.parse(localStorage.getItem(key(p)));
@@ -33,7 +36,7 @@ function load(i){
    state.solved=Boolean(saved.solved)&&Object.keys(state.positions).length===p.people.length&&valid(p,state.positions,true);
   }
  }catch{}
- $('mapGuide').open=false;$('mapContext').open=false;selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));$('caseSelect').value=String(i);render();
+ $('mapGuide').open=false;$('mapContext').open=false;selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));render();
  say(Object.keys(p.givens||{}).length?`${Object.keys(p.givens).length} personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.`:'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
 }
 let currentScreen='home',introIndex=0,example=0;
@@ -44,7 +47,7 @@ function showScreen(name){
 function route(screen,i,replace=false){const series=screen==='home'?null:(puzzles[i].seriesId||'stad');window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(series?'?serie='+series:''));}
 function showHome(record=true){showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
 function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
- introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-themes';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent=`Begin met zaak ${seriesCases().indexOf(p)+1} →`;example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-rooms';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
@@ -54,7 +57,7 @@ function renderExample(){
  $('exampleStep').textContent=example===2?'Begin het voorbeeld opnieuw ↺':example===0?'Toon de eerste denkstap →':'Toon de tweede denkstap →';
 }
 function openCase(i,record=true){const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}
-$('backHome').onclick=()=>showHome();$('backTheme').onclick=()=>showTheme(p.seriesId||'stad',index);$('beginTheme').onclick=()=>openCase(introIndex);$('exampleStep').onclick=()=>{example=(example+1)%3;renderExample();};
+$('backHome').onclick=()=>showHome();$('backTheme').onclick=()=>showTheme(p.seriesId||'stad',index);$('beginTheme').onclick=()=>openCase(introIndex);$('themeCaseSelect').onchange=e=>{introIndex=+e.target.value;route('theme',introIndex,true);};$('exampleStep').onclick=()=>{example=(example+1)%3;renderExample();};
 window.addEventListener('popstate',event=>{const state=event.state;if(state?.screen==='puzzle')openCase(state.index,false);else if(state?.screen==='theme')showTheme(puzzles[state.index].seriesId||'stad',state.index,false);else showHome(false);});
 
 function persist(){state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
@@ -66,10 +69,12 @@ function clueLabel(clue,j){
  const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);return label;
 }
 function render(){
+ const clueScroll=document.querySelector('.clue-page').scrollTop;
+ const options=caseOptions();for(const id of ['caseSelect','themeCaseSelect']){$(id).innerHTML=options;$(id).value=String(index);}
  const church=['martini','winter'].includes(p.seriesId),width=gridWidth(p),height=gridHeight(p);
  document.querySelector('.book').classList.toggle('series-martini',church);
  document.querySelector('.book').classList.toggle('series-winter',p.seriesId==='winter');
- document.querySelector('.book').classList.toggle('compact-case',compactCase(p));
+ document.querySelector('.book').classList.toggle('compact-case',compactCase(p));document.querySelector('.book').classList.toggle('large-case',largeCase(p));
  document.querySelector('.clue-page').style.setProperty('--people-scale',peopleZoom);
  const headerParent=church?$('martiniHeader'):document.querySelector('.clue-page');
  if($('caseHeader').parentElement!==headerParent)headerParent.prepend($('caseHeader'));
@@ -84,7 +89,7 @@ function render(){
  $('board').style.setProperty('--map-min',`${width*(compactCase(p)?30:36)*zoom}px`);
  $('board').style.setProperty('--map-scale',zoom);$('board').style.width=mapBase?`${mapBase*zoom}px`:'100%';
  $('zoomValue').textContent=`${Math.round(zoom*100)}%`;
- $('zoomOut').disabled=zoom<=.5;$('zoomIn').disabled=zoom>=2;
+ $('zoomOut').disabled=zoom<=.5;$('zoomIn').disabled=zoom>=3;
  $('peopleZoomValue').textContent=`${Math.round(peopleZoom*100)}%`;$('peopleZoomOut').disabled=peopleZoom<=.7;$('peopleZoomIn').disabled=peopleZoom>=1.5;
  $('quickPerson').innerHTML=personEntries(p).map(({person,i})=>`<option value="${i}" ${i===selected?'selected':''} ${Object.hasOwn(p.givens||{},i)?'disabled':''}>${person.name}${state.positions[i]!=null?' ✓':''}</option>`).join('');
  $('activeSeriesName').textContent=({stad:'Stadse speurtochten',nacht:'Nacht in Stad',martini:'Moord in de Martini',winter:'WinterWelVaart'})[p.seriesId||'stad'];
@@ -100,7 +105,7 @@ function render(){
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
  $('printAll').textContent=`Print deze serie (${printPageCount(seriesCases())} A4)`;
  for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht'],['martiniSeries','martini'],['winterSeries','winter']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
- $('caseTrail').innerHTML=seriesCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}, ${difficultyText(q)}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${q.seriesId==='winter'?`${q.difficultyStars===6?'XXL':q.difficultyStars+'★'} · ${q.seriesNumber}`:q.seriesId==='martini'?`${q.setting==='tower'?'Toren':'Kerk'} · ${q.difficultyStars}★`:q.theme||difficultyText(q)}</span></button>`;}).join('');
+ $('caseTrail').innerHTML=choiceCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${['martini','winter'].includes(q.seriesId)?q.title:q.theme||q.title}</span></button>`;}).join('');
  $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>openCase(+b.dataset.case));
  $('people').replaceChildren();
  personEntries(p).forEach(({person,i})=>{
@@ -114,19 +119,27 @@ function render(){
   if(i===p.victim){const text=document.createElement('p');text.className='victim-rule';text.textContent=p.victimLocationClue===false?'Was samen met de moordenaar.':'Spelregel: was alleen met de dader in hetzelfde gebied.';card.append(text);}$('people').append(card);
  });
  const extras=$('extraClues');extras.replaceChildren();extras.hidden=!p.clues.some(c=>c.a==null);if(!extras.hidden){const title=document.createElement('h3');title.textContent='Extra aanwijzingen';extras.append(title);p.clues.forEach((clue,j)=>{if(clue.a==null)extras.append(clueLabel(clue,j));});}
- sizeMap();
+ sizeMap();document.querySelector('.clue-page').scrollTop=clueScroll;
  for(const m of ['place','cross','erase']){$(m).classList.toggle('active',mode===m);$(m).setAttribute('aria-pressed',String(mode===m));}$('undo').disabled=!history.length;
 }
 function sizeMap(){
- const board=$('board'),viewport=board.parentElement;
+ const board=$('board'),viewport=board.parentElement,book=document.querySelector('.book');
  if(!viewport.clientWidth||matchMedia('print').matches)return;
+ const split=largeCase(p)&&matchMedia('(min-width:1000px)').matches;
+ let available;
+ if(split){
+  const header=$('martiniHeader').getBoundingClientRect().height,workspace=Math.max(450,innerHeight-header-28);
+  book.style.setProperty('--workspace-height',`${workspace}px`);
+  const panel=document.querySelector('.map-panel'),overhead=panel.getBoundingClientRect().height-viewport.getBoundingClientRect().height;
+  available=Math.max(180,workspace-overhead-12);book.style.setProperty('--map-view-height',`${Math.floor(available)}px`);
+ }
  if(!mapBase){
   mapBase=Math.max(180,viewport.clientWidth-6);
-  if(compactCase(p)&&matchMedia('(min-width: 760px)').matches){
+  if(split)mapBase=Math.min(mapBase,available*gridWidth(p)/gridHeight(p));
+  else if(compactCase(p)&&matchMedia('(min-width:760px)').matches){
    const panel=document.querySelector('.map-panel'),header=$('martiniHeader').hidden?0:$('martiniHeader').getBoundingClientRect().height;
    const overhead=panel.scrollHeight-board.getBoundingClientRect().height;
-   const available=Math.max(180,innerHeight-header-overhead-28);
-   mapBase=Math.min(mapBase,available*gridWidth(p)/gridHeight(p));
+   const space=Math.max(180,innerHeight-header-overhead-28);mapBase=Math.min(mapBase,space*gridWidth(p)/gridHeight(p));
   }
  }
  board.style.width=`${Math.round(mapBase*zoom)}px`;
@@ -151,7 +164,7 @@ function tap(c,tool=mode){
  persist();render();say(tool==='place'?`${p.people[selected].name} definitief geplaatst. Een derde klik herstelt je eerdere concepten.`:'Notitie bijgewerkt.');
 }
 $('printAll').textContent=`Print de reeks (${mainCount} A4)`;
-$('caseSelect').innerHTML=['stad','nacht','martini','winter'].map(series=>`<optgroup label="${series==='winter'?'WinterWelVaart — zes niveaus':series==='martini'?'Moord in de Martini':series==='nacht'?'Nacht in Stad':'Stadse speurtochten'}">${puzzles.map((q,i)=>(q.seriesId||'stad')===series?`<option value="${i}">${String(q.number).padStart(2,'0')} · ${difficultyText(q)} · ${q.theme||'Stad'} — ${q.title}</option>`:'').join('')}</optgroup>`).join('');$('caseSelect').onchange=e=>{const i=+e.target.value,series=puzzles[i].seriesId||'stad';if(series!==(p.seriesId||'stad'))showTheme(series,i);else openCase(i);};
+$('caseSelect').onchange=e=>openCase(+e.target.value);
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
 $('undo').onclick=()=>{if(history.length){state=JSON.parse(history.pop());persist();render();say('Laatste wijziging teruggedraaid.');}};
 $('reset').onclick=()=>{$('hintPanel').hidden=true;hintSession=null;snapshot();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,hintsUsed:0,difficultyFeedback:state.difficultyFeedback||null};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
@@ -184,7 +197,7 @@ $('printCase').onclick=()=>printPuzzles([p]);
 $('printAll').onclick=()=>printPuzzles(seriesCases());
 $('returnToMap').onclick=()=>document.querySelector('.map-panel').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 $('quickPerson').onchange=e=>{const who=+e.target.value;if(Object.hasOwn(p.givens||{},who)){say(`${p.people[who].name} is een vaste startpositie.`);return;}selected=who;mode='place';render();say(`${p.people[selected].name} geselecteerd.`);};
-$('zoomIn').onclick=()=>{zoom=Math.min(2,Math.round((zoom+.1)*10)/10);saveView();render();};
+$('zoomIn').onclick=()=>{zoom=Math.min(3,Math.round((zoom+.1)*10)/10);saveView();render();};
 $('zoomOut').onclick=()=>{zoom=Math.max(.5,Math.round((zoom-.1)*10)/10);saveView();render();};
 $('zoomValue').onclick=()=>{zoom=1;saveView();render();};
 $('peopleZoomIn').onclick=()=>{peopleZoom=Math.min(1.5,Math.round((peopleZoom+.1)*10)/10);saveView();render();};
@@ -195,7 +208,7 @@ $('martiniSeries').onclick=()=>showTheme('martini');
 $('classicSeries').onclick=()=>showTheme('stad');
 $('nightSeries').onclick=()=>showTheme('nacht');
 $('nextCase').onclick=()=>{const cases=seriesIndices(),next=cases[cases.indexOf(index)+1];if(next!=null)openCase(next);};
-$('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch(`./puzzles-archive.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);const group=document.createElement('optgroup');group.label='Eerdere zaken — je oude voortgang';archive.forEach((q,i)=>{const option=document.createElement('option');option.value=String(i+mainCount);option.textContent=q.title;group.append(option);});$('caseSelect').append(group);}openCase(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
+$('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch(`./puzzles-archive.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);}openCase(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
 for(const id of ['rules','boardRules'])$(id).onclick=()=>$('rulesDialog').showModal();document.querySelectorAll('dialog .close, .close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 function renderDifficultyFeedback(){
  $('difficultyFeedback').hidden=!state.solved;

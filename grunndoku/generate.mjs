@@ -1,3 +1,4 @@
+import {ensureSpaciousRooms} from './spacious-rooms.mjs';
 import {finishDossier} from './starter-clues.mjs';
 import {createWinterSeries} from './winter.mjs';
 import {createMartiniSeries,createTowerSeries} from './martini.mjs';
@@ -129,4 +130,5 @@ for(let k=0;k<specs.length;k++){
 }
 cases.push(...createMartiniSeries(),...createTowerSeries(),...createWinterSeries());
 cases.forEach(finishDossier);
+cases.forEach(ensureSpaciousRooms);
 writeFileSync(new URL('./puzzles.json',import.meta.url),JSON.stringify(cases,null,2)+'\n');
