@@ -1,9 +1,9 @@
-import {TUTORIAL,tutorialFor} from './themes.js?v=20261026-themes';
-export {TUTORIAL} from './themes.js?v=20261026-themes';
-import {personEntries} from './person-order.js?v=20261026-themes';
-import {gridWidth,gridHeight} from './engine.js?v=20261026-themes';
-import {difficultyMarkup} from './difficulty.js?v=20261026-themes';
-import {objectArt} from './art.js?v=20261026-themes';
+import {TUTORIAL,tutorialFor} from './themes.js?v=20261026-rooms';
+export {TUTORIAL} from './themes.js?v=20261026-rooms';
+import {personEntries} from './person-order.js?v=20261026-rooms';
+import {gridWidth,gridHeight} from './engine.js?v=20261026-rooms';
+import {difficultyMarkup} from './difficulty.js?v=20261026-rooms';
+import {objectArt} from './art.js?v=20261026-rooms';
 
 export const churchPageCount=p=>p.people.length<=10&&gridWidth(p)<=12&&gridHeight(p)<=10?1:2;
 const heading=(p,suffix)=>`<div class="print-head"><span>GRUNNDOKU · ${p.printLabel||(p.setting==='tower'?'MOORD IN DE MARTINITOREN':'MOORD IN DE MARTINI')} · ${suffix}</span><span class="print-difficulty"><b>ZAAK ${p.seriesNumber}</b>${difficultyMarkup(p)}<span>${p.people.length} personen</span></span></div>`;

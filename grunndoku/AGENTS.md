@@ -4,7 +4,7 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 
 ## Puzzelkwaliteit
 
-- Iedere actuele zaak heeft precies één oplossing en één dader.
+- Iedere actuele zaak heeft precies één oplossing en één dader. Elke ruimte beslaat minimaal vier rastervakken. Werk bij grenswijzigingen de publieke aanwijzingen en hun vakmaskers samen bij; controleer verbonden ruimtes en behoud bestaande oplossingen.
 - Iedere verdachte heeft precies één eigen aanwijzing. Actuele zaken beginnen zonder gegeven posities; vaste startplaatsen zijn alleen voor de oefenuitleg en het archief. Het slachtoffer heeft uitsluitend ‘Was samen met de moordenaar.’ Geen aanwijzing van een persoon verwijst naar het slachtoffer.
 - Eén soort stoel: dezelfde tekening, naam en betekenis. Groen gemarkeerde meubels zijn bezetbaar. Grote voorwerpen hebben één doorlopende illustratie en echte deelvakken.
 - Behoud opslag-ID’s en bestaande oplossingen waar mogelijk. De oorspronkelijke opslagnamespace `grunmurdoku:v1:` is bewust behouden. Vernieuw alleen afvinkversies wanneer aanwijzingen wijzigen.
@@ -13,7 +13,9 @@ Zelfstandige Nederlandstalige detectivepuzzel onder Leren met Loes. De juiste me
 - Rechtsklik kruist af en behoudt het gereedschap. Initialen selecteren personen; onderdruk die sneltoetsen in invoervelden en geopende dialogen.
 - Niveau-feedback blijft lokaal tot de speler die bewust exporteert. Claim geen empirische kalibratie zonder proefspeelgegevens.
 - De homepage toont uitsluitend vier even grote, brede themakaarten onder elkaar met eigen PDF-link en een algemeen startblad. Elk thema opent eerst een eigen startblad met voorbeeld en voorwerpoverzicht; pas daarna verschijnen de puzzels. Bewaar schermnavigatie en browser-Terug zonder spelvoortgang te wijzigen.
+- Zaakkeuzes op het themastartblad en in de puzzel tonen uitsluitend zaken van het huidige thema, met nummer en titel. Geen moeilijkheid in de keuzes of zaaknavigatie; sterren en niveau staan op de puzzel. Houd het archief apart bereikbaar.
 - Geen kladroosters of losse initialenlijstjes op scherm of papier. Kleine letters in conceptnotities en initialen in geplaatste tokens blijven functioneel.
+- Grote zaken tonen vanaf 1000 pixels de aanwijzingen en kaart naast elkaar. De aanwijzingen scrollen binnen hun paneel; de kaart past standaard en blijft tot 300% vergroot volledig bereikbaar. Bewaar paneelposities bij noteren.
 - Kleine zaken staan vanaf 760 pixels naast elkaar. Houd aparte schaalregelaars voor personen en kaart, zonder spelvoortgang te veranderen.
 - Behoud vakknoppen tijdens het noteren. Verifieer snelle dubbele klikken en aanrakingen; de derde klik herstelt de eerdere concepten. Meldingen mogen het doelvak niet verplaatsen.
 - Vloerpatronen zijn eigen sfeertekeningen, met behoud van gebiedskleuren en leesbare rastergrenzen. Gebruik dezelfde patronen op papier.

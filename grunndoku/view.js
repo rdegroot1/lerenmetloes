@@ -1,9 +1,9 @@
-import {personEntries} from './person-order.js?v=20261026-themes';
-import {surfaceFor,printFloorPlane} from './surfaces.js?v=20261026-themes';
-import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-themes';
-import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-themes';
-import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-themes';
-import {difficultyMarkup} from './difficulty.js?v=20261026-themes';
+import {personEntries} from './person-order.js?v=20261026-rooms';
+import {surfaceFor,printFloorPlane} from './surfaces.js?v=20261026-rooms';
+import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-rooms';
+import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-rooms';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-rooms';
+import {difficultyMarkup} from './difficulty.js?v=20261026-rooms';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
 export function areaLabels(p){
@@ -21,13 +21,20 @@ export function areaLabels(p){
    const corner=col===width||p.regions[row*width+col]!==area;
    runs.push({name,area,row,col:anchor,length,cells,score:length*30-objects*20-given*100+(corner?10:0)+row});
   }
-  return runs.sort((a,b)=>b.score-a.score||a.row-b.row)[0];
+  const horizontal=runs.sort((a,b)=>b.score-a.score||a.row-b.row)[0];
+  const roomCells=p.regions.flatMap((a,c)=>a===area?[c]:[]);
+  if(new Set(roomCells.map(c=>c%width)).size===1&&roomCells.length>=2){
+   const col=roomCells[0]%width,length=Math.min(roomCells.length,Math.max(2,Math.ceil(name.length/5))),vertical=[];
+   for(let row=0;row<=height-length;row++){const cells=Array.from({length},(_,i)=>(row+i)*width+col);if(cells.every(c=>p.regions[c]===area))vertical.push({name,area,row,col,length,cells,vertical:true,score:-cells.filter(c=>p.objects.some(o=>o.cell===c)).length*20-row});}
+   if(vertical.length)return vertical.sort((a,b)=>b.score-a.score)[0];
+  }
+  return horizontal;
  });
 }
 export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},selected=-1){
  const width=gridWidth(p),height=gridHeight(p);
  const labels=mini?[]:areaLabels(p);
- const band=new Set(labels.flatMap(label=>label.cells));
+ const band=new Set(labels.filter(label=>!label.vertical).flatMap(label=>label.cells)),verticalBand=new Set(labels.filter(label=>label.vertical).flatMap(label=>label.cells));
  return Array.from({length:cellCount(p)},(_,c)=>{
  const row=Math.floor(c/width),col=c%width;
  if(p.regions[c]<0)return `<span class="void-cell${p.mapBackdrop==='water'?' water-void':''}" aria-hidden="true"></span>`;
@@ -41,8 +48,8 @@ export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},select
  const furniture=o?`<span class="object">${objectArt(o.type,o.part,o.tile)}</span>`:'';
  const mark=who!=null?`<span class="person-token" style="background:${p.people[who].color}">${p.people[who].name[0]}</span><span class="token-name">${p.people[who].name}${given?' •':''}</span>`:crosses.includes(c)?'<span class="crossed">×</span>':'';
  const content=mini?(o?`<i class="obstacle-dot${o.occupiable?' allowed-dot':''}"></i>`:''):furniture+mark+(o?.occupiable?'<span class="surface-mark" aria-hidden="true"></span>':'');
- return `<button type="button" class="cell area-${area}${surfaceFor(p,area)?' floor-'+surfaceFor(p,area):''}${walls}${given?' given':''}${band.has(c)?' name-band':''}${o?.occupiable?' surface-cell':''}${who!=null?' has-person':''}${o?.tile?' footprint-cell':''}"${p.areaColors?` style="--area:${p.areaColors[area]}"`:''} data-cell="${c}" aria-label="${label}" ${!canStand(p,c)||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&canStand(p,c)&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
- }).join('')+(mini?'':printFloorPlane(p))+labels.map(label=>`<span class="area-name area-name-${label.area}" aria-hidden="true" style="right:calc(${(width-label.col-label.length)/width*100}% + 4px);top:calc(${(label.row+1)/height*100}% - 4px);max-width:calc(${label.length/width*100}% - 8px)">${label.name}</span>`).join('');
+ return `<button type="button" class="cell area-${area}${surfaceFor(p,area)?' floor-'+surfaceFor(p,area):''}${walls}${given?' given':''}${band.has(c)?' name-band':''}${verticalBand.has(c)?' vertical-name-band':''}${o?.occupiable?' surface-cell':''}${who!=null?' has-person':''}${o?.tile?' footprint-cell':''}"${p.areaColors?` style="--area:${p.areaColors[area]}"`:''} data-cell="${c}" aria-label="${label}" ${!canStand(p,c)||mini?'disabled':''}>${mini?'':`<span class="coord">${row+1}·${col+1}</span>`}${content}${!mini&&canStand(p,c)&&who==null&&candidates.length?`<span class="candidate-notes">${candidates.map(i=>`<span class="pencil ${i===selected?'chosen':''}" style="--pencil:${p.people[i].color}">${p.people[i].name[0]}</span>`).join('')}</span>`:''}</button>`;
+ }).join('')+(mini?'':printFloorPlane(p))+labels.map(label=>`<span class="area-name area-name-${label.area}${label.vertical?' vertical-room-name':''}" aria-hidden="true" title="${label.name}" style="${label.vertical?`left:calc(${label.col/width*100}% + 3px);top:calc(${label.row/height*100}% + 3px);max-height:calc(${label.length/height*100}% - 6px)`: `right:calc(${(width-label.col-label.length)/width*100}% + 4px);top:calc(${(label.row+1)/height*100}% - 4px);max-width:calc(${label.length/width*100}% - 8px)`}">${label.name}</span>`).join('');
 }
 export function legendMarkup(p){return p.areas.map((name,i)=>`<span><i class="area-${i}"${p.areaColors?` style="--area:${p.areaColors[i]};background-color:var(--area)"`:''}></i>${name}</span>`).join('');}
 export function portraitMarkup(i,name,p){const face=p?.people[i]?.portraitIndex??i;return p?.victimWeapon&&i===p.victim?victimPortrait(face,name,p.victimWeapon):p?.portraitStyle==='mugshot'?mugshot(face,name,p.number,p.seriesId==='winter'?'GRUN · WINTERDIENST':p.seriesId==='martini'?'GRUN · MARTINI':'GRUN · NACHTDIENST'):portrait(face,name);}
