@@ -16327,5 +16327,4717 @@
         }
       }
     ]
+  },
+  {
+    "id": "noorderzon-v1-1",
+    "number": 37,
+    "seriesId": "noorderzon",
+    "seriesNumber": 1,
+    "setting": "noorderzon",
+    "theme": "Spiegeltent",
+    "title": "Achter het rode doek",
+    "story": "De laatste voorstelling in de spiegeltent is afgelopen. Het rode doek hangt stil en de lampjes branden nog. Vijf getuigen vertellen waar ze waren.",
+    "difficultyStars": 1,
+    "level": "Heel makkelijk",
+    "lesson": "Combineer de aanwijzingen met de festivalkaart.",
+    "width": 8,
+    "height": 6,
+    "size": 8,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      3,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Entree",
+      "Garderobe",
+      "Backstage",
+      "Publiekszaal",
+      "Podium",
+      "Tentbar"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d"
+    ],
+    "areaSurfaces": [
+      "festival-path",
+      "festival-wood",
+      "festival-wood",
+      "festival-wood",
+      "festival-wood",
+      "festival-tile"
+    ],
+    "waterCells": [],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "candlestick",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond naast een stoel in de publiekszaal.",
+        "cells": [
+          20,
+          27
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Bevond zich in kolom 6, in de entree.",
+        "cells": [
+          5,
+          13
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond naast een luidspreker op het podium.",
+        "cells": [
+          25,
+          32
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 3,
+        "text": "Zat op een bankje in de entree.",
+        "cells": [
+          12,
+          13
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast de kapstok in de garderobe.",
+        "cells": [
+          16,
+          17
+        ]
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Iedereen krijgt een eigen rij én kolom.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Entree": "de",
+      "Garderobe": "de",
+      "Backstage": "de",
+      "Publiekszaal": "de",
+      "Podium": "het",
+      "Tentbar": "de"
+    },
+    "outdoorAreas": [
+      "Podium"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "festivalGate",
+        "name": "de festivalpoort",
+        "occupiable": false
+      },
+      {
+        "cell": 12,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 13,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 8,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalCoatrack-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 9,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalCoatrack-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 14,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 18,
+        "type": "festivalMirror",
+        "name": "een spiegelwand",
+        "occupiable": false
+      },
+      {
+        "cell": 44,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 45,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 24,
+        "type": "festivalSpeaker",
+        "name": "een luidspreker",
+        "occupiable": false
+      },
+      {
+        "cell": 30,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 31,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 19,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-2",
+    "number": 38,
+    "seriesId": "noorderzon",
+    "seriesNumber": 2,
+    "setting": "noorderzon",
+    "theme": "Foodtruckveld",
+    "title": "Pizza na sluitingstijd",
+    "story": "Bij de foodtrucks is de laatste pizza gebakken. Naast de zandspeeltuin staan nog bekers op de picknicktafels. Maar Fokko keert niet terug.",
+    "difficultyStars": 2,
+    "level": "Makkelijk",
+    "lesson": "Combineer de aanwijzingen met de festivalkaart.",
+    "width": 6,
+    "height": 6,
+    "size": 6,
+    "regions": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      5,
+      5,
+      3,
+      3,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4
+    ],
+    "areas": [
+      "Foodtruckveld",
+      "Pizzaweide",
+      "Zandspeeltuin",
+      "Picknickveld",
+      "Klein podium",
+      "Festivalpad"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d"
+    ],
+    "areaSurfaces": [
+      "festival-grass",
+      "festival-grass",
+      "festival-sand",
+      "festival-grass",
+      "festival-wood",
+      "festival-path"
+    ],
+    "waterCells": [],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "poison",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "right",
+        "a": 0,
+        "b": 4,
+        "cells": [
+          18,
+          19,
+          20,
+          21,
+          23
+        ],
+        "text": "Bevond zich in rij 4, rechts van Geeske."
+      },
+      {
+        "type": "left",
+        "a": 1,
+        "b": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "text": "Bevond zich in rij 1, links van Arend."
+      },
+      {
+        "type": "right",
+        "a": 2,
+        "b": 4,
+        "cells": [
+          16,
+          17
+        ],
+        "text": "Bevond zich op de pizzaweide, rechts van Geeske."
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 2,
+        "cells": [
+          23,
+          28,
+          29,
+          34,
+          35
+        ],
+        "text": "Bevond zich op het klein podium, links van Cora."
+      },
+      {
+        "type": "below",
+        "a": 4,
+        "b": 2,
+        "cells": [
+          6,
+          18,
+          30
+        ],
+        "text": "Bevond zich in kolom 1, lager op de kaart dan Cora."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Iedereen krijgt een eigen rij én kolom.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Foodtruckveld": "het",
+      "Pizzaweide": "de",
+      "Zandspeeltuin": "de",
+      "Picknickveld": "het",
+      "Klein podium": "het",
+      "Festivalpad": "het"
+    },
+    "outdoorAreas": [
+      "Foodtruckveld",
+      "Pizzaweide",
+      "Picknickveld",
+      "Klein podium",
+      "Festivalpad"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 0,
+        "type": "festivalFoodtruck",
+        "name": "de foodtruck",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalFoodtruck-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 1,
+        "type": "festivalFoodtruck",
+        "name": "de foodtruck",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalFoodtruck-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 8,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 9,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 4,
+        "type": "festivalOven",
+        "name": "de pizzaoven",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalOven-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 5,
+        "type": "festivalOven",
+        "name": "de pizzaoven",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalOven-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 10,
+        "type": "festivalOven",
+        "name": "de pizzaoven",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalOven-2",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 11,
+        "type": "festivalOven",
+        "name": "de pizzaoven",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalOven-2",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 12,
+        "type": "festivalBucket",
+        "name": "de zandemmer",
+        "occupiable": false
+      },
+      {
+        "cell": 14,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 15,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 22,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 24,
+        "type": "festivalLights",
+        "name": "de lichtmast",
+        "occupiable": false
+      },
+      {
+        "cell": 20,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-3",
+    "number": 39,
+    "seriesId": "noorderzon",
+    "seriesNumber": 3,
+    "setting": "noorderzon",
+    "theme": "Vijver en vlonder",
+    "title": "Lichtjes boven het water",
+    "story": "Lichtslingers weerspiegelen in de rechte vijver. Op de vlonder klinkt nog een laatste lied, terwijl de fontein midden in het water ruist.",
+    "difficultyStars": 2,
+    "level": "Makkelijk",
+    "lesson": "Combineer de aanwijzingen met de festivalkaart.",
+    "width": 10,
+    "height": 7,
+    "size": 10,
+    "regions": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      -1,
+      -1,
+      3,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      -1,
+      -1,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5
+    ],
+    "areas": [
+      "Vijverkop",
+      "Vijverbar",
+      "Grasveld",
+      "Vlonder",
+      "Bosrand",
+      "Avondterras",
+      "Oeverpad"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d",
+      "#b7cac2"
+    ],
+    "areaSurfaces": [
+      "festival-path",
+      "festival-tile",
+      "festival-grass",
+      "festival-wood",
+      "festival-grass",
+      "festival-grass",
+      "festival-path"
+    ],
+    "waterCells": [
+      13,
+      14,
+      23,
+      24,
+      33,
+      34,
+      43,
+      44,
+      53,
+      54
+    ],
+    "pondRect": [
+      3,
+      1,
+      2,
+      5
+    ],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "rope",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "left",
+        "a": 0,
+        "b": 2,
+        "cells": [
+          30,
+          31,
+          32,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "text": "Bevond zich in rij 4, links van Cora."
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 2,
+        "cells": [
+          4,
+          64
+        ],
+        "text": "Bevond zich in kolom 5, hoger op de kaart dan Cora."
+      },
+      {
+        "type": "right",
+        "a": 2,
+        "b": 3,
+        "cells": [
+          46,
+          47,
+          48,
+          49,
+          55,
+          56,
+          57,
+          58,
+          59,
+          67,
+          68,
+          69
+        ],
+        "text": "Bevond zich op het avondterras, rechts van Tammo."
+      },
+      {
+        "type": "same",
+        "a": 3,
+        "b": 2,
+        "text": "Was in hetzelfde gebied als Cora."
+      },
+      {
+        "type": "above",
+        "a": 4,
+        "b": 3,
+        "cells": [
+          20,
+          30,
+          50,
+          60
+        ],
+        "text": "Bevond zich in kolom 1, hoger op de kaart dan Tammo."
+      },
+      {
+        "type": "right",
+        "a": 6,
+        "b": 2,
+        "cells": [
+          20,
+          21,
+          22,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "text": "Bevond zich in rij 3, rechts van Cora."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Water is geen speelvak; op de vlonder kun je wel staan.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Water is geen speelvak.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Vijverkop": "de",
+      "Vijverbar": "de",
+      "Grasveld": "het",
+      "Vlonder": "de",
+      "Bosrand": "de",
+      "Avondterras": "het",
+      "Oeverpad": "het"
+    },
+    "outdoorAreas": [
+      "Grasveld",
+      "Vlonder",
+      "Bosrand",
+      "Avondterras",
+      "Oeverpad"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de podiumbouwer",
+        "color": "#4c718d"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 0,
+        "type": "festivalGate",
+        "name": "de festivalpoort",
+        "occupiable": false
+      },
+      {
+        "cell": 6,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 7,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 18,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 19,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 11,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 31,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 32,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 15,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 38,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 39,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 40,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 61,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 62,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 45,
+        "type": "festivalLights",
+        "name": "de lichtmast",
+        "occupiable": false
+      },
+      {
+        "cell": 68,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 69,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 63,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false
+      },
+      {
+        "cell": 25,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-4",
+    "number": 40,
+    "seriesId": "noorderzon",
+    "seriesNumber": 4,
+    "setting": "noorderzon",
+    "theme": "Fonteinplein",
+    "title": "Stilte bij de fontein",
+    "story": "De festivalwinkel sluit de luiken. Tussen de kunstgalerie, de foodtrucks en het fonteinterras moet ieder verhaal op zijn plaats vallen.",
+    "difficultyStars": 3,
+    "level": "Gemiddeld",
+    "lesson": "Combineer de aanwijzingen met de festivalkaart.",
+    "width": 10,
+    "height": 8,
+    "size": 10,
+    "regions": [
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      -1,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      -1,
+      -1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      -1,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      -1
+    ],
+    "areas": [
+      "Festivalwinkel",
+      "Foodtruckplein",
+      "Fonteinterras",
+      "Kunstgalerie",
+      "Toiletten",
+      "Bomenweide"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d"
+    ],
+    "areaSurfaces": [
+      "festival-wood",
+      "festival-grass",
+      "festival-path",
+      "festival-tile",
+      "festival-path",
+      "festival-grass"
+    ],
+    "waterCells": [
+      13,
+      14,
+      23,
+      24,
+      33,
+      34,
+      43,
+      44
+    ],
+    "pondRect": [
+      3,
+      1,
+      2,
+      4
+    ],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "wrench",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "above",
+        "a": 0,
+        "b": 3,
+        "cells": [
+          3,
+          53,
+          63,
+          73
+        ],
+        "text": "Bevond zich in kolom 4, hoger op de kaart dan Tammo."
+      },
+      {
+        "type": "right",
+        "a": 1,
+        "b": 2,
+        "cells": [
+          2,
+          3,
+          4,
+          5,
+          10,
+          11,
+          12
+        ],
+        "text": "Bevond zich in de festivalwinkel, rechts van Cora."
+      },
+      {
+        "type": "right",
+        "a": 2,
+        "b": 4,
+        "cells": [
+          51,
+          52,
+          53,
+          54,
+          56,
+          57,
+          58,
+          59
+        ],
+        "text": "Bevond zich in rij 6, rechts van Geeske."
+      },
+      {
+        "type": "below",
+        "a": 3,
+        "b": 2,
+        "cells": [
+          16,
+          46,
+          56,
+          66,
+          76
+        ],
+        "text": "Bevond zich in kolom 7, lager op de kaart dan Cora."
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 0,
+        "cells": [
+          22,
+          30,
+          31,
+          32,
+          40,
+          41,
+          42
+        ],
+        "text": "Bevond zich op het fonteinterras, links van Arend."
+      },
+      {
+        "type": "right",
+        "a": 6,
+        "b": 3,
+        "cells": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78
+        ],
+        "text": "Bevond zich in rij 8, rechts van Tammo."
+      },
+      {
+        "type": "right",
+        "a": 7,
+        "b": 6,
+        "text": "Stond rechts van Harm."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 2,
+        "text": "Precies 2 personen zaten op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "chair"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een stoel."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Water is geen speelvak; op de vlonder kun je wel staan.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom. Water is geen speelvak.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Festivalwinkel": "de",
+      "Foodtruckplein": "het",
+      "Fonteinterras": "het",
+      "Kunstgalerie": "de",
+      "Toiletten": "de",
+      "Bomenweide": "de"
+    },
+    "outdoorAreas": [
+      "Foodtruckplein",
+      "Fonteinterras",
+      "Bomenweide"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de podiumbouwer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de geluidstechnicus",
+        "color": "#a37a3e"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 1,
+        "type": "books",
+        "name": "de winkelkast",
+        "occupiable": false
+      },
+      {
+        "cell": 11,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 12,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 6,
+        "type": "festivalFoodtruck",
+        "name": "de foodtruck",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalFoodtruck-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 7,
+        "type": "festivalFoodtruck",
+        "name": "de foodtruck",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalFoodtruck-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 18,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 19,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 20,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 21,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 41,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 42,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 25,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 26,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 35,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-6",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 36,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-6",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 48,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 49,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 50,
+        "type": "festivalToilet",
+        "name": "de toiletunit",
+        "occupiable": false
+      },
+      {
+        "cell": 73,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 74,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 55,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 77,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 78,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 27,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-5",
+    "number": 41,
+    "seriesId": "noorderzon",
+    "seriesNumber": 5,
+    "setting": "noorderzon",
+    "theme": "Fietsen en kunst",
+    "title": "De verdwenen fietssleutel",
+    "story": "Buiten het drukke terrein hangt een fietslichtje te knipperen. Een sleutelbos ligt bij het kunstwerk. Wie was nog tussen de fietsen en de bomen?",
+    "difficultyStars": 3,
+    "level": "Gemiddeld",
+    "lesson": "Combineer de aanwijzingen met de festivalkaart.",
+    "width": 10,
+    "height": 8,
+    "size": 10,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      2,
+      2,
+      -1,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      2,
+      -1,
+      -1,
+      -1,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Fietsenstalling",
+      "Parkentree",
+      "Bosrand",
+      "Kunstveld",
+      "Slingerpad",
+      "Open plek"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d"
+    ],
+    "areaSurfaces": [
+      "festival-path",
+      "festival-path",
+      "festival-grass",
+      "festival-grass",
+      "festival-path",
+      "festival-grass"
+    ],
+    "waterCells": [],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "dagger",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "right",
+        "a": 0,
+        "b": 7,
+        "cells": [
+          11,
+          20,
+          21,
+          30,
+          31
+        ],
+        "text": "Bevond zich in de parkentree, rechts van Roelf."
+      },
+      {
+        "type": "below",
+        "a": 1,
+        "b": 0,
+        "cells": [
+          26,
+          27,
+          36,
+          37,
+          44,
+          45,
+          46,
+          47
+        ],
+        "text": "Bevond zich op het kunstveld, lager op de kaart dan Arend."
+      },
+      {
+        "type": "below",
+        "a": 2,
+        "b": 3,
+        "cells": [
+          19,
+          29,
+          39,
+          49,
+          59
+        ],
+        "text": "Bevond zich in kolom 10, lager op de kaart dan Tammo."
+      },
+      {
+        "type": "right",
+        "a": 3,
+        "b": 6,
+        "cells": [
+          26,
+          27,
+          36,
+          37,
+          44,
+          45,
+          46,
+          47
+        ],
+        "text": "Bevond zich op het kunstveld, rechts van Harm."
+      },
+      {
+        "type": "above",
+        "a": 4,
+        "b": 2,
+        "cells": [
+          4,
+          14,
+          44,
+          64,
+          74
+        ],
+        "text": "Bevond zich in kolom 5, hoger op de kaart dan Cora."
+      },
+      {
+        "type": "below",
+        "a": 6,
+        "b": 4,
+        "cells": [
+          6,
+          16,
+          26,
+          36,
+          46,
+          56,
+          66,
+          76
+        ],
+        "text": "Bevond zich in kolom 7, lager op de kaart dan Geeske."
+      },
+      {
+        "type": "left",
+        "a": 7,
+        "b": 1,
+        "cells": [
+          30,
+          31,
+          32,
+          33,
+          36,
+          37,
+          38,
+          39
+        ],
+        "text": "Bevond zich in rij 4, links van Bertus."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 2,
+        "text": "Precies 2 personen zaten op een bankje."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Iedereen krijgt een eigen rij én kolom.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Fietsenstalling": "de",
+      "Parkentree": "de",
+      "Bosrand": "de",
+      "Kunstveld": "het",
+      "Slingerpad": "het",
+      "Open plek": "de"
+    },
+    "outdoorAreas": [
+      "Bosrand",
+      "Kunstveld",
+      "Slingerpad"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de podiumbouwer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de geluidstechnicus",
+        "color": "#a37a3e"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "festivalBikes",
+        "name": "het fietsenrek",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalBikes-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 3,
+        "type": "festivalBikes",
+        "name": "het fietsenrek",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalBikes-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 32,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 33,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "festivalGate",
+        "name": "de festivalpoort",
+        "occupiable": false
+      },
+      {
+        "cell": 18,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 58,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 59,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 24,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 25,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 34,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-5",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 35,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-5",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 46,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 47,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 40,
+        "type": "festivalLights",
+        "name": "de lichtmast",
+        "occupiable": false
+      },
+      {
+        "cell": 72,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 73,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 54,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 55,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 76,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 77,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 26,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 38,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 39,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 48,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-12",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 49,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-12",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-6",
+    "number": 42,
+    "seriesId": "noorderzon",
+    "seriesNumber": 6,
+    "setting": "noorderzon",
+    "theme": "Muziekpodium",
+    "title": "De laatste soundcheck",
+    "story": "De versterkers zijn uit, maar bij de mengtafel brandt nog licht. Na de soundcheck spreken de verklaringen elkaar tegen. Combineer wat iedereen wél en niet vertelt.",
+    "difficultyStars": 4,
+    "level": "Pittig",
+    "lesson": "Leg de verbanden tussen de verklaringen.",
+    "width": 10,
+    "height": 9,
+    "size": 10,
+    "regions": [
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      -1,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      -1,
+      -1,
+      -1,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Artiestenentree",
+      "Laadplek",
+      "Backstage",
+      "Muziekpodium",
+      "Publieksveld",
+      "Buitenbar",
+      "Zitterras",
+      "Mengtafelhoek"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d",
+      "#b7cac2",
+      "#d5b4ad"
+    ],
+    "areaSurfaces": [
+      "festival-path",
+      "festival-path",
+      "festival-wood",
+      "festival-wood",
+      "festival-grass",
+      "festival-tile",
+      "festival-grass",
+      "festival-wood"
+    ],
+    "waterCells": [],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "candlestick",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "left",
+        "a": 0,
+        "b": 6,
+        "cells": [
+          31,
+          32,
+          33,
+          40,
+          41,
+          42,
+          43,
+          50,
+          51,
+          52,
+          53
+        ],
+        "text": "Bevond zich op het publieksveld, links van Harm."
+      },
+      {
+        "type": "unary",
+        "a": 1,
+        "text": "Stond naast een tafel op het zitterras.",
+        "cells": [
+          56,
+          64,
+          65
+        ]
+      },
+      {
+        "type": "below",
+        "a": 2,
+        "b": 4,
+        "cells": [
+          4,
+          14,
+          34,
+          44,
+          64,
+          74,
+          84
+        ],
+        "text": "Bevond zich in kolom 5, lager op de kaart dan Geeske."
+      },
+      {
+        "type": "right",
+        "a": 3,
+        "b": 6,
+        "cells": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          19
+        ],
+        "text": "Bevond zich in rij 2, rechts van Harm."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast een bankje op het publieksveld.",
+        "cells": [
+          42,
+          43,
+          51
+        ]
+      },
+      {
+        "type": "left",
+        "a": 6,
+        "b": 3,
+        "cells": [
+          31,
+          32,
+          33,
+          40,
+          41,
+          42,
+          43,
+          50,
+          51,
+          52,
+          53
+        ],
+        "text": "Bevond zich op het publieksveld, links van Tammo."
+      },
+      {
+        "type": "above",
+        "a": 7,
+        "b": 6,
+        "cells": [
+          25,
+          26,
+          27,
+          34,
+          35,
+          36,
+          37,
+          44,
+          45,
+          46,
+          47
+        ],
+        "text": "Bevond zich op het muziekpodium, hoger op de kaart dan Harm."
+      },
+      {
+        "type": "right",
+        "a": 8,
+        "b": 2,
+        "cells": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78
+        ],
+        "text": "Bevond zich in rij 8, rechts van Cora."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "rug"
+        ],
+        "count": 2,
+        "text": "Precies 2 personen stonden op een vloerkleed."
+      },
+      {
+        "type": "emptyRooms",
+        "count": 3,
+        "text": "Precies drie gebieden waren leeg."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Iedereen krijgt een eigen rij én kolom.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Artiestenentree": "de",
+      "Laadplek": "de",
+      "Backstage": "de",
+      "Muziekpodium": "het",
+      "Publieksveld": "het",
+      "Buitenbar": "de",
+      "Zitterras": "het",
+      "Mengtafelhoek": "de"
+    },
+    "outdoorAreas": [
+      "Laadplek",
+      "Muziekpodium",
+      "Publieksveld",
+      "Zitterras"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de podiumbouwer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de geluidstechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de illustratrice",
+        "color": "#ae6d80"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 3,
+        "type": "festivalGate",
+        "name": "de festivalpoort",
+        "occupiable": false
+      },
+      {
+        "cell": 22,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "crate",
+        "name": "een krat",
+        "occupiable": false
+      },
+      {
+        "cell": 18,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 24,
+        "type": "festivalSpeaker",
+        "name": "een luidspreker",
+        "occupiable": false
+      },
+      {
+        "cell": 46,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 47,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 30,
+        "type": "festivalLights",
+        "name": "de lichtmast",
+        "occupiable": false
+      },
+      {
+        "cell": 52,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 53,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 48,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 49,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 54,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 55,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 86,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 87,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 60,
+        "type": "festivalMixer",
+        "name": "de mengtafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalMixer-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 61,
+        "type": "festivalMixer",
+        "name": "de mengtafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalMixer-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 82,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 83,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 25,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 40,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-14",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 41,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-14",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 50,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-14",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 51,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-14",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-7",
+    "number": 43,
+    "seriesId": "noorderzon",
+    "seriesNumber": 7,
+    "setting": "noorderzon",
+    "theme": "Bostheaterroute",
+    "title": "Schaduwen tussen de bomen",
+    "story": "Langs de verlichte bosroute eindigt een kleine voorstelling. Achter iedere boom lijkt een ander verhaal te schuilen. De losse verklaringen worden pas samen een sluitend spoor.",
+    "difficultyStars": 5,
+    "level": "Uitdagend",
+    "lesson": "Leg de verbanden tussen de verklaringen.",
+    "width": 10,
+    "height": 10,
+    "size": 10,
+    "regions": [
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      0,
+      0,
+      3,
+      3,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      8,
+      8,
+      8,
+      6,
+      6,
+      6,
+      7,
+      7,
+      -1,
+      -1,
+      -1,
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Bosentree",
+      "Lichtweide",
+      "Theaterveld",
+      "Loofpad",
+      "Kleine speelplek",
+      "Rustweide",
+      "Kioskveld",
+      "Bosrand",
+      "Kunstplein"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d",
+      "#b7cac2",
+      "#d5b4ad",
+      "#c5cf9e"
+    ],
+    "areaSurfaces": [
+      "festival-path",
+      "festival-grass",
+      "festival-grass",
+      "festival-path",
+      "festival-wood",
+      "festival-grass",
+      "festival-grass",
+      "festival-grass",
+      "festival-path"
+    ],
+    "waterCells": [],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "rope",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "above",
+        "a": 0,
+        "b": 7,
+        "cells": [
+          6,
+          16,
+          26,
+          46,
+          56,
+          66,
+          76,
+          86,
+          96
+        ],
+        "text": "Bevond zich in kolom 7, hoger op de kaart dan Roelf."
+      },
+      {
+        "type": "right",
+        "a": 1,
+        "b": 3,
+        "cells": [
+          25,
+          34,
+          35,
+          44,
+          45,
+          54,
+          55
+        ],
+        "text": "Bevond zich op het loofpad, rechts van Tammo."
+      },
+      {
+        "type": "below",
+        "a": 2,
+        "b": 6,
+        "text": "Stond lager op de kaart dan Harm."
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 1,
+        "cells": [
+          2,
+          12,
+          22,
+          32,
+          42,
+          52,
+          62,
+          72,
+          82,
+          92
+        ],
+        "text": "Bevond zich in kolom 3, hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Zat op een bankje op het theaterveld.",
+        "cells": [
+          42,
+          43
+        ]
+      },
+      {
+        "type": "unary",
+        "a": 6,
+        "text": "Bevond zich in kolom 2, op de rustweide.",
+        "cells": [
+          51,
+          61,
+          71
+        ]
+      },
+      {
+        "type": "below",
+        "a": 7,
+        "b": 8,
+        "cells": [
+          5,
+          15,
+          25,
+          35,
+          45,
+          55,
+          75,
+          85,
+          95
+        ],
+        "text": "Bevond zich in kolom 6, lager op de kaart dan Jantje."
+      },
+      {
+        "type": "below",
+        "a": 8,
+        "b": 2,
+        "cells": [
+          69,
+          78,
+          79,
+          87,
+          88,
+          97
+        ],
+        "text": "Bevond zich op de bosrand, lager op de kaart dan Cora."
+      },
+      {
+        "type": "left",
+        "a": 9,
+        "b": 2,
+        "cells": [
+          37,
+          38,
+          39,
+          46,
+          47,
+          48,
+          49,
+          56,
+          57,
+          58,
+          59
+        ],
+        "text": "Bevond zich in de kleine speelplek, links van Cora."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 2,
+        "text": "Precies 2 personen zaten op een bankje."
+      },
+      {
+        "type": "emptyRooms",
+        "count": 1,
+        "text": "Precies één gebied was leeg."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Iedereen krijgt een eigen rij én kolom.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Bosentree": "de",
+      "Lichtweide": "de",
+      "Theaterveld": "het",
+      "Loofpad": "het",
+      "Kleine speelplek": "de",
+      "Rustweide": "de",
+      "Kioskveld": "het",
+      "Bosrand": "de",
+      "Kunstplein": "het"
+    },
+    "outdoorAreas": [
+      "Lichtweide",
+      "Theaterveld",
+      "Loofpad",
+      "Rustweide",
+      "Kioskveld",
+      "Bosrand",
+      "Kunstplein"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de podiumbouwer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de geluidstechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de illustratrice",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de terrasbeheerder",
+        "color": "#527b66"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 1,
+        "type": "festivalGate",
+        "name": "de festivalpoort",
+        "occupiable": false
+      },
+      {
+        "cell": 22,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 7,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 8,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 17,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-2",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 18,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-2",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 28,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 29,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 20,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 42,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 43,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 24,
+        "type": "festivalLights",
+        "name": "de lichtmast",
+        "occupiable": false
+      },
+      {
+        "cell": 54,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 55,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 36,
+        "type": "festivalSpeaker",
+        "name": "een luidspreker",
+        "occupiable": false
+      },
+      {
+        "cell": 58,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 59,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 50,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 72,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 73,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 64,
+        "type": "festivalFoodtruck",
+        "name": "de foodtruck",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalFoodtruck-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 65,
+        "type": "festivalFoodtruck",
+        "name": "de foodtruck",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalFoodtruck-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 85,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 86,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 68,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 81,
+        "type": "festivalMirror",
+        "name": "een spiegelwand",
+        "occupiable": false
+      },
+      {
+        "cell": 95,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-16",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 96,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-16",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 25,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "noorderzon-v1-8",
+    "number": 44,
+    "seriesId": "noorderzon",
+    "seriesNumber": 8,
+    "setting": "noorderzon",
+    "theme": "Avondterras",
+    "title": "Na het laatste applaus",
+    "story": "Het applaus is verstomd. Op het terras schuiven vrijwilligers de laatste stoelen aan. Tien aanwezigen, een gewone festivalkaart en een ingewikkeld web van alibi’s.",
+    "difficultyStars": 5,
+    "level": "Uitdagend",
+    "lesson": "Leg de verbanden tussen de verklaringen.",
+    "width": 10,
+    "height": 10,
+    "size": 10,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      8,
+      8,
+      8,
+      8,
+      5,
+      5,
+      -1,
+      7,
+      7,
+      7,
+      8,
+      8,
+      8,
+      8,
+      5,
+      -1,
+      -1,
+      -1,
+      7,
+      7,
+      8,
+      8,
+      8,
+      8,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Tententree",
+      "Garderobe",
+      "Artiestenuitgang",
+      "Festivaltent",
+      "Picknickweide",
+      "Avondbar",
+      "Klinkerterras",
+      "Parkpad",
+      "Bomenveld"
+    ],
+    "areaColors": [
+      "#d9bd94",
+      "#dbcba8",
+      "#b8c9a8",
+      "#d3b7a3",
+      "#a8c0ac",
+      "#d5c69d",
+      "#b7cac2",
+      "#d5b4ad",
+      "#c5cf9e"
+    ],
+    "areaSurfaces": [
+      "festival-path",
+      "festival-wood",
+      "festival-path",
+      "festival-wood",
+      "festival-grass",
+      "festival-tile",
+      "festival-path",
+      "festival-path",
+      "festival-grass"
+    ],
+    "waterCells": [],
+    "mapDecorations": true,
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "poison",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "right",
+        "a": 0,
+        "b": 4,
+        "text": "Stond rechts van Geeske."
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 8,
+        "cells": [
+          25,
+          26,
+          27,
+          34,
+          35,
+          36,
+          37,
+          44,
+          45,
+          46,
+          47
+        ],
+        "text": "Bevond zich in de festivaltent, hoger op de kaart dan Jantje."
+      },
+      {
+        "type": "unary",
+        "a": 2,
+        "text": "Stond naast een vloerkleed op de picknickweide.",
+        "cells": [
+          42,
+          52
+        ]
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 8,
+        "text": "Stond hoger op de kaart dan Jantje."
+      },
+      {
+        "type": "unary",
+        "a": 4,
+        "text": "Stond naast een bankje op het bomenveld.",
+        "cells": [
+          86,
+          87,
+          95
+        ]
+      },
+      {
+        "type": "above",
+        "a": 6,
+        "b": 3,
+        "cells": [
+          7,
+          17,
+          27,
+          37,
+          47,
+          57,
+          67,
+          77,
+          87,
+          97
+        ],
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Tammo."
+      },
+      {
+        "type": "unary",
+        "a": 7,
+        "text": "Zat op een bankje op het parkpad.",
+        "cells": [
+          92,
+          93
+        ]
+      },
+      {
+        "type": "below",
+        "a": 8,
+        "b": 3,
+        "cells": [
+          28,
+          38,
+          58,
+          68,
+          78,
+          88
+        ],
+        "text": "Bevond zich in kolom 9, lager op de kaart dan Tammo."
+      },
+      {
+        "type": "left",
+        "a": 9,
+        "b": 3,
+        "cells": [
+          50,
+          51,
+          52,
+          53,
+          55,
+          56,
+          57,
+          58,
+          59
+        ],
+        "text": "Bevond zich in rij 6, links van Tammo."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "rug"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon stond op een vloerkleed."
+      },
+      {
+        "type": "emptyRooms",
+        "count": 1,
+        "text": "Precies één gebied was leeg."
+      }
+    ],
+    "printLayout": "festival",
+    "printLabel": "NOORDERZON · NA DE LAATSTE VOORSTELLING",
+    "mapNoun": "festivalkaart",
+    "mapCaption": "Iedereen krijgt een eigen rij én kolom.",
+    "mapNote": "Eigen fictieve festivalindeling, geïnspireerd op Noorderzon in het Noorderplantsoen. Geen bezoekersplattegrond of officiële samenwerking.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Tententree": "de",
+      "Garderobe": "de",
+      "Artiestenuitgang": "de",
+      "Festivaltent": "de",
+      "Picknickweide": "de",
+      "Avondbar": "de",
+      "Klinkerterras": "het",
+      "Parkpad": "het",
+      "Bomenveld": "het"
+    },
+    "outdoorAreas": [
+      "Picknickweide",
+      "Klinkerterras",
+      "Parkpad",
+      "Bomenveld"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de festivalvrijwilliger",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de lichttechnicus",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de theatermaakster",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de pizzabakker",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de programmeur",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de festivalbezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de podiumbouwer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de geluidstechnicus",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de illustratrice",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de terrasbeheerder",
+        "color": "#527b66"
+      }
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "festivalGate",
+        "name": "de festivalpoort",
+        "occupiable": false
+      },
+      {
+        "cell": 22,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalCoatrack-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 11,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalCoatrack-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 18,
+        "type": "guitar",
+        "name": "een gitaar",
+        "occupiable": false
+      },
+      {
+        "cell": 24,
+        "type": "festivalMirror",
+        "name": "een spiegelwand",
+        "occupiable": false
+      },
+      {
+        "cell": 46,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 47,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 30,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 31,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "noorderzon-table-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 52,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 53,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 48,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 49,
+        "type": "bar",
+        "name": "de bar",
+        "occupiable": false,
+        "furnitureId": "noorderzon-bar-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 78,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 79,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 54,
+        "type": "festivalLights",
+        "name": "de lichtmast",
+        "occupiable": false
+      },
+      {
+        "cell": 66,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 67,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 60,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 61,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 70,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-12",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 71,
+        "type": "festivalSculpture",
+        "name": "het kunstwerk",
+        "occupiable": false,
+        "furnitureId": "noorderzon-festivalSculpture-12",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 92,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 93,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 74,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 96,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-15",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 97,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "noorderzon-bench-15",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 25,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      },
+      {
+        "cell": 40,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-17",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 41,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-17",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 50,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-17",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 51,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "noorderzon-rug-17",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      }
+    ]
   }
 ]

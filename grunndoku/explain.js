@@ -1,4 +1,4 @@
-import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261026-general';
+import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261026-noorderzon';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.
@@ -38,6 +38,17 @@ export function explain(p,options={}){
     if(certain.length>rule.count||possible.length<rule.count)throw Error('Contradictory furniture count');
     if(certain.length===rule.count)for(let i=0;i<n;i++)if(!certain.includes(i))change=remove(i,c=>cells.has(c),`“${rule.text}” De ${rule.count} plekken zijn al nodig voor ${certain.map(name).join(', ')}`)||change;
     if(possible.length===rule.count)for(const i of possible)change=remove(i,c=>!cells.has(c),`“${rule.text}” Alleen ${possible.map(name).join(', ')} kunnen nog op deze voorwerpen staan` )||change;
+   }
+   for(const rule of p.clues.filter(c=>c.type==='emptyRooms')){
+    const possibleAreas=new Set(domains.flatMap(d=>d.map(c=>region(p,c))));
+    const occupiedAreas=new Set(domains.filter(d=>d.length&&d.every(c=>region(p,c)===region(p,d[0]))).map(d=>region(p,d[0])));
+    const empty=p.areas.flatMap((_,a)=>possibleAreas.has(a)?[]:[a]),maybeEmpty=p.areas.flatMap((_,a)=>occupiedAreas.has(a)?[]:[a]);
+    if(empty.length>rule.count||maybeEmpty.length<rule.count)throw Error('Contradictory empty-room count');
+    if(empty.length===rule.count)for(let a=0;a<p.areas.length;a++)if(!empty.includes(a)&&!occupiedAreas.has(a)){
+     const people=domains.flatMap((d,i)=>d.some(c=>region(p,c)===a)?[i]:[]);
+     if(people.length===1)change=remove(people[0],c=>region(p,c)!==a,`“${rule.text}” De lege gebieden zijn al bekend; alleen ${name(people[0])} kan nog in ${p.areas[a]} staan`)||change;
+    }
+    if(maybeEmpty.length===rule.count)for(let i=0;i<n;i++)change=remove(i,c=>maybeEmpty.includes(region(p,c)),`“${rule.text}” Alle overige gebieden zijn al zeker bezet`)||change;
    }
    const v=p.victim;
    change=remove(v,c=>{
