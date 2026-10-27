@@ -6,6 +6,8 @@ const root=fileURLToPath(new URL('../',import.meta.url)),puzzles=JSON.parse(fs.r
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
  const page=await browser.newPage({viewport:{width:1366,height:900}}),errors=[],rows=new Map();page.on('pageerror',e=>errors.push(e.message));
+ const bundle={id:'bundle-browser-fixture',title:'Testbundel',description:'Alleen voor lokale tests',case_count:1},owned=new Set();
+ const paid={...p,id:'bundle-browser-case',seriesId:bundle.id,bundleId:bundle.id};
  const user={id:'7fa5f62e-66af-4c13-a541-67e45132eb86',email:'browser-test@example.invalid',aud:'authenticated',role:'authenticated',app_metadata:{provider:'email'},user_metadata:{}};
  const token=Buffer.from(JSON.stringify({alg:'HS256',typ:'JWT'})).toString('base64url')+'.'+Buffer.from(JSON.stringify({sub:user.id,role:'authenticated',exp:Math.floor(Date.now()/1000)+3600})).toString('base64url')+'.test-signature';
  await page.route('https://apmxwvxdldpfemwtaouq.supabase.co/**',async route=>{
@@ -13,6 +15,10 @@ try{
   if(u.pathname==='/auth/v1/token')body={access_token:token,refresh_token:'fixture-refresh',expires_in:3600,token_type:'bearer',user};
   else if(u.pathname==='/auth/v1/user')body=user;
   else if(u.pathname==='/auth/v1/logout'){status=204;}
+  else if(u.pathname==='/rest/v1/grunndoku_bundles')body=[bundle];
+  else if(u.pathname==='/rest/v1/grunndoku_bundle_access')body=[...owned].map(bundle_id=>({bundle_id}));
+  else if(u.pathname==='/rest/v1/grunndoku_bundle_puzzles')body=owned.has(bundle.id)?[{data:paid}]:[];
+  else if(u.pathname==='/rest/v1/rpc/activate_grunndoku_bundle'){const input=req.postDataJSON();if(input.access_code==='FAKE-BUNDLE-CODE-2026'&&(!input.expected_bundle||input.expected_bundle===bundle.id)){owned.add(bundle.id);body={ok:true,bundle_id:bundle.id};}else body={ok:false,reason:'invalid'};}
   else if(u.pathname==='/rest/v1/grunndoku_progress'){
    const id=u.searchParams.get('puzzle_id')?.slice(3);
    if(req.method()==='GET')body=id?rows.get(id)||null:[...rows.values()];
@@ -30,10 +36,19 @@ try{
  await page.locator('#accountDialog .close').click();const second=page.locator('#board button:not([disabled])').nth(1);await second.click();const row=rows.get(p.id);rows.set(p.id,{...row,state:{...row.state,notes:{}},version:row.version+1});await page.click('#accountButton');await page.click('#retrySync');await page.waitForSelector('#syncConflicts:visible');assert.ok(await page.locator('#syncConflictList details').count()>=2);await page.locator('#syncConflictList button').first().click();await page.waitForFunction(()=>document.querySelector('#accountStatus').textContent.includes('online bijgewerkt'));
  await page.setViewportSize({width:390,height:844});await page.screenshot({path:'/tmp/grunndoku-account-mobile.png'});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  await page.click('#signOutAccount');await page.waitForSelector('#accountSignIn:visible');assert.equal(await page.locator('#board .pencil').count(),1,'the original guest copy is restored');
- await page.locator('#accountDialog .close').click();await page.reload();await page.waitForSelector('#themeStartScreen:visible');await page.click('#beginTheme');assert.equal(await page.locator('#board .pencil').count(),1);
+ await page.locator('#accountDialog .close').click();await page.reload();await page.waitForSelector('#puzzleScreen:visible');assert.equal(await page.locator('#board .pencil').count(),1);
  await page.goto('http://grunndoku.local/?accounts=preview#access_token='+token+'&refresh_token=fixture-refresh&expires_in=3600&token_type=bearer&type=recovery');
  await page.waitForSelector('#passwordRecovery:visible');await page.fill('#newPassword','New-fixture-password-456!');await page.locator('#passwordRecovery button').click();await page.waitForFunction(()=>document.querySelector('#accountMessage').textContent.includes('nieuwe wachtwoord is bewaard'));await page.click('#signOutAccount');await page.waitForSelector('#accountSignIn:visible');
  await page.goto('http://grunndoku.local/');await page.waitForSelector('#homeScreen:visible');assert.equal(await page.locator('#accountButton').isVisible(),false,'public login stays gated until SMTP is verified');assert.deepEqual(errors,[]);
+ // Shared theme-code UI contract; real database isolation is verified separately.
+ await page.goto('http://grunndoku.local/?accounts=preview');await page.waitForSelector('#openBundles:visible');await page.click('#openBundles');await page.fill('#bundleCode','FAKE-BUNDLE-CODE-2026');await page.locator('#bundleForm button').click();assert.match(await page.locator('#bundleStatus').innerText(),/Meld je eerst aan/);await page.locator('#bundleDialog .close').click();
+ await page.goto('http://grunndoku.local/?accounts=preview');await page.waitForSelector('#accountButton:visible');await page.click('#accountButton');await page.fill('#loginEmail',user.email);await page.fill('#loginPassword','Temporary-fixture-123!');await page.locator('#accountForm button[type=submit]').click();await page.waitForSelector('#accountSignedIn:visible');
+ await page.fill('#accountBundleCode','WRONG-CODE-123456');await page.locator('#accountBundleForm button').click();await page.waitForFunction(()=>document.querySelector('#accountBundleStatus').textContent.includes('niet geldig'));
+ await page.fill('#accountBundleCode','FAKE-BUNDLE-CODE-2026');await page.locator('#accountBundleForm button').click();await page.waitForFunction(()=>document.querySelector('#accountBundleStatus').textContent.includes('staat nu'));
+ assert.equal(await page.locator('#accountBundleCode').inputValue(),'');await page.locator('#accountDialog .close').click();await page.locator('.bundle-card button').click();await page.waitForSelector('#themeStartScreen:visible');assert.equal(await page.locator('#themeStartTitle').innerText(),bundle.title);await page.click('#beginTheme');assert.equal(await page.locator('#caseTitle').innerText(),p.title);assert.equal(await page.locator('#caseSelect option').count(),1);
+ await page.reload();await page.waitForSelector('#puzzleScreen:visible');assert.equal(await page.locator('#activeSeriesName').innerText(),bundle.title);
+ await page.click('#accountButton');await page.click('#signOutAccount');await page.waitForSelector('#accountSignIn:visible');await page.locator('#accountDialog .close').click();assert.equal(await page.locator('#homeScreen').isVisible(),true);assert.match(await page.locator('.bundle-card button').innerText(),/Toegangscode/);assert.ok(!await page.evaluate(()=>document.querySelector('#caseSelect').innerHTML.includes('bundle-browser-case')));
+ await page.locator('.bundle-card button').click();assert.equal(await page.locator('#bundleDialog').isVisible(),true);await page.locator('#bundleDialog .close').click();
  await page.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Storage unavailable','SecurityError');}}));
  await page.goto('http://grunndoku.local/');await page.waitForSelector('#homeScreen:visible');assert.match(await page.locator('#dossierStorage').innerText(),/venster openblijft/);await page.click('#classicSeries');await page.click('#beginTheme');await page.locator('#board button:not([disabled])').first().click();assert.equal(await page.locator('#board .pencil').count(),1);assert.deepEqual(errors,[]);
  console.log('Auth/Data API UI contract: scoped caches, explicit import, conflict choice, logout, reload, mobile and public gate OK. Email delivery and real Auth require separate live checks.');

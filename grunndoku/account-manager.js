@@ -25,7 +25,7 @@ function remoteAdapter(){
 }
 async function switchSession(user){
  if(identityInitialized&&currentUser?.id===user?.id){renderAccount();return;}
- handlers.beforeIdentityChange?.();currentUser=user||null;identityInitialized=true;accountStore.setUser(user?.id);handlers.onIdentityChange?.();renderAccount();
+ handlers.beforeIdentityChange?.();currentUser=user||null;identityInitialized=true;accountStore.setUser(user?.id);handlers.onIdentityChange?.();renderAccount();window.dispatchEvent(new Event('grunndoku:identitychange'));
  if(user)await sync();
 }
 async function ensureClient(){
@@ -67,9 +67,11 @@ function authError(error){
  if(!navigator.onLine||error.name==='AuthRetryableFetchError'||error instanceof TypeError)return 'Geen verbinding met de accountdienst. Je lokale voortgang blijft bewaard.';
  return 'Aanmelden is niet gelukt. Controleer je gegevens of probeer het later opnieuw.';
 }
+export function getAccountClient(){return ensureClient();}
+export async function openAccount(){ $('accountDialog').showModal();try{await ensureClient();}catch(error){$('accountMessage').textContent=authError(error);}}
 export function startAccounts(options){
  handlers=options;renderAccount();
- $('accountButton').onclick=async()=>{$('accountDialog').showModal();try{await ensureClient();}catch(error){$('accountMessage').textContent=authError(error);}};
+ $('accountButton').onclick=openAccount;
  $('accountForm').onsubmit=event=>{event.preventDefault();action(async()=>{const c=await ensureClient(),{data,error}=await c.auth.signInWithPassword({email:$('loginEmail').value.trim(),password:$('loginPassword').value});if(error)throw error;await switchSession(data.user);$('loginPassword').value='';$('accountMessage').textContent='Moi, je persoonlijke dossier is geopend.';});};
  $('registerAccount').onclick=()=>{if(!$('accountForm').reportValidity())return;action(async()=>{const c=await ensureClient(),{error}=await c.auth.signUp({email:$('loginEmail').value.trim(),password:$('loginPassword').value,options:{emailRedirectTo:location.origin+location.pathname}});if(error)throw error;$('loginPassword').value='';$('accountMessage').textContent='Als dit adres kan worden geregistreerd, ontvang je een bevestigingsmail. Bevestig je adres en meld je daarna aan.';});};
  $('resetPassword').onclick=()=>{if(!$('loginEmail').reportValidity())return;action(async()=>{const c=await ensureClient(),{error}=await c.auth.resetPasswordForEmail($('loginEmail').value.trim(),{redirectTo:location.origin+location.pathname+'?reset-password=1'});if(error)throw error;$('accountMessage').textContent='Als dit adres bij een account hoort, ontvang je een mail om je wachtwoord te wijzigen.';});};
