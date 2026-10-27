@@ -8,7 +8,7 @@ test('district nameplates stay inside their own connected district on screen and
   const labels=areaLabels(p);assert.equal(labels.length,p.areas.length);
   for(const l of labels){assert.ok(l.length>0);assert.ok(l.cells.every(c=>p.regions[c]===l.area));
    if(l.vertical){assert.ok(l.row+l.length<=(p.height||p.size));assert.ok(l.cells.every(c=>c%p.size===l.col&&(l.col===0||p.regions[c-1]!==l.area)));}
-   else{assert.ok(l.col+l.length<=p.size);assert.ok(l.length<=Math.ceil(l.name.length/(['martini','winter','noorderzon'].includes(p.seriesId)?5:8)));if(l.insideEdge){assert.equal(p.seriesId,'noorderzon');assert.ok(l.length>=2);const end=l.cells.at(-1);assert.ok(l.col+l.length===p.size||p.regions[end+1]!==l.area);}else assert.ok(l.cells.every(c=>l.row===(p.height||p.size)-1||p.regions[c+p.size]!==l.area));}
+   else{assert.ok(l.col+l.length<=p.size);assert.ok(l.length<=Math.ceil(l.name.length/(['martini','winter','noorderzon'].includes(p.seriesId)?5:8)));if(l.insideEdge){assert.ok(p.seriesId==='noorderzon'||p.setting==='martini-surroundings');assert.ok(l.length>=2);const end=l.cells.at(-1);assert.ok(l.col+l.length===p.size||p.regions[end+1]!==l.area);}else assert.ok(l.cells.every(c=>l.row===(p.height||p.size)-1||p.regions[c+p.size]!==l.area));}
   }
   assert.equal((boardMarkup(p).match(/class="area-name /g)||[]).length,p.areas.length);
   assert.equal((printSheet(p).match(/class="area-name /g)||[]).length,p.areas.length);

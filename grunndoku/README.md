@@ -1,6 +1,6 @@
 # Grunndoku
 
-Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Vierenveertig fictieve zaken in vijf reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers, negen zaken Moord in de Martini (zes kerkzaken en drie torenzaken) zes WinterWelVaart-zaken en acht Noorderzon-zaken. Tien historische versies blijven bereikbaar via Eerdere zaken. `person-order.js` zet het slachtoffer achteraan zonder opslagindices te wijzigen. `starter-clues.mjs` vervangt de vijf oude beginsituaties met gegeven personen door gewone aanwijzingen en bewaart hun oplossingen. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
+Een zelfstandig Gronings detectivepuzzelspel onder Leren met Loes. Zevenenveertig fictieve zaken in vijf reeksen: zeventien Stadse speurtochten, vier Nacht in Stad-dossiers, twaalf zaken Moord in de Martini (zes kerkzaken, drie torenzaken en drie zaken rond de Martini) zes WinterWelVaart-zaken en acht Noorderzon-zaken. Tien historische versies blijven bereikbaar via Eerdere zaken. `person-order.js` zet het slachtoffer achteraan zonder opslagindices te wijzigen. `starter-clues.mjs` vervangt de vijf oude beginsituaties met gegeven personen door gewone aanwijzingen en bewaart hun oplossingen. Alle actuele zaken gebruiken verzorgde mugshots, aparte slachtofferportretten, compacte ruimtebanners en bezetbare meubels. Kaarten zijn schematisch; er wordt geen officiële samenwerking met locaties of andere spellen gesuggereerd.
 
 Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` opent het startblad van de tweede reeks; `?serie=martini` opent het startblad van de kerkserie; `?serie=winter` opent het startblad van WinterWelVaart.
 
@@ -86,9 +86,9 @@ Print deze zaak geeft een schone puzzel zonder introductie. Een bundel begint me
 
 Stadse en nachtelijke zaken gebruiken één liggend A4 per zaak. Kleine Martini-zaken (maximaal 10 personen op een kaart van hoogstens 12 × 10 vakken) combineren de kaart en personages op één liggend A4. Grotere zaken gebruiken één kaartpagina plus één personagepagina. Alle zestien personages van de finale passen op één dossierpagina. Mugshotnamen staan alleen op het vastgehouden bord.
 
-- `grunndoku-print.pdf`: alle 44 zaken, 53 pagina’s inclusief introductie.
+- `grunndoku-print.pdf`: alle 47 zaken, 56 pagina’s inclusief introductie.
 - `grunndoku-nacht-in-stad.pdf`: vier nachtelijke zaken, 6 pagina’s inclusief introductie.
-- `grunndoku-moord-in-de-martini.pdf`: negen kerk- en torenzaken, 15 pagina’s inclusief introductie.
+- `grunndoku-moord-in-de-martini.pdf`: twaalf kerk-, toren- en omgevingszaken, 18 pagina’s inclusief introductie.
 - `grunndoku-martinitoren.pdf`: alleen de drie torenzaken, 6 pagina’s inclusief introductie.
 - `grunndoku-winterwelvaart.pdf`: zes winterzaken, 11 pagina’s inclusief introductie.
 
@@ -107,3 +107,15 @@ De SVG-illustraties in `art.js`, puzzels, verhalen en uitleg zijn voor dit proje
 ## Noorderzon
 
 Acht nieuwe, onafhankelijke zaken in een vijfde thema, met eigen startblad en `grunndoku-noorderzon.pdf` (10 liggende A4-pagina’s: twee oefenbladen en acht zaken). Spiegeltent, foodtruckveld, vijver/vlonder, fonteinterras, fietsenstalling, muziekpodium, bosroute en avondterras hebben eigen indelingen. Zes tot tien personages, niveaus 1/2/2/3/3/4/5/5, geen XXL. Iedere persoonsaanwijzing laat aanvankelijk minstens twee plekken open. Hogere zaken combineren relaties, rij- of kolomgegevens en gezamenlijke meubeltellingen. De drie laatste zaken bevatten ook een openbare telling van lege gebieden; de uitleg rekent het slachtoffer daarbij mee. Alle zaken hebben één oplossing en een deductieve uitleg zonder zoekstappen. `noorderzon.mjs` gebruikt de algemene generatorstand; oude dossiers gebruiken dezelfde oorspronkelijke constructie en behouden hun inhoud. `festival-art.js` bevat eigen SVG-voorwerpen en de lichtslingers/fontein; `waterCells` houdt vijverwater apart van andere onbespeelbare buitenranden.
+
+## Rond de Martini
+
+Drie compacte aanvullingen in het bestaande Martini-thema: De laatste koffie (De Kostery, 3 sterren, 8 personen), Schaduw bij de zonnewijzer (Prinsentuin, 4 sterren, 9 personen) en Een besloten ontvangst (Prinsenhof, 5 sterren, 10 personen). `martini-surroundings.mjs` maakt de eigen indelingen en brede, deductieve aanwijzingen; `garden-art.js` bevat eigen café- en tuinillustraties. Iedere nieuwe persoonsaanwijzing laat meerdere vakken open. De kerk, toren en drie omliggende locaties hebben zelfstandige kaarten. De Kostery combineert de twee verdiepingen en terrassen in één uitgeklapt rooster. De Martini-bundel telt nu 18 A4-pagina’s; het volledige boek 56.
+
+## Compacte bediening
+
+Spelregels staan één keer in de vaste hoofdbalk. Het Zaakmenu groepeert printen, PDF-downloads, archief, oplossing en opnieuw beginnen. Alle zaken opent het gefilterde overzicht naast de zaakkeuze. De kaart houdt alleen de persoonskeuze, zoom, notitiegereedschap en spelacties over. Knoppen delen een vaste vorm en kleurhiërarchie. Kaartgrootte houdt rekening met de vaste balk; menu’s sluiten met Escape of een klik erbuiten. Spelvoortgang en toetsbediening blijven behouden.
+
+## Persoonlijk speurdersdossier
+
+Gastvoortgang gebruikt de bestaande opslag-ID’s. De start toont opgeloste zaken, voortgang per thema en een knop om een begonnen zaak te hervatten. Iedere afronding krijgt een van twintig eigen, bemoedigende reacties van Fokko, zonder beoordeling op snelheid of hulpgebruik. Alleen bij afronding zie je speeltijd. De niveau-evaluatie is optioneel en ingeklapt. Accounts en synchronisatie zijn nog niet aangesloten; lokale opslag is geen account.
