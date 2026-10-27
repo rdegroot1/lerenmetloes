@@ -1,17 +1,18 @@
-import {progressSummary,resumeCase,milestoneText} from './progress.js?v=20261027-dossier';
-import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-dossier';
-import {THEMES,tutorialFor} from './themes.js?v=20261027-dossier';
-import {personEntries} from './person-order.js?v=20261027-dossier';
-import {updateBoard} from './board-dom.js?v=20261027-dossier';
-import {reasoningHint} from './hints.js?v=20261027-dossier';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261027-dossier';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261027-dossier';
-import {landmarkArt,objectArt} from './art.js?v=20261027-dossier';
-import {explain} from './explain.js?v=20261027-dossier';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-dossier';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-dossier';
+import {accountStore,saveProgress,startAccounts,preferenceKey,accountPreview} from './account-manager.js?v=20261027-accounts';
+import {progressSummary,resumeCase,milestoneText,caseProgress} from './progress.js?v=20261027-accounts';
+import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-accounts';
+import {THEMES,tutorialFor} from './themes.js?v=20261027-accounts';
+import {personEntries} from './person-order.js?v=20261027-accounts';
+import {updateBoard} from './board-dom.js?v=20261027-accounts';
+import {reasoningHint} from './hints.js?v=20261027-accounts';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261027-accounts';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261027-accounts';
+import {landmarkArt,objectArt} from './art.js?v=20261027-accounts';
+import {explain} from './explain.js?v=20261027-accounts';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-accounts';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-accounts';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261027-dossier';
+const DATA_VERSION='20261027-accounts';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
@@ -25,13 +26,13 @@ const compactCase=q=>q.people.length<=10&&gridWidth(q)<=12&&gridHeight(q)<=10;
 const largeCase=q=>['martini','winter','noorderzon'].includes(q.seriesId)&&!compactCase(q);
 function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify({map:zoom,people:peopleZoom}));}catch{}}
 // Keep the original storage namespace so existing browser progress survives the rename.
-const key=p=>'grunmurdoku:v1:'+p.id;
+// Guest keys are preserved by account-store.js; account caches stay separate.
 function load(i){
  if(state){settlePlayTime();persist();}
  lastPlayTick=performance.now();index=i;p=puzzles[i];document.querySelector('.clue-page').scrollTop=0;mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
  const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,difficultyFeedback:null};state=defaults;
  try{
-  const saved=JSON.parse(localStorage.getItem(key(p)));
+  const saved=accountStore.open(p.id);
   if(saved&&typeof saved.positions==='object'&&Array.isArray(saved.crosses)&&Array.isArray(saved.checked)){
    const positions=Object.fromEntries(Object.entries(saved.positions).filter(([who,cell])=>/^\d+$/.test(who)&&+who<p.people.length&&canStand(p,cell)));
    const notes=Object.fromEntries(Object.entries(saved.notes||{}).filter(([c,ids])=>canStand(p,+c)&&Array.isArray(ids)).map(([c,ids])=>[c,[...new Set(ids.filter(who=>Number.isInteger(who)&&who>=0&&who<p.people.length&&!Object.hasOwn(p.givens||{},who)))]]));
@@ -64,10 +65,15 @@ function showScreen(name){
  $('backHome').hidden=name==='home';$('backTheme').hidden=name!=='puzzle';$('caseMenu').hidden=name!=='puzzle';closeMenus();
 }
 function closeMenus(){for(const id of ['caseMenu','caseOverview'])$(id).open=false;}
-function route(screen,i,replace=false){const series=screen==='home'?null:(puzzles[i].seriesId||'stad');window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(series?'?serie='+series:''));}
+function route(screen,i,replace=false){
+ const series=screen==='home'?null:(puzzles[i].seriesId||'stad'),query=new URLSearchParams();
+ if(series)query.set('serie',series);if(accountPreview)query.set('accounts','preview');
+ // Supabase consumes and removes its confirmation/recovery fragment on startup.
+ window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(query.size?'?'+query:'')+location.hash);
+}
 function showHome(record=true){renderDossier();showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
 function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
- introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261027-dossier';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261027-accounts';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
@@ -76,11 +82,11 @@ function renderExample(){
  $('exampleReason').textContent=example===0?'Begin bij Cora’s aanwijzing. Zoek het meubel met het groene merkje.':example===1?'Voor Cora past één plek: rij 3, kolom 2. Haar rij en kolom vallen nu af voor de anderen.':`Voor Fokko blijft rij 4, kolom 4 over. Alleen Bertus deelt het gebied ${sample.areas[1]} met hem: in dit voorbeeld is Bertus de dader.`;
  $('exampleStep').textContent=example===2?'Begin het voorbeeld opnieuw ↺':example===0?'Toon de eerste denkstap →':'Toon de tweede denkstap →';
 }
-function openCase(i,record=true){try{localStorage.setItem('grunndoku:last-case:v1',puzzles[i].id);}catch{}const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}
+function openCase(i,record=true){try{localStorage.setItem(preferenceKey('last-case'),puzzles[i].id);}catch{}const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}
 $('backHome').onclick=()=>showHome();$('backTheme').onclick=()=>showTheme(p.seriesId||'stad',index);$('beginTheme').onclick=()=>openCase(introIndex);$('themeCaseSelect').onchange=e=>{introIndex=+e.target.value;route('theme',introIndex,true);};$('exampleStep').onclick=()=>{example=(example+1)%3;renderExample();};
 window.addEventListener('popstate',event=>{const state=event.state;if(state?.screen==='puzzle')openCase(state.index,false);else if(state?.screen==='theme')showTheme(puzzles[state.index].seriesId||'stad',state.index,false);else showHome(false);});
 
-function persist(){if(currentScreen==='puzzle'&&!state.solved)state.updatedAt=Date.now();state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
+function persist(){if(accountStore.userId&&!accountStore.read(p.id)&&!caseProgress(p,state).started)return;if(currentScreen==='puzzle'&&!state.solved)state.updatedAt=Date.now();state.clueVersion=p.clueVersion||1;try{saveProgress(p.id,state);}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
 function snapshot(){history.push(JSON.stringify(state));if(history.length>100)history.shift();}
 function say(text){$('message').textContent=text;}
 function clueLabel(clue,j){
@@ -88,12 +94,12 @@ function clueLabel(clue,j){
  input.onchange=()=>{snapshot();state.checked=input.checked?[...state.checked,j]:state.checked.filter(x=>x!==j);persist();};
  const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);return label;
 }
-function readSave(q){try{return JSON.parse(localStorage.getItem(key(q)));}catch{return null;}}
+function readSave(q){return accountStore.read(q.id);}
 function dossier(){return progressSummary(puzzles.slice(0,mainCount),q=>q.id===p?.id?state:readSave(q));}
 let progressSnapshot;
 function caseProgressFor(q){return (progressSnapshot||dossier()).cases.find(c=>c.id===q.id)||{started:false,solved:false};}
 function renderDossier(){
- const summary=dossier();progressSnapshot=summary;let last;try{last=localStorage.getItem('grunndoku:last-case:v1');}catch{}
+ const summary=dossier();progressSnapshot=summary;let last;try{last=localStorage.getItem(preferenceKey('last-case'));}catch{}
  const resume=resumeCase(summary,last);$('resumeCase').hidden=!resume;
  if(resume){$('resumeCase').textContent=`Verder met ${puzzles[resume.index].title} →`;$('resumeCase').onclick=()=>openCase(resume.index);}
  $('dossierCount').textContent=`${summary.solved} van ${summary.total} zaken opgelost`;
@@ -265,7 +271,7 @@ document.querySelectorAll('[data-difficulty-vote]').forEach(button=>button.oncli
  state.difficultyFeedback={vote:button.dataset.difficultyVote,stars:p.difficultyStars||3,clueVersion:p.clueVersion||1,hintsUsed:state.hintsUsed||0,date:new Date().toISOString()};persist();renderDifficultyFeedback();
 });
 $('downloadRatings').onclick=()=>{
- const ratings=puzzles.flatMap(q=>{try{const saved=JSON.parse(localStorage.getItem(key(q)));return saved?.difficultyFeedback?[{id:q.id,title:q.title,...saved.difficultyFeedback}]:[];}catch{return [];}});
+ const ratings=puzzles.flatMap(q=>{try{const saved=readSave(q);return saved?.difficultyFeedback?[{id:q.id,title:q.title,...saved.difficultyFeedback}]:[];}catch{return [];}});
  const url=URL.createObjectURL(new Blob([JSON.stringify({game:'Grunndoku',version:1,ratings},null,2)],{type:'application/json'}));
  const a=document.createElement('a');a.href=url;a.download='grunndoku-proefspeelnotities.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
@@ -312,3 +318,20 @@ $('reset').classList.add('is-danger');
 document.addEventListener('pointerdown',event=>{for(const id of ['caseMenu','caseOverview'])if(!$(id).contains(event.target))$(id).open=false;});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&($('caseMenu').open||$('caseOverview').open)){closeMenus();event.preventDefault();}});
 $('caseMenu').addEventListener('click',event=>{if(event.target.closest('a'))closeMenus();});
+
+function reloadAccountDossier(ids=null){
+ if(!ids||ids.includes(p.id)){
+  const chosen=selected,scroll=document.querySelector('.clue-page').scrollTop;
+  state=undefined;load(index);selected=chosen;render();document.querySelector('.clue-page').scrollTop=scroll;
+ }else render();
+}
+startAccounts({
+ beforeIdentityChange:()=>{if(state){settlePlayTime();persist();}},
+ beforeSync:()=>{if(state){settlePlayTime();persist();}},
+ onIdentityChange:()=>reloadAccountDossier(),
+ onRemoteChange:ids=>reloadAccountDossier(ids),
+ guestCaseIds:()=>puzzles.filter(q=>{try{return caseProgress(q,JSON.parse(localStorage.getItem('grunmurdoku:v1:'+q.id))).started;}catch{return false;}}).map(q=>q.id),
+ caseTitle:id=>puzzles.find(q=>q.id===id)?.title||id,
+ describeState:(id,saved)=>{const q=puzzles.find(q=>q.id===id);if(!saved||!q)return 'Nog geen voortgang.';return Object.entries(saved.positions||{}).map(([who,cell])=>`${q.people[who]?.name||'Persoon'}: rij ${Math.floor(cell/gridWidth(q))+1}, kolom ${cell%gridWidth(q)+1}`).join('\n')+`\n${Object.keys(saved.notes||{}).length} vakken met concepten · ${saved.checked?.length||0} afgevinkte aanwijzingen${saved.solved?' · opgelost':''}`;}
+
+});

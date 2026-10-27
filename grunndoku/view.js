@@ -1,10 +1,10 @@
-import {festivalDecoration} from './festival-art.js?v=20261027-dossier';
-import {personEntries} from './person-order.js?v=20261027-dossier';
-import {surfaceFor,printFloorPlane,waterAt} from './surfaces.js?v=20261027-dossier';
-import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261027-dossier';
-import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261027-dossier';
-import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261027-dossier';
-import {difficultyMarkup} from './difficulty.js?v=20261027-dossier';
+import {festivalDecoration} from './festival-art.js?v=20261027-accounts';
+import {personEntries} from './person-order.js?v=20261027-accounts';
+import {surfaceFor,printFloorPlane,waterAt} from './surfaces.js?v=20261027-accounts';
+import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261027-accounts';
+import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261027-accounts';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261027-accounts';
+import {difficultyMarkup} from './difficulty.js?v=20261027-accounts';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
 export function areaLabels(p){

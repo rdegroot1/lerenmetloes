@@ -118,4 +118,6 @@ Spelregels staan één keer in de vaste hoofdbalk. Het Zaakmenu groepeert printe
 
 ## Persoonlijk speurdersdossier
 
-Gastvoortgang gebruikt de bestaande opslag-ID’s. De start toont opgeloste zaken, voortgang per thema en een knop om een begonnen zaak te hervatten. Iedere afronding krijgt een van twintig eigen, bemoedigende reacties van Fokko, zonder beoordeling op snelheid of hulpgebruik. Alleen bij afronding zie je speeltijd. De niveau-evaluatie is optioneel en ingeklapt. Accounts en synchronisatie zijn nog niet aangesloten; lokale opslag is geen account.
+Gastvoortgang gebruikt de bestaande opslag-ID’s. De start toont opgeloste zaken, voortgang per thema en een knop om een begonnen zaak te hervatten. Iedere afronding krijgt een van twintig eigen, bemoedigende reacties van Fokko, zonder beoordeling op snelheid of hulpgebruik. Alleen bij afronding zie je speeltijd. De niveau-evaluatie is optioneel en ingeklapt. Er is nu een Supabase-accountproef met aparte lokale caches en versiecontrole. De openbare login blijft uit totdat SMTP, terugkeeradressen en een echte aanmeldtest zijn afgerond; lokale gastopslag is geen account.
+
+Accountinrichting en resterende stappen: zie [ACCOUNTS.md](ACCOUNTS.md). De gebundelde Supabase-browserclient is vastgezet in package-lock.json; bouw met `npm ci && npm run build:auth`. Node_modules wordt niet gepubliceerd. Upstreamlicenties staan in vendor/LICENSES.txt.
