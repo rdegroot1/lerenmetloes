@@ -173,3 +173,8 @@ footer{flex-wrap:wrap;gap:10px}.fiction-note{flex-basis:100%;font-size:9px;color
  @media(max-width:650px){.account-dialog{padding:22px 18px}.account-form-actions{display:grid;grid-template-columns:1fr}.app-header .header-actions{gap:5px}.header-actions .ui-button{padding:7px 8px}}
 }
 @media screen{.conflict-preview{white-space:pre-line;font-size:12px!important}#syncConflictList details{margin:9px 0}#syncConflictList summary{cursor:pointer;font-size:13px}}
+
+/* Personal encouragement, never a speed grade. */
+.dossier-score{font-size:13px;color:#3e614b;margin:6px 0}.score-card{background:#eef2df;border:1px solid #ccd7b6;border-radius:12px;padding:18px;margin:18px 0 12px}.score-card strong{display:block;font:700 23px/1.3 Georgia,serif;color:#34543f}.score-card small{display:block;font-size:12px;line-height:1.6;margin-top:8px;color:#526257}.completion-help{font-size:14px;line-height:1.6}.case-recommendation{background:#f6f2e8;border-radius:10px;padding:14px;margin:16px 0}.case-recommendation p{font-size:14px;line-height:1.5}.case-recommendation small{display:block;font-size:11px;line-height:1.5;color:#637167;margin:8px 0}.help-offer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;padding:8px 0}.help-offer[hidden]{display:none}.help-offer .quiet{font-size:12px;padding:8px}.help-offer span{flex:1 1 160px}@media print{.help-offer,.dossier-score{display:none}}
+
+#shareStatus{font-size:13px;color:#3e614b;line-height:1.5}#shareFallback{text-align:left;margin:12px 0}#shareFallback textarea{box-sizing:border-box;width:100%;font:14px/1.5 Arial,sans-serif;padding:10px;border:1px solid #aebd9f;border-radius:8px;background:#fffdf6;color:#263e31}
