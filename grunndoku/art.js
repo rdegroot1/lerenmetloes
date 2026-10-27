@@ -1,5 +1,5 @@
-import {gardenDrawings} from './garden-art.js?v=20261027-dossier';
-import {festivalDrawings} from './festival-art.js?v=20261027-dossier';
+import {gardenDrawings} from './garden-art.js?v=20261027-accounts';
+import {festivalDrawings} from './festival-art.js?v=20261027-accounts';
 // Original vector illustrations, drawn for Grunndoku. No external image dependencies.
 const svg=(body,view='0 0 100 100')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view}" aria-hidden="true" focusable="false">${body}</svg>`;
 export function portrait(i,personName='Arend',plain=false,deceased=false){

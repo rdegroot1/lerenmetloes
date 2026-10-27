@@ -1,0 +1,2 @@
+# Upstream generated JS contains intentional whitespace in template literals.
+vendor/supabase.js -whitespace linguist-generated=true

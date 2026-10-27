@@ -1,4 +1,4 @@
-import {valid,canStand} from './engine.js?v=20261027-dossier';
+import {valid,canStand} from './engine.js?v=20261027-accounts';
 // Derive the dossier from existing saves, keeping stable puzzle/storage IDs.
 export function caseProgress(p,saved){
  if(!saved||!saved.positions||typeof saved.positions!=='object')return {started:false,solved:false,placed:0,updatedAt:0};

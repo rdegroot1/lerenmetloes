@@ -1,4 +1,4 @@
-import {gridWidth,gridHeight} from './engine.js?v=20261027-dossier';
+import {gridWidth,gridHeight} from './engine.js?v=20261027-accounts';
 // Original, schematic floor finishes. They add atmosphere while room colours
 // and thick boundaries continue to carry the puzzle information.
 export const waterAt=(p,c)=>p.mapBackdrop==='water'||!!p.waterCells?.includes(c);
