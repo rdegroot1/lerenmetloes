@@ -59,3 +59,8 @@ Alle zes puzzelkaarten zijn zelfstandig ontworpen rasteruitsneden. De officiële
 ## Vloerpatronen
 
 De houten planken met nerf, golven, tegels, natuursteen en baksteen zijn voor dit project getekende herhalende SVG-patronen voor scherm en papier. Er zijn geen externe textuurbestanden of vloerfoto’s gebruikt. `surfaces.js` koppelt de sfeertekeningen aan scheepsruimtes, pakhuizen, kerkzones en torenverdiepingen. Die keuze is een eigen, schematische illustratie en geen claim dat iedere afgebeelde echte ruimte precies deze vloer heeft.
+
+## Noorderzon en ideeën voor Rond de Martini — 26 oktober 2026
+
+- [Officiële Noorderzon-plattegronden](https://www.noorderzon.nl/plan-je-bezoek/plattegronden) en [terreinbeschrijving](https://www.noorderzon.nl/faq/hoe-ziet-noorderzon-eruit): context voor spiegeltent Pollux, vijverpodium, De Winkel, Speelweide en festivalvoorzieningen. Gebruik de bron voor locatiekennis; de puzzelkaarten, interieurs en illustraties zijn eigen ontwerpen. De terreinkaart is geen overgenomen asset. De staande rechthoek met centrale fontein is de door de gebruiker gevraagde schematische vijvervorm. De fictieve zaken zijn geen reconstructie van een specifieke festivalavond. Geen logo’s of programmamakers overgenomen.
+- [De Kostery, eigen zaalbeschrijving](https://dekostery.nl/zaalverhuur/): voormalige kosterswoning, bar, bovenruimte Marktzicht en terras. [Prinsentuin, Visit Groningen](https://www.visitgroningen.nl/nl/plekken/stad/prinsentuin-garden): ommuurde tuin achter Prinsenhof, met rozentuin, kruidentuin, loofgangen en theeschenkerij. Alleen gebruikt voor een toekomstig uitbreidingsvoorstel, niet als verwijzing naar echte betrokkenen bij een misdrijf.

@@ -1,5 +1,5 @@
-import {solve,gridWidth} from './engine.js?v=20261026-general';
-import {explain} from './explain.js?v=20261026-general';
+import {solve,gridWidth} from './engine.js?v=20261026-noorderzon';
+import {explain} from './explain.js?v=20261026-noorderzon';
 // Hint text is derived from public constraint propagation. It never writes to
 // player state, trusts pencil marks or silently places a solution on the board.
 export function reasoningHint(p,initial={}){

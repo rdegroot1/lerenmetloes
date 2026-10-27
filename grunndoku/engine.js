@@ -15,6 +15,11 @@ export const region = (p, cell) => p.regions[cell];
 export function matches(p, positions, clue, complete = false) {
   const a = positions[clue.a], b = positions[clue.b];
   if(a!=null&&clue.cells&&!clue.cells.includes(a))return false;
+  if(clue.type==='emptyRooms'){
+   const occupied=new Set(Object.values(positions).map(c=>region(p,c))),unplaced=p.people.length-Object.keys(positions).length;
+   const maximum=p.areas.length-occupied.size,minimum=Math.max(0,maximum-unplaced);
+   return minimum<=clue.count&&maximum>=clue.count&&(!complete||maximum===clue.count);
+  }
   if(clue.type==='roomAlone'){
    if(a!=null&&region(p,a)!==clue.area)return false;
    return !Object.entries(positions).some(([i,c])=>+i!==clue.a&&region(p,c)===clue.area);

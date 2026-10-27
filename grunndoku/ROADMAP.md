@@ -16,3 +16,9 @@ Per reeks:
 - Laat op niveau 6 een groot, samenhangend deel van de locatie terugkomen, met extra personen en een eigen XXL-label.
 - Controleer één oplossing, één aanwijzing per verdachte of gegeven plek, geen verwijzing naar het slachtoffer en een beredeneerbare route naar de oplossing.
 - Kleine zaken op één liggend A4; grote op een kaartblad en personageblad. Bundels krijgen twee oefenpagina’s.
+
+## Noorderzon en Rond de Martini
+
+Noorderzon is op verzoek een uitzondering op de zesdelige standaard: acht normale zaken, niveaus 1/2/2/3/3/4/5/5, geen XXL. Een vijfde themakaart en eigen PDF; de eerdere losse Noorderzon-zaak blijft behouden. De vijver is op verzoek een staande rechthoek met een centrale fontein.
+
+Idee voor latere uitbreiding van Moord in de Martini: een drieluik “Rond de Martini”, met De Kostery (bar, bovenkamer Marktzicht, terras), de Prinsentuin (rozen, kruiden, loofgangen, zonnewijzerpoort, theeschenkerij) en een ontvangst bij Prinsenhof (binnenplaats, brasserie en tuinrand). Het zijn afzonderlijke locaties rond het Martinikerkhof; teken geen verzonnen binnendoorverbinding met de kerk. Dit drieluik is alleen een voorstel, nog geen gemaakte puzzelserie.

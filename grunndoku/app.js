@@ -1,15 +1,15 @@
-import {THEMES,tutorialFor} from './themes.js?v=20261026-general';
-import {personEntries} from './person-order.js?v=20261026-general';
-import {updateBoard} from './board-dom.js?v=20261026-general';
-import {reasoningHint} from './hints.js?v=20261026-general';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-general';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-general';
-import {landmarkArt,objectArt} from './art.js?v=20261026-general';
-import {explain} from './explain.js?v=20261026-general';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-general';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-general';
+import {THEMES,tutorialFor} from './themes.js?v=20261026-noorderzon';
+import {personEntries} from './person-order.js?v=20261026-noorderzon';
+import {updateBoard} from './board-dom.js?v=20261026-noorderzon';
+import {reasoningHint} from './hints.js?v=20261026-noorderzon';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-noorderzon';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-noorderzon';
+import {landmarkArt,objectArt} from './art.js?v=20261026-noorderzon';
+import {explain} from './explain.js?v=20261026-noorderzon';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-noorderzon';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-noorderzon';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-general';
+const DATA_VERSION='20261026-noorderzon';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
@@ -20,7 +20,7 @@ const caseOptions=()=>choiceCases().map(q=>`<option value="${puzzles.indexOf(q)}
 let index=0,p,state,selected=0,mode='place',history=[],zoom=1,peopleZoom=1,hintSession=null,mapBase=0;
 try{const preferences=JSON.parse(localStorage.getItem('grunndoku:view:v1'));if(preferences){if(Number.isFinite(preferences.map))zoom=Math.min(3,Math.max(.5,preferences.map));if(Number.isFinite(preferences.people))peopleZoom=Math.min(1.5,Math.max(.7,preferences.people));}}catch{}
 const compactCase=q=>q.people.length<=10&&gridWidth(q)<=12&&gridHeight(q)<=10;
-const largeCase=q=>['martini','winter'].includes(q.seriesId)&&!compactCase(q);
+const largeCase=q=>['martini','winter','noorderzon'].includes(q.seriesId)&&!compactCase(q);
 function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify({map:zoom,people:peopleZoom}));}catch{}}
 // Keep the original storage namespace so existing browser progress survives the rename.
 const key=p=>'grunmurdoku:v1:'+p.id;
@@ -47,7 +47,7 @@ function showScreen(name){
 function route(screen,i,replace=false){const series=screen==='home'?null:(puzzles[i].seriesId||'stad');window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(series?'?serie='+series:''));}
 function showHome(record=true){showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
 function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
- introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-general';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-noorderzon';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
@@ -71,9 +71,10 @@ function clueLabel(clue,j){
 function render(){
  const clueScroll=document.querySelector('.clue-page').scrollTop;
  const options=caseOptions();for(const id of ['caseSelect','themeCaseSelect']){$(id).innerHTML=options;$(id).value=String(index);}
- const church=['martini','winter'].includes(p.seriesId),width=gridWidth(p),height=gridHeight(p);
+ const church=['martini','winter','noorderzon'].includes(p.seriesId),width=gridWidth(p),height=gridHeight(p);
  document.querySelector('.book').classList.toggle('series-martini',church);
  document.querySelector('.book').classList.toggle('series-winter',p.seriesId==='winter');
+ document.querySelector('.book').classList.toggle('series-noorderzon',p.seriesId==='noorderzon');
  document.querySelector('.book').classList.toggle('compact-case',compactCase(p));document.querySelector('.book').classList.toggle('large-case',largeCase(p));
  document.querySelector('.clue-page').style.setProperty('--people-scale',peopleZoom);
  const headerParent=church?$('martiniHeader'):document.querySelector('.clue-page');
@@ -92,7 +93,7 @@ function render(){
  $('zoomOut').disabled=zoom<=.5;$('zoomIn').disabled=zoom>=3;
  $('peopleZoomValue').textContent=`${Math.round(peopleZoom*100)}%`;$('peopleZoomOut').disabled=peopleZoom<=.7;$('peopleZoomIn').disabled=peopleZoom>=1.5;
  $('quickPerson').innerHTML=personEntries(p).map(({person,i})=>`<option value="${i}" ${i===selected?'selected':''} ${Object.hasOwn(p.givens||{},i)?'disabled':''}>${person.name}${state.positions[i]!=null?' ✓':''}</option>`).join('');
- $('activeSeriesName').textContent=({stad:'Stadse speurtochten',nacht:'Nacht in Stad',martini:'Moord in de Martini',winter:'WinterWelVaart'})[p.seriesId||'stad'];
+ $('activeSeriesName').textContent=({stad:'Stadse speurtochten',nacht:'Nacht in Stad',martini:'Moord in de Martini',winter:'WinterWelVaart',noorderzon:'Noorderzon'})[p.seriesId||'stad'];
  $('caseNo').textContent=`ZAAK ${String(p.number).padStart(2,'0')} / ${p.theme||'STAD'}`;$('caseTitle').textContent=p.title;$('story').textContent=p.story;
  const count=Object.keys(state.positions).length;$('count').textContent=`${count} / ${p.people.length} geplaatst`;$('progress').textContent=state.solved?'Zaak opgelost':`${count} van ${p.people.length} alibi’s op de kaart`;
  $('board').classList.toggle('shaped',p.regions.some(a=>a<0));document.querySelector('.book').classList.toggle('series-mugshot',p.portraitStyle==='mugshot');
@@ -104,8 +105,8 @@ function render(){
  $('lesson').textContent=church?`${p.people.length} personen · ${p.lesson||'Combineer de aanwijzingen en ontdek de dader.'}`:p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — iedereen begint nog buiten de kaart.':p.number===2?' — volg de aanwijzingen stap voor stap.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
  $('printAll').textContent=`Print deze serie (${printPageCount(seriesCases())} A4)`;
- for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht'],['martiniSeries','martini'],['winterSeries','winter']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
- $('caseTrail').innerHTML=choiceCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${['martini','winter'].includes(q.seriesId)?q.title:q.theme||q.title}</span></button>`;}).join('');
+ for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht'],['martiniSeries','martini'],['winterSeries','winter'],['noorderzonSeries','noorderzon']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
+ $('caseTrail').innerHTML=choiceCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${['martini','winter','noorderzon'].includes(q.seriesId)?q.title:q.theme||q.title}</span></button>`;}).join('');
  $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>openCase(+b.dataset.case));
  $('people').replaceChildren();
  personEntries(p).forEach(({person,i})=>{
@@ -203,6 +204,7 @@ $('zoomValue').onclick=()=>{zoom=1;saveView();render();};
 $('peopleZoomIn').onclick=()=>{peopleZoom=Math.min(1.5,Math.round((peopleZoom+.1)*10)/10);saveView();render();};
 $('peopleZoomOut').onclick=()=>{peopleZoom=Math.max(.7,Math.round((peopleZoom-.1)*10)/10);saveView();render();};
 $('peopleZoomValue').onclick=()=>{peopleZoom=1;saveView();render();};
+$('noorderzonSeries').onclick=()=>showTheme('noorderzon');
 $('winterSeries').onclick=()=>showTheme('winter');
 $('martiniSeries').onclick=()=>showTheme('martini');
 $('classicSeries').onclick=()=>showTheme('stad');
