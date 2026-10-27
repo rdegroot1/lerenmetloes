@@ -21039,5 +21039,2087 @@
         }
       }
     ]
+  },
+  {
+    "id": "martini-around-v1-1",
+    "number": 45,
+    "seriesId": "martini",
+    "seriesNumber": 10,
+    "setting": "martini-surroundings",
+    "theme": "De Kostery",
+    "title": "De laatste koffie",
+    "story": "De laatste kop koffie staat nog bij de bar. Boven, in zaal Marktzicht, is het stil. Acht fictieve aanwezigen vertellen waar ze waren in en rond De Kostery.",
+    "lesson": "Rond de Martini — combineer ruimtes, personen en bezetbare meubels.",
+    "level": "Gemiddeld",
+    "difficultyStars": 3,
+    "size": 8,
+    "width": 8,
+    "height": 8,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      5,
+      5,
+      -1,
+      7,
+      7,
+      7,
+      6,
+      6,
+      5,
+      -1,
+      -1,
+      -1,
+      7,
+      7,
+      6,
+      6,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Entree",
+      "Barzaal",
+      "Bovenzaal",
+      "Trappenhuis",
+      "Marktterras",
+      "Serveerhoek",
+      "Torenterras",
+      "Garderobe"
+    ],
+    "areaColors": [
+      "#d9c9a8",
+      "#c8c6b2",
+      "#d7bea5",
+      "#c1cbaa",
+      "#d4ccad",
+      "#bbcbb4",
+      "#c4d1b8",
+      "#dcc9b6"
+    ],
+    "areaSurfaces": [
+      "garden-brick",
+      "garden-tile",
+      "garden-wood",
+      "garden-wood",
+      "garden-brick",
+      "garden-tile",
+      "garden-brick",
+      "garden-wood"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de stadsgids",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de barista",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de bloemiste",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kelner",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de tuinliefhebber",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de bezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de gastheer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de restaurator",
+        "color": "#a37a3e"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "poison",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "right",
+        "a": 0,
+        "b": 3,
+        "text": "Stond rechts van Tammo."
+      },
+      {
+        "type": "right",
+        "a": 1,
+        "b": 4,
+        "cells": [
+          58,
+          59,
+          60,
+          61
+        ],
+        "text": "Bevond zich in rij 8, rechts van Geeske."
+      },
+      {
+        "type": "above",
+        "a": 2,
+        "b": 1,
+        "cells": [
+          16,
+          32,
+          40
+        ],
+        "text": "Bevond zich in kolom 1, hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "left",
+        "a": 3,
+        "b": 1,
+        "cells": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "text": "Bevond zich in rij 7, links van Bertus."
+      },
+      {
+        "type": "left",
+        "a": 4,
+        "b": 3,
+        "cells": [
+          3,
+          4,
+          5,
+          10,
+          11,
+          12,
+          13,
+          18,
+          19
+        ],
+        "text": "Bevond zich in de entree, links van Tammo."
+      },
+      {
+        "type": "below",
+        "a": 6,
+        "b": 4,
+        "cells": [
+          16,
+          17
+        ],
+        "text": "Bevond zich in de barzaal, lager op de kaart dan Geeske."
+      },
+      {
+        "type": "above",
+        "a": 7,
+        "b": 1,
+        "cells": [
+          15,
+          23,
+          31,
+          39,
+          47
+        ],
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "rug"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon stond op een vloerkleed."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "chair"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een stoel."
+      }
+    ],
+    "printLayout": "church",
+    "printLabel": "ROND DE MARTINI",
+    "mapNoun": "omgevingskaart",
+    "mapCaption": "Bar, bovenverdieping en terrassen zijn samen uitgeklapt tot één puzzelrooster.",
+    "mapNote": "Eigen fictieve puzzelindeling, geïnspireerd op de omgeving van de Martini. Geen actuele bezoekersplattegrond of officiële samenwerking. De locaties hebben elk hun eigen kaart.",
+    "rulesNote": "Verdiepingen en terrassen vormen één uitgeklapt rooster. Iedereen krijgt een eigen rij én kolom.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Entree": "de",
+      "Barzaal": "de",
+      "Bovenzaal": "de",
+      "Trappenhuis": "het",
+      "Marktterras": "het",
+      "Serveerhoek": "de",
+      "Torenterras": "het",
+      "Garderobe": "de"
+    },
+    "outdoorAreas": [
+      "Marktterras",
+      "Torenterras"
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "historicDoor",
+        "name": "de toegangspoort",
+        "occupiable": false
+      },
+      {
+        "cell": 18,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 19,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 8,
+        "type": "coffeeMachine",
+        "name": "het espressoapparaat",
+        "occupiable": false,
+        "furnitureId": "martini-around-coffeeMachine-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 9,
+        "type": "coffeeMachine",
+        "name": "het espressoapparaat",
+        "occupiable": false,
+        "furnitureId": "martini-around-coffeeMachine-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 14,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 20,
+        "type": "mantelClock",
+        "name": "de klok",
+        "occupiable": false
+      },
+      {
+        "cell": 24,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "martini-around-table-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 25,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "martini-around-table-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 42,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 43,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 38,
+        "type": "servingTray",
+        "name": "het dienblad",
+        "occupiable": false
+      },
+      {
+        "cell": 44,
+        "type": "gardenPlanter",
+        "name": "een plantenbak",
+        "occupiable": false
+      },
+      {
+        "cell": 49,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "martini-around-festivalCoatrack-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 50,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "martini-around-festivalCoatrack-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 22,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 23,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 30,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-10",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 31,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-10",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 17,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-around-v1-2",
+    "number": 46,
+    "seriesId": "martini",
+    "seriesNumber": 11,
+    "setting": "martini-surroundings",
+    "theme": "Prinsentuin",
+    "title": "Schaduw bij de zonnewijzer",
+    "story": "De schaduw van de zonnewijzer schuift over de tuinmuur. Bij de theeschenkerij is de tafel nog gedekt. Tussen rozen, kruiden en loofgangen passen negen verklaringen in één rooster.",
+    "lesson": "Rond de Martini — combineer ruimtes, personen en bezetbare meubels.",
+    "level": "Pittig",
+    "difficultyStars": 4,
+    "size": 10,
+    "width": 10,
+    "height": 9,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      1,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      -1,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      -1,
+      -1,
+      -1,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Zonnewijzerpoort",
+      "Rozentuin",
+      "Kruidentuin",
+      "Loofgang",
+      "Theeterras",
+      "Theeschenkerij",
+      "Tuinpad",
+      "Gazon",
+      "Rusthoek"
+    ],
+    "areaColors": [
+      "#d9c9a8",
+      "#c8c6b2",
+      "#d7bea5",
+      "#c1cbaa",
+      "#d4ccad",
+      "#bbcbb4",
+      "#c4d1b8",
+      "#dcc9b6",
+      "#bdc9a7"
+    ],
+    "areaSurfaces": [
+      "garden-brick",
+      "garden-grass",
+      "garden-grass",
+      "garden-gravel",
+      "garden-brick",
+      "garden-tile",
+      "garden-gravel",
+      "garden-grass",
+      "garden-gravel"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de stadsgids",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de barista",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de bloemiste",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kelner",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de tuinliefhebber",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de bezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de gastheer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de restaurator",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de schrijfster",
+        "color": "#ae6d80"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "candlestick",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "unary",
+        "a": 0,
+        "text": "Stond naast een vloerkleed in de theeschenkerij.",
+        "cells": [
+          52,
+          62
+        ]
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 6,
+        "cells": [
+          7,
+          17,
+          27,
+          37,
+          47,
+          57,
+          67,
+          77,
+          87
+        ],
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Harm."
+      },
+      {
+        "type": "below",
+        "a": 2,
+        "b": 7,
+        "cells": [
+          31,
+          51,
+          61
+        ],
+        "text": "Bevond zich in kolom 2, lager op de kaart dan Roelf."
+      },
+      {
+        "type": "above",
+        "a": 3,
+        "b": 1,
+        "cells": [
+          4,
+          14,
+          24,
+          44,
+          54,
+          74,
+          84
+        ],
+        "text": "Bevond zich in kolom 5, hoger op de kaart dan Bertus."
+      },
+      {
+        "type": "right",
+        "a": 4,
+        "b": 7,
+        "text": "Stond rechts van Roelf."
+      },
+      {
+        "type": "right",
+        "a": 6,
+        "b": 7,
+        "cells": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "text": "Bevond zich in rij 9, rechts van Roelf."
+      },
+      {
+        "type": "right",
+        "a": 7,
+        "b": 2,
+        "cells": [
+          36,
+          37,
+          44,
+          45,
+          46,
+          47,
+          54,
+          55,
+          56,
+          57
+        ],
+        "text": "Bevond zich op het theeterras, rechts van Cora."
+      },
+      {
+        "type": "right",
+        "a": 8,
+        "b": 3,
+        "cells": [
+          30,
+          31,
+          32,
+          33,
+          36,
+          37,
+          38,
+          39
+        ],
+        "text": "Bevond zich in rij 4, rechts van Tammo."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "rug"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon stond op een vloerkleed."
+      },
+      {
+        "type": "emptyRooms",
+        "count": 2,
+        "text": "Precies twee gebieden waren leeg."
+      }
+    ],
+    "printLayout": "church",
+    "printLabel": "ROND DE MARTINI",
+    "mapNoun": "omgevingskaart",
+    "mapCaption": "Eigen schematische tuinindeling. Plantvakken zijn geblokkeerd; bankjes zijn bezetbaar.",
+    "mapNote": "Eigen fictieve puzzelindeling, geïnspireerd op de omgeving van de Martini. Geen actuele bezoekersplattegrond of officiële samenwerking. De locaties hebben elk hun eigen kaart.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom; groene meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Zonnewijzerpoort": "de",
+      "Rozentuin": "de",
+      "Kruidentuin": "de",
+      "Loofgang": "de",
+      "Theeterras": "het",
+      "Theeschenkerij": "de",
+      "Tuinpad": "de",
+      "Gazon": "het",
+      "Rusthoek": "de"
+    },
+    "outdoorAreas": [
+      "Theeterras",
+      "Tuinpad",
+      "Gazon"
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "sundialGate",
+        "name": "de zonnewijzerpoort",
+        "occupiable": false,
+        "furnitureId": "martini-around-sundialGate-0",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 3,
+        "type": "sundialGate",
+        "name": "de zonnewijzerpoort",
+        "occupiable": false,
+        "furnitureId": "martini-around-sundialGate-0",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 16,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 17,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 11,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 20,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-2",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 21,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-2",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 18,
+        "type": "herbBed",
+        "name": "een kruidenbed",
+        "occupiable": false,
+        "furnitureId": "martini-around-herbBed-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 19,
+        "type": "herbBed",
+        "name": "een kruidenbed",
+        "occupiable": false,
+        "furnitureId": "martini-around-herbBed-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 28,
+        "type": "herbBed",
+        "name": "een kruidenbed",
+        "occupiable": false,
+        "furnitureId": "martini-around-herbBed-3",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 29,
+        "type": "herbBed",
+        "name": "een kruidenbed",
+        "occupiable": false,
+        "furnitureId": "martini-around-herbBed-3",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 22,
+        "type": "gardenArch",
+        "name": "de loofboog",
+        "occupiable": false,
+        "furnitureId": "martini-around-gardenArch-4",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "gardenArch",
+        "name": "de loofboog",
+        "occupiable": false,
+        "furnitureId": "martini-around-gardenArch-4",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 32,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 33,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 34,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "martini-around-table-6",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 35,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "martini-around-table-6",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 56,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 57,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 40,
+        "type": "coffeeMachine",
+        "name": "het espressoapparaat",
+        "occupiable": false,
+        "furnitureId": "martini-around-coffeeMachine-8",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 41,
+        "type": "coffeeMachine",
+        "name": "het espressoapparaat",
+        "occupiable": false,
+        "furnitureId": "martini-around-coffeeMachine-8",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 62,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 63,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 48,
+        "type": "gardenPlanter",
+        "name": "een plantenbak",
+        "occupiable": false
+      },
+      {
+        "cell": 64,
+        "type": "tree",
+        "name": "een boom",
+        "occupiable": false
+      },
+      {
+        "cell": 86,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-12",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 87,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-12",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 71,
+        "type": "gardenUrn",
+        "name": "de tuinvaas",
+        "occupiable": false
+      },
+      {
+        "cell": 50,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-14",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 51,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-14",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 60,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-14",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 61,
+        "type": "rug",
+        "name": "een vloerkleed",
+        "occupiable": true,
+        "furnitureId": "martini-around-rug-14",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 55,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
+  },
+  {
+    "id": "martini-around-v1-3",
+    "number": 47,
+    "seriesId": "martini",
+    "seriesNumber": 12,
+    "setting": "martini-surroundings",
+    "theme": "Prinsenhof",
+    "title": "Een besloten ontvangst",
+    "story": "Na een besloten ontvangst bij Prinsenhof blijft een dienblad achter. De gasten verspreidden zich over de zalen, binnenplaats en tuinrand. Tien fictieve aanwezigen hebben ieder hun eigen verklaring.",
+    "lesson": "Rond de Martini — combineer ruimtes, personen en bezetbare meubels.",
+    "level": "Uitdagend",
+    "difficultyStars": 5,
+    "size": 10,
+    "width": 10,
+    "height": 10,
+    "regions": [
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      8,
+      8,
+      8,
+      8,
+      5,
+      5,
+      -1,
+      9,
+      9,
+      9,
+      8,
+      8,
+      8,
+      8,
+      5,
+      -1,
+      -1,
+      -1,
+      9,
+      9,
+      8,
+      8,
+      8,
+      8,
+      -1,
+      -1
+    ],
+    "areas": [
+      "Poortentree",
+      "Garderobe",
+      "Brasserie",
+      "Binnenplaats",
+      "Ontvangstzaal",
+      "Galerij",
+      "Tuinterras",
+      "Salon",
+      "Tuinrand",
+      "Serveerhoek"
+    ],
+    "areaColors": [
+      "#d9c9a8",
+      "#c8c6b2",
+      "#d7bea5",
+      "#c1cbaa",
+      "#d4ccad",
+      "#bbcbb4",
+      "#c4d1b8",
+      "#dcc9b6",
+      "#bdc9a7",
+      "#d3c4a8"
+    ],
+    "areaSurfaces": [
+      "garden-brick",
+      "garden-wood",
+      "garden-tile",
+      "garden-brick",
+      "garden-wood",
+      "garden-wood",
+      "garden-brick",
+      "garden-wood",
+      "garden-grass",
+      "garden-tile"
+    ],
+    "people": [
+      {
+        "name": "Arend",
+        "role": "de stadsgids",
+        "color": "#a95c42"
+      },
+      {
+        "name": "Bertus",
+        "role": "de barista",
+        "color": "#497c78"
+      },
+      {
+        "name": "Cora",
+        "role": "de bloemiste",
+        "color": "#847341"
+      },
+      {
+        "name": "Tammo",
+        "role": "de kelner",
+        "color": "#79638e"
+      },
+      {
+        "name": "Geeske",
+        "role": "de tuinliefhebber",
+        "color": "#4f7955"
+      },
+      {
+        "name": "Fokko",
+        "role": "de bezoeker",
+        "color": "#8c5964"
+      },
+      {
+        "name": "Harm",
+        "role": "de gastheer",
+        "color": "#4c718d"
+      },
+      {
+        "name": "Roelf",
+        "role": "de restaurator",
+        "color": "#a37a3e"
+      },
+      {
+        "name": "Jantje",
+        "role": "de schrijfster",
+        "color": "#ae6d80"
+      },
+      {
+        "name": "Wubbo",
+        "role": "de conciërge",
+        "color": "#527b66"
+      }
+    ],
+    "victim": 5,
+    "victimLocationClue": false,
+    "victimWeapon": "wrench",
+    "portraitStyle": "mugshot",
+    "furnitureRulesVersion": 2,
+    "clueVersion": 1,
+    "givens": {},
+    "clues": [
+      {
+        "type": "below",
+        "a": 0,
+        "b": 8,
+        "cells": [
+          21,
+          31,
+          41,
+          61,
+          71
+        ],
+        "text": "Bevond zich in kolom 2, lager op de kaart dan Jantje."
+      },
+      {
+        "type": "above",
+        "a": 1,
+        "b": 9,
+        "cells": [
+          6,
+          16,
+          26,
+          36,
+          46,
+          56,
+          66,
+          76,
+          86,
+          96
+        ],
+        "text": "Bevond zich in kolom 7, hoger op de kaart dan Wubbo."
+      },
+      {
+        "type": "above",
+        "a": 2,
+        "b": 4,
+        "cells": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          22,
+          23
+        ],
+        "text": "Bevond zich in de poortentree, hoger op de kaart dan Geeske."
+      },
+      {
+        "type": "right",
+        "a": 3,
+        "b": 7,
+        "cells": [
+          55,
+          56,
+          57,
+          64,
+          65,
+          66,
+          67
+        ],
+        "text": "Bevond zich in de salon, rechts van Roelf."
+      },
+      {
+        "type": "below",
+        "a": 4,
+        "b": 2,
+        "cells": [
+          3,
+          13,
+          23,
+          33,
+          43,
+          53,
+          63,
+          73,
+          83,
+          93
+        ],
+        "text": "Bevond zich in kolom 4, lager op de kaart dan Cora."
+      },
+      {
+        "type": "right",
+        "a": 6,
+        "b": 2,
+        "cells": [
+          52,
+          53,
+          55,
+          56,
+          57,
+          58,
+          59
+        ],
+        "text": "Bevond zich in rij 6, rechts van Cora."
+      },
+      {
+        "type": "above",
+        "a": 7,
+        "b": 4,
+        "cells": [
+          20,
+          21
+        ],
+        "text": "Bevond zich in de garderobe, hoger op de kaart dan Geeske."
+      },
+      {
+        "type": "right",
+        "a": 8,
+        "b": 3,
+        "cells": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          49
+        ],
+        "text": "Bevond zich in rij 5, rechts van Tammo."
+      },
+      {
+        "type": "right",
+        "a": 9,
+        "b": 8,
+        "cells": [
+          76,
+          77,
+          86,
+          87,
+          94,
+          95,
+          96,
+          97
+        ],
+        "text": "Bevond zich in de tuinrand, rechts van Jantje."
+      },
+      {
+        "type": "objectCount",
+        "types": [
+          "bench"
+        ],
+        "count": 1,
+        "text": "Precies 1 persoon zat op een bankje."
+      },
+      {
+        "type": "emptyRooms",
+        "count": 2,
+        "text": "Precies twee gebieden waren leeg."
+      }
+    ],
+    "printLayout": "church",
+    "printLabel": "ROND DE MARTINI",
+    "mapNoun": "omgevingskaart",
+    "mapCaption": "Eigen schematische kaart van ontvangstruimtes, binnenplaats en tuinrand.",
+    "mapNote": "Eigen fictieve puzzelindeling, geïnspireerd op de omgeving van de Martini. Geen actuele bezoekersplattegrond of officiële samenwerking. De locaties hebben elk hun eigen kaart.",
+    "rulesNote": "Iedereen krijgt een eigen rij én kolom; groene meubels zijn bezetbaar.",
+    "surfaceVerbs": {
+      "bench": "Zat op",
+      "rug": "Stond op"
+    },
+    "countGroups": [
+      [
+        "bench"
+      ],
+      [
+        "rug"
+      ],
+      [
+        "chair"
+      ]
+    ],
+    "countLabels": {
+      "bench": "een bankje",
+      "rug": "een vloerkleed",
+      "chair": "een stoel"
+    },
+    "generalCluesOnly": true,
+    "roomArticles": {
+      "Poortentree": "de",
+      "Garderobe": "de",
+      "Brasserie": "de",
+      "Binnenplaats": "de",
+      "Ontvangstzaal": "de",
+      "Galerij": "de",
+      "Tuinterras": "het",
+      "Salon": "de",
+      "Tuinrand": "de",
+      "Serveerhoek": "de"
+    },
+    "outdoorAreas": [
+      "Binnenplaats",
+      "Tuinterras"
+    ],
+    "objects": [
+      {
+        "cell": 2,
+        "type": "historicDoor",
+        "name": "de toegangspoort",
+        "occupiable": false
+      },
+      {
+        "cell": 22,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-1",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 23,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-1",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 10,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "martini-around-festivalCoatrack-2",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 11,
+        "type": "festivalCoatrack",
+        "name": "de kapstok",
+        "occupiable": false,
+        "furnitureId": "martini-around-festivalCoatrack-2",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 18,
+        "type": "coffeeMachine",
+        "name": "het espressoapparaat",
+        "occupiable": false,
+        "furnitureId": "martini-around-coffeeMachine-3",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 19,
+        "type": "coffeeMachine",
+        "name": "het espressoapparaat",
+        "occupiable": false,
+        "furnitureId": "martini-around-coffeeMachine-3",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 24,
+        "type": "gardenPlanter",
+        "name": "een plantenbak",
+        "occupiable": false
+      },
+      {
+        "cell": 46,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-5",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 47,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-5",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 30,
+        "type": "books",
+        "name": "een boekenkast",
+        "occupiable": false
+      },
+      {
+        "cell": 42,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-7",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 43,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-7",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 48,
+        "type": "winterArt",
+        "name": "het schilderij",
+        "occupiable": false
+      },
+      {
+        "cell": 78,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-9",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 79,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-9",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 50,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "martini-around-table-10",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 51,
+        "type": "table",
+        "name": "een tafel",
+        "occupiable": false,
+        "furnitureId": "martini-around-table-10",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 72,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-11",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 73,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-11",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 54,
+        "type": "mantelClock",
+        "name": "de klok",
+        "occupiable": false
+      },
+      {
+        "cell": 66,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-13",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 67,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-13",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 74,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-14",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 75,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-14",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 84,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-14",
+        "tile": {
+          "x": 0,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 85,
+        "type": "roseBed",
+        "name": "een rozenperk",
+        "occupiable": false,
+        "furnitureId": "martini-around-roseBed-14",
+        "tile": {
+          "x": 1,
+          "y": 1,
+          "width": 2,
+          "height": 2
+        }
+      },
+      {
+        "cell": 96,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-15",
+        "tile": {
+          "x": 0,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 97,
+        "type": "bench",
+        "name": "een bankje",
+        "occupiable": true,
+        "furnitureId": "martini-around-bench-15",
+        "tile": {
+          "x": 1,
+          "y": 0,
+          "width": 2,
+          "height": 1
+        }
+      },
+      {
+        "cell": 81,
+        "type": "servingTray",
+        "name": "het dienblad",
+        "occupiable": false
+      },
+      {
+        "cell": 39,
+        "type": "chair",
+        "name": "een stoel",
+        "occupiable": true
+      }
+    ]
   }
 ]

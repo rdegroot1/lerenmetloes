@@ -1,22 +1,24 @@
-import {THEMES,tutorialFor} from './themes.js?v=20261026-noorderzon';
-import {personEntries} from './person-order.js?v=20261026-noorderzon';
-import {updateBoard} from './board-dom.js?v=20261026-noorderzon';
-import {reasoningHint} from './hints.js?v=20261026-noorderzon';
-import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261026-noorderzon';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261026-noorderzon';
-import {landmarkArt,objectArt} from './art.js?v=20261026-noorderzon';
-import {explain} from './explain.js?v=20261026-noorderzon';
-import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261026-noorderzon';
-import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261026-noorderzon';
+import {progressSummary,resumeCase,milestoneText} from './progress.js?v=20261027-dossier';
+import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-dossier';
+import {THEMES,tutorialFor} from './themes.js?v=20261027-dossier';
+import {personEntries} from './person-order.js?v=20261027-dossier';
+import {updateBoard} from './board-dom.js?v=20261027-dossier';
+import {reasoningHint} from './hints.js?v=20261027-dossier';
+import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261027-dossier';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261027-dossier';
+import {landmarkArt,objectArt} from './art.js?v=20261027-dossier';
+import {explain} from './explain.js?v=20261027-dossier';
+import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-dossier';
+import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-dossier';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261026-noorderzon';
+const DATA_VERSION='20261027-dossier';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const mainCount=puzzles.length;
 const seriesCases=()=>puzzles.slice(0,mainCount).filter(q=>(q.seriesId||'stad')===(p.seriesId||'stad'));
 const seriesIndices=()=>seriesCases().map(q=>puzzles.indexOf(q));
 const choiceCases=()=>index>=mainCount?puzzles.slice(mainCount):seriesCases();
-const caseOptions=()=>choiceCases().map(q=>`<option value="${puzzles.indexOf(q)}">Zaak ${q.number} · ${q.title}</option>`).join('');
+const caseOptions=()=>choiceCases().map(q=>`<option value="${puzzles.indexOf(q)}">${caseProgressFor(q).solved?'✓ ':''}Zaak ${q.number} · ${q.title}</option>`).join('');
 let index=0,p,state,selected=0,mode='place',history=[],zoom=1,peopleZoom=1,hintSession=null,mapBase=0;
 try{const preferences=JSON.parse(localStorage.getItem('grunndoku:view:v1'));if(preferences){if(Number.isFinite(preferences.map))zoom=Math.min(3,Math.max(.5,preferences.map));if(Number.isFinite(preferences.people))peopleZoom=Math.min(1.5,Math.max(.7,preferences.people));}}catch{}
 const compactCase=q=>q.people.length<=10&&gridWidth(q)<=12&&gridHeight(q)<=10;
@@ -25,14 +27,17 @@ function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify(
 // Keep the original storage namespace so existing browser progress survives the rename.
 const key=p=>'grunmurdoku:v1:'+p.id;
 function load(i){
- index=i;p=puzzles[i];document.querySelector('.clue-page').scrollTop=0;mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
- const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,hintsUsed:0,difficultyFeedback:null};state=defaults;
+ if(state){settlePlayTime();persist();}
+ lastPlayTick=performance.now();index=i;p=puzzles[i];document.querySelector('.clue-page').scrollTop=0;mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
+ const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,difficultyFeedback:null};state=defaults;
  try{
   const saved=JSON.parse(localStorage.getItem(key(p)));
   if(saved&&typeof saved.positions==='object'&&Array.isArray(saved.crosses)&&Array.isArray(saved.checked)){
    const positions=Object.fromEntries(Object.entries(saved.positions).filter(([who,cell])=>/^\d+$/.test(who)&&+who<p.people.length&&canStand(p,cell)));
    const notes=Object.fromEntries(Object.entries(saved.notes||{}).filter(([c,ids])=>canStand(p,+c)&&Array.isArray(ids)).map(([c,ids])=>[c,[...new Set(ids.filter(who=>Number.isInteger(who)&&who>=0&&who<p.people.length&&!Object.hasOwn(p.givens||{},who)))]]));
    state={...defaults,...saved,positions:{...positions,...p.givens},notes,noteBackups:sanitizeBackups(p,saved.noteBackups),checked:(saved.clueVersion||1)===(p.clueVersion||1)?saved.checked:[]};
+   state.playTimeMs=elapsedTime(saved.playTimeMs,0);
+   state.playTimePartial=Boolean(saved.playTimePartial)||(!Object.hasOwn(saved,'playTimeMs')&&(Object.keys(positions).length>Object.keys(p.givens||{}).length||Object.keys(notes).length>0||saved.crosses.length>0||saved.checked.length>0));
    state.solved=Boolean(saved.solved)&&Object.keys(state.positions).length===p.people.length&&valid(p,state.positions,true);
   }
  }catch{}
@@ -40,14 +45,29 @@ function load(i){
  say(Object.keys(p.givens||{}).length?`${Object.keys(p.givens).length} personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.`:'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
 }
 let currentScreen='home',introIndex=0,example=0;
-function showScreen(name){
- currentScreen=name;for(const [id,value]of [['homeScreen','home'],['themeStartScreen','theme'],['puzzleScreen','puzzle']])$(id).hidden=name!==value;
- $('backHome').hidden=name==='home';$('backTheme').hidden=name!=='puzzle';
+let lastPlayTick=performance.now();
+function settlePlayTime(){
+ const now=performance.now(),delta=now-lastPlayTick;lastPlayTick=now;
+ if(state&&currentScreen==='puzzle'&&!state.solved&&!document.hidden)state.playTimeMs=elapsedTime(state.playTimeMs,delta);
 }
+// No visible clock. Save active, foreground play; preserve it across reloads.
+setInterval(()=>{settlePlayTime();if(currentScreen==='puzzle')persist();},5000);
+document.addEventListener('visibilitychange',()=>{
+ // visibilitychange fires after the visibility flag changes: account for the final interval on hiding.
+ if(document.hidden&&currentScreen==='puzzle'&&!state.solved){state.playTimeMs=elapsedTime(state.playTimeMs,performance.now()-lastPlayTick);lastPlayTick=performance.now();}
+ else lastPlayTick=performance.now();
+ if(state)persist();
+});
+window.addEventListener('pagehide',()=>{settlePlayTime();if(state)persist();});
+function showScreen(name){
+ settlePlayTime();if(state)persist();currentScreen=name;for(const [id,value]of [['homeScreen','home'],['themeStartScreen','theme'],['puzzleScreen','puzzle']])$(id).hidden=name!==value;
+ $('backHome').hidden=name==='home';$('backTheme').hidden=name!=='puzzle';$('caseMenu').hidden=name!=='puzzle';closeMenus();
+}
+function closeMenus(){for(const id of ['caseMenu','caseOverview'])$(id).open=false;}
 function route(screen,i,replace=false){const series=screen==='home'?null:(puzzles[i].seriesId||'stad');window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(series?'?serie='+series:''));}
-function showHome(record=true){showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
+function showHome(record=true){renderDossier();showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
 function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
- introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261026-noorderzon';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261027-dossier';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
@@ -56,11 +76,11 @@ function renderExample(){
  $('exampleReason').textContent=example===0?'Begin bij Cora’s aanwijzing. Zoek het meubel met het groene merkje.':example===1?'Voor Cora past één plek: rij 3, kolom 2. Haar rij en kolom vallen nu af voor de anderen.':`Voor Fokko blijft rij 4, kolom 4 over. Alleen Bertus deelt het gebied ${sample.areas[1]} met hem: in dit voorbeeld is Bertus de dader.`;
  $('exampleStep').textContent=example===2?'Begin het voorbeeld opnieuw ↺':example===0?'Toon de eerste denkstap →':'Toon de tweede denkstap →';
 }
-function openCase(i,record=true){const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}
+function openCase(i,record=true){try{localStorage.setItem('grunndoku:last-case:v1',puzzles[i].id);}catch{}const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}
 $('backHome').onclick=()=>showHome();$('backTheme').onclick=()=>showTheme(p.seriesId||'stad',index);$('beginTheme').onclick=()=>openCase(introIndex);$('themeCaseSelect').onchange=e=>{introIndex=+e.target.value;route('theme',introIndex,true);};$('exampleStep').onclick=()=>{example=(example+1)%3;renderExample();};
 window.addEventListener('popstate',event=>{const state=event.state;if(state?.screen==='puzzle')openCase(state.index,false);else if(state?.screen==='theme')showTheme(puzzles[state.index].seriesId||'stad',state.index,false);else showHome(false);});
 
-function persist(){state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
+function persist(){if(currentScreen==='puzzle'&&!state.solved)state.updatedAt=Date.now();state.clueVersion=p.clueVersion||1;try{localStorage.setItem(key(p),JSON.stringify(state));}catch{say('Opslaan is niet beschikbaar in deze browser. Je kunt wel verder spelen.');}}
 function snapshot(){history.push(JSON.stringify(state));if(history.length>100)history.shift();}
 function say(text){$('message').textContent=text;}
 function clueLabel(clue,j){
@@ -68,13 +88,33 @@ function clueLabel(clue,j){
  input.onchange=()=>{snapshot();state.checked=input.checked?[...state.checked,j]:state.checked.filter(x=>x!==j);persist();};
  const text=document.createElement('span');text.textContent=clue.text;label.append(input,text);return label;
 }
+function readSave(q){try{return JSON.parse(localStorage.getItem(key(q)));}catch{return null;}}
+function dossier(){return progressSummary(puzzles.slice(0,mainCount),q=>q.id===p?.id?state:readSave(q));}
+let progressSnapshot;
+function caseProgressFor(q){return (progressSnapshot||dossier()).cases.find(c=>c.id===q.id)||{started:false,solved:false};}
+function renderDossier(){
+ const summary=dossier();progressSnapshot=summary;let last;try{last=localStorage.getItem('grunndoku:last-case:v1');}catch{}
+ const resume=resumeCase(summary,last);$('resumeCase').hidden=!resume;
+ if(resume){$('resumeCase').textContent=`Verder met ${puzzles[resume.index].title} →`;$('resumeCase').onclick=()=>openCase(resume.index);}
+ $('dossierCount').textContent=`${summary.solved} van ${summary.total} zaken opgelost`;
+ for(const card of document.querySelectorAll('.theme-card')){
+  const series=card.querySelector('[data-theme-art]').dataset.themeArt,cases=summary.cases.filter(c=>c.series===series),done=cases.filter(c=>c.solved).length;
+  card.querySelector('.theme-progress-label').textContent=`${done} van ${cases.length} zaken opgelost`;
+  const meter=card.querySelector('progress');meter.max=cases.length;meter.value=done;meter.setAttribute('aria-label',`${THEMES[series].title}: ${done} van ${cases.length} zaken opgelost`);
+ }
+ const cases=summary.cases.filter(c=>c.series===(p.seriesId||'stad'));
+ $('themeProgress').textContent=`${cases.filter(c=>c.solved).length} van ${cases.length} zaken opgelost · je kiest zelf je volgende zaak`;
+}
+$('howToPlay').onclick=()=>{$('generalStart').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});$('generalStartTitle').focus({preventScroll:true});};
 function render(){
+ renderDossier();
  const clueScroll=document.querySelector('.clue-page').scrollTop;
  const options=caseOptions();for(const id of ['caseSelect','themeCaseSelect']){$(id).innerHTML=options;$(id).value=String(index);}
  const church=['martini','winter','noorderzon'].includes(p.seriesId),width=gridWidth(p),height=gridHeight(p);
  document.querySelector('.book').classList.toggle('series-martini',church);
  document.querySelector('.book').classList.toggle('series-winter',p.seriesId==='winter');
  document.querySelector('.book').classList.toggle('series-noorderzon',p.seriesId==='noorderzon');
+ document.querySelector('.book').classList.toggle('series-surroundings',p.setting==='martini-surroundings');
  document.querySelector('.book').classList.toggle('compact-case',compactCase(p));document.querySelector('.book').classList.toggle('large-case',largeCase(p));
  document.querySelector('.clue-page').style.setProperty('--people-scale',peopleZoom);
  const headerParent=church?$('martiniHeader'):document.querySelector('.clue-page');
@@ -103,11 +143,13 @@ function render(){
  $('themeObjectLegend').innerHTML=objectLegend({objects:(index>=mainCount?[p]:seriesCases()).flatMap(q=>q.objects)});$('rulesObjectLegend').innerHTML=$('themeObjectLegend').innerHTML;
  $('level').innerHTML=difficultyMarkup(p)+`<span class="difficulty-size">${width} × ${height}</span>`;
  $('lesson').textContent=church?`${p.people.length} personen · ${p.lesson||'Combineer de aanwijzingen en ontdek de dader.'}`:p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — iedereen begint nog buiten de kaart.':p.number===2?' — volg de aanwijzingen stap voor stap.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
+ $('accuse').textContent=state.solved?'Bekijk afronding':'Dader aanwijzen';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
- $('printAll').textContent=`Print deze serie (${printPageCount(seriesCases())} A4)`;
+ $('printAll').textContent=`Print dit thema (${printPageCount(seriesCases())} A4)`;$('printAll').hidden=index>=mainCount;
+ const themeMeta=THEMES[p.seriesId||'stad'];$('headerThemePdf').hidden=index>=mainCount||!themeMeta;if(themeMeta)$('headerThemePdf').href=themeMeta.pdf+'?v='+DATA_VERSION;
  for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht'],['martiniSeries','martini'],['winterSeries','winter'],['noorderzonSeries','noorderzon']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
- $('caseTrail').innerHTML=choiceCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}" ${index===i?'aria-current="step"':''}><b>${q.number}</b><span>${['martini','winter','noorderzon'].includes(q.seriesId)?q.title:q.theme||q.title}</span></button>`;}).join('');
- $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>openCase(+b.dataset.case));
+ $('caseTrail').innerHTML=choiceCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}" ${index===i?'aria-current="step"':''}><b>${caseProgressFor(q).solved?'✓':q.number}</b><span>${['martini','winter','noorderzon'].includes(q.seriesId)?q.title:q.theme||q.title}</span></button>`;}).join('');
+ $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>{closeMenus();openCase(+b.dataset.case);});
  $('people').replaceChildren();
  personEntries(p).forEach(({person,i})=>{
   const card=document.createElement('div');card.className='person-card'+(selected===i?' selected':'')+(i===p.victim?' is-victim':'');const head=document.createElement('button');head.className='person-header';head.setAttribute('aria-pressed',String(selected===i));head.setAttribute('aria-keyshortcuts',person.name[0].toLowerCase());head.title=`${person.name} selecteren (${person.name[0]})`;head.setAttribute('aria-label',`${person.name}, ${person.role}${i===p.victim?', slachtoffer':''}`);
@@ -126,10 +168,11 @@ function render(){
 function sizeMap(){
  const board=$('board'),viewport=board.parentElement,book=document.querySelector('.book');
  if(!viewport.clientWidth||matchMedia('print').matches)return;
+ const topbar=document.querySelector('.app-header').getBoundingClientRect().height;document.documentElement.style.setProperty('--app-header-height',`${topbar}px`);
  const split=largeCase(p)&&matchMedia('(min-width:1000px)').matches;
  let available;
  if(split){
-  const header=$('martiniHeader').getBoundingClientRect().height,workspace=Math.max(450,innerHeight-header-28);
+  const header=$('martiniHeader').getBoundingClientRect().height,workspace=Math.max(450,innerHeight-topbar-header-24);
   book.style.setProperty('--workspace-height',`${workspace}px`);
   const panel=document.querySelector('.map-panel'),overhead=panel.getBoundingClientRect().height-viewport.getBoundingClientRect().height;
   available=Math.max(180,workspace-overhead-12);book.style.setProperty('--map-view-height',`${Math.floor(available)}px`);
@@ -140,7 +183,7 @@ function sizeMap(){
   else if(compactCase(p)&&matchMedia('(min-width:760px)').matches){
    const panel=document.querySelector('.map-panel'),header=$('martiniHeader').hidden?0:$('martiniHeader').getBoundingClientRect().height;
    const overhead=panel.scrollHeight-board.getBoundingClientRect().height;
-   const space=Math.max(180,innerHeight-header-overhead-28);mapBase=Math.min(mapBase,space*gridWidth(p)/gridHeight(p));
+   const space=Math.max(180,innerHeight-topbar-header-overhead-24);mapBase=Math.min(mapBase,space*gridWidth(p)/gridHeight(p));
   }
  }
  board.style.width=`${Math.round(mapBase*zoom)}px`;
@@ -167,8 +210,8 @@ function tap(c,tool=mode){
 $('printAll').textContent=`Print de reeks (${mainCount} A4)`;
 $('caseSelect').onchange=e=>openCase(+e.target.value);
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
-$('undo').onclick=()=>{if(history.length){state=JSON.parse(history.pop());persist();render();say('Laatste wijziging teruggedraaid.');}};
-$('reset').onclick=()=>{$('hintPanel').hidden=true;hintSession=null;snapshot();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,hintsUsed:0,difficultyFeedback:state.difficultyFeedback||null};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
+$('undo').onclick=()=>{if(history.length){settlePlayTime();const spent=state.playTimeMs;state=JSON.parse(history.pop());state.playTimeMs=spent;persist();render();say('Laatste wijziging teruggedraaid.');}};
+$('reset').onclick=()=>{closeMenus();$('caseMenu').querySelector('summary').focus();$('hintPanel').hidden=true;hintSession=null;settlePlayTime();snapshot();lastPlayTick=performance.now();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,difficultyFeedback:state.difficultyFeedback||null};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
 $('check').onclick=()=>{
  const complete=Object.keys(state.positions).length===p.people.length;
  if(!valid(p,state.positions,complete)||!solve(p,state.positions,1).length){say('Er klopt nog iets niet. De geplaatste personen passen niet bij alle aanwijzingen. Met Wissen kun je een plaatsing verwijderen.');return;}
@@ -179,23 +222,23 @@ function showReasoningHint(){
  const key=hintKey();
  if(!hintSession||hintSession.key!==key){hintSession={key,index:0,...reasoningHint(p,state.positions)};state.hintsUsed=(state.hintsUsed||0)+1;persist();}
  else hintSession.index=Math.min(hintSession.index+1,hintSession.steps.length-1);
- $('hintPanel').hidden=false;$('hintStep').textContent=`Denkstap ${hintSession.index+1} van ${hintSession.steps.length}`;
- $('hintText').textContent=hintSession.steps[hintSession.index];$('hintNext').hidden=hintSession.index===hintSession.steps.length-1;
- say('Je krijgt één redeneerstap tegelijk. Je zet zelf de personen op de kaart.');
+ $('hintPanel').hidden=false;$('hintStep').textContent=`${p.people[p.victim].name} helpt · Denkstap ${hintSession.index+1} van ${hintSession.steps.length}`;
+ $('hintText').textContent=victimHint(p,hintSession.steps[hintSession.index],hintSession.index);$('hintNext').hidden=hintSession.index===hintSession.steps.length-1;
+ say(`${p.people[p.victim].name} denkt met je mee. Je zet zelf de personen op de kaart.`);
 }
 $('hint').onclick=showReasoningHint;
 $('hintNext').onclick=showReasoningHint;
 $('hintClose').onclick=()=>{$('hintPanel').hidden=true;hintSession=null;};
 document.addEventListener('keydown',event=>{
- if(currentScreen!=='puzzle'||event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey||event.repeat||event.isComposing||document.querySelector('dialog[open]')||event.target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
+ if($('caseMenu').open||$('caseOverview').open||currentScreen!=='puzzle'||event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey||event.repeat||event.isComposing||document.querySelector('dialog[open]')||event.target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
  if(event.key.length!==1)return;const who=p.people.findIndex(person=>person.name[0].toLocaleLowerCase('nl')===event.key.toLocaleLowerCase('nl'));if(who<0)return;
  event.preventDefault();if(Object.hasOwn(p.givens||{},who)){say(`${p.people[who].name} is een vaste startpositie.`);return;}
  selected=who;mode='place';render();say(`${p.people[who].name} geselecteerd met ${p.people[who].name[0]}.`);
 });
-$('explanation').onclick=()=>{const explanation=explain(p);$('explanationTitle').textContent=p.title+' — stap voor stap';$('explanationSteps').replaceChildren(...explanation.steps.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('explanationDialog').showModal();};
+$('explanation').onclick=()=>{closeMenus();$('caseMenu').querySelector('summary').focus();const explanation=explain(p);$('explanationTitle').textContent=p.title+' — stap voor stap';$('explanationSteps').replaceChildren(...explanation.steps.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('explanationDialog').showModal();};
 $('landmarks').innerHTML=landmarkArt();
-$('printCase').onclick=()=>printPuzzles([p]);
-$('printAll').onclick=()=>printPuzzles(seriesCases());
+$('printCase').onclick=()=>{closeMenus();printPuzzles([p]);};
+$('printAll').onclick=()=>{closeMenus();printPuzzles(seriesCases());};
 $('returnToMap').onclick=()=>document.querySelector('.map-panel').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 $('quickPerson').onchange=e=>{const who=+e.target.value;if(Object.hasOwn(p.givens||{},who)){say(`${p.people[who].name} is een vaste startpositie.`);return;}selected=who;mode='place';render();say(`${p.people[selected].name} geselecteerd.`);};
 $('zoomIn').onclick=()=>{zoom=Math.min(3,Math.round((zoom+.1)*10)/10);saveView();render();};
@@ -210,8 +253,8 @@ $('martiniSeries').onclick=()=>showTheme('martini');
 $('classicSeries').onclick=()=>showTheme('stad');
 $('nightSeries').onclick=()=>showTheme('nacht');
 $('nextCase').onclick=()=>{const cases=seriesIndices(),next=cases[cases.indexOf(index)+1];if(next!=null)openCase(next);};
-$('oldCases').onclick=async()=>{try{if(puzzles.length===mainCount){const response=await fetch(`./puzzles-archive.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);}openCase(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
-for(const id of ['rules','boardRules'])$(id).onclick=()=>$('rulesDialog').showModal();document.querySelectorAll('dialog .close, .close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+$('oldCases').onclick=async()=>{closeMenus();try{if(puzzles.length===mainCount){const response=await fetch(`./puzzles-archive.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error('laden mislukt');const archive=await response.json();puzzles.push(...archive);}openCase(mainCount);}catch{say('Het archief kon niet worden geladen. Probeer het later nog eens.');}};
+$('rules').onclick=()=>{closeMenus();$('rulesDialog').showModal();};document.querySelectorAll('dialog .close, .close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 function renderDifficultyFeedback(){
  $('difficultyFeedback').hidden=!state.solved;
  const saved=state.difficultyFeedback;
@@ -226,11 +269,33 @@ $('downloadRatings').onclick=()=>{
  const url=URL.createObjectURL(new Blob([JSON.stringify({game:'Grunndoku',version:1,ratings},null,2)],{type:'application/json'}));
  const a=document.createElement('a');a.href=url;a.download='grunndoku-proefspeelnotities.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
+function showCompletion(){
+ const culprit=p.people.findIndex((_,i)=>i!==p.victim&&region(p,state.positions[i])===region(p,state.positions[p.victim]));
+ $('accuseTitle').textContent='Zaak opgelost!';$('accuseIntro').hidden=true;$('accusations').hidden=true;$('completionPanel').hidden=false;
+ $('verdict').textContent=`${p.people[culprit].name} was alleen met ${p.people[p.victim].name} in het gebied ${p.areas[region(p,state.positions[culprit])]}.`;
+ $('celebrationText').textContent=celebrationMessage(state.celebrationIndex);
+ $('completionSpeaker').textContent=`${p.people[p.victim].name} zegt`;
+ $('completionPortrait').innerHTML=portraitMarkup(p.victim,p.people[p.victim].name,p);
+ $('completionTime').textContent=state.playTimeMs>0?completionMessage(state.playTimeMs,state.playTimePartial):'';
+ $('completionMilestone').textContent=milestoneText(dossier(),p.seriesId||'stad');
+ const cases=seriesIndices(),next=cases[cases.indexOf(index)+1];
+ $('resultNext').textContent=next==null?'Terug naar dit thema':'Een volgende zaak →';
+ $('resultNext').onclick=()=>{$('accuseDialog').close();if(next==null)showTheme(p.seriesId||'stad',index);else openCase(next);};
+ renderDifficultyFeedback();
+}
+$('resultMap').onclick=()=>{$('accuseDialog').close();document.querySelector('.map-panel').scrollIntoView({block:'start'});$('accuse').focus({preventScroll:true});};
 $('accuse').onclick=()=>{
  if(Object.keys(state.positions).length!==p.people.length||!valid(p,state.positions,true)){say('Plaats eerst iedereen op de kaart en zorg dat alle aanwijzingen kloppen.');return;}
+ if(state.solved){showCompletion();$('accuseDialog').showModal();return;}
+ $('accuseTitle').textContent='Wie heeft het gedaan?';$('accuseIntro').hidden=false;$('accusations').hidden=false;$('completionPanel').hidden=true;
  renderDifficultyFeedback();$('verdict').textContent='';$('accusations').replaceChildren();personEntries(p).forEach(({person,i})=>{if(i===p.victim)return;const button=document.createElement('button');button.textContent=person.name;button.onclick=()=>{
   const correct=region(p,state.positions[i])===region(p,state.positions[p.victim]);
-  if(correct){snapshot();state.solved=true;persist();render();$('verdict').textContent=`Zaak opgelost! ${person.name} was alleen met ${p.people[p.victim].name} op ${p.areas[region(p,state.positions[i])]}. Goed speurwerk, detective.`;say(`Zaak opgelost: ${person.name} is de dader.`);renderDifficultyFeedback();}else $('verdict').textContent=`${person.name} deelt geen gebied met het slachtoffer. Bekijk nog eens wie daar wél stond.`;
+  if(correct){
+   settlePlayTime();snapshot();state.solved=true;state.solvedAt=Date.now();let previous=-1;
+   try{previous=JSON.parse(localStorage.getItem('grunndoku:last-celebration:v1'))??-1;}catch{}
+   state.celebrationIndex=nextCelebration(previous);try{localStorage.setItem('grunndoku:last-celebration:v1',JSON.stringify(state.celebrationIndex));}catch{}
+   persist();render();showCompletion();say('Zaak opgelost. Mooi speurwerk!');$('accuseTitle').focus();
+  }else $('verdict').textContent='Deze conclusie past nog niet bij de kaart. Kijk rustig wie het gebied met het slachtoffer deelt. Je kunt het opnieuw proberen.';
  };$('accusations').append(button);});$('accuseDialog').showModal();
 };
 const requestedSeries=new URLSearchParams(document.location.search).get('serie');
@@ -240,3 +305,10 @@ const generalObjects=[['chair','een stoel',true],['bench','een bankje',true],['b
 $('startObjectLegend').innerHTML=objectLegend({objects:generalObjects});
 document.querySelectorAll('[data-theme-art]').forEach(el=>{const meta=THEMES[el.dataset.themeArt];el.innerHTML=meta.art.map(type=>`<span>${objectArt(type)}</span>`).join('');});
 if(initialIndex>=0){showTheme(requestedSeries,initialIndex,false);route('theme',initialIndex,true);}else{showHome(false);route('home',0,true);}
+
+// Shared action styling; board cells and portrait buttons keep their own hit areas.
+document.querySelectorAll('.primary,.quiet,.rules-button,.accuse,.reset,.series-pdf,.section-zoom button,.map-navigation button,.tools button,.header-menu>summary,.case-overview>summary').forEach(el=>el.classList.add('ui-button'));
+$('reset').classList.add('is-danger');
+document.addEventListener('pointerdown',event=>{for(const id of ['caseMenu','caseOverview'])if(!$(id).contains(event.target))$(id).open=false;});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&($('caseMenu').open||$('caseOverview').open)){closeMenus();event.preventDefault();}});
+$('caseMenu').addEventListener('click',event=>{if(event.target.closest('a'))closeMenus();});

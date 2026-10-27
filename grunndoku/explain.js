@@ -1,4 +1,4 @@
-import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261026-noorderzon';
+import {solve,matches,region,isPlayable,furnitureCells,cellCount,gridWidth} from './engine.js?v=20261027-dossier';
 
 // Constraint propagation only uses the public rules and clues. Exact search is
 // reserved for explicitly described elimination of remaining alternatives.

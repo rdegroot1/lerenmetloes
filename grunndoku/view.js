@@ -1,10 +1,10 @@
-import {festivalDecoration} from './festival-art.js?v=20261026-noorderzon';
-import {personEntries} from './person-order.js?v=20261026-noorderzon';
-import {surfaceFor,printFloorPlane,waterAt} from './surfaces.js?v=20261026-noorderzon';
-import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261026-noorderzon';
-import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261026-noorderzon';
-import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261026-noorderzon';
-import {difficultyMarkup} from './difficulty.js?v=20261026-noorderzon';
+import {festivalDecoration} from './festival-art.js?v=20261027-dossier';
+import {personEntries} from './person-order.js?v=20261027-dossier';
+import {surfaceFor,printFloorPlane,waterAt} from './surfaces.js?v=20261027-dossier';
+import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261027-dossier';
+import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261027-dossier';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261027-dossier';
+import {difficultyMarkup} from './difficulty.js?v=20261027-dossier';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
 export function areaLabels(p){
@@ -26,7 +26,7 @@ export function areaLabels(p){
   // A stepped outdoor edge can end in a single cell even when the area is
   // wider. Move the festival banner just inside that edge rather than splitting
   // a short name into fragments on the narrow tip.
-  if(p.seriesId==='noorderzon'&&horizontal.length<Math.ceil(name.length/5)){
+  if((p.seriesId==='noorderzon'||p.setting==='martini-surroundings')&&horizontal.length<Math.ceil(name.length/5)){
    const alternatives=[];
    for(let row=0;row<height;row++)for(let col=0;col<width;){
     if(p.regions[row*width+col]!==area){col++;continue;}
@@ -79,4 +79,4 @@ export function printSheet(p){
  return `<article class="print-sheet${p.areas.length>4?' many-areas':''}${p.portraitStyle==='mugshot'?' mugshot-sheet':''}"><div class="print-head"><span>GRUNNDOKU · MOORDZAKEN IN STAD</span><span class="print-difficulty"><b>ZAAK ${p.number}</b>${difficultyMarkup(p)}<span>${p.size} × ${p.size}</span></span></div><div class="print-spread"><section class="print-clues"><h1>${p.number}. ${p.title}</h1><p class="print-story">${p.story}</p><div class="print-people">${personEntries(p).map(({person,i})=>`<div class="print-person">${portraitMarkup(i,person.name,p)}${p.portraitStyle==='mugshot'?`<div class="print-role">${person.role}</div>`:`<div class="ribbon">${person.name}</div>`}<div class="print-clue">${Object.hasOwn(given,i)?`Staat al op de kaart: rij ${Math.floor(given[i]/p.size)+1}, kolom ${given[i]%p.size+1}.`:''}${i===p.victim&&p.clues.some(c=>c.a===i)?'<strong class="victim-location-title">Plaatsaanwijzing</strong>':''}${p.clues.filter(c=>c.a===i).map(c=>`<p class="print-hint"><span class="paper-check"></span>${c.text}</p>`).join('')}${i===p.victim?`<strong>Het slachtoffer</strong><p>${p.victimLocationClue===false?'Was samen met de moordenaar.':'Spelregel: was alleen met de dader in hetzelfde gebied.'}</p>`:''}${!Object.hasOwn(given,i)&&!p.clues.some(c=>c.a===i)&&i!==p.victim?'<p>Combineer de andere aanwijzingen om mijn plek te vinden.</p>':''}</div></div>`).join('')}</div>${p.clues.some(c=>c.a==null)?`<div class="print-shared-clues"><strong>Extra aanwijzingen</strong>${p.clues.filter(c=>c.a==null).map(c=>`<p class="print-hint"><span class="paper-check"></span>${c.text}</p>`).join('')}</div>`:''}</section><section class="print-map"><div class="map-label"><span>PLAATS DELICT · SCHEMATISCHE KAART</span></div><div class="board${p.regions.some(a=>a<0)?' shaped':''}" style="--size:${p.size}">${boardMarkup(p,given)}</div><div class="print-bottom"><div class="print-answer">${landmarkArt()}<p>De dader is:</p><div class="answer-line"></div></div></div></section></div></article>`;
 }
 export const printPageCount=(puzzles,{intro=puzzles.length>1}={})=>(intro?2:0)+puzzles.reduce((n,p)=>n+(['church','festival'].includes(p.printLayout)?churchPageCount(p):1),0);
-export function printPuzzles(puzzles,{intro=puzzles.length>1}={}){document.getElementById('printPages').innerHTML=(intro?introductionSheets({boardMarkup,legendMarkup,portraitMarkup},{church:puzzles.every(p=>p.seriesId==='martini'),tower:puzzles.every(p=>p.setting==='tower'),winter:puzzles.every(p=>p.seriesId==='winter'),series:puzzles.every(p=>p.seriesId==='noorderzon')?'noorderzon':puzzles.every(p=>p.seriesId==='nacht')?'nacht':puzzles.every(p=>!p.seriesId||p.seriesId==='stad')?'stad':'all'}):'')+puzzles.map(printSheet).join('');window.print();}
+export function printPuzzles(puzzles,{intro=puzzles.length>1}={}){document.getElementById('printPages').innerHTML=(intro?introductionSheets({boardMarkup,legendMarkup,portraitMarkup},{church:puzzles.every(p=>p.seriesId==='martini'),tower:puzzles.every(p=>p.setting==='tower'),winter:puzzles.every(p=>p.seriesId==='winter'),surroundings:puzzles.some(p=>p.setting==='martini-surroundings'),series:puzzles.every(p=>p.seriesId==='noorderzon')?'noorderzon':puzzles.every(p=>p.seriesId==='nacht')?'nacht':puzzles.every(p=>!p.seriesId||p.seriesId==='stad')?'stad':'all'}):'')+puzzles.map(printSheet).join('');window.print();}

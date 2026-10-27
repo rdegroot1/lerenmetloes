@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import {rea
 import {solve,valid,canStand,adjacentCells} from '../engine.js';import {explain} from '../explain.js';import {objectArt} from '../art.js';import {printSheet,printPageCount,boardMarkup,legendMarkup,portraitMarkup} from '../view.js';
 import {introductionSheets} from '../print-layouts.js';
 const all=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url))),cases=all.filter(p=>p.setting==='tower');
-test('three tower cases add levels 3/4 with varied casts and appropriate paper sizes',()=>{assert.deepEqual(cases.map(p=>p.difficultyStars),[3,4,4]);assert.deepEqual(cases.map(p=>p.people.length),[8,10,12]);assert.deepEqual(cases.map(p=>printPageCount([p])),[1,1,2]);assert.equal(printPageCount(cases),6);assert.equal(printPageCount(all.filter(p=>p.seriesId==='martini')),15);});
+test('three tower cases add levels 3/4 with varied casts and appropriate paper sizes',()=>{assert.deepEqual(cases.map(p=>p.difficultyStars),[3,4,4]);assert.deepEqual(cases.map(p=>p.people.length),[8,10,12]);assert.deepEqual(cases.map(p=>printPageCount([p])),[1,1,2]);assert.equal(printPageCount(cases),6);assert.equal(printPageCount(all.filter(p=>p.seriesId==='martini')),18);});
 for(const p of cases)test(`${p.id}: unique public solution, real tower features and complete footprints`,()=>{
  const solutions=solve(p);assert.equal(solutions.length,1);const [s]=solutions;assert.ok(valid(p,s,true));assert.deepEqual(explain(p).positions,s);assert.equal(p.people[p.victim].name,'Fokko');
  p.people.forEach((person,i)=>assert.equal(p.clues.filter(c=>c.a===i).length,i===p.victim?0:1));

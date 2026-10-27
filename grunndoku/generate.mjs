@@ -1,3 +1,4 @@
+import {createMartiniSurroundings} from './martini-surroundings.mjs';
 import {createNoorderzonSeries} from './noorderzon.mjs';
 import {ensureSpaciousRooms} from './spacious-rooms.mjs';
 import {applyGeneralClues,assertGeneralCluePolicy} from './general-clues.mjs';
@@ -130,7 +131,7 @@ for(let k=0;k<specs.length;k++){
  p.difficultyStars=difficultyFor(p);
  cases.push(p);console.log(p.number,size,level,p.clues.length,'clues',p.clues.filter(c=>c.type!=='unary').length,'relations');
 }
-cases.push(...createMartiniSeries(),...createTowerSeries(),...createWinterSeries(),...createNoorderzonSeries());
+cases.push(...createMartiniSeries(),...createTowerSeries(),...createWinterSeries(),...createNoorderzonSeries(),...createMartiniSurroundings());
 cases.forEach(finishDossier);
 cases.forEach(ensureSpaciousRooms);
 cases.forEach(applyGeneralClues);

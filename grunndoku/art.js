@@ -1,4 +1,5 @@
-import {festivalDrawings} from './festival-art.js?v=20261026-noorderzon';
+import {gardenDrawings} from './garden-art.js?v=20261027-dossier';
+import {festivalDrawings} from './festival-art.js?v=20261027-dossier';
 // Original vector illustrations, drawn for Grunndoku. No external image dependencies.
 const svg=(body,view='0 0 100 100')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view}" aria-hidden="true" focusable="false">${body}</svg>`;
 export function portrait(i,personName='Arend',plain=false,deceased=false){
@@ -46,6 +47,7 @@ export function victimPortrait(i,name,weapon){
 }
 const drawings={
  ...festivalDrawings,
+ ...gardenDrawings,
  winterFire:`<path d="M24 50H78V89H24Z" fill="#6b7a75" stroke="#46584f" stroke-width="3"/><path d="M23 59H79M24 78H78" stroke="#a5b09a" stroke-width="3"/><path d="M39 47Q24 31 44 15Q40 29 53 30Q52 16 63 8Q62 29 72 37Q78 50 62 55H39Z" fill="#c9773c"/><path d="M44 49Q35 40 48 29Q45 40 57 38Q67 48 58 54Z" fill="#edc36e"/><path d="M35 64H43M56 64H64M35 72H43M56 72H64" stroke="#d08c4e" stroke-width="3"/>`,
  winterGluhwein:`<path d="M12 33H88V87H12Z" fill="#987044" stroke="#65543b" stroke-width="2"/><path d="M7 35L21 11H79L94 35Z" fill="#627d70" stroke="#3f5c50" stroke-width="3"/><path d="M20 14H80M15 23H86" stroke="#e7dbbd" stroke-width="4"/><path d="M16 39H84V64H16Z" fill="#384e47"/><path d="M10 65H91V75H10Z" fill="#d4b37a"/><path d="M29 47H42V61H29ZM59 47H72V61H59Z" fill="#b6674c"/><path d="M42 49Q52 48 49 55Q48 59 42 58M72 49Q82 48 79 55Q78 59 72 58" fill="none" stroke="#e2c494" stroke-width="3"/><path d="M32 41Q25 34 33 29M62 41Q56 34 64 29" fill="none" stroke="#f5e4bf" stroke-width="2"/><g fill="#eac979"><circle cx="16" cy="37" r="3"/><circle cx="33" cy="37" r="3"/><circle cx="51" cy="37" r="3"/><circle cx="69" cy="37" r="3"/><circle cx="87" cy="37" r="3"/></g>`,
  winterMast:`<path d="M48 6H55V91H48Z" fill="#8b6545" stroke="#5d4e37" stroke-width="2"/><path d="M18 88L49 9L84 87M22 89H81" stroke="#bba476" stroke-width="2" fill="none"/><path d="M36 43H69M34 58H70" stroke="#af8c59" stroke-width="4"/><g fill="#e9cd82"><circle cx="36" cy="35" r="3"/><circle cx="29" cy="53" r="3"/><circle cx="23" cy="72" r="3"/><circle cx="65" cy="34" r="3"/><circle cx="73" cy="52" r="3"/><circle cx="81" cy="72" r="3"/></g><path d="M55 8H79L56 20Z" fill="#b65e49"/>`,
