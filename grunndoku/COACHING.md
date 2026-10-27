@@ -18,8 +18,16 @@ Na minstens drie afgeronde zaken met nieuwe hulpregistratie binnen hetzelfde the
 
 ## Delen
 
-De deelknop gebruikt de browserdeelfunctie. Als die ontbreekt, wordt na de klik het bericht gekopieerd; als ook dat niet kan verschijnt selecteerbare tekst. Het bericht bevat uitsluitend zaaktitel, speurpunten en een schone openbare themalink. Geen dader, ingevulde kaart, e-mailadres, Auth-fragment, accountproefparameter of speeltijd. Er wordt nooit automatisch iets verstuurd.
+De deelknop gebruikt de browserdeelfunctie. Als die ontbreekt, wordt na de klik het bericht gekopieerd; als ook dat niet kan verschijnt selecteerbare tekst. Het bericht bevat zaaktitel, speurpunten, een directe puzzellink en waar ondersteund een PNG van de lege kaart. Zonder bestandsdelen is de afbeelding apart te downloaden. Geen dader, ingevulde kaart, e-mailadres, Auth-fragment, accountproefparameter of speeltijd. Er wordt nooit automatisch iets verstuurd.
+
+De lege kaart wordt uit openbare kaartgegevens getekend, inclusief meubels, vloerpatronen en gebiedsnamen. Er wordt geen schermafbeelding van het ingevulde bord gemaakt. Directe links bewaren geen Auth-fragment of proefparameter; betaalde zaken blijven achter hun accounttoegang.
 
 ## Controle
 
 Automatische tests voor hintdiepte, hulpaanbod, puntenformule, aanbevelingen en deelberichten. De lokale dossier-browsertest doorloopt vier hulpniveaus, hervatten/herladen, verborgen-tabpauze, echte afrondingen, delen/kopiëren/handmatig selecteren/annuleren, dossiertotaal en mobiel. De account-browsertest gebruikt testantwoorden en bewijst geen echte mailbezorging.
+
+## Ervaren spelers
+
+Vanaf 30 unieke, gevalideerde afrondingen in het eigen dossier staan de algemene startuitleg en het themavoorbeeld met voorwerpoverzicht standaard dicht. Ook de herhaalde lesregel, sneltoetsuitleg en universele rij/kolomregel bij de kaart verdwijnen. Een bewaarde geldige afronding telt mee als de speler een zaak opnieuw begint. Losse opgeloste vlaggen of ongeldige kaarten tellen niet.
+
+Uitleg bekijken op de homepage en Voorbeeld en voorwerpen bekijken op het themastartblad openen de uitleg opnieuw. Deze keuze geldt tijdens het bezoek en wordt gereset bij accountwissel. Spelregels, expliciete hulp, bijzondere kaartregels, aanwijzingen, zaakkeuze, downloads en PDF-introducties blijven behouden.

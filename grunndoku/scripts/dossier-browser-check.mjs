@@ -8,6 +8,7 @@ const root=fileURLToPath(new URL('../',import.meta.url)),puzzles=JSON.parse(fs.r
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--disable-dev-shm-usage']});
 try{
  const page=await browser.newPage({viewport:{width:1366,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.route('https://apmxwvxdldpfemwtaouq.supabase.co/rest/v1/grunndoku_bundles**',route=>route.fulfill({contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:'[]'}));
  await page.route('http://grunndoku.local/**',async route=>{const url=new URL(route.request().url()),file=path.join(root,url.pathname==='/'?'index.html':url.pathname),ext=path.extname(file);await route.fulfill({body:fs.readFileSync(file),contentType:({'.html':'text/html','.js':'application/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.pdf':'application/pdf'})[ext]||'application/octet-stream'});});
  await page.clock.install();
  await page.goto('http://grunndoku.local/');await page.waitForSelector('#homeScreen:visible');assert.match(await page.locator('#dossierCount').innerText(),/^0 van 47/);assert.equal(await page.locator('#resumeCase').isVisible(),false);
@@ -27,7 +28,7 @@ try{
  await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/Fokko helpt/);assert.match(await page.locator('#hintText').innerText(),/^Moi, Fokko hier/);assert.match(await page.locator('#hintStep').innerText(),/1\/4/);assert.doesNotMatch(await page.locator('#hintText').innerText(),/rij \d+, kolom \d+/);
  await page.click('#hintNext');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);const hintBefore=await getSaved();
  await page.click('#hintClose');await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);assert.deepEqual((await getSaved()).coaching.hintViews,hintBefore.coaching.hintViews);
- await page.reload();await page.waitForSelector('#themeStartScreen:visible');await page.click('#beginTheme');await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);
+ await page.reload();await page.waitForSelector('#puzzleScreen:visible');await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);
  await page.click('#hintNext');await page.click('#hintNext');assert.match(await page.locator('#hintStep').innerText(),/4\/4/);assert.equal(await page.locator('#hintNext').isVisible(),false);assert.match(await page.locator('#hintText').innerText(),/rij \d+, kolom \d+/);
  await page.click('#hintClose');
  const first=puzzles[0],solution=solve(first)[0],who=first.people.findIndex((_,i)=>!Object.hasOwn(first.givens,i));
@@ -53,14 +54,17 @@ try{
  }
  const saved=await finish(first);assert.equal(saved.solved,true);
  // Native sharing, cancellation and both clipboard fallbacks, without contacting any service.
- await page.evaluate(()=>Object.defineProperty(navigator,'share',{configurable:true,value:async data=>{window.sharedResult=data;}}));
- await page.click('#shareResult');const shared=await page.evaluate(()=>window.sharedResult);assert.match(shared.text,/100 speurpunten/);assert.equal(shared.url,'http://grunndoku.local/?serie=stad');assert.doesNotMatch(JSON.stringify(shared),/positions|access_token|is de dader/);
+ await page.waitForFunction(()=>!document.querySelector('#downloadShareMap').hidden);
+ await page.evaluate(()=>{Object.defineProperty(navigator,'canShare',{configurable:true,value:data=>data.files?.[0]?.type==='image/png'});Object.defineProperty(navigator,'share',{configurable:true,value:async data=>{window.sharedResult=data;}});});
+ await page.click('#shareResult');const shared=await page.evaluate(()=>window.sharedResult);assert.match(shared.text,/100 speurpunten/);assert.equal(shared.url,'http://grunndoku.local/?serie=stad&zaak='+first.id);assert.equal(await page.evaluate(()=>window.sharedResult.files[0].type),'image/png');assert.ok(await page.evaluate(()=>window.sharedResult.files[0].size>1000));assert.doesNotMatch(JSON.stringify(shared),/positions|access_token|is de dader/);
  await page.evaluate(()=>{Object.defineProperty(navigator,'share',{configurable:true,value:undefined});Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedResult=text;}}});});
- await page.click('#shareResult');assert.match(await page.locator('#shareStatus').innerText(),/Gekopieerd/);assert.match(await page.evaluate(()=>window.copiedResult),/speurpunten/);
+ await page.click('#shareResult');assert.match(await page.locator('#shareStatus').innerText(),/gekopieerd/i);assert.match(await page.evaluate(()=>window.copiedResult),/speurpunten/);
  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('Unavailable');}}}));
  await page.click('#shareResult');assert.equal(await page.locator('#shareFallback').isVisible(),true);assert.equal(await page.locator('#shareText').inputValue(),await page.evaluate(()=>window.copiedResult));
  await page.evaluate(()=>Object.defineProperty(navigator,'share',{configurable:true,value:async()=>{throw new DOMException('Cancelled','AbortError');}}));
  await page.click('#shareResult');assert.equal(await page.locator('#shareFallback').isVisible(),false);assert.equal(await page.locator('#shareStatus').innerText(),'');
+ const png=await page.evaluate(async()=>Array.from(new Uint8Array(await window.sharedResult.files[0].arrayBuffer())));fs.writeFileSync('/tmp/grunndoku-share-map.png',Buffer.from(png));
+ await page.goto(shared.url);await page.waitForSelector('#puzzleScreen:visible');assert.equal(await page.locator('#caseTitle').innerText(),first.title);await page.click('#accuse');
  assert.match(await page.locator('#completionScore').innerText(),/100 speurpunten/);assert.match(await page.locator('#scoreExplanation').innerText(),/Hulp en bedenktijd kosten geen punten/);await page.screenshot({path:'/tmp/grunndoku-dossier-complete.png'});
  await page.click('#resultMap');assert.equal(await page.locator('#completionPanel').isVisible(),false);await page.click('#accuse');assert.equal(await page.locator('#completionPanel').isVisible(),true);assert.equal(await page.locator('#celebrationText').innerText(),(await import('../detective-voice.js')).celebrationMessage(saved.celebrationIndex));
  await page.click('#resultNext');const second=puzzles.find(q=>q.seriesId===first.seriesId&&q.id!==first.id);const savedSecond=await finish(second);assert.notEqual(savedSecond.celebrationIndex,saved.celebrationIndex);

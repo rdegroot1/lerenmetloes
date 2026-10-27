@@ -1,6 +1,8 @@
-import {completionShare} from './share.js?v=20261027-coaching';
+import {startBundles} from './bundle-manager.js?v=20261027-bundles';
+import {completionShare} from './share.js?v=20261027-share-map';
+import {createShareImage} from './share-image.js?v=20261027-share-map';
 import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,caseScore,helpSummary,recommendCase} from './coaching.js?v=20261027-coaching';
-import {accountStore,saveProgress,startAccounts,preferenceKey,accountPreview} from './account-manager.js?v=20261027-accounts';
+import {accountStore,saveProgress,startAccounts,preferenceKey,accountPreview} from './account-manager.js?v=20261027-bundles';
 import {progressSummary,resumeCase,milestoneText,caseProgress} from './progress.js?v=20261027-accounts';
 import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-accounts';
 import {THEMES,tutorialFor} from './themes.js?v=20261027-accounts';
@@ -14,18 +16,19 @@ import {explain} from './explain.js?v=20261027-accounts';
 import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-accounts';
 import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-accounts';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261027-coaching';
+const DATA_VERSION='20261027-bundles';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
-const mainCount=puzzles.length;
+const freeCaseIds=new Set(puzzles.map(q=>q.id));let mainCount=puzzles.length;
 const seriesCases=()=>puzzles.slice(0,mainCount).filter(q=>(q.seriesId||'stad')===(p.seriesId||'stad'));
 const seriesIndices=()=>seriesCases().map(q=>puzzles.indexOf(q));
 const choiceCases=()=>index>=mainCount?puzzles.slice(mainCount):seriesCases();
 const caseOptions=()=>choiceCases().map(q=>`<option value="${puzzles.indexOf(q)}">${caseProgressFor(q).solved?'✓ ':''}Zaak ${q.number} · ${q.title}</option>`).join('');
 let index=0,p,state,selected=0,mode='place',history=[],zoom=1,peopleZoom=1,hintSession=null,mapBase=0;
+let experienced=false,guidanceRequested=false;
 try{const preferences=JSON.parse(localStorage.getItem('grunndoku:view:v1'));if(preferences){if(Number.isFinite(preferences.map))zoom=Math.min(3,Math.max(.5,preferences.map));if(Number.isFinite(preferences.people))peopleZoom=Math.min(1.5,Math.max(.7,preferences.people));}}catch{}
 const compactCase=q=>q.people.length<=10&&gridWidth(q)<=12&&gridHeight(q)<=10;
-const largeCase=q=>['martini','winter','noorderzon'].includes(q.seriesId)&&!compactCase(q);
+const largeCase=q=>(['martini','winter','noorderzon'].includes(q.seriesId)||q.bundleId)&&!compactCase(q);
 function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify({map:zoom,people:peopleZoom}));}catch{}}
 // Keep the original storage namespace so existing browser progress survives the rename.
 // Guest keys are preserved by account-store.js; account caches stay separate.
@@ -47,7 +50,7 @@ function load(i){
  if(state.solved&&!state.achievement)state.achievement={positions:{...state.positions},solvedAt:state.solvedAt||0};
  state.coaching=coachingState(state.coaching);$('helpOffer').hidden=true;
  $('mapGuide').open=false;$('mapContext').open=false;selected=p.people.findIndex((_,who)=>!Object.hasOwn(p.givens||{},who));render();
- say(Object.keys(p.givens||{}).length?`${Object.keys(p.givens).length} personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.`:'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
+ say(experienced&&!guidanceRequested?'Kies een persoon en ga verder met je onderzoek.':Object.keys(p.givens||{}).length?`${Object.keys(p.givens).length} personen staan al vast. Kies de volgende persoon: één klik is concept, nogmaals is definitief.`:'Kies een persoon. Eén klik is een concept in het hoekje; klik nogmaals om definitief te plaatsen, en een derde keer om de eerdere aantekeningen terug te zetten.');
 }
 let currentScreen='home',introIndex=0,example=0;
 let lastPlayTick=performance.now();
@@ -71,13 +74,13 @@ function showScreen(name){
 function closeMenus(){for(const id of ['caseMenu','caseOverview'])$(id).open=false;}
 function route(screen,i,replace=false){
  const series=screen==='home'?null:(puzzles[i].seriesId||'stad'),query=new URLSearchParams();
- if(series)query.set('serie',series);if(accountPreview)query.set('accounts','preview');
+ if(series)query.set('serie',series);if(puzzles[i]?.bundleId&&screen!=='home')query.set('bundel',puzzles[i].bundleId);if(screen==='puzzle'&&puzzles[i].id)query.set('zaak',puzzles[i].id);if(accountPreview)query.set('accounts','preview');
  // Supabase consumes and removes its confirmation/recovery fragment on startup.
  window.history[replace?'replaceState':'pushState']({screen,index:i},'',location.pathname+(query.size?'?'+query:'')+location.hash);
 }
 function showHome(record=true){renderDossier();showScreen('home');if(record)route('home',0);window.scrollTo({top:0});}
 function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),record=true){
- introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').href=meta.pdf+'?v=20261027-accounts';$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
+ introIndex=i;load(i);const meta=THEMES[series];$('themeStartTitle').textContent=meta.title;$('themeStartDescription').textContent=meta.description;$('themeStartPdf').hidden=!meta.pdf;if(meta.pdf)$('themeStartPdf').href=meta.pdf+'?v='+DATA_VERSION;$('themeStartScreen').dataset.theme=series;$('towerPdf').hidden=series!=='martini';$('beginTheme').textContent='Open deze zaak →';example=0;renderExample();showScreen('theme');if(record)route('theme',i);window.scrollTo({top:0});
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
@@ -107,7 +110,9 @@ function renderDossier(){
  const resume=resumeCase(summary,last);$('resumeCase').hidden=!resume;
  if(resume){$('resumeCase').textContent=`Verder met ${puzzles[resume.index].title} →`;$('resumeCase').onclick=()=>openCase(resume.index);}
  $('dossierCount').textContent=`${summary.solved} van ${summary.total} zaken opgelost`;
- const points=puzzles.slice(0,mainCount).reduce((sum,q)=>{const saved=q.id===p.id?state:readSave(q),earned=caseProgress(q,saved).solved||caseProgress(q,{positions:saved?.achievement?.positions,solved:true}).solved;return sum+(earned?caseScore(q).total:0);},0);$('dossierScore').textContent=points?`${points} speurpunten verzameld · iedere opgeloste zaak telt één keer`:'';
+ let earnedCases=0;
+ const points=puzzles.slice(0,mainCount).reduce((sum,q)=>{const saved=q.id===p.id?state:readSave(q),earned=caseProgress(q,saved).solved||caseProgress(q,{positions:saved?.achievement?.positions,solved:true}).solved;if(earned)earnedCases++;return sum+(earned?caseScore(q).total:0);},0);$('dossierScore').textContent=points?`${points} speurpunten verzameld · iedere opgeloste zaak telt één keer`:'';
+ experienced=earnedCases>=30;renderGuidance();
  for(const card of document.querySelectorAll('.theme-card')){
   const series=card.querySelector('[data-theme-art]').dataset.themeArt,cases=summary.cases.filter(c=>c.series===series),done=cases.filter(c=>c.solved).length;
   card.querySelector('.theme-progress-label').textContent=`${done} van ${cases.length} zaken opgelost`;
@@ -116,12 +121,27 @@ function renderDossier(){
  const cases=summary.cases.filter(c=>c.series===(p.seriesId||'stad'));
  $('themeProgress').textContent=`${cases.filter(c=>c.solved).length} van ${cases.length} zaken opgelost · je kiest zelf je volgende zaak`;
 }
-$('howToPlay').onclick=()=>{$('generalStart').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});$('generalStartTitle').focus({preventScroll:true});};
+function renderGuidance(){
+ const compact=experienced&&!guidanceRequested;
+ $('generalStart').hidden=compact;$('themeTutorial').hidden=compact;
+ $('themeHelp').hidden=!experienced;$('themeHelp').textContent=compact?'Voorbeeld en voorwerpen bekijken':'Uitleg verbergen';
+ $('themeHelp').setAttribute('aria-expanded',String(!compact));
+ $('howToPlay').textContent=experienced?(compact?'Uitleg bekijken':'Uitleg verbergen'):'Zo werkt het';
+ $('howToPlay').setAttribute('aria-expanded',String(!compact));
+ $('lesson').hidden=compact;document.querySelector('.keyboard-tip').hidden=compact;
+ // Setting-specific rules remain visible; only the repeated universal rule goes.
+ $('shapeNote').hidden=compact&&!p.rulesNote;
+}
+$('howToPlay').onclick=()=>{
+ if(experienced){guidanceRequested=!guidanceRequested;renderGuidance();}
+ if(!$('generalStart').hidden){$('generalStart').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});$('generalStartTitle').focus({preventScroll:true});}
+};
+$('themeHelp').onclick=()=>{guidanceRequested=!guidanceRequested;renderGuidance();};
 function render(){
  renderDossier();
  const clueScroll=document.querySelector('.clue-page').scrollTop;
  const options=caseOptions();for(const id of ['caseSelect','themeCaseSelect']){$(id).innerHTML=options;$(id).value=String(index);}
- const church=['martini','winter','noorderzon'].includes(p.seriesId),width=gridWidth(p),height=gridHeight(p);
+ const church=Boolean(p.bundleId)||['martini','winter','noorderzon'].includes(p.seriesId),width=gridWidth(p),height=gridHeight(p);
  document.querySelector('.book').classList.toggle('series-martini',church);
  document.querySelector('.book').classList.toggle('series-winter',p.seriesId==='winter');
  document.querySelector('.book').classList.toggle('series-noorderzon',p.seriesId==='noorderzon');
@@ -144,7 +164,7 @@ function render(){
  $('zoomOut').disabled=zoom<=.5;$('zoomIn').disabled=zoom>=3;
  $('peopleZoomValue').textContent=`${Math.round(peopleZoom*100)}%`;$('peopleZoomOut').disabled=peopleZoom<=.7;$('peopleZoomIn').disabled=peopleZoom>=1.5;
  $('quickPerson').innerHTML=personEntries(p).map(({person,i})=>`<option value="${i}" ${i===selected?'selected':''} ${Object.hasOwn(p.givens||{},i)?'disabled':''}>${person.name}${state.positions[i]!=null?' ✓':''}</option>`).join('');
- $('activeSeriesName').textContent=({stad:'Stadse speurtochten',nacht:'Nacht in Stad',martini:'Moord in de Martini',winter:'WinterWelVaart',noorderzon:'Noorderzon'})[p.seriesId||'stad'];
+ $('activeSeriesName').textContent=THEMES[p.seriesId||'stad']?.title||'Extra thema';
  $('caseNo').textContent=`ZAAK ${String(p.number).padStart(2,'0')} / ${p.theme||'STAD'}`;$('caseTitle').textContent=p.title;$('story').textContent=p.story;
  const count=Object.keys(state.positions).length;$('count').textContent=`${count} / ${p.people.length} geplaatst`;$('progress').textContent=state.solved?'Zaak opgelost':`${count} van ${p.people.length} alibi’s op de kaart`;
  $('board').classList.toggle('shaped',p.regions.some(a=>a<0));document.querySelector('.book').classList.toggle('series-mugshot',p.portraitStyle==='mugshot');
@@ -157,7 +177,7 @@ function render(){
  $('accuse').textContent=state.solved?'Bekijk afronding':'Dader aanwijzen';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
  $('printAll').textContent=`Print dit thema (${printPageCount(seriesCases())} A4)`;$('printAll').hidden=index>=mainCount;
- const themeMeta=THEMES[p.seriesId||'stad'];$('headerThemePdf').hidden=index>=mainCount||!themeMeta;if(themeMeta)$('headerThemePdf').href=themeMeta.pdf+'?v='+DATA_VERSION;
+ const themeMeta=THEMES[p.seriesId||'stad'];$('headerThemePdf').hidden=index>=mainCount||!themeMeta?.pdf;if(themeMeta?.pdf)$('headerThemePdf').href=themeMeta.pdf+'?v='+DATA_VERSION;
  for(const [id,series]of [['classicSeries','stad'],['nightSeries','nacht'],['martiniSeries','martini'],['winterSeries','winter'],['noorderzonSeries','noorderzon']])$(id).setAttribute('aria-pressed',String((p.seriesId||'stad')===series));
  $('caseTrail').innerHTML=choiceCases().map(q=>{const i=puzzles.indexOf(q);return `<button class="${index===i?'current':''}" data-case="${i}" title="${q.title}" aria-label="Zaak ${q.number}: ${q.title}" ${index===i?'aria-current="step"':''}><b>${caseProgressFor(q).solved?'✓':q.number}</b><span>${['martini','winter','noorderzon'].includes(q.seriesId)?q.title:q.theme||q.title}</span></button>`;}).join('');
  $('caseTrail').querySelectorAll('button').forEach(b=>b.onclick=()=>{closeMenus();openCase(+b.dataset.case);});
@@ -199,8 +219,8 @@ function sizeMap(){
  }
  board.style.width=`${Math.round(mapBase*zoom)}px`;
 }
-window.addEventListener('afterprint',()=>{mapBase=0;sizeMap();});
-let resizeFrame;window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{mapBase=0;sizeMap();});});
+window.addEventListener('afterprint',()=>{sizeMap();});
+let resizeFrame;window.addEventListener('resize',()=>{if(matchMedia('print').matches)return;cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{mapBase=0;sizeMap();});});
 $('board').addEventListener('click',event=>{const cell=event.target.closest('[data-cell]');if(cell&&!cell.disabled)tap(+cell.dataset.cell);});
 $('board').addEventListener('contextmenu',event=>{const cell=event.target.closest('[data-cell]');if(cell){event.preventDefault();if(!cell.disabled)tap(+cell.dataset.cell,'cross');}});
 function tap(c,tool=mode){
@@ -289,7 +309,9 @@ $('downloadRatings').onclick=()=>{
  const url=URL.createObjectURL(new Blob([JSON.stringify({game:'Grunndoku',version:1,ratings},null,2)],{type:'application/json'}));
  const a=document.createElement('a');a.href=url;a.download='grunndoku-proefspeelnotities.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
+let shareImageTask=null,shareImageFile=null,shareImageUrl=null,shareImageCase=null;
 function showCompletion(){
+ prepareShareImage();
  $('shareStatus').textContent='';$('shareFallback').hidden=true;
  const culprit=p.people.findIndex((_,i)=>i!==p.victim&&region(p,state.positions[i])===region(p,state.positions[p.victim]));
  $('accuseTitle').textContent='Zaak opgelost!';$('accuseIntro').hidden=true;$('accusations').hidden=true;$('completionPanel').hidden=false;
@@ -310,14 +332,35 @@ function showCompletion(){
  $('resultNext').onclick=()=>{$('accuseDialog').close();if(next==null)showTheme(p.seriesId||'stad',index);else openCase(next);};
  renderDifficultyFeedback();
 }
+function prepareShareImage(){
+ if(shareImageCase===p.id&&shareImageTask)return;
+ if(shareImageUrl)URL.revokeObjectURL(shareImageUrl);
+ shareImageCase=p.id;shareImageFile=null;shareImageUrl=null;
+ $('shareMapPreview').hidden=true;$('downloadShareMap').hidden=true;
+ const current=p.id;
+ shareImageTask=createShareImage(p).then(file=>{
+  if(shareImageCase!==current)return null;
+  shareImageFile=file;shareImageUrl=URL.createObjectURL(file);
+  $('shareMapPreview').src=shareImageUrl;$('shareMapPreview').hidden=false;
+  $('downloadShareMap').href=shareImageUrl;$('downloadShareMap').download=file.name;$('downloadShareMap').hidden=false;
+  return file;
+ }).catch(()=>null);
+}
 $('shareResult').onclick=async()=>{
  const share=completionShare(p,location.href),text=share.text+'\n'+share.url;
  $('shareStatus').textContent='';$('shareFallback').hidden=true;
- if(navigator.share){
-  try{await navigator.share(share);return;}catch(error){if(error.name==='AbortError')return;}
+ if(!shareImageFile&&shareImageTask){
+  await shareImageTask;
+  // Keep the native share call in a fresh user gesture after rendering.
+  $('shareStatus').textContent=shareImageFile?'De lege kaart staat klaar. Klik nogmaals op delen.':'De kaart kon niet worden gemaakt. Klik nogmaals om de link te delen.';
+  shareImageTask=null;return;
  }
- try{await navigator.clipboard.writeText(text);$('shareStatus').textContent='Gekopieerd! Plak je resultaat waar je het wilt delen.';}
- catch{$('shareFallback').hidden=false;$('shareText').value=text;$('shareText').focus();$('shareText').select();$('shareStatus').textContent='Kopieer de geselecteerde tekst om je resultaat te delen.';}
+ if(navigator.share){
+  const data=shareImageFile&&navigator.canShare?.({files:[shareImageFile]})?{...share,files:[shareImageFile]}:share;
+  try{await navigator.share(data);if(!data.files&&shareImageFile)$('shareStatus').textContent='De link is gedeeld. Je kunt de lege kaart hieronder apart downloaden.';return;}catch(error){if(error.name==='AbortError')return;}
+ }
+ try{await navigator.clipboard.writeText(text);$('shareStatus').textContent=shareImageFile?'Tekst en puzzellink gekopieerd! Download de lege kaart hieronder om die mee te sturen.':'Tekst en puzzellink gekopieerd! De kaartafbeelding is nu niet beschikbaar.';}
+ catch{$('shareFallback').hidden=false;$('shareText').value=text;$('shareText').focus();$('shareText').select();$('shareStatus').textContent=shareImageFile?'Kopieer de geselecteerde tekst en download de lege kaart om mee te sturen.':'Kopieer de geselecteerde tekst om de puzzellink te delen.';}
 };
 $('resultMap').onclick=()=>{$('accuseDialog').close();document.querySelector('.map-panel').scrollIntoView({block:'start'});$('accuse').focus({preventScroll:true});};
 $('accuse').onclick=()=>{
@@ -334,13 +377,14 @@ $('accuse').onclick=()=>{
   }else $('verdict').textContent='Deze conclusie past nog niet bij de kaart. Kijk rustig wie het gebied met het slachtoffer deelt. Je kunt het opnieuw proberen.';
  };$('accusations').append(button);});$('accuseDialog').showModal();
 };
-const requestedSeries=new URLSearchParams(document.location.search).get('serie');
-const initialIndex=puzzles.findIndex(q=>(q.seriesId||'stad')===requestedSeries);
+const requestedParams=new URLSearchParams(document.location.search),requestedSeries=requestedParams.get('serie');
+const requestedCase=puzzles.findIndex(q=>q.id===requestedParams.get('zaak'));
+const initialIndex=requestedCase>=0?requestedCase:puzzles.findIndex(q=>(q.seriesId||'stad')===requestedSeries);
 load(initialIndex>=0?initialIndex:0);
 const generalObjects=[['chair','een stoel',true],['bench','een bankje',true],['bed','een bed',true],['rug','een kleed',true],['table','een tafel',false],['tree','een boom',false],['books','een boekenkast',false]].map(([type,name,occupiable])=>({type,name,occupiable}));
 $('startObjectLegend').innerHTML=objectLegend({objects:generalObjects});
 document.querySelectorAll('[data-theme-art]').forEach(el=>{const meta=THEMES[el.dataset.themeArt];el.innerHTML=meta.art.map(type=>`<span>${objectArt(type)}</span>`).join('');});
-if(initialIndex>=0){showTheme(requestedSeries,initialIndex,false);route('theme',initialIndex,true);}else{showHome(false);route('home',0,true);}
+if(requestedCase>=0){openCase(requestedCase,false);route('puzzle',requestedCase,true);}else if(initialIndex>=0){showTheme(requestedSeries,initialIndex,false);route('theme',initialIndex,true);}else{showHome(false);if(!requestedParams.has('bundel'))route('home',0,true);}
 
 // Shared action styling; board cells and portrait buttons keep their own hit areas.
 document.querySelectorAll('.primary,.quiet,.rules-button,.accuse,.reset,.series-pdf,.section-zoom button,.map-navigation button,.tools button,.header-menu>summary,.case-overview>summary').forEach(el=>el.classList.add('ui-button'));
@@ -358,10 +402,20 @@ function reloadAccountDossier(ids=null){
 startAccounts({
  beforeIdentityChange:()=>{if(state){settlePlayTime();persist();}},
  beforeSync:()=>{if(state){settlePlayTime();persist();}},
- onIdentityChange:()=>reloadAccountDossier(),
+ onIdentityChange:()=>{guidanceRequested=false;const previousId=p?.id,paid=p?.bundleId;puzzles=puzzles.filter(q=>!q.bundleId);mainCount=freeCaseIds.size;index=Math.max(0,puzzles.findIndex(q=>q.id===previousId));if(paid){if(shareImageUrl)URL.revokeObjectURL(shareImageUrl);shareImageCase=null;shareImageFile=null;shareImageTask=null;shareImageUrl=null;$('shareMapPreview').removeAttribute('src');$('shareMapPreview').hidden=true;$('downloadShareMap').hidden=true;$('printPages').replaceChildren();$('accuseDialog').close();state=undefined;index=0;load(0);showHome();}else reloadAccountDossier();},
  onRemoteChange:ids=>reloadAccountDossier(ids),
  guestCaseIds:()=>puzzles.filter(q=>{try{return caseProgress(q,JSON.parse(localStorage.getItem('grunmurdoku:v1:'+q.id))).started;}catch{return false;}}).map(q=>q.id),
  caseTitle:id=>puzzles.find(q=>q.id===id)?.title||id,
  describeState:(id,saved)=>{const q=puzzles.find(q=>q.id===id);if(!saved||!q)return 'Nog geen voortgang.';return Object.entries(saved.positions||{}).map(([who,cell])=>`${q.people[who]?.name||'Persoon'}: rij ${Math.floor(cell/gridWidth(q))+1}, kolom ${cell%gridWidth(q)+1}`).join('\n')+`\n${Object.keys(saved.notes||{}).length} vakken met concepten · ${saved.checked?.length||0} afgevinkte aanwijzingen${saved.solved?' · opgelost':''}`;}
 
 });
+
+startBundles({openBundle:async(bundle,cases,caseId)=>{
+ if(!cases.every(q=>q.bundleId===bundle.id&&q.seriesId===bundle.id&&q.id?.startsWith('bundle-')&&Array.isArray(q.people)&&Array.isArray(q.regions)))throw Error('Ongeldige bundel');
+ const previous=p?.id,previousIntro=puzzles[introIndex]?.id;
+ const incoming=cases.filter(q=>!puzzles.some(existing=>existing.id===q.id));puzzles.splice(mainCount,0,...incoming);mainCount+=incoming.length;
+ if(previous)index=puzzles.findIndex(q=>q.id===previous);if(previousIntro)introIndex=puzzles.findIndex(q=>q.id===previousIntro);
+ THEMES[bundle.id]={title:bundle.title,description:bundle.description,pdf:null,art:['tower','books']};
+ const target=caseId?puzzles.findIndex(q=>q.id===caseId&&q.bundleId===bundle.id):-1;
+ if(target>=0)openCase(target);else showTheme(bundle.id,puzzles.findIndex(q=>q.bundleId===bundle.id));
+}});
