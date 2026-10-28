@@ -2,22 +2,22 @@ import {scoreFor,earnedScore} from './scoring.js?v=20261028-score';
 import {startBundles} from './bundle-manager.js?v=20261027-bundles';
 import {completionShare} from './share.js?v=20261028-score';
 import {createShareImage} from './share-image.js?v=20261027-share-map';
-import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,helpSummary,recommendCase} from './coaching.js?v=20261028-tammo';
+import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,helpSummary,recommendCase} from './coaching.js?v=20261028-cast';
 import {accountStore,saveProgress,startAccounts,preferenceKey,accountPreview} from './account-manager.js?v=20261027-bundles';
 import {progressSummary,resumeCase,milestoneText,caseProgress} from './progress.js?v=20261027-accounts';
 import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-accounts';
-import {THEMES,tutorialFor} from './themes.js?v=20261027-accounts';
-import {personEntries} from './person-order.js?v=20261027-accounts';
+import {THEMES,tutorialFor} from './themes.js?v=20261028-cast';
+import {personEntries} from './person-order.js?v=20261028-cast';
 import {updateBoard} from './board-dom.js?v=20261027-accounts';
 import {reasoningHint} from './hints.js?v=20261027-coaching';
 import {solve,valid,region,isPlayable,canStand,gridWidth,gridHeight} from './engine.js?v=20261027-accounts';
-import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261027-accounts';
-import {landmarkArt,objectArt} from './art.js?v=20261027-accounts';
+import {boardMarkup,portraitMarkup,objectLegend,printPuzzles,printPageCount} from './view.js?v=20261028-cast';
+import {landmarkArt,objectArt} from './art.js?v=20261028-cast';
 import {explain} from './explain.js?v=20261027-accounts';
 import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-accounts';
 import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-accounts';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261028-tammo';
+const DATA_VERSION='20261028-cast';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const freeCaseIds=new Set(puzzles.map(q=>q.id));let mainCount=puzzles.length;
@@ -86,9 +86,9 @@ function showTheme(series,i=puzzles.findIndex(q=>(q.seriesId||'stad')===series),
 }
 function renderExample(){
  const sample=tutorialFor({series:p.seriesId||'stad',tower:p.setting==='tower'}),positions={...sample.givens,...(example>=1?{2:9}:{}),...(example>=2?{3:15}:{})};
- $('exampleClue').textContent=`Arend en Bertus staan al op de kaart. Cora: ${sample.clues[0].text} Fokko was samen met de moordenaar.`;
+ $('exampleClue').textContent=`Arend en Bertus staan al op de kaart. Cora: ${sample.clues[0].text} Tammo was samen met de moordenaar.`;
  $('exampleBoard').innerHTML=boardMarkup(sample,positions);
- $('exampleReason').textContent=example===0?'Begin bij Cora’s aanwijzing. Zoek het meubel met het groene merkje.':example===1?'Voor Cora past één plek: rij 3, kolom 2. Haar rij en kolom vallen nu af voor de anderen.':`Voor Fokko blijft rij 4, kolom 4 over. Alleen Bertus deelt het gebied ${sample.areas[1]} met hem: in dit voorbeeld is Bertus de dader.`;
+ $('exampleReason').textContent=example===0?'Begin bij Cora’s aanwijzing. Zoek het meubel met het groene merkje.':example===1?'Voor Cora past één plek: rij 3, kolom 2. Haar rij en kolom vallen nu af voor de anderen.':`Voor Tammo blijft rij 4, kolom 4 over. Alleen Bertus deelt het gebied ${sample.areas[1]} met hem: in dit voorbeeld is Bertus de dader.`;
  $('exampleStep').textContent=example===2?'Begin het voorbeeld opnieuw ↺':example===0?'Toon de eerste denkstap →':'Toon de tweede denkstap →';
 }
 function openCase(i,record=true){try{localStorage.setItem(preferenceKey('last-case'),puzzles[i].id);}catch{}const replace=currentScreen==='puzzle';showScreen('puzzle');load(i);if(record)route('puzzle',i,replace);document.querySelector('.book').scrollIntoView({block:'start'});}

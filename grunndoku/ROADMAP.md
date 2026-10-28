@@ -2,7 +2,7 @@
 
 Elke locatie krijgt een eigen zesdelige reeks: niveaus 1–5 en een uitzonderlijke XXL-zaak op niveau 6. De sterren drukken de beoogde redeneermoeilijkheid uit; gebruik proefspeelnotities om deze later te ijken. Alleen meer vakjes of personen toevoegen is geen voldoende reden voor een hoger niveau.
 
-Ontwerprichting voor aanwijzingen: bouw op van algemene plaatsinformatie en uitsluiting naar relaties tussen personen, ruimtebezetting en meerdere samenhangende redeneerstappen. Een nummer verwijst alleen naar een rij óf een kolom, nooit naar een exacte coördinaat. Geen getelde afstanden vanaf voorwerpen. De hogere niveaus vragen meer combineren, niet alleen meer plaatsen. Houd iedere zaak zonder gokken beredeneerbaar en geef Fokko uitsluitend de algemene slachtofferregel.
+Ontwerprichting voor aanwijzingen: bouw op van algemene plaatsinformatie en uitsluiting naar relaties tussen personen, ruimtebezetting en meerdere samenhangende redeneerstappen. Een nummer verwijst alleen naar een rij óf een kolom, nooit naar een exacte coördinaat. Geen getelde afstanden vanaf voorwerpen. De hogere niveaus vragen meer combineren, niet alleen meer plaatsen. Houd iedere zaak zonder gokken beredeneerbaar en geef Tammo uitsluitend de algemene slachtofferregel.
 
 Afgerond: Martini (zes kerkzaken, plus drie torenzaken op niveau 3/4) en WinterWelVaart (zes verschillende winterdossiers). Behoud de bestaande losse zaken en hun oplossingen als oudere instap in de thema’s.
 

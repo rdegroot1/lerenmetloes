@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {GENERAL_CLUES,applyGeneralClues,assertGeneralCluePolicy} from '../general-clues.mjs';
+import {GENERAL_CLUES,applyGeneralClues,assertGeneralCluePolicy,generalClueText} from '../general-clues.mjs';
 import {canStand,cellCount,rowOf,columnOf,matches,solve} from '../engine.js';
 import {explain} from '../explain.js';
 const puzzles=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url)));
@@ -23,7 +23,7 @@ test('all 34 replacements express one axis, leave multiple places and match the 
  for(const p of puzzles)for(const spec of GENERAL_CLUES[p.id]||[]){
   count++;
   const clue=p.clues.find(c=>c.a===spec.a);
-  assert.equal(clue.text,spec.text);assert.notEqual(clue.a,p.victim);assert.notEqual(clue.b,p.victim);
+  assert.equal(clue.text,generalClueText(p,spec));if(spec.b!=null)assert.ok(clue.text.endsWith(p.people[spec.b].name+'.'));assert.notEqual(clue.a,p.victim);assert.notEqual(clue.b,p.victim);
   const mask=Array.from({length:cellCount(p)},(_,c)=>c).filter(c=>canStand(p,c)&&(spec.axis==='row'?rowOf(p,c):columnOf(p,c))===spec.number-1&&(spec.area==null||p.areas[p.regions[c]]===spec.area)&&(!spec.floor||!p.objects.some(o=>o.cell===c)));
   assert.deepEqual(clue.cells,mask);assert.ok(mask.length>1,p.id+': '+clue.text);
   if(clue.b!=null){

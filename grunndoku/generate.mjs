@@ -1,3 +1,4 @@
+import {applyCast} from './cast.mjs';
 import {createMartiniSurroundings} from './martini-surroundings.mjs';
 import {createNoorderzonSeries} from './noorderzon.mjs';
 import {ensureSpaciousRooms} from './spacious-rooms.mjs';
@@ -136,4 +137,5 @@ cases.forEach(finishDossier);
 cases.forEach(ensureSpaciousRooms);
 cases.forEach(applyGeneralClues);
 cases.forEach(assertGeneralCluePolicy);
+cases.forEach(applyCast);
 writeFileSync(new URL('./puzzles.json',import.meta.url),JSON.stringify(cases,null,2)+'\n');

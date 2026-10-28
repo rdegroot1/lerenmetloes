@@ -299,6 +299,8 @@ export const GENERAL_CLUES={
   ]
 };
 
+export function generalClueText(p,spec){return spec.b==null?spec.text:spec.text.replace(/[\p{L}]+(?=\.$)/u,p.people[spec.b].name);}
+
 export function applyGeneralClues(p){
  const plan=GENERAL_CLUES[p.id];if(!plan)return p;
  const available=Array.from({length:cellCount(p)},(_,c)=>c).filter(c=>canStand(p,c));
@@ -307,7 +309,7 @@ export function applyGeneralClues(p){
   if(area!=null&&areaIndex<0)throw Error('Missing general-clue area: '+area);
   const cells=available.filter(c=>(axis==='row'?rowOf(p,c):columnOf(p,c))===number-1&&(areaIndex==null||p.regions[c]===areaIndex)&&(!floor||!p.objects.some(o=>o.cell===c)));
   if(cells.length<2||a===p.victim||b===p.victim)throw Error('General clue must leave multiple places and avoid the victim: '+p.id);
-  return {type,a,...(b==null?{}:{b}),text,cells};
+  return {type,a,...(b==null?{}:{b}),text:generalClueText(p,{b,text}),cells};
  });
  if(replacements.every(q=>JSON.stringify(p.clues.find(c=>c.a===q.a))===JSON.stringify(q)))return p;
  const original=solve(p);if(original.length!==1)throw Error('General-clue base must be unique: '+p.id);

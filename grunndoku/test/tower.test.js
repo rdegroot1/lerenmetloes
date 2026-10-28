@@ -4,9 +4,9 @@ import {introductionSheets} from '../print-layouts.js';
 const all=JSON.parse(readFileSync(new URL('../puzzles.json',import.meta.url))),cases=all.filter(p=>p.setting==='tower');
 test('three tower cases add levels 3/4 with varied casts and appropriate paper sizes',()=>{assert.deepEqual(cases.map(p=>p.difficultyStars),[3,4,4]);assert.deepEqual(cases.map(p=>p.people.length),[8,10,12]);assert.deepEqual(cases.map(p=>printPageCount([p])),[1,1,2]);assert.equal(printPageCount(cases),6);assert.equal(printPageCount(all.filter(p=>p.seriesId==='martini')),18);});
 for(const p of cases)test(`${p.id}: unique public solution, real tower features and complete footprints`,()=>{
- const solutions=solve(p);assert.equal(solutions.length,1);const [s]=solutions;assert.ok(valid(p,s,true));assert.deepEqual(explain(p).positions,s);assert.equal(p.people[p.victim].name,'Fokko');
+ const solutions=solve(p);assert.equal(solutions.length,1);const [s]=solutions;assert.ok(valid(p,s,true));assert.deepEqual(explain(p).positions,s);assert.equal(p.people[p.victim].name,'Tammo');
  p.people.forEach((person,i)=>assert.equal(p.clues.filter(c=>c.a===i).length,i===p.victim?0:1));
- assert.ok(p.clues.every(c=>c.a!==p.victim&&c.b!==p.victim&&!c.text.includes('Fokko')));assert.equal(p.victimLocationClue,false);
+ assert.ok(p.clues.every(c=>c.a!==p.victim&&c.b!==p.victim&&!c.text.includes('Tammo')));assert.equal(p.victimLocationClue,false);
  assert.equal(new Set(p.people.map(x=>x.name[0])).size,p.people.length);assert.equal(new Set(p.objects.map(o=>o.cell)).size,p.objects.length);
  for(const name of ['Eerste trans','Uurwerkzolder','Filmzolder','Klokkenzolder','Trappenhuis'])assert.ok(p.areas.includes(name));
  for(const type of ['towerBell','towerStairs','towerRailing','towerClock']){const objects=p.objects.filter(o=>o.type===type);assert.ok(objects.length>0);assert.ok(objects.every(o=>o.occupiable===(type==='towerStairs')));assert.notEqual(objectArt(type),objectArt('unknown'));}
