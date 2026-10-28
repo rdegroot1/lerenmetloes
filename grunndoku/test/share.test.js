@@ -13,3 +13,9 @@ for(const p of puzzles)test(`${p.id}: shared map uses only public map data, not 
  assert.equal(width,1200);assert.ok(height>265&&height<=1915);assert.match(svg,/<svg/);assert.doesNotMatch(svg,/PRIVATE|person-token|token-name|candidate-notes|foreignObject/);assert.equal(JSON.stringify(p),before);
  for(const area of p.areas)assert.ok(svg.includes(area.replaceAll('&','&amp;').replaceAll("'",'&apos;')));
 });
+
+test('shared new scores match the result, with the difficulty bonus stated separately',()=>{
+ const p={id:'case',title:'De testzaak',people:[{},{}],difficultyStars:2};
+ const share=completionShare(p,'https://example.com/',{scoreVersion:2,coaching:{scoreDepths:{0:3}}});
+ assert.match(share.text,/800 \/ 1.000 speurpunten \+ 50 niveaupunten/);
+});

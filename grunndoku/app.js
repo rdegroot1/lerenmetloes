@@ -1,7 +1,8 @@
+import {scoreFor,earnedScore} from './scoring.js?v=20261028-score';
 import {startBundles} from './bundle-manager.js?v=20261027-bundles';
-import {completionShare} from './share.js?v=20261027-share-map';
+import {completionShare} from './share.js?v=20261028-score';
 import {createShareImage} from './share-image.js?v=20261027-share-map';
-import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,caseScore,helpSummary,recommendCase} from './coaching.js?v=20261027-coaching';
+import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,helpSummary,recommendCase} from './coaching.js?v=20261028-score';
 import {accountStore,saveProgress,startAccounts,preferenceKey,accountPreview} from './account-manager.js?v=20261027-bundles';
 import {progressSummary,resumeCase,milestoneText,caseProgress} from './progress.js?v=20261027-accounts';
 import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-accounts';
@@ -16,7 +17,7 @@ import {explain} from './explain.js?v=20261027-accounts';
 import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-accounts';
 import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-accounts';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261027-bundles';
+const DATA_VERSION='20261028-score';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const freeCaseIds=new Set(puzzles.map(q=>q.id));let mainCount=puzzles.length;
@@ -35,7 +36,7 @@ function saveView(){try{localStorage.setItem('grunndoku:view:v1',JSON.stringify(
 function load(i){
  if(state){settlePlayTime();persist();}
  lastPlayTick=performance.now();index=i;p=puzzles[i];document.querySelector('.clue-page').scrollTop=0;mapBase=0;hintSession=null;$('hintPanel').hidden=true;history=[];selected=0;mode='place';
- const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,achievement:null,coaching:coachingState(),difficultyFeedback:null};state=defaults;
+ const defaults={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,scoreVersion:2,achievement:null,coaching:coachingState(),difficultyFeedback:null};state=defaults;
  try{
   const saved=accountStore.open(p.id);
   if(saved&&typeof saved.positions==='object'&&Array.isArray(saved.crosses)&&Array.isArray(saved.checked)){
@@ -45,6 +46,7 @@ function load(i){
    state.playTimeMs=elapsedTime(saved.playTimeMs,0);
    state.playTimePartial=Boolean(saved.playTimePartial)||(!Object.hasOwn(saved,'playTimeMs')&&(Object.keys(positions).length>Object.keys(p.givens||{}).length||Object.keys(notes).length>0||saved.crosses.length>0||saved.checked.length>0));
    state.solved=Boolean(saved.solved)&&Object.keys(state.positions).length===p.people.length&&valid(p,state.positions,true);
+   state.scoreVersion=saved.scoreVersion===2?2:state.solved?1:2;
   }
  }catch{}
  if(state.solved&&!state.achievement)state.achievement={positions:{...state.positions},solvedAt:state.solvedAt||0};
@@ -111,7 +113,7 @@ function renderDossier(){
  if(resume){$('resumeCase').textContent=`Verder met ${puzzles[resume.index].title} →`;$('resumeCase').onclick=()=>openCase(resume.index);}
  $('dossierCount').textContent=`${summary.solved} van ${summary.total} zaken opgelost`;
  let earnedCases=0;
- const points=puzzles.slice(0,mainCount).reduce((sum,q)=>{const saved=q.id===p.id?state:readSave(q),earned=caseProgress(q,saved).solved||caseProgress(q,{positions:saved?.achievement?.positions,solved:true}).solved;if(earned)earnedCases++;return sum+(earned?caseScore(q).total:0);},0);$('dossierScore').textContent=points?`${points} speurpunten verzameld · iedere opgeloste zaak telt één keer`:'';
+ const points=puzzles.slice(0,mainCount).reduce((sum,q)=>{const saved=q.id===p.id?state:readSave(q),earned=caseProgress(q,saved).solved||caseProgress(q,{positions:saved?.achievement?.positions,solved:true}).solved;if(earned)earnedCases++;return sum+(earned?earnedScore(q,saved):0);},0);$('dossierScore').textContent=points?`${points} speurpunten verzameld · iedere opgeloste zaak telt één keer`:'';
  experienced=earnedCases>=30;renderGuidance();
  for(const card of document.querySelectorAll('.theme-card')){
   const series=card.querySelector('[data-theme-art]').dataset.themeArt,cases=summary.cases.filter(c=>c.series===series),done=cases.filter(c=>c.solved).length;
@@ -242,7 +244,7 @@ $('printAll').textContent=`Print de reeks (${mainCount} A4)`;
 $('caseSelect').onchange=e=>openCase(+e.target.value);
 for(const m of ['place','cross','erase'])$(m).onclick=()=>{mode=m;render();say(m==='cross'?'Tik op vakjes die je wilt wegstrepen. Deze notities tellen niet mee als plaatsing.':m==='erase'?'Tik op een concept, persoon of kruisje om te wissen.':'Eén klik noteert een concept in het hoekje, nogmaals op dat vakje plaatst de persoon definitief.');};
 $('undo').onclick=()=>{if(history.length){settlePlayTime();const spent=state.playTimeMs,coaching=state.coaching,hintsUsed=state.hintsUsed,achievement=state.achievement;state=JSON.parse(history.pop());state.playTimeMs=spent;state.coaching=coaching;state.hintsUsed=hintsUsed;state.achievement=achievement||state.achievement;persist();render();say('Laatste wijziging teruggedraaid.');}};
-$('reset').onclick=()=>{closeMenus();$('caseMenu').querySelector('summary').focus();$('hintPanel').hidden=true;hintSession=null;settlePlayTime();snapshot();lastPlayTick=performance.now();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,achievement:state.achievement,coaching:coachingState(),difficultyFeedback:state.difficultyFeedback||null};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
+$('reset').onclick=()=>{closeMenus();$('caseMenu').querySelector('summary').focus();$('hintPanel').hidden=true;hintSession=null;settlePlayTime();snapshot();lastPlayTick=performance.now();state={positions:{...p.givens},crosses:[],notes:{},noteBackups:{},checked:[],solved:false,playTimeMs:0,playTimePartial:false,hintsUsed:0,scoreVersion:2,achievement:state.achievement,coaching:coachingState(),difficultyFeedback:state.difficultyFeedback||null};persist();render();say('Een schone kaart. Je kunt dit nog terugdraaien met Terug.');};
 $('check').onclick=()=>{
  const complete=Object.keys(state.positions).length===p.people.length;
  if(!valid(p,state.positions,complete)||!solve(p,state.positions,1).length){say('Er klopt nog iets niet. De geplaatste personen passen niet bij alle aanwijzingen. Met Wissen kun je een plaatsing verwijderen.');return;}
@@ -256,13 +258,13 @@ function showReasoningHint(advance=false){
   hintSession={key,index:Math.min(saved?.level??0,hint.steps.length-1),...hint};
   if(!saved){state.hintsUsed=(state.hintsUsed||0)+1;}
  }else if(advance)hintSession.index=Math.min(hintSession.index+1,hintSession.steps.length-1);
- state.coaching=recordHint(state.coaching,key,hintSession.index);state.coaching=postponeHelp(state.coaching,state.playTimeMs);persist();
+ state.coaching=recordHint(state.coaching,key,hintSession.index,hintSession.kind==='placement'?hintSession.who:undefined);state.coaching=postponeHelp(state.coaching,state.playTimeMs);persist();
  $('helpOffer').hidden=true;$('hintPanel').hidden=false;
  const label=hintSession.kind==='placement'?HINT_LEVELS[hintSession.index]:'Even controleren';
  $('hintStep').textContent=`${p.people[p.victim].name} helpt · ${label} · ${hintSession.index+1}/${hintSession.steps.length}`;
  $('hintText').textContent=victimHint(p,hintSession.steps[hintSession.index],hintSession.index);$('hintNext').hidden=hintSession.index===hintSession.steps.length-1;
  $('hintNext').textContent=hintSession.index===2?'Laat de uitgewerkte stap zien':'Iets gerichter →';
- sizeMap();say(`${p.people[p.victim].name} denkt met je mee. Hulp vragen kost geen speurpunten.`);
+ sizeMap();say(`${p.people[p.victim].name} denkt met je mee. Een algemeen zetje is gratis. Gerichtere hulp telt mee voor je zelfstandigheidsbonus.`);
 }
 $('hint').onclick=()=>showReasoningHint();
 $('hintNext').onclick=()=>showReasoningHint(true);
@@ -320,8 +322,10 @@ function showCompletion(){
  $('completionSpeaker').textContent=`${p.people[p.victim].name} zegt`;
  $('completionPortrait').innerHTML=portraitMarkup(p.victim,p.people[p.victim].name,p);
  $('completionTime').textContent=state.playTimeMs>0?completionMessage(state.playTimeMs,state.playTimePartial):'';
- const score=caseScore(p);$('completionScore').textContent=`${score.total} speurpunten · zaak geklaard!`;
- $('scoreExplanation').textContent=`${score.base} voor het oplossen${score.bonus?` + ${score.bonus} voor het niveau`:''}. Hulp en bedenktijd kosten geen punten. Een zaak telt één keer mee in je dossier.`;
+ const score=scoreFor(p,state);animateScore(score);
+ $('scoreExplanation').textContent=score.legacy?'Eerdere afronding: je verdiende punten blijven behouden. De nieuwe speurscore geldt wanneer je een zaak opnieuw speelt.':`600 voor het oplossen + ${score.bonus} zelfstandigheidsbonus. Tijd kost geen punten. Algemene zetjes zijn gratis; per persoon telt alleen de meest gerichte hulp.`;
+ $('scoreLevelBonus').textContent=score.levelBonus?`+ ${score.levelBonus} niveaupunten voor je dossier` : '';
+
  $('completionHelp').textContent=helpSummary(state);
  const recommendation=recommendCase(puzzles.slice(0,mainCount),p,q=>q.id===p.id?state:readSave(q),(q,s)=>caseProgress(q,s).solved);
  $('recommendation').hidden=!recommendation;
@@ -331,6 +335,18 @@ function showCompletion(){
  $('resultNext').textContent=next==null?'Terug naar dit thema':'Een volgende zaak →';
  $('resultNext').onclick=()=>{$('accuseDialog').close();if(next==null)showTheme(p.seriesId||'stad',index);else openCase(next);};
  renderDifficultyFeedback();
+}
+let scoreFrame;
+function animateScore(score){
+ cancelAnimationFrame(scoreFrame);const bar=$('scoreMeter'),fill=$('scoreFill');
+ bar.setAttribute('aria-valuemax',score.max);bar.setAttribute('aria-valuenow',score.total);bar.setAttribute('aria-valuetext',`${score.total} van ${score.max} punten`);
+ $('completionScore').textContent=score.legacy?`${score.total} speurpunten · eerdere afronding`:`${score.total} / 1.000 · mooi speurwerk!`;
+ $('scoreBreakdown').textContent=score.legacy?'Eerdere score behouden':`${score.base} zaak opgelost · ${score.bonus} zelfstandigheidsbonus`;
+ const paint=value=>{fill.style.transform=`scaleX(${value/score.max})`;$('scoreCounter').textContent=String(Math.round(value));};
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){paint(score.total);return;}
+ paint(0);const start=performance.now();
+ const tick=now=>{const t=Math.min(1,(now-start)/1600),first=Math.min(1,t/.55),second=Math.max(0,(t-.55)/.45);paint(t<.55?score.base*(1-Math.pow(1-first,3)):score.base+score.bonus*(1-Math.pow(1-second,3)));if(t<1&&$('accuseDialog').open)scoreFrame=requestAnimationFrame(tick);else paint(score.total);};
+ scoreFrame=requestAnimationFrame(tick);
 }
 function prepareShareImage(){
  if(shareImageCase===p.id&&shareImageTask)return;
@@ -347,7 +363,7 @@ function prepareShareImage(){
  }).catch(()=>null);
 }
 $('shareResult').onclick=async()=>{
- const share=completionShare(p,location.href),text=share.text+'\n'+share.url;
+ const share=completionShare(p,location.href,state),text=share.text+'\n'+share.url;
  $('shareStatus').textContent='';$('shareFallback').hidden=true;
  if(!shareImageFile&&shareImageTask){
   await shareImageTask;
@@ -370,7 +386,7 @@ $('accuse').onclick=()=>{
  renderDifficultyFeedback();$('verdict').textContent='';$('accusations').replaceChildren();personEntries(p).forEach(({person,i})=>{if(i===p.victim)return;const button=document.createElement('button');button.textContent=person.name;button.onclick=()=>{
   const correct=region(p,state.positions[i])===region(p,state.positions[p.victim]);
   if(correct){
-   settlePlayTime();snapshot();state.solved=true;state.solvedAt=Date.now();state.achievement=state.achievement||{positions:{...state.positions},solvedAt:state.solvedAt};let previous=-1;
+   settlePlayTime();snapshot();state.solved=true;state.solvedAt=Date.now();const completedScore=scoreFor(p,state);if(!state.achievement||completedScore.dossierTotal>earnedScore(p,{achievement:state.achievement}))state.achievement={positions:{...state.positions},solvedAt:state.solvedAt,score:completedScore};let previous=-1;
    try{previous=JSON.parse(localStorage.getItem('grunndoku:last-celebration:v1'))??-1;}catch{}
    state.celebrationIndex=nextCelebration(previous);try{localStorage.setItem('grunndoku:last-celebration:v1',JSON.stringify(state.celebrationIndex));}catch{}
    persist();render();showCompletion();say('Zaak opgelost. Mooi speurwerk!');$('accuseTitle').focus();
