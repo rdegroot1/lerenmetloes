@@ -62,7 +62,7 @@ test('current clues never refer to the victim',()=>{
 });
 
 test('names have distinct initials for concept notes',()=>{
- assert.deepEqual(puzzles[16].people.map(p=>p.name),['Arend','Bertus','Cora','Tammo','Geeske','Fokko']);
+ assert.deepEqual(puzzles[16].people.filter((_,i)=>i!==puzzles[16].victim).map(p=>p.name[0]),['A','B','C','D','E']);assert.equal(puzzles[16].people[puzzles[16].victim].name,'Tammo');
  for(const p of puzzles)assert.equal(new Set(p.people.map(person=>person.name[0])).size,p.people.length);
 });
 

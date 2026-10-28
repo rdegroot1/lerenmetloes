@@ -28,7 +28,7 @@ De lege RLS-policyset op de twee interne tabellen is bewust deny-by-default. Sch
 
 ## Een bundel publiceren
 
-1. Maak eigen puzzels en valideer uniciteit, deductieve route en alle gebruikelijke kwaliteitsregels.
+1. Maak eigen puzzels, pas applyCast uit cast.mjs toe voor A/B/C-volgorde en slachtoffer Tammo, en valideer uniciteit, deductieve route en alle gebruikelijke kwaliteitsregels.
 2. Gebruik een stabiel thema-ID `bundle-...` en unieke zaak-ID’s `bundle-...`. Elke JSON-zaak bevat dezelfde `seriesId` en `bundleId` als de bundel.
 3. Maak metadata met enabled=false; plaats de JSON uitsluitend in de beveiligde tabel. Vul het werkelijke aantal zaken in.
 4. Genereer lokaal een willekeurige code van minstens 16 tekens. Bewaar uitsluitend de SHA-256 van de genormaliseerde code in de interne codetabel. Geen werkelijke verkoopcodes in Git, frontend of openbare logs.

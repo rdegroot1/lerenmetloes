@@ -51,34 +51,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Aaltje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Derk",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Ete",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -180,25 +192,25 @@
         "type": "different",
         "a": 0,
         "b": 2,
-        "text": "Bevond zich in een ander gebied dan Fenna."
+        "text": "Bevond zich in een ander gebied dan Cora."
       },
       {
         "type": "above",
         "a": 3,
         "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "left",
         "a": 2,
         "b": 3,
-        "text": "Stond links van Jurre."
+        "text": "Stond links van Derk."
       },
       {
         "type": "above",
         "a": 0,
         "b": 1,
-        "text": "Stond hoger op de kaart dan Bram."
+        "text": "Stond hoger op de kaart dan Boarend."
       },
       {
         "type": "unary",
@@ -216,7 +228,7 @@
         "type": "left",
         "a": 5,
         "b": 4,
-        "text": "Stond links van Sanne."
+        "text": "Stond links van Ete."
       },
       {
         "type": "unary",
@@ -272,7 +284,8 @@
           35
         ]
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "zaak-2",
@@ -326,34 +339,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Aaltje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Douwe",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Engel",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -412,19 +437,19 @@
         "type": "above",
         "a": 1,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "left",
         "a": 0,
         "b": 2,
-        "text": "Stond links van Fenna."
+        "text": "Stond links van Cora."
       },
       {
         "type": "above",
         "a": 0,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "unary",
@@ -446,7 +471,7 @@
         "type": "different",
         "a": 0,
         "b": 1,
-        "text": "Bevond zich in een ander gebied dan Bram."
+        "text": "Bevond zich in een ander gebied dan Berend."
       },
       {
         "type": "unary",
@@ -501,15 +526,16 @@
         "type": "above",
         "a": 4,
         "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "left",
         "a": 3,
         "b": 1,
-        "text": "Stond links van Bram."
+        "text": "Stond links van Berend."
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "zaak-3",
@@ -563,34 +589,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Aaltje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Derk",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Eefke",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -649,19 +687,19 @@
         "type": "above",
         "a": 1,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "left",
         "a": 5,
         "b": 0,
-        "text": "Stond links van Lieke."
+        "text": "Stond links van Aaltje."
       },
       {
         "type": "above",
         "a": 0,
         "b": 1,
-        "text": "Stond hoger op de kaart dan Bram."
+        "text": "Stond hoger op de kaart dan Barrelt."
       },
       {
         "type": "unary",
@@ -683,7 +721,7 @@
         "type": "above",
         "a": 4,
         "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "unary",
@@ -705,13 +743,13 @@
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Eefke."
       },
       {
         "type": "left",
         "a": 0,
         "b": 1,
-        "text": "Stond links van Bram."
+        "text": "Stond links van Barrelt."
       },
       {
         "type": "unary",
@@ -724,7 +762,8 @@
         ]
       }
     ],
-    "clueVersion": 2
+    "clueVersion": 2,
+    "castVersion": 1
   },
   {
     "id": "zaak-4",
@@ -778,34 +817,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Antje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Douwe",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Ebeltje",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -864,7 +915,7 @@
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Ebeltje."
       },
       {
         "type": "unary",
@@ -895,7 +946,7 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Jurre."
+        "text": "Stond hoger op de kaart dan Douwe."
       },
       {
         "type": "unary",
@@ -917,19 +968,19 @@
         "type": "above",
         "a": 1,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "above",
         "a": 0,
         "b": 1,
-        "text": "Stond hoger op de kaart dan Bram."
+        "text": "Stond hoger op de kaart dan Berend."
       },
       {
         "type": "left",
         "a": 4,
         "b": 0,
-        "text": "Stond links van Lieke."
+        "text": "Stond links van Antje."
       },
       {
         "type": "unary",
@@ -962,9 +1013,10 @@
         "type": "left",
         "a": 1,
         "b": 3,
-        "text": "Stond links van Jurre."
+        "text": "Stond links van Douwe."
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "zaak-5",
@@ -1018,34 +1070,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Aaltje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Derk",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Ete",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1104,7 +1168,7 @@
         "type": "left",
         "a": 1,
         "b": 0,
-        "text": "Stond links van Lieke."
+        "text": "Stond links van Aaltje."
       },
       {
         "type": "unary",
@@ -1126,25 +1190,25 @@
         "type": "left",
         "a": 4,
         "b": 1,
-        "text": "Stond links van Bram."
+        "text": "Stond links van Boarend."
       },
       {
         "type": "left",
         "a": 5,
         "b": 2,
-        "text": "Stond links van Fenna."
+        "text": "Stond links van Cora."
       },
       {
         "type": "above",
         "a": 0,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "left",
         "a": 2,
         "b": 4,
-        "text": "Stond links van Sanne."
+        "text": "Stond links van Ete."
       },
       {
         "type": "unary",
@@ -1173,13 +1237,13 @@
         "type": "above",
         "a": 1,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Ete."
       },
       {
         "type": "unary",
@@ -1195,13 +1259,14 @@
         ]
       }
     ],
-    "clueVersion": 2
+    "clueVersion": 2,
+    "castVersion": 1
   },
   {
     "id": "stad-v2-2",
     "number": 2,
     "title": "Een eierbal te veel",
-    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Jurre komt niet thuis. Wie was er nog bij hem?",
+    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Tammo komt niet thuis. Wie was er nog bij hem?",
     "lesson": "Zelf op onderzoek",
     "level": "Makkelijk",
     "size": 4,
@@ -1231,24 +1296,32 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Antje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Tammo",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1322,13 +1395,14 @@
           15
         ]
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "stad-v2-3",
     "number": 3,
     "title": "Stilte in het plantsoen",
-    "story": "Sanne wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
+    "story": "Tammo wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt haar tas gevonden. De getuigen vertellen waar ze waren.",
     "lesson": "Goed kijken",
     "level": "Rustig puzzelen",
     "size": 5,
@@ -1367,29 +1441,39 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Aaltje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Derk",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Tammo",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1426,13 +1510,13 @@
         "type": "above",
         "a": 0,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "above",
         "a": 1,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "unary",
@@ -1476,7 +1560,7 @@
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "unary",
@@ -1491,13 +1575,14 @@
         ]
       }
     ],
-    "clueVersion": 2
+    "clueVersion": 2,
+    "castVersion": 1
   },
   {
     "id": "stad-v2-4",
     "number": 4,
     "title": "Het geheim van ome Loeks",
-    "story": "Bij het Peerd van ome Loeks wachtte Sanne op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
+    "story": "Bij het Peerd van ome Loeks wachtte Tammo op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
     "lesson": "Verbanden leggen",
     "level": "Gemiddeld",
     "size": 5,
@@ -1536,29 +1621,39 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Auktje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Douwe",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Tammo",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1653,13 +1748,13 @@
         "type": "left",
         "a": 1,
         "b": 4,
-        "text": "Stond links van Sanne."
+        "text": "Stond links van Tammo."
       },
       {
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "unary",
@@ -1672,13 +1767,14 @@
         ]
       }
     ],
-    "clueVersion": 2
+    "clueVersion": 2,
+    "castVersion": 1
   },
   {
     "id": "stad-v2-5",
     "number": 5,
     "title": "Schaduwen aan de A",
-    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Mees zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
+    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Tammo zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
     "lesson": "Een stap verder",
     "level": "Pittig",
     "size": 6,
@@ -1728,34 +1824,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Antje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Derk",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Eefke",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1807,13 +1915,13 @@
         "type": "different",
         "a": 2,
         "b": 5,
-        "text": "Was in een ander gebied dan Mees."
+        "text": "Was in een ander gebied dan Tammo."
       },
       {
         "type": "above",
         "a": 3,
         "b": 5,
-        "text": "Stond hoger op de kaart dan Mees."
+        "text": "Stond hoger op de kaart dan Tammo."
       },
       {
         "type": "unary",
@@ -1961,7 +2069,7 @@
         "type": "same",
         "a": 0,
         "b": 1,
-        "text": "Was in hetzelfde gebied als Bram."
+        "text": "Was in hetzelfde gebied als Berend."
       },
       {
         "type": "unary",
@@ -1982,13 +2090,14 @@
           35
         ]
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "stad-v2-6",
     "number": 6,
     "title": "De nacht van de Grunneger vlag",
-    "story": "Tijdens een stadsfeest verdwijnt Mees uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
+    "story": "Tijdens een stadsfeest verdwijnt Tammo uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
     "lesson": "Stadse speurneus",
     "level": "Uitdagend",
     "size": 6,
@@ -2038,34 +2147,46 @@
     ],
     "people": [
       {
-        "name": "Lieke",
+        "name": "Aaltje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "female",
+        "portraitIndex": 0
       },
       {
-        "name": "Bram",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
-        "name": "Fenna",
+        "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Jurre",
+        "name": "Douwe",
         "role": "de marktkoopman",
-        "color": "#6b6085"
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
-        "name": "Sanne",
+        "name": "Ebeltje",
         "role": "de stadsgids",
-        "color": "#3e7050"
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
-        "name": "Mees",
+        "name": "Tammo",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -2122,19 +2243,19 @@
         "type": "above",
         "a": 0,
         "b": 2,
-        "text": "Stond hoger op de kaart dan Fenna."
+        "text": "Stond hoger op de kaart dan Cora."
       },
       {
         "type": "same",
         "a": 0,
         "b": 2,
-        "text": "Was in hetzelfde gebied als Fenna."
+        "text": "Was in hetzelfde gebied als Cora."
       },
       {
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Sanne."
+        "text": "Stond hoger op de kaart dan Ebeltje."
       },
       {
         "type": "unary",
@@ -2200,7 +2321,7 @@
         "type": "left",
         "a": 3,
         "b": 5,
-        "text": "Stond links van Mees."
+        "text": "Stond links van Tammo."
       },
       {
         "type": "unary",
@@ -2216,6 +2337,7 @@
         ]
       }
     ],
-    "clueVersion": 2
+    "clueVersion": 2,
+    "castVersion": 1
   }
 ]

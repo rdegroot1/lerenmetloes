@@ -78,5 +78,5 @@ try{
  const old=puzzles[2];await page.evaluate(({id,positions})=>localStorage.setItem('grunmurdoku:v1:'+id,JSON.stringify({positions,crosses:[],checked:[],solved:true})),{id:old.id,positions:solve(old)[0]});
  await page.goto('http://grunndoku.local/?serie=stad&zaak='+old.id);await page.waitForSelector('#puzzleScreen:visible');await page.click('#accuse');assert.match(await page.locator('#completionScore').innerText(),/eerdere afronding/);assert.equal(await page.locator('#scoreMeter').getAttribute('aria-valuemax'),'120');
  await page.locator('#accuseDialog .close').click();await page.locator('#caseMenu>summary').click();await page.click('#reset');const replay=await finish(old);assert.equal(replay.scoreVersion,2);assert.equal(replay.achievement.score.total,1000);assert.equal(replay.achievement.score.levelBonus,50);
- assert.deepEqual(errors,[]);console.log('Dossier, resume, progressive Fokko hints, two real solves, saved non-repeating reactions, optional feedback, theme progress, header menus and mobile result OK.');
+ assert.deepEqual(errors,[]);console.log('Dossier, resume, progressive Tammo hints, two real solves, saved non-repeating reactions, optional feedback, theme progress, header menus and mobile result OK.');
 }finally{await browser.close();}

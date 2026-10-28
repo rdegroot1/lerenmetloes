@@ -2,9 +2,9 @@ import {gardenDrawings} from './garden-art.js?v=20261027-accounts';
 import {festivalDrawings} from './festival-art.js?v=20261027-accounts';
 // Original vector illustrations, drawn for Grunndoku. No external image dependencies.
 const svg=(body,view='0 0 100 100')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view}" aria-hidden="true" focusable="false">${body}</svg>`;
-export function portrait(i,personName='Arend',plain=false,deceased=false){
- if(i>=6)return expandedPortrait(i,personName,plain,deceased);
- const arend=personName==='Arend';
+export function portrait(i,personName='Arend',plain=false,deceased=false,gender){
+ if(i>=6)return expandedPortrait(i,personName,plain,deceased,gender);
+ const arend=gender==='male'||personName==='Arend';
  const skin=['#e6ad82','#bf805c','#e7bd99','#ce946b','#a2694d','#eed0a9'][i%6];
  const hair=['#773d28','#563c2e','#342e2d','#6e4329','#282d2e','#a8783e'][i%6];
  const shirt=['#779782','#aa664d','#547c92','#c69b48','#ac7184','#60716d'][i%6];
@@ -14,17 +14,17 @@ export function portrait(i,personName='Arend',plain=false,deceased=false){
  const backdrop=plain?'':`<rect width="100" height="122" fill="#e8ddbd"/><circle cx="49" cy="51" r="43" fill="#d0c198"/><path d="M0 103L100 3M0 118L100 18" stroke="#d9cda9" stroke-width="2"/>`;
  return svg(`<defs><clipPath id="bust-${i}"><rect x="0" y="0" width="100" height="122" rx="15"/></clipPath></defs><g clip-path="url(#bust-${i})">${backdrop}${styles}<path d="M7 125V110Q9 85 38 84H63Q93 88 95 120V125" fill="${shirt}"/><path d="M40 72H61V87Q50 97 39 87Z" fill="${skin}"/><path d="M40 77Q50 84 61 76V83Q48 90 40 83" fill="#000" opacity=".09"/><ellipse cx="28" cy="53" rx="5" ry="8" fill="${skin}"/><ellipse cx="72" cy="53" rx="5" ry="8" fill="${skin}"/><path d="M28 35Q50 22 72 36V58Q70 80 50 82Q30 78 28 58Z" fill="${skin}"/><path d="M27 40Q31 20 52 22Q64 22 74 37L72 43Q58 37 54 29Q45 44 27 44Z" fill="${hair}"/><g stroke="#4e3930" stroke-linecap="round" fill="none"><path d="M35 49L42 48M58 48L65 49" stroke-width="2"/><path d="M50 52L47 62H52" opacity=".4"/><path d="M43 69Q50 73 57 68" stroke-width="1.5"/></g>${eyes}${accessories}</g>`,'0 0 100 122');
 }
-export function mugshot(i,name,caseNumber,caption='GRUN · NACHTDIENST'){
+export function mugshot(i,name,caseNumber,caption='GRUN · NACHTDIENST',gender,displayNumber=i+1){
  const skin=['#e6ad82','#bf805c','#e7bd99','#ce946b','#a2694d','#eed0a9'][i%6];
- const figure=portrait(i,name,true).replace('<svg ','<svg x="0" y="0" width="100" height="122" ');
+ const figure=portrait(i,name,true,false,gender).replace('<svg ','<svg x="0" y="0" width="100" height="122" ');
  const lines=Array.from({length:7},(_,n)=>`<path d="M0 ${12+n*15}H100" stroke="#797f7a" stroke-width=".8" opacity=".55"/>`).join('');
- return svg(`<rect width="100" height="145" rx="4" fill="#c8ccc5"/>${lines}<g fill="#6a746d" font-family="monospace" font-size="4"><text x="3" y="11">180</text><text x="3" y="41">170</text><text x="3" y="71">160</text></g>${figure}<rect x="11" y="106" width="78" height="34" rx="3" fill="#29373c" stroke="#ebe5ca" stroke-width="1.5"/><g fill="#f6edcf" font-family="monospace" text-anchor="middle"><text x="50" y="113" font-size="4.7" letter-spacing=".7">${caption}</text><text x="50" y="121" font-size="5.5">DOSSIER ${String(caseNumber).padStart(3,'0')} / ${i+1}</text><text x="50" y="133" font-size="10" font-weight="bold" letter-spacing=".7"${name.length>9?' textLength="68" lengthAdjust="spacingAndGlyphs"':''}>${name.toUpperCase()}</text></g><ellipse cx="12" cy="119" rx="5" ry="8" fill="${skin}"/><ellipse cx="88" cy="119" rx="5" ry="8" fill="${skin}"/><path d="M10 116L14 117M10 120L14 121M86 117L90 116M86 121L90 120" stroke="#946c51" fill="none" stroke-width=".7"/>`,'0 0 100 145');
+ return svg(`<rect width="100" height="145" rx="4" fill="#c8ccc5"/>${lines}<g fill="#6a746d" font-family="monospace" font-size="4"><text x="3" y="11">180</text><text x="3" y="41">170</text><text x="3" y="71">160</text></g>${figure}<rect x="11" y="106" width="78" height="34" rx="3" fill="#29373c" stroke="#ebe5ca" stroke-width="1.5"/><g fill="#f6edcf" font-family="monospace" text-anchor="middle"><text x="50" y="113" font-size="4.7" letter-spacing=".7">${caption}</text><text x="50" y="121" font-size="5.5">DOSSIER ${String(caseNumber).padStart(3,'0')} / ${displayNumber}</text><text x="50" y="133" font-size="10" font-weight="bold" letter-spacing=".7"${name.length>9?' textLength="68" lengthAdjust="spacingAndGlyphs"':''}>${name.toUpperCase()}</text></g><ellipse cx="12" cy="119" rx="5" ry="8" fill="${skin}"/><ellipse cx="88" cy="119" rx="5" ry="8" fill="${skin}"/><path d="M10 116L14 117M10 120L14 121M86 117L90 116M86 121L90 120" stroke="#946c51" fill="none" stroke-width=".7"/>`,'0 0 100 145');
 }
-function expandedPortrait(i,name,plain,deceased){
+function expandedPortrait(i,name,plain,deceased,gender){
  const skin=['#e6ad82','#bf805c','#e7bd99','#ce946b','#a2694d','#eed0a9'][i%6];
  const hair=['#b7b9ad','#563e34','#8a4e36','#a26035','#d0cbbb','#5b5a4a','#302f2d','#4b302e','#a7a99f','#a16a42'][i-6];
  const shirt=['#5f6c65','#806648','#846d8a','#527a7c','#a16c55','#6a778d','#6a8153','#9b7181','#68766f','#678a80'][i-6];
- const female=['Jantje','Neeltje','Sientje','Dieuwertje'].includes(name);
+ const female=gender?gender==='female':['Jantje','Neeltje','Sientje','Dieuwertje'].includes(name);
  const hairShape=female?(i===10?`<circle cx="67" cy="22" r="13" fill="${hair}"/><path d="M21 70V35Q19 10 48 13Q80 10 78 42V73L67 59H31Z" fill="${hair}"/>`:`<path d="M20 81V36Q15 10 49 12Q85 8 81 44L78 83L65 68H33Z" fill="${hair}"/>`):i===6||i===11?`<path d="M22 32Q13 43 22 64L29 58V32M74 31Q85 40 79 62L71 60V32" fill="${hair}"/>`:`<path d="M23 42V30Q23 10 51 12Q80 10 78 42L69 35L30 37Z" fill="${hair}"/>`;
  const fringe=female?`<path d="M24 42Q21 17 49 20Q74 15 78 44Q57 40 48 26Q40 40 24 44Z" fill="${hair}"/>`:i===6||i===11?'':`<path d="M25 36Q27 18 53 21L72 35Q48 27 25 40Z" fill="${hair}"/>`;
  const beard=[7,11].includes(i)?`<path d="M29 60Q33 77 50 81Q69 76 72 59L67 78Q49 97 32 77Z" fill="${hair}"/>`:i===14?`<path d="M37 68Q45 62 50 66Q56 62 64 67L60 72L50 69L41 72Z" fill="${hair}"/>`:'';
@@ -40,8 +40,8 @@ const murderWeapons={
  poison:`<path d="M40 11H61V26L72 34V64Q50 71 28 64V34L40 26Z" fill="#759378" stroke="#3c5c48" stroke-width="2.5"/><path d="M38 8H63V18H38Z" fill="#b99a62" stroke="#796341" stroke-width="2"/><path d="M33 39H67V59H33Z" fill="#ead9af"/><path d="M46 47Q44 40 50 40Q57 40 55 47L53 51H47Z" fill="#4b5d48"/><circle cx="48" cy="45" r="1" fill="#ead9af"/><circle cx="53" cy="45" r="1" fill="#ead9af"/><path d="M42 51L59 58M43 58L59 51" stroke="#4b5d48" stroke-width="2"/><path d="M35 32V37M35 42V53" stroke="#b2c0a0" stroke-width="2"/>`,
  candlestick:`<g transform="rotate(32 50 36)"><path d="M43 6H57V25H43Z" fill="#f0dfb8" stroke="#bda573" stroke-width="2"/><path d="M36 25H64L58 34H54V54L68 60V66H32V60L46 54V34H42Z" fill="#bd9654" stroke="#7e653e" stroke-width="2.5"/><path d="M41 28H59M50 35V52M38 61H62" stroke="#e5c583" stroke-width="2"/></g>`
 };
-export function victimPortrait(i,name,weapon){
- const figure=portrait(i,name,true,true).replace('<svg ','<svg x="0" y="0" width="100" height="122" ');
+export function victimPortrait(i,name,weapon,gender='male'){
+ const figure=portrait(i,name,true,true,gender).replace('<svg ','<svg x="0" y="0" width="100" height="122" ');
  const item=svg(`<g stroke-linecap="round" stroke-linejoin="round">${murderWeapons[weapon]||murderWeapons.dagger}</g>`,'0 0 100 74').replace('<svg ','<svg x="9" y="70" width="83" height="58" ');
  return svg(`<rect width="100" height="145" rx="4" fill="#d9c8bc"/><path d="M0 20L100 120M0 55L85 140M35 0L100 65" stroke="#eadbc8" stroke-width="2"/><circle cx="50" cy="49" r="39" fill="#cbb5a3"/>${figure}<ellipse cx="50" cy="113" rx="41" ry="6" fill="#554438" opacity=".14"/>${item}<rect x="8" y="119" width="84" height="23" rx="2" fill="#775a4e" stroke="#f1dfbf" stroke-width="1.5"/><g fill="#fff0d2" font-family="monospace" text-anchor="middle"><text x="50" y="127" font-size="5" letter-spacing="1.1">SLACHTOFFER</text><text x="50" y="138" font-size="10" font-weight="bold" letter-spacing="1">${name.toUpperCase()}</text></g>`,'0 0 100 145');
 }

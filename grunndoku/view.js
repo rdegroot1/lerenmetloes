@@ -1,9 +1,9 @@
 import {festivalDecoration} from './festival-art.js?v=20261027-accounts';
-import {personEntries} from './person-order.js?v=20261027-accounts';
+import {personEntries} from './person-order.js?v=20261028-cast';
 import {surfaceFor,printFloorPlane,waterAt} from './surfaces.js?v=20261027-accounts';
-import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261027-accounts';
+import {churchPrintSheet,introductionSheets,churchPageCount} from './print-layouts.js?v=20261028-cast';
 import {canStand,gridWidth,gridHeight,cellCount} from './engine.js?v=20261027-accounts';
-import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261027-accounts';
+import {portrait,mugshot,victimPortrait,objectArt,landmarkArt} from './art.js?v=20261028-cast';
 import {difficultyMarkup} from './difficulty.js?v=20261027-accounts';
 // Tuck a compact ribbon into a lower corner of each room. Prefer empty cells;
 // use the same stable anchors on screen and paper.
@@ -68,7 +68,7 @@ export function boardMarkup(p,positions={},crosses=[],mini=false,notes={},select
  }).join('')+(mini?'':printFloorPlane(p)+festivalDecoration(p))+labels.map(label=>`<span class="area-name area-name-${label.area}${label.vertical?' vertical-room-name':''}" aria-hidden="true" title="${label.name}" style="${label.vertical?`left:calc(${label.col/width*100}% + 3px);top:calc(${label.row/height*100}% + 3px);max-height:calc(${label.length/height*100}% - 6px)`: `right:calc(${(width-label.col-label.length)/width*100}% + 4px);top:calc(${(label.row+1)/height*100}% - 4px);max-width:calc(${label.length/width*100}% - 8px)`}">${label.name}</span>`).join('');
 }
 export function legendMarkup(p){return p.areas.map((name,i)=>`<span><i class="area-${i}"${p.areaColors?` style="--area:${p.areaColors[i]};background-color:var(--area)"`:''}></i>${name}</span>`).join('');}
-export function portraitMarkup(i,name,p){const face=p?.people[i]?.portraitIndex??i;return p?.victimWeapon&&i===p.victim?victimPortrait(face,name,p.victimWeapon):p?.portraitStyle==='mugshot'?mugshot(face,name,p.number,p.seriesId==='noorderzon'?'GRUN · FESTIVALDIENST':p.seriesId==='winter'?'GRUN · WINTERDIENST':p.seriesId==='martini'?'GRUN · MARTINI':'GRUN · NACHTDIENST'):portrait(face,name);}
+export function portraitMarkup(i,name,p){const face=p?.people[i]?.portraitIndex??i,gender=p?.people[i]?.gender;return p?.victimWeapon&&i===p.victim?victimPortrait(face,name,p.victimWeapon,gender):p?.portraitStyle==='mugshot'?mugshot(face,name,p.number,p.seriesId==='noorderzon'?'GRUN · FESTIVALDIENST':p.seriesId==='winter'?'GRUN · WINTERDIENST':p.seriesId==='martini'?'GRUN · MARTINI':'GRUN · NACHTDIENST',gender,personEntries(p).findIndex(entry=>entry.i===i)+1):portrait(face,name,false,false,gender);}
 export function objectLegend(p){
  const kinds=[...new Map(p.objects.map(o=>[o.type,o])).values()];
  return [true,false].map(allowed=>{const objects=kinds.filter(o=>(o.occupiable===true)===allowed);return objects.length?`<section class="object-legend-group"><strong>${allowed?'Hier kan iemand staan, zitten of liggen':'Deze voorwerpen blokkeren hun vakje'}</strong><div>${objects.map(o=>`<span>${objectArt(o.type)}<b>${o.name}</b></span>`).join('')}</div></section>`:'';}).join('');

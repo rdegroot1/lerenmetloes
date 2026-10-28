@@ -6,7 +6,7 @@ Speel op https://rdegroot1.github.io/lerenmetloes/grunndoku/. `?serie=nacht` ope
 
 ## Spelen
 
-Plaats iedereen in een eigen rij én kolom. Iedere verdachte heeft precies één eigen aanwijzing. Actuele zaken beginnen zonder vaste startposities; alleen het oefenblad en archiefzaken kunnen gegeven personen hebben. Fokko staat als slachtoffer steeds als laatste in de weergave. Het slachtoffer krijgt alleen ‘Was samen met de moordenaar’; geen persoonsaanwijzing verwijst naar het slachtoffer. De dader is de enige andere persoon in diens gebied.
+Plaats iedereen in een eigen rij én kolom. Iedere verdachte heeft precies één eigen aanwijzing. Actuele zaken beginnen zonder vaste startposities; alleen het oefenblad en archiefzaken kunnen gegeven personen hebben. Tammo staat als slachtoffer steeds als laatste in de weergave. Het slachtoffer krijgt alleen ‘Was samen met de moordenaar’; geen persoonsaanwijzing verwijst naar het slachtoffer. De dader is de enige andere persoon in diens gebied.
 
 Een getal in een aanwijzing verwijst naar een rij óf kolom. Exacte coördinaten en getelde afstanden vanaf voorwerpen komen niet voor in de actuele zaken. De 34 oude afstandsaanwijzingen zijn vervangen door ruimere aanwijzingen met een rij of kolom, zo nodig gecombineerd met een gebied of relatie tussen verdachten. Alle bestaande oplossingen blijven behouden. Ook de grotere zaken hebben een deductieve route zonder combinaties te hoeven uitproberen.
 
@@ -100,7 +100,7 @@ De juiste naam is **Grunndoku**, met twee n’s. `/grundoku/` en `/grunmurdoku/`
 
 ## Eigen materiaal en publicatie
 
-De SVG-illustraties in `art.js`, puzzels, verhalen en uitleg zijn voor dit project gemaakt met AI-hulp en menselijke ontwerpkeuzes. Er zijn geen boekscans, stockfoto’s, logo’s van locaties of externe lettertypebestanden opgenomen. Fokko en de andere slachtoffers krijgen per zaak een symbolisch moordwapen; dit is geen plaatsaanwijzing. Bewaar herkomst en licenties bij nieuwe externe assets.
+De SVG-illustraties in `art.js`, puzzels, verhalen en uitleg zijn voor dit project gemaakt met AI-hulp en menselijke ontwerpkeuzes. Er zijn geen boekscans, stockfoto’s, logo’s van locaties of externe lettertypebestanden opgenomen. Tammo en de andere slachtoffers krijgen per zaak een symbolisch moordwapen; dit is geen plaatsaanwijzing. Bewaar herkomst en licenties bij nieuwe externe assets.
 
 `AGENTS.md` legt de afspraken over kwaliteit, originaliteit en zorgvuldige publicatie vast. `PUBLICATIE.md` bevat bronnen en aandachtspunten voor merkonderzoek, rechten, Etsy, Sikkom en AI-vermelding. Deze documenten zijn geen juridische vrijgave. De actuele PDF’s zijn openbaar via GitHub Pages.
 
@@ -118,6 +118,14 @@ Spelregels staan één keer in de vaste hoofdbalk. Het Zaakmenu groepeert printe
 
 ## Persoonlijk speurdersdossier
 
-Gastvoortgang gebruikt de bestaande opslag-ID’s. De start toont opgeloste zaken, voortgang per thema en een knop om een begonnen zaak te hervatten. Iedere afronding krijgt een van twintig eigen, bemoedigende reacties van Fokko, zonder beoordeling op snelheid of hulpgebruik. Alleen bij afronding zie je speeltijd. De niveau-evaluatie is optioneel en ingeklapt. Er is nu een Supabase-accountproef met aparte lokale caches en versiecontrole. De openbare login blijft uit totdat SMTP, terugkeeradressen en een echte aanmeldtest zijn afgerond; lokale gastopslag is geen account.
+Gastvoortgang gebruikt de bestaande opslag-ID’s. De start toont opgeloste zaken, voortgang per thema en een knop om een begonnen zaak te hervatten. Iedere afronding krijgt een van twintig eigen, bemoedigende reacties van Tammo, zonder beoordeling op snelheid of hulpgebruik. Alleen bij afronding zie je speeltijd. De niveau-evaluatie is optioneel en ingeklapt. Er is nu een Supabase-accountproef met aparte lokale caches en versiecontrole. De openbare login blijft uit totdat SMTP, terugkeeradressen en een echte aanmeldtest zijn afgerond; lokale gastopslag is geen account.
 
 Accountinrichting en resterende stappen: zie [ACCOUNTS.md](ACCOUNTS.md). De gebundelde Supabase-browserclient is vastgezet in package-lock.json; bouw met `npm ci && npm run build:auth`. Node_modules wordt niet gepubliceerd. Upstreamlicenties staan in vendor/LICENSES.txt.
+
+## Alfabetische personages
+
+Alle 47 actuele zaken, tien archiefzaken en de oefenuitleg hebben verdachten met opeenvolgende initialen vanaf A. T is gereserveerd voor slachtoffer Tammo, altijd als laatste op scherm en papier. `cast.mjs` kiest per zaak vaste varianten uit de opgegeven namenlijst; de vijftien verdachten van XXL-zaken lopen tot O (met Oebele/Otto/Oda als aanvulling). De eerste zaak behoudt Arend, Bertus en Cora.
+
+Persoonsindices, oplossing, aanwijzingsmaskers, afvinkversies en bestaande spelopslag veranderen niet. De generator past de naamwijziging als laatste stap toe. Relaties in aanwijzingen worden gelijktijdig hernoemd, zodat een voormalige getuige Tammo geen dubbele of verkeerd vervangen naam oplevert. Portretten behouden hun bestaande gender en uitstraling via expliciete metadata; alleen de presentatie is alfabetisch.
+
+PDF’s opnieuw maken: `node grunndoku/scripts/print-bundles.mjs`, gevolgd door `python grunndoku/scripts/optimize-bundles.py` (PyMuPDF nodig). De eerste stap schrijft tijdelijke exports onder `/tmp`; de tweede deelt identieke afbeeldingobjecten, controleert de tekst en rasterweergave op alle pagina’s en werkt de zeven downloads plus oude PDF-adressen bij. Geen downsampling of externe illustraties. Form-streams worden bewust niet samengevoegd.

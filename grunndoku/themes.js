@@ -9,7 +9,7 @@ export const TUTORIAL={
  id:'tutorial',number:0,size:4,seriesId:'martini',portraitStyle:'mugshot',difficultyStars:1,
  regions:[0,0,1,1,0,0,1,1,2,2,1,1,2,2,1,1],areas:['Westzaal','Koor','Zijruimte'],
  areaColors:['#ddd0b1','#c8d3cf','#d8c9ba'],
- people:[{name:'Arend',role:'de koster',color:'#a95c42'},{name:'Bertus',role:'de organist',color:'#497c78'},{name:'Cora',role:'de bezoekster',color:'#847341'},{name:'Fokko',role:'het slachtoffer',color:'#8c5964',portraitIndex:5}],
+ people:[{name:'Arend',role:'de koster',color:'#a95c42'},{name:'Bertus',role:'de organist',color:'#497c78'},{name:'Cora',role:'de bezoekster',color:'#847341'},{name:'Tammo',role:'het slachtoffer',color:'#8c5964',portraitIndex:5}],
  victim:3,victimLocationClue:false,victimWeapon:'wrench',givens:{0:0,1:6},
  objects:[{cell:3,type:'churchOrgan',name:'het orgel',occupiable:false,furnitureId:'tutorial-organ',tile:{x:0,y:0,width:1,height:2}},{cell:7,type:'churchOrgan',name:'het orgel',occupiable:false,furnitureId:'tutorial-organ',tile:{x:0,y:1,width:1,height:2}},{cell:5,type:'churchColumn',name:'een zuil',occupiable:false},{cell:9,type:'churchPew',name:'een kerkbank',occupiable:true},{cell:12,type:'churchLectern',name:'een lessenaar',occupiable:false}],
  clues:[{type:'onObject',a:2,types:['churchPew'],text:'Zat op een kerkbank.'}]

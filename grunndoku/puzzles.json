@@ -37,23 +37,30 @@
       {
         "name": "Arend",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
         "name": "Bertus",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
         "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085",
-        "portraitIndex": 5
+        "portraitIndex": 5,
+        "gender": "male"
       }
     ],
     "objects": [
@@ -116,7 +123,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "dagger",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 1
+    "difficultyStars": 1,
+    "castVersion": 1
   },
   {
     "id": "stad-v3-2",
@@ -124,7 +132,7 @@
     "clueVersion": 3,
     "theme": null,
     "title": "Een eierbal te veel",
-    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Fokko komt niet thuis. Wie was er nog bij hem?",
+    "story": "Een laatste rondje langs de kraampjes op de Vismarkt. Tammo komt niet thuis. Wie was er nog bij hem?",
     "lesson": "Zelf op onderzoek",
     "level": "Makkelijk",
     "size": 4,
@@ -155,23 +163,30 @@
       {
         "name": "Arend",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
       },
       {
-        "name": "Fokko",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085",
-        "portraitIndex": 5
+        "portraitIndex": 5,
+        "gender": "male"
       }
     ],
     "objects": [
@@ -252,7 +267,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "wrench",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 2
+    "difficultyStars": 2,
+    "castVersion": 1
   },
   {
     "id": "stad-v3-3",
@@ -260,7 +276,7 @@
     "clueVersion": 2,
     "theme": null,
     "title": "Stilte in het plantsoen",
-    "story": "Fokko wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt zijn tas gevonden. De getuigen vertellen waar ze waren.",
+    "story": "Tammo wilde nog even wandelen door het Noorderplantsoen. Bij het bankje wordt zijn tas gevonden. De getuigen vertellen waar ze waren.",
     "lesson": "Goed kijken",
     "level": "Rustig puzzelen",
     "size": 5,
@@ -299,30 +315,39 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldert",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Fokko",
         "role": "de stadsgids",
         "color": "#3e7050",
-        "portraitIndex": 5
+        "portraitIndex": 5,
+        "gender": "male"
       }
     ],
     "objects": [
@@ -412,7 +437,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "poison",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 2
+    "difficultyStars": 2,
+    "castVersion": 1
   },
   {
     "id": "stad-v3-4",
@@ -420,7 +446,7 @@
     "clueVersion": 3,
     "theme": null,
     "title": "Het geheim van ome Loeks",
-    "story": "Bij het Peerd van ome Loeks wachtte Fokko op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
+    "story": "Bij het Peerd van ome Loeks wachtte Tammo op een oude bekende. Het afgesproken gesprek nam een duistere wending.",
     "lesson": "Verbanden leggen",
     "level": "Gemiddeld",
     "size": 5,
@@ -459,30 +485,39 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Fokko",
         "role": "de stadsgids",
         "color": "#3e7050",
-        "portraitIndex": 5
+        "portraitIndex": 5,
+        "gender": "male"
       }
     ],
     "objects": [
@@ -609,7 +644,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 3
+    "difficultyStars": 3,
+    "castVersion": 1
   },
   {
     "id": "stad-v3-5",
@@ -617,7 +653,7 @@
     "clueVersion": 2,
     "theme": null,
     "title": "Schaduwen aan de A",
-    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Fokko zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
+    "story": "De pakhuizen aan de Hoge der A spiegelen in het water. Tammo zou hier optreden, maar wordt vlak voor het concert dood gevonden.",
     "lesson": "Een stap verder",
     "level": "Pittig",
     "size": 6,
@@ -667,34 +703,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -823,13 +871,13 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Tammo."
+        "text": "Stond hoger op de kaart dan Douwe."
       },
       {
         "type": "same",
         "a": 3,
         "b": 0,
-        "text": "Was in hetzelfde gebied als Arend."
+        "text": "Was in hetzelfde gebied als Abel."
       },
       {
         "type": "same",
@@ -842,7 +890,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "dagger",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 4
+    "difficultyStars": 4,
+    "castVersion": 1
   },
   {
     "id": "stad-v3-6",
@@ -850,7 +899,7 @@
     "clueVersion": 4,
     "theme": null,
     "title": "De nacht van de Grunneger vlag",
-    "story": "Tijdens een stadsfeest verdwijnt Fokko uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
+    "story": "Tijdens een stadsfeest verdwijnt Tammo uit de menigte. Van de Martinitoren tot de kade wijzen de verklaringen alle kanten op.",
     "lesson": "Stadse speurneus",
     "level": "Uitdagend",
     "size": 6,
@@ -900,34 +949,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1114,7 +1175,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "wrench",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-7",
@@ -1122,7 +1184,7 @@
     "clueVersion": 2,
     "theme": "Hoornseplas",
     "title": "Een spoor in het zand",
-    "story": "Een zonnige middag bij de Hoornseplas eindigt met een vreemde vondst. Fokko werd voor het laatst gezien bij het water. Wie bleef er achter?",
+    "story": "Een zonnige middag bij de Hoornseplas eindigt met een vreemde vondst. Tammo werd voor het laatst gezien bij het water. Wie bleef er achter?",
     "lesson": "Aan het water",
     "level": "Gemiddeld",
     "size": 5,
@@ -1161,30 +1223,39 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Fokko",
         "role": "de stadsgids",
         "color": "#3e7050",
-        "portraitIndex": 5
+        "portraitIndex": 5,
+        "gender": "male"
       }
     ],
     "objects": [
@@ -1362,7 +1433,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "poison",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 3
+    "difficultyStars": 3,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-8",
@@ -1370,7 +1442,7 @@
     "clueVersion": 2,
     "theme": "Stadspark",
     "title": "De stille muziekkoepel",
-    "story": "In het Stadspark is het concert afgelopen, maar Fokko heeft zijn fiets niet opgehaald. Vijf verhalen vertellen wat er die avond gebeurde.",
+    "story": "In het Stadspark is het concert afgelopen, maar Tammo heeft zijn fiets niet opgehaald. Vijf verhalen vertellen wat er die avond gebeurde.",
     "lesson": "Tussen bomen en muziek",
     "level": "Gemiddeld",
     "size": 5,
@@ -1409,30 +1481,39 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldrik",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Fokko",
         "role": "de stadsgids",
         "color": "#3e7050",
-        "portraitIndex": 5
+        "portraitIndex": 5,
+        "gender": "male"
       }
     ],
     "objects": [
@@ -1555,7 +1636,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 3
+    "difficultyStars": 3,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-9",
@@ -1563,7 +1645,7 @@
     "clueVersion": 2,
     "theme": "Noorderplantsoen",
     "title": "Onder de oude bomen",
-    "story": "Het Noorderplantsoen ligt er rustig bij. Fokko wilde nog een rondje wandelen. Een achtergelaten jas zet de recherche op een spoor.",
+    "story": "Het Noorderplantsoen ligt er rustig bij. Tammo wilde nog een rondje wandelen. Een achtergelaten jas zet de recherche op een spoor.",
     "lesson": "Een ommetje door het groen",
     "level": "Pittig",
     "size": 6,
@@ -1613,34 +1695,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Anno",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -1769,7 +1863,7 @@
         "type": "right",
         "a": 2,
         "b": 0,
-        "text": "Stond rechts van Arend."
+        "text": "Stond rechts van Anno."
       },
       {
         "type": "unary",
@@ -1797,7 +1891,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "dagger",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 4
+    "difficultyStars": 4,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-10",
@@ -1805,7 +1900,7 @@
     "clueVersion": 2,
     "theme": "Uitgaan in Stad",
     "title": "De laatste ronde",
-    "story": "Een volledig verzonnen nachtelijk mysterie tussen de Groningse kroegen. Fokko zou bij de anderen aansluiten, maar zijn stoel blijft leeg.",
+    "story": "Een volledig verzonnen nachtelijk mysterie tussen de Groningse kroegen. Tammo zou bij de anderen aansluiten, maar zijn stoel blijft leeg.",
     "lesson": "Na sluitingstijd",
     "level": "Pittig",
     "size": 6,
@@ -1855,34 +1950,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -2085,14 +2192,15 @@
         "type": "below",
         "a": 4,
         "b": 0,
-        "text": "Stond lager op de kaart dan Arend."
+        "text": "Stond lager op de kaart dan Abel."
       }
     ],
     "victimLocationClue": false,
     "portraitStyle": "mugshot",
     "victimWeapon": "wrench",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 4
+    "difficultyStars": 4,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-11",
@@ -2100,7 +2208,7 @@
     "clueVersion": 2,
     "theme": "Festival in het groen",
     "title": "Toen de lampjes doofden",
-    "story": "Het is festivalavond in het plantsoen. Als de laatste lampjes uitgaan, ontbreekt Fokko. De getuigen wijzen naar verschillende plekken op het terrein.",
+    "story": "Het is festivalavond in het plantsoen. Als de laatste lampjes uitgaan, ontbreekt Tammo. De getuigen wijzen naar verschillende plekken op het terrein.",
     "lesson": "Achter de festivallichten",
     "level": "Uitdagend",
     "size": 6,
@@ -2150,34 +2258,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldert",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -2294,7 +2414,7 @@
         "type": "same",
         "a": 3,
         "b": 0,
-        "text": "Was in hetzelfde gebied als Arend."
+        "text": "Was in hetzelfde gebied als Aaldert."
       },
       {
         "type": "unary",
@@ -2312,7 +2432,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "poison",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-12",
@@ -2320,7 +2441,7 @@
     "clueVersion": 2,
     "theme": "De kroegentocht",
     "title": "Een alibi aan de bar",
-    "story": "Een fictieve kroegentocht door Stad: een vergeten sjaal, een laatste drankje en zes verklaringen. Waar was Fokko toen de groep uit elkaar ging?",
+    "story": "Een fictieve kroegentocht door Stad: een vergeten sjaal, een laatste drankje en zes verklaringen. Waar was Tammo toen de groep uit elkaar ging?",
     "lesson": "Het nachtelijke sluitstuk",
     "level": "Uitdagend",
     "size": 6,
@@ -2370,34 +2491,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alje",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -2513,7 +2646,7 @@
         "type": "same",
         "a": 3,
         "b": 0,
-        "text": "Was in hetzelfde gebied als Arend."
+        "text": "Was in hetzelfde gebied als Alje."
       },
       {
         "type": "unary",
@@ -2531,7 +2664,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-13",
@@ -2539,7 +2673,7 @@
     "clueVersion": 2,
     "theme": "Het aardbevingsdorp",
     "title": "De scheur in het alibi",
-    "story": "In een fictief Gronings wierdedorp bekijken de bewoners de versterkte huizen. Fokko blijft na de rondleiding achter. Zijn notitieboek wordt gevonden, maar zijn verhaal mist een bladzijde.",
+    "story": "In een fictief Gronings wierdedorp bekijken de bewoners de versterkte huizen. Tammo blijft na de rondleiding achter. Zijn notitieboek wordt gevonden, maar zijn verhaal mist een bladzijde.",
     "lesson": "Een raadsel op de wierde",
     "level": "Pittig",
     "size": 6,
@@ -2589,34 +2723,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -2773,7 +2919,7 @@
         "type": "left",
         "a": 2,
         "b": 1,
-        "text": "Stond links van Bertus."
+        "text": "Stond links van Berend."
       },
       {
         "type": "below",
@@ -2795,7 +2941,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "dagger",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 4
+    "difficultyStars": 4,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-14",
@@ -2803,7 +2950,7 @@
     "clueVersion": 2,
     "theme": "Bommen Berend",
     "title": "Na het laatste kanonschot",
-    "story": "Stad viert Bommen Berend. Tussen vlaggen, muziek en de laatste eierballen verdwijnt Fokko uit beeld. Zes verklaringen vertellen wie waar was.",
+    "story": "Stad viert Bommen Berend. Tussen vlaggen, muziek en de laatste eierballen verdwijnt Tammo uit beeld. Zes verklaringen vertellen wie waar was.",
     "lesson": "Gronings Ontzet",
     "level": "Pittig",
     "size": 6,
@@ -2853,34 +3000,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Anno",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -3019,7 +3178,7 @@
         "type": "same",
         "a": 3,
         "b": 0,
-        "text": "Was in hetzelfde gebied als Arend."
+        "text": "Was in hetzelfde gebied als Anno."
       },
       {
         "type": "unary",
@@ -3036,7 +3195,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "wrench",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 4
+    "difficultyStars": 4,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-15",
@@ -3044,7 +3204,7 @@
     "clueVersion": 3,
     "theme": "Eurosonic",
     "title": "Het vergeten toegangsbandje",
-    "story": "Het is Eurosonic in Stad. Na een avond vol optredens blijft Fokko’s toegangsbandje achter bij de garderobe. Wie heeft hem na de soundcheck nog gezien?",
+    "story": "Het is Eurosonic in Stad. Na een avond vol optredens blijft Tammo’s toegangsbandje achter bij de garderobe. Wie heeft hem na de soundcheck nog gezien?",
     "lesson": "Van optreden naar optreden",
     "level": "Uitdagend",
     "size": 6,
@@ -3094,34 +3254,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -3249,7 +3421,7 @@
         "type": "below",
         "a": 2,
         "b": 0,
-        "text": "Stond lager op de kaart dan Arend."
+        "text": "Stond lager op de kaart dan Alle."
       },
       {
         "type": "same",
@@ -3274,7 +3446,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "poison",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-16",
@@ -3282,7 +3455,7 @@
     "clueVersion": 3,
     "theme": "Noorderzon",
     "title": "Achter het tentdoek",
-    "story": "Noorderzon vult het plantsoen met licht en verhalen. Maar achter het tentdoek klopt één verhaal niet. Fokko was op weg naar de laatste voorstelling.",
+    "story": "Noorderzon vult het plantsoen met licht en verhalen. Maar achter het tentdoek klopt één verhaal niet. Tammo was op weg naar de laatste voorstelling.",
     "lesson": "Theater tussen de bomen",
     "level": "Uitdagend",
     "size": 6,
@@ -3332,34 +3505,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -3521,7 +3706,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-17",
@@ -3529,7 +3715,7 @@
     "clueVersion": 3,
     "theme": "WinterWelVaart",
     "title": "Het licht in de roef",
-    "story": "Bij WinterWelVaart glinsteren de lichtjes langs de kade. Op een aangemeerd schip is Fokko’s sjaal blijven liggen. De laatste bezoekers spreken elkaar tegen.",
+    "story": "Bij WinterWelVaart glinsteren de lichtjes langs de kade. Op een aangemeerd schip is Tammo’s sjaal blijven liggen. De laatste bezoekers spreken elkaar tegen.",
     "lesson": "Een winteravond aan de A",
     "level": "Uitdagend",
     "size": 6,
@@ -3579,34 +3765,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de barista",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de fietsenmaker",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de student",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de marktkoopman",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de stadsgids",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de marktkoopman",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de stadsgids",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -3716,7 +3914,7 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Tammo."
+        "text": "Stond hoger op de kaart dan Derk."
       },
       {
         "type": "left",
@@ -3729,7 +3927,8 @@
     "portraitStyle": "mugshot",
     "victimWeapon": "dagger",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-18",
@@ -3737,7 +3936,7 @@
     "clueVersion": 3,
     "theme": "Stadsschouwburg",
     "title": "De laatste buiging",
-    "story": "De voorstelling in de Stadsschouwburg is afgelopen. Fokko zou nog een toegift spelen, maar zijn muziek blijft op de lessenaar liggen. Wie bleef er na het applaus achter?",
+    "story": "De voorstelling in de Stadsschouwburg is afgelopen. Tammo zou nog een toegift spelen, maar zijn muziek blijft op de lessenaar liggen. Wie bleef er na het applaus achter?",
     "lesson": "Achter het rode doek",
     "level": "Pittig",
     "size": 6,
@@ -3788,34 +3987,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldrik",
         "role": "de toneelmeester",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de belichter",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de actrice",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de kaartcontroleur",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de garderobemedewerker",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kaartcontroleur",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de garderobemedewerker",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de muzikant",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -4012,19 +4223,19 @@
         "type": "above",
         "a": 1,
         "b": 0,
-        "text": "Stond hoger op de kaart dan Arend."
+        "text": "Stond hoger op de kaart dan Aaldrik."
       },
       {
         "type": "left",
         "a": 2,
         "b": 0,
-        "text": "Stond links van Arend."
+        "text": "Stond links van Aaldrik."
       },
       {
         "type": "left",
         "a": 3,
         "b": 1,
-        "text": "Stond links van Bertus."
+        "text": "Stond links van Barrelt."
       }
     ],
     "seriesId": "nacht",
@@ -4032,7 +4243,8 @@
     "victimLocationClue": false,
     "victimWeapon": "dagger",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 4
+    "difficultyStars": 4,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-19",
@@ -4040,7 +4252,7 @@
     "clueVersion": 4,
     "theme": "Suikerunieterrein",
     "title": "Het terrein na middernacht",
-    "story": "Op het voormalige Suikerunieterrein dooft de verlichting van een evenement. Fokko’s sleutelbos ligt bij de machinekamer. Zes verklaringen laten een heel ander terrein zien.",
+    "story": "Op het voormalige Suikerunieterrein dooft de verlichting van een evenement. Tammo’s sleutelbos ligt bij de machinekamer. Zes verklaringen laten een heel ander terrein zien.",
     "lesson": "Tussen silo en fabriekshal",
     "level": "Uitdagend",
     "size": 6,
@@ -4090,34 +4302,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Anno",
         "role": "de terreinbeheerder",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de monteur",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de fotograaf",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de evenementenbouwer",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de rondleider",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de evenementenbouwer",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de rondleider",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de geluidstechnicus",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -4334,7 +4558,7 @@
         "type": "left",
         "a": 4,
         "b": 1,
-        "text": "Stond links van Bertus."
+        "text": "Stond links van Boarend."
       }
     ],
     "seriesId": "nacht",
@@ -4342,7 +4566,8 @@
     "victimLocationClue": false,
     "victimWeapon": "wrench",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-20",
@@ -4350,7 +4575,7 @@
     "clueVersion": 3,
     "theme": "Het Forum",
     "title": "De verdwenen filmrecensie",
-    "story": "Een filmavond in het Forum eindigt met een ongelezen recensie. Fokko wilde nog even naar boven. Welke route volgden de bezoekers tussen bioscoop, bieb en dakterras?",
+    "story": "Een filmavond in het Forum eindigt met een ongelezen recensie. Tammo wilde nog even naar boven. Welke route volgden de bezoekers tussen bioscoop, bieb en dakterras?",
     "lesson": "Van bioscoop tot dakterras",
     "level": "Uitdagend",
     "size": 6,
@@ -4403,32 +4628,44 @@
       {
         "name": "Arend",
         "role": "de filmoperateur",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de technicus",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de bibliothecaris",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de bezoeker",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de gastvrouw",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de bezoeker",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de gastvrouw",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de recensent",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -4599,13 +4836,13 @@
         "type": "same",
         "a": 1,
         "b": 3,
-        "text": "Was in hetzelfde gebied als Tammo."
+        "text": "Was in hetzelfde gebied als Derk."
       },
       {
         "type": "above",
         "a": 3,
         "b": 1,
-        "text": "Stond hoger op de kaart dan Bertus."
+        "text": "Stond hoger op de kaart dan Barrelt."
       },
       {
         "type": "unary",
@@ -4626,7 +4863,8 @@
     "victimLocationClue": false,
     "victimWeapon": "poison",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "stad-thema-v1-21",
@@ -4634,7 +4872,7 @@
     "clueVersion": 3,
     "theme": "Studentenhuis Korreweg",
     "title": "De krat die bleef staan",
-    "story": "Een fictief studentenhuis aan de Korreweg: een afwasrooster, een kapotte bank en veel te veel bierkratten. Na het huisfeest is Fokko’s gitaar er nog, maar hijzelf niet.",
+    "story": "Een fictief studentenhuis aan de Korreweg: een afwasrooster, een kapotte bank en veel te veel bierkratten. Na het huisfeest is Tammo’s gitaar er nog, maar hijzelf niet.",
     "lesson": "Een nacht aan de Korreweg",
     "level": "Uitdagend",
     "size": 6,
@@ -4685,34 +4923,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de huisoudste",
-        "color": "#b44d39"
+        "color": "#b44d39",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de eeuwige student",
-        "color": "#437c78"
+        "color": "#437c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de geneeskundestudent",
-        "color": "#89703e"
+        "color": "#89703e",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de feestcommissie",
+        "color": "#6b6085",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de rechtenstudent",
+        "color": "#3e7050",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de feestcommissie",
-        "color": "#6b6085"
-      },
-      {
-        "name": "Geeske",
-        "role": "de rechtenstudent",
-        "color": "#3e7050"
-      },
-      {
-        "name": "Fokko",
         "role": "de bandgitarist",
-        "color": "#8f5769"
+        "color": "#8f5769",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -4967,7 +5217,7 @@
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Geeske."
+        "text": "Stond hoger op de kaart dan Engel."
       },
       {
         "type": "unary",
@@ -4986,7 +5236,8 @@
     "victimLocationClue": false,
     "victimWeapon": "candlestick",
     "furnitureRulesVersion": 2,
-    "difficultyStars": 5
+    "difficultyStars": 5,
+    "castVersion": 1
   },
   {
     "id": "martini-v1-1",
@@ -4995,7 +5246,7 @@
     "seriesNumber": 1,
     "theme": "Moord in de Martini",
     "title": "De gesloten kapel",
-    "story": "Na een rondleiding blijft een muziekmap achter. Vijf bezoekers vertellen waar ze stonden. Volg hun aanwijzingen en ontdek wie met Fokko achterbleef.",
+    "story": "Na een rondleiding blijft een muziekmap achter. Vijf bezoekers vertellen waar ze stonden. Volg hun aanwijzingen en ontdek wie met Tammo achterbleef.",
     "lesson": "Een nieuw spoor in de Martini",
     "level": "Heel makkelijk",
     "difficultyStars": 1,
@@ -5070,34 +5321,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de koster",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de organist",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de koorzangeres",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de restaurator",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de sleutelbeheerder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de restaurator",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de muziekarchivaris",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "victim": 5,
@@ -5250,7 +5513,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-v1-2",
@@ -5259,7 +5523,7 @@
     "seriesNumber": 2,
     "theme": "Moord in de Martini",
     "title": "Een valse noot",
-    "story": "De repetitie is voorbij. Een stoel is verschoven en Fokko’s potlood ligt nog bij zijn aantekeningen. De laatste aanwezigen vertellen waar ze stonden.",
+    "story": "De repetitie is voorbij. Een stoel is verschoven en Tammo’s potlood ligt nog bij zijn aantekeningen. De laatste aanwezigen vertellen waar ze stonden.",
     "lesson": "Een nieuw spoor in de Martini",
     "level": "Makkelijk",
     "difficultyStars": 2,
@@ -5370,44 +5634,60 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de koster",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de organist",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de koorzangeres",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de restaurator",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de sleutelbeheerder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de restaurator",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de muziekarchivaris",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de suppoost",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de orgelstemmer",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       }
     ],
     "victim": 5,
@@ -5422,7 +5702,7 @@
         "type": "below",
         "a": 0,
         "b": 6,
-        "text": "Bevond zich in kolom 5, in het gebied Middenschip, lager op de kaart dan Harm.",
+        "text": "Bevond zich in kolom 5, in het gebied Middenschip, lager op de kaart dan Freerk.",
         "cells": [
           34,
           44
@@ -5639,7 +5919,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-v1-3",
@@ -5803,54 +6084,74 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldrik",
         "role": "de koster",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de organist",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de koorzangeres",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de restaurator",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de sleutelbeheerder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de restaurator",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de muziekarchivaris",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de suppoost",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de orgelstemmer",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hindrikje",
         "role": "de concertbezoekster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ipe",
         "role": "de decorbouwer",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       }
     ],
     "victim": 5,
@@ -5884,7 +6185,7 @@
         "type": "below",
         "a": 2,
         "b": 0,
-        "text": "Bevond zich in kolom 5, lager op de kaart dan Arend.",
+        "text": "Bevond zich in kolom 5, lager op de kaart dan Aaldrik.",
         "cells": [
           16,
           40,
@@ -5908,7 +6209,7 @@
           104,
           105
         ],
-        "text": "Bevond zich in de zuidbeuk, lager op de kaart dan Arend."
+        "text": "Bevond zich in de zuidbeuk, lager op de kaart dan Aaldrik."
       },
       {
         "type": "below",
@@ -5920,7 +6221,7 @@
           74,
           86
         ],
-        "text": "Bevond zich in de orgelzone, lager op de kaart dan Harm."
+        "text": "Bevond zich in de orgelzone, lager op de kaart dan Feiko."
       },
       {
         "type": "unary",
@@ -5958,7 +6259,7 @@
           112,
           113
         ],
-        "text": "Bevond zich in het zuidportaal, links van Harm."
+        "text": "Bevond zich in het zuidportaal, links van Feiko."
       },
       {
         "type": "objectCount",
@@ -6183,7 +6484,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-v1-4",
@@ -6395,64 +6697,88 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de koster",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de organist",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de koorzangeres",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de restaurator",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de sleutelbeheerder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de restaurator",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de muziekarchivaris",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de suppoost",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de orgelstemmer",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hinderika",
         "role": "de concertbezoekster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ite",
         "role": "de decorbouwer",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
-        "name": "Neeltje",
+        "name": "Jaantje",
         "role": "de rondleidster",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
       },
       {
-        "name": "Lammert",
+        "name": "Koert",
         "role": "de boekbinder",
-        "color": "#897455"
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       }
     ],
     "victim": 5,
@@ -6523,7 +6849,7 @@
           49,
           51
         ],
-        "text": "Bevond zich in de noordbeuk, links van Tammo."
+        "text": "Bevond zich in de noordbeuk, links van Derk."
       },
       {
         "type": "right",
@@ -6552,7 +6878,7 @@
           135,
           136
         ],
-        "text": "Bevond zich in de zuidbeuk, rechts van Lammert."
+        "text": "Bevond zich in de zuidbeuk, rechts van Koert."
       },
       {
         "type": "unary",
@@ -6867,7 +7193,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-v1-5",
@@ -7163,74 +7490,102 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldert",
         "role": "de koster",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de organist",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de koorzangeres",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de restaurator",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de sleutelbeheerder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de restaurator",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de muziekarchivaris",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de suppoost",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de orgelstemmer",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
+      },
+      {
+        "name": "Hinderika",
+        "role": "de concertbezoekster",
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
+      },
+      {
+        "name": "Ipe",
+        "role": "de decorbouwer",
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
         "name": "Jantje",
-        "role": "de concertbezoekster",
-        "color": "#ae6d80"
-      },
-      {
-        "name": "Wubbo",
-        "role": "de decorbouwer",
-        "color": "#527b66"
-      },
-      {
-        "name": "Neeltje",
         "role": "de rondleidster",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
+      },
+      {
+        "name": "Karsien",
+        "role": "de boekbinder",
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       },
       {
         "name": "Lammert",
-        "role": "de boekbinder",
-        "color": "#897455"
-      },
-      {
-        "name": "Meint",
         "role": "de lichttechnicus",
-        "color": "#4f7e85"
+        "color": "#4f7e85",
+        "gender": "male",
+        "portraitIndex": 12
       },
       {
-        "name": "Sientje",
+        "name": "Meiske",
         "role": "de violiste",
-        "color": "#a16b51"
+        "color": "#a16b51",
+        "gender": "female",
+        "portraitIndex": 13
       }
     ],
     "victim": 5,
@@ -7260,7 +7615,7 @@
         "type": "right",
         "a": 1,
         "b": 3,
-        "text": "Bevond zich in rij 6, rechts van Tammo.",
+        "text": "Bevond zich in rij 6, rechts van Douwe.",
         "cells": [
           92,
           93,
@@ -7304,7 +7659,7 @@
           209,
           210
         ],
-        "text": "Bevond zich in de zuidbeuk, links van Jantje."
+        "text": "Bevond zich in de zuidbeuk, links van Hinderika."
       },
       {
         "type": "unary",
@@ -7418,7 +7773,7 @@
           51,
           52
         ],
-        "text": "Bevond zich in de sacristie, hoger op de kaart dan Lammert."
+        "text": "Bevond zich in de sacristie, hoger op de kaart dan Karsien."
       },
       {
         "type": "objectCount",
@@ -7913,7 +8268,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-v1-6",
@@ -8341,84 +8697,116 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alje",
         "role": "de koster",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de organist",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de koorzangeres",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de sleutelbeheerder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de restaurator",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de sleutelbeheerder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de restaurator",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de muziekarchivaris",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de suppoost",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de orgelstemmer",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hindrikje",
         "role": "de concertbezoekster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ite",
         "role": "de decorbouwer",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
-        "name": "Neeltje",
+        "name": "Jaantje",
         "role": "de rondleidster",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
+      },
+      {
+        "name": "Klaas",
+        "role": "de boekbinder",
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       },
       {
         "name": "Lammert",
-        "role": "de boekbinder",
-        "color": "#897455"
-      },
-      {
-        "name": "Meint",
         "role": "de lichttechnicus",
-        "color": "#4f7e85"
+        "color": "#4f7e85",
+        "gender": "male",
+        "portraitIndex": 12
       },
       {
-        "name": "Sientje",
+        "name": "Mettien",
         "role": "de violiste",
-        "color": "#a16b51"
+        "color": "#a16b51",
+        "gender": "female",
+        "portraitIndex": 13
       },
       {
-        "name": "Evert",
+        "name": "Nanno",
         "role": "de historicus",
-        "color": "#777b49"
+        "color": "#777b49",
+        "gender": "male",
+        "portraitIndex": 14
       },
       {
-        "name": "Dieuwertje",
+        "name": "Oda",
         "role": "de vrijwilligster",
-        "color": "#866c7b"
+        "color": "#866c7b",
+        "gender": "female",
+        "portraitIndex": 15
       }
     ],
     "victim": 5,
@@ -8448,7 +8836,7 @@
         "type": "above",
         "a": 1,
         "b": 8,
-        "text": "Bevond zich in kolom 11, hoger op de kaart dan Jantje.",
+        "text": "Bevond zich in kolom 11, hoger op de kaart dan Hindrikje.",
         "cells": [
           130,
           154,
@@ -8466,7 +8854,7 @@
         "type": "right",
         "a": 2,
         "b": 0,
-        "text": "Bevond zich in rij 5, rechts van Arend.",
+        "text": "Bevond zich in rij 5, rechts van Alje.",
         "cells": [
           98,
           99,
@@ -8491,7 +8879,7 @@
         "type": "below",
         "a": 3,
         "b": 10,
-        "text": "Bevond zich in kolom 15, lager op de kaart dan Neeltje.",
+        "text": "Bevond zich in kolom 15, lager op de kaart dan Jaantje.",
         "cells": [
           134,
           158,
@@ -8530,7 +8918,7 @@
         "type": "left",
         "a": 7,
         "b": 13,
-        "text": "Bevond zich in rij 16, links van Sientje.",
+        "text": "Bevond zich in rij 16, links van Mettien.",
         "cells": [
           366,
           367,
@@ -8553,7 +8941,7 @@
         "type": "below",
         "a": 9,
         "b": 14,
-        "text": "Bevond zich in kolom 12, lager op de kaart dan Evert.",
+        "text": "Bevond zich in kolom 12, lager op de kaart dan Nanno.",
         "cells": [
           107,
           131,
@@ -8581,7 +8969,7 @@
         "type": "above",
         "a": 11,
         "b": 4,
-        "text": "Bevond zich in kolom 19, hoger op de kaart dan Geeske.",
+        "text": "Bevond zich in kolom 19, hoger op de kaart dan Ete.",
         "cells": [
           18,
           42,
@@ -8606,7 +8994,7 @@
         "type": "above",
         "a": 13,
         "b": 1,
-        "text": "Bevond zich in kolom 9, in het gebied Zuidportaal, hoger op de kaart dan Bertus.",
+        "text": "Bevond zich in kolom 9, in het gebied Zuidportaal, hoger op de kaart dan Berend.",
         "cells": [
           296,
           320,
@@ -9366,7 +9754,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martinitoren-v1-1",
@@ -9376,7 +9765,7 @@
     "setting": "tower",
     "theme": "Moord in de Martinitoren",
     "title": "De laatste slag",
-    "story": "Een rondleiding eindigt met één onverwachte klokslag. Acht fictieve bezoekers waren nog in de toren. Wie bleef met Fokko achter?",
+    "story": "Een rondleiding eindigt met één onverwachte klokslag. Acht fictieve bezoekers waren nog in de toren. Wie bleef met Tammo achter?",
     "lesson": "Een extra torenzaak — lees de uitgeklapte kaart als één rooster",
     "level": "Gemiddeld",
     "difficultyStars": 3,
@@ -9485,44 +9874,60 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldert",
         "role": "de torenwachter",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de klokkenluider",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de filmmaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de gids",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de fotograaf",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de gids",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de fotograaf",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de archiefbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de uurwerkmaker",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de timmerman",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       }
     ],
     "victim": 5,
@@ -9579,7 +9984,7 @@
           76,
           77
         ],
-        "text": "Bevond zich in de torenentree, lager op de kaart dan Harm."
+        "text": "Bevond zich in de torenentree, lager op de kaart dan Feiko."
       },
       {
         "type": "above",
@@ -9593,7 +9998,7 @@
           15,
           16
         ],
-        "text": "Bevond zich in de uurwerkzolder, hoger op de kaart dan Harm."
+        "text": "Bevond zich in de uurwerkzolder, hoger op de kaart dan Feiko."
       },
       {
         "type": "onlyOnObject",
@@ -9870,7 +10275,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martinitoren-v1-2",
@@ -10029,54 +10435,74 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldert",
         "role": "de torenwachter",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de klokkenluider",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de filmmaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de gids",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de fotograaf",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de gids",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de fotograaf",
-        "color": "#4f7955"
+        "role": "de archiefbezoeker",
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
         "name": "Fokko",
-        "role": "de archiefbezoeker",
-        "color": "#8c5964"
-      },
-      {
-        "name": "Harm",
         "role": "de uurwerkmaker",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geert",
         "role": "de timmerman",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hinderika",
         "role": "de bezoekster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ite",
         "role": "de restaurator",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       }
     ],
     "victim": 5,
@@ -10465,7 +10891,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martinitoren-v1-3",
@@ -10672,64 +11099,88 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de torenwachter",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de klokkenluider",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de filmmaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de gids",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de fotograaf",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de gids",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de fotograaf",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de archiefbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de uurwerkmaker",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de timmerman",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
+      },
+      {
+        "name": "Hindrikje",
+        "role": "de bezoekster",
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
+      },
+      {
+        "name": "Ipe",
+        "role": "de restaurator",
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
         "name": "Jantje",
-        "role": "de bezoekster",
-        "color": "#ae6d80"
-      },
-      {
-        "name": "Wubbo",
-        "role": "de restaurator",
-        "color": "#527b66"
-      },
-      {
-        "name": "Neeltje",
         "role": "de vrijwilligster",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
       },
       {
-        "name": "Lammert",
+        "name": "Knelies",
         "role": "de sleutelbeheerder",
-        "color": "#897455"
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       }
     ],
     "victim": 5,
@@ -10786,7 +11237,7 @@
         "type": "right",
         "a": 4,
         "b": 0,
-        "text": "Bevond zich in rij 9, rechts van Arend.",
+        "text": "Bevond zich in rij 9, rechts van Alle.",
         "cells": [
           113,
           114,
@@ -10806,7 +11257,7 @@
         "type": "right",
         "a": 6,
         "b": 8,
-        "text": "Bevond zich in rij 7, rechts van Jantje.",
+        "text": "Bevond zich in rij 7, rechts van Hindrikje.",
         "cells": [
           85,
           86,
@@ -10841,7 +11292,7 @@
         "type": "right",
         "a": 9,
         "b": 4,
-        "text": "Bevond zich in rij 4, rechts van Geeske.",
+        "text": "Bevond zich in rij 4, rechts van Ebeltje.",
         "cells": [
           42,
           43,
@@ -11164,7 +11615,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "winterwelvaart-v1-1",
@@ -11174,7 +11626,7 @@
     "setting": "winter",
     "theme": "WinterWelVaart",
     "title": "Het laatste lied in de roef",
-    "story": "Aan boord van een fictieve winterklipper is het laatste lied gezongen. Vijf aanwezigen vertellen waar ze waren. Zoek hun plekken en ontdek wie met Fokko achterbleef.",
+    "story": "Aan boord van een fictieve winterklipper is het laatste lied gezongen. Vijf aanwezigen vertellen waar ze waren. Zoek hun plekken en ontdek wie met Tammo achterbleef.",
     "lesson": "Een nieuw winters dossier",
     "level": "Heel makkelijk",
     "difficultyStars": 1,
@@ -11247,34 +11699,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de schipper",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de scheepstimmerman",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de verhalenvertelster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de kraamhouder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de zangeres",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kraamhouder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de zangeres",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de scheepsfotograaf",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "victim": 5,
@@ -11572,7 +12036,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "winterwelvaart-v1-2",
@@ -11689,44 +12154,60 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de schipper",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de scheepstimmerman",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de verhalenvertelster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de kraamhouder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de zangeres",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kraamhouder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de zangeres",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de scheepsfotograaf",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de havenwacht",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geert",
         "role": "de lichttechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       }
     ],
     "victim": 5,
@@ -12119,7 +12600,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "winterwelvaart-v1-3",
@@ -12278,54 +12760,74 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Anno",
         "role": "de schipper",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de scheepstimmerman",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de verhalenvertelster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de kraamhouder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de zangeres",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kraamhouder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de zangeres",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de scheepsfotograaf",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de havenwacht",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Gezinus",
         "role": "de lichttechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hinderkien",
         "role": "de bezoekster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ite",
         "role": "de glühweinschenker",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       }
     ],
     "victim": 5,
@@ -12349,7 +12851,7 @@
         "type": "above",
         "a": 1,
         "b": 3,
-        "text": "Bevond zich in kolom 8, hoger op de kaart dan Tammo.",
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Derk.",
         "cells": [
           19,
           31,
@@ -12375,7 +12877,7 @@
         "type": "left",
         "a": 3,
         "b": 9,
-        "text": "Bevond zich in rij 4, in het gebied Vuurtonplein, links van Wubbo.",
+        "text": "Bevond zich in rij 4, in het gebied Vuurtonplein, links van Ite.",
         "cells": [
           45,
           46,
@@ -12769,7 +13271,8 @@
         "name": "de tafel",
         "occupiable": false
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "winterwelvaart-v1-4",
@@ -12779,7 +13282,7 @@
     "setting": "winter",
     "theme": "WinterWelVaart",
     "title": "Het verdwenen winterdoek",
-    "story": "De kunstroute loopt langs pakhuizen en verlichte schepen. Na het laatste optreden ontbreekt een winterdoek — en Fokko. Leg twaalf verklaringen naast elkaar.",
+    "story": "De kunstroute loopt langs pakhuizen en verlichte schepen. Na het laatste optreden ontbreekt een winterdoek — en Tammo. Leg twaalf verklaringen naast elkaar.",
     "lesson": "Een nieuw winters dossier",
     "level": "Pittig",
     "difficultyStars": 4,
@@ -12986,64 +13489,88 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldrik",
         "role": "de schipper",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de scheepstimmerman",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de verhalenvertelster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de kraamhouder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de zangeres",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kraamhouder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de zangeres",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de scheepsfotograaf",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de havenwacht",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de lichttechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
+      },
+      {
+        "name": "Hindrikje",
+        "role": "de bezoekster",
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
+      },
+      {
+        "name": "Ipe",
+        "role": "de glühweinschenker",
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
         "name": "Jantje",
-        "role": "de bezoekster",
-        "color": "#ae6d80"
-      },
-      {
-        "name": "Wubbo",
-        "role": "de glühweinschenker",
-        "color": "#527b66"
-      },
-      {
-        "name": "Neeltje",
         "role": "de kunstenares",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
       },
       {
-        "name": "Lammert",
+        "name": "Knelies",
         "role": "de accordeonist",
-        "color": "#897455"
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       }
     ],
     "victim": 5,
@@ -13077,7 +13604,7 @@
         "type": "right",
         "a": 2,
         "b": 10,
-        "text": "Bevond zich in rij 9, rechts van Neeltje.",
+        "text": "Bevond zich in rij 9, rechts van Jantje.",
         "cells": [
           112,
           113,
@@ -13122,7 +13649,7 @@
           62,
           63
         ],
-        "text": "Bevond zich in het scheepsruim, hoger op de kaart dan Arend."
+        "text": "Bevond zich in het scheepsruim, hoger op de kaart dan Aaldrik."
       },
       {
         "type": "unary",
@@ -13759,7 +14286,8 @@
         "name": "de tafel",
         "occupiable": false
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "winterwelvaart-v1-5",
@@ -13769,7 +14297,7 @@
     "setting": "winter",
     "theme": "WinterWelVaart",
     "title": "De val aan de A",
-    "story": "Fokko is in het water gevallen. Wat eerst een ongeluk lijkt, blijkt opzet. Reconstrueer waar iedereen vlak vóór de val stond; het slachtoffer was toen samen met precies één andere persoon.",
+    "story": "Tammo is in het water gevallen. Wat eerst een ongeluk lijkt, blijkt opzet. Reconstrueer waar iedereen vlak vóór de val stond; het slachtoffer was toen samen met precies één andere persoon.",
     "lesson": "Een nieuw winters dossier",
     "level": "Uitdagend",
     "difficultyStars": 5,
@@ -14062,74 +14590,102 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de schipper",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de scheepstimmerman",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de verhalenvertelster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de kraamhouder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de zangeres",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kraamhouder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de zangeres",
-        "color": "#4f7955"
+        "role": "de scheepsfotograaf",
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
         "name": "Fokko",
-        "role": "de scheepsfotograaf",
-        "color": "#8c5964"
-      },
-      {
-        "name": "Harm",
         "role": "de havenwacht",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geert",
         "role": "de lichttechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hindrikje",
         "role": "de bezoekster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ite",
         "role": "de glühweinschenker",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
-        "name": "Neeltje",
+        "name": "Jaantje",
         "role": "de kunstenares",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
+      },
+      {
+        "name": "Klaas",
+        "role": "de accordeonist",
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       },
       {
         "name": "Lammert",
-        "role": "de accordeonist",
-        "color": "#897455"
-      },
-      {
-        "name": "Meint",
         "role": "de kok",
-        "color": "#4f7e85"
+        "color": "#4f7e85",
+        "gender": "male",
+        "portraitIndex": 12
       },
       {
-        "name": "Sientje",
+        "name": "Mettien",
         "role": "de violiste",
-        "color": "#a16b51"
+        "color": "#a16b51",
+        "gender": "female",
+        "portraitIndex": 13
       }
     ],
     "victim": 5,
@@ -14180,7 +14736,7 @@
         "type": "below",
         "a": 4,
         "b": 1,
-        "text": "Bevond zich in kolom 14, lager op de kaart dan Bertus.",
+        "text": "Bevond zich in kolom 14, lager op de kaart dan Boarend.",
         "cells": [
           31,
           49,
@@ -14245,7 +14801,7 @@
         "type": "below",
         "a": 10,
         "b": 8,
-        "text": "Bevond zich in kolom 3, lager op de kaart dan Jantje.",
+        "text": "Bevond zich in kolom 3, lager op de kaart dan Hindrikje.",
         "cells": [
           2,
           20,
@@ -14274,7 +14830,7 @@
         "type": "left",
         "a": 12,
         "b": 8,
-        "text": "Bevond zich in rij 14, links van Jantje.",
+        "text": "Bevond zich in rij 14, links van Hindrikje.",
         "cells": [
           234,
           235,
@@ -14956,7 +15512,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "winterwelvaart-v1-6",
@@ -15392,84 +15949,116 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de schipper",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de scheepstimmerman",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de verhalenvertelster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de kraamhouder",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de zangeres",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kraamhouder",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de zangeres",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de scheepsfotograaf",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de havenwacht",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de lichttechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
+      },
+      {
+        "name": "Hinderkien",
+        "role": "de bezoekster",
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
+      },
+      {
+        "name": "Ipe",
+        "role": "de glühweinschenker",
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       },
       {
         "name": "Jantje",
-        "role": "de bezoekster",
-        "color": "#ae6d80"
-      },
-      {
-        "name": "Wubbo",
-        "role": "de glühweinschenker",
-        "color": "#527b66"
-      },
-      {
-        "name": "Neeltje",
         "role": "de kunstenares",
-        "color": "#77648e"
+        "color": "#77648e",
+        "gender": "female",
+        "portraitIndex": 10
       },
       {
-        "name": "Lammert",
+        "name": "Karsien",
         "role": "de accordeonist",
-        "color": "#897455"
+        "color": "#897455",
+        "gender": "male",
+        "portraitIndex": 11
       },
       {
-        "name": "Meint",
+        "name": "Lippe",
         "role": "de kok",
-        "color": "#4f7e85"
+        "color": "#4f7e85",
+        "gender": "male",
+        "portraitIndex": 12
       },
       {
-        "name": "Sientje",
+        "name": "Meiske",
         "role": "de violiste",
-        "color": "#a16b51"
+        "color": "#a16b51",
+        "gender": "female",
+        "portraitIndex": 13
       },
       {
-        "name": "Evert",
+        "name": "Nanno",
         "role": "de buurtbewoner",
-        "color": "#777b49"
+        "color": "#777b49",
+        "gender": "male",
+        "portraitIndex": 14
       },
       {
-        "name": "Dieuwertje",
+        "name": "Oda",
         "role": "de vrijwilligster",
-        "color": "#866c7b"
+        "color": "#866c7b",
+        "gender": "female",
+        "portraitIndex": 15
       }
     ],
     "victim": 5,
@@ -15504,7 +16093,7 @@
         "type": "below",
         "a": 2,
         "b": 0,
-        "text": "Bevond zich in kolom 15, lager op de kaart dan Arend.",
+        "text": "Bevond zich in kolom 15, lager op de kaart dan Alle.",
         "cells": [
           38,
           62,
@@ -15584,7 +16173,7 @@
         "type": "below",
         "a": 9,
         "b": 8,
-        "text": "Bevond zich in kolom 19, lager op de kaart dan Jantje.",
+        "text": "Bevond zich in kolom 19, lager op de kaart dan Hinderkien.",
         "cells": [
           18,
           42,
@@ -15632,7 +16221,7 @@
         "type": "right",
         "a": 12,
         "b": 0,
-        "text": "Bevond zich in rij 10, in het gebied Achterdek, rechts van Arend.",
+        "text": "Bevond zich in rij 10, in het gebied Achterdek, rechts van Alle.",
         "cells": [
           223,
           224,
@@ -16326,7 +16915,8 @@
           "height": 1
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-1",
@@ -16513,34 +17103,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -16678,7 +17280,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-2",
@@ -16688,7 +17291,7 @@
     "setting": "noorderzon",
     "theme": "Foodtruckveld",
     "title": "Pizza na sluitingstijd",
-    "story": "Bij de foodtrucks is de laatste pizza gebakken. Naast de zandspeeltuin staan nog bekers op de picknicktafels. Maar Fokko keert niet terug.",
+    "story": "Bij de foodtrucks is de laatste pizza gebakken. Naast de zandspeeltuin staan nog bekers op de picknicktafels. Maar Tammo keert niet terug.",
     "difficultyStars": 2,
     "level": "Makkelijk",
     "lesson": "Combineer de aanwijzingen met de festivalkaart.",
@@ -16778,7 +17381,7 @@
           21,
           23
         ],
-        "text": "Bevond zich in rij 4, rechts van Geeske."
+        "text": "Bevond zich in rij 4, rechts van Ete."
       },
       {
         "type": "left",
@@ -16788,7 +17391,7 @@
           2,
           3
         ],
-        "text": "Bevond zich in rij 1, links van Arend."
+        "text": "Bevond zich in rij 1, links van Abel."
       },
       {
         "type": "right",
@@ -16798,7 +17401,7 @@
           16,
           17
         ],
-        "text": "Bevond zich op de pizzaweide, rechts van Geeske."
+        "text": "Bevond zich op de pizzaweide, rechts van Ete."
       },
       {
         "type": "left",
@@ -16869,34 +17472,46 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       }
     ],
     "objects": [
@@ -17054,7 +17669,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-3",
@@ -17241,7 +17857,7 @@
           68,
           69
         ],
-        "text": "Bevond zich op het avondterras, rechts van Tammo."
+        "text": "Bevond zich op het avondterras, rechts van Douwe."
       },
       {
         "type": "same",
@@ -17259,7 +17875,7 @@
           50,
           60
         ],
-        "text": "Bevond zich in kolom 1, hoger op de kaart dan Tammo."
+        "text": "Bevond zich in kolom 1, hoger op de kaart dan Douwe."
       },
       {
         "type": "right",
@@ -17323,39 +17939,53 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
+        "role": "de festivalbezoeker",
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
         "name": "Fokko",
-        "role": "de festivalbezoeker",
-        "color": "#8c5964"
-      },
-      {
-        "name": "Harm",
         "role": "de podiumbouwer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       }
     ],
     "objects": [
@@ -17577,7 +18207,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-4",
@@ -17735,7 +18366,7 @@
           63,
           73
         ],
-        "text": "Bevond zich in kolom 4, hoger op de kaart dan Tammo."
+        "text": "Bevond zich in kolom 4, hoger op de kaart dan Derk."
       },
       {
         "type": "right",
@@ -17766,7 +18397,7 @@
           58,
           59
         ],
-        "text": "Bevond zich in rij 6, rechts van Geeske."
+        "text": "Bevond zich in rij 6, rechts van Eefke."
       },
       {
         "type": "below",
@@ -17794,7 +18425,7 @@
           41,
           42
         ],
-        "text": "Bevond zich op het fonteinterras, links van Arend."
+        "text": "Bevond zich op het fonteinterras, links van Alle."
       },
       {
         "type": "right",
@@ -17810,13 +18441,13 @@
           77,
           78
         ],
-        "text": "Bevond zich in rij 8, rechts van Tammo."
+        "text": "Bevond zich in rij 8, rechts van Derk."
       },
       {
         "type": "right",
         "a": 7,
         "b": 6,
-        "text": "Stond rechts van Harm."
+        "text": "Stond rechts van Feiko."
       },
       {
         "type": "objectCount",
@@ -17877,44 +18508,60 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de podiumbouwer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Gezinus",
         "role": "de geluidstechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       }
     ],
     "objects": [
@@ -18202,7 +18849,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-5",
@@ -18346,7 +18994,7 @@
           30,
           31
         ],
-        "text": "Bevond zich in de parkentree, rechts van Roelf."
+        "text": "Bevond zich in de parkentree, rechts van Geert."
       },
       {
         "type": "below",
@@ -18362,7 +19010,7 @@
           46,
           47
         ],
-        "text": "Bevond zich op het kunstveld, lager op de kaart dan Arend."
+        "text": "Bevond zich op het kunstveld, lager op de kaart dan Abel."
       },
       {
         "type": "below",
@@ -18375,7 +19023,7 @@
           49,
           59
         ],
-        "text": "Bevond zich in kolom 10, lager op de kaart dan Tammo."
+        "text": "Bevond zich in kolom 10, lager op de kaart dan Douwe."
       },
       {
         "type": "right",
@@ -18391,7 +19039,7 @@
           46,
           47
         ],
-        "text": "Bevond zich op het kunstveld, rechts van Harm."
+        "text": "Bevond zich op het kunstveld, rechts van Freerk."
       },
       {
         "type": "above",
@@ -18420,7 +19068,7 @@
           66,
           76
         ],
-        "text": "Bevond zich in kolom 7, lager op de kaart dan Geeske."
+        "text": "Bevond zich in kolom 7, lager op de kaart dan Engel."
       },
       {
         "type": "left",
@@ -18436,7 +19084,7 @@
           38,
           39
         ],
-        "text": "Bevond zich in rij 4, links van Bertus."
+        "text": "Bevond zich in rij 4, links van Berend."
       },
       {
         "type": "objectCount",
@@ -18489,44 +19137,60 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de podiumbouwer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geert",
         "role": "de geluidstechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       }
     ],
     "objects": [
@@ -18840,7 +19504,8 @@
           "height": 2
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-6",
@@ -19006,7 +19671,7 @@
           52,
           53
         ],
-        "text": "Bevond zich op het publieksveld, links van Harm."
+        "text": "Bevond zich op het publieksveld, links van Freerk."
       },
       {
         "type": "unary",
@@ -19031,7 +19696,7 @@
           74,
           84
         ],
-        "text": "Bevond zich in kolom 5, lager op de kaart dan Geeske."
+        "text": "Bevond zich in kolom 5, lager op de kaart dan Ete."
       },
       {
         "type": "right",
@@ -19047,7 +19712,7 @@
           17,
           19
         ],
-        "text": "Bevond zich in rij 2, rechts van Harm."
+        "text": "Bevond zich in rij 2, rechts van Freerk."
       },
       {
         "type": "unary",
@@ -19076,7 +19741,7 @@
           52,
           53
         ],
-        "text": "Bevond zich op het publieksveld, links van Tammo."
+        "text": "Bevond zich op het publieksveld, links van Derk."
       },
       {
         "type": "above",
@@ -19095,7 +19760,7 @@
           46,
           47
         ],
-        "text": "Bevond zich op het muziekpodium, hoger op de kaart dan Harm."
+        "text": "Bevond zich op het muziekpodium, hoger op de kaart dan Freerk."
       },
       {
         "type": "right",
@@ -19172,49 +19837,67 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Barrelt",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de podiumbouwer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de geluidstechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hinderika",
         "role": "de illustratrice",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       }
     ],
     "objects": [
@@ -19514,7 +20197,8 @@
           "height": 2
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-7",
@@ -19691,7 +20375,7 @@
           86,
           96
         ],
-        "text": "Bevond zich in kolom 7, hoger op de kaart dan Roelf."
+        "text": "Bevond zich in kolom 7, hoger op de kaart dan Geert."
       },
       {
         "type": "right",
@@ -19706,13 +20390,13 @@
           54,
           55
         ],
-        "text": "Bevond zich op het loofpad, rechts van Tammo."
+        "text": "Bevond zich op het loofpad, rechts van Douwe."
       },
       {
         "type": "below",
         "a": 2,
         "b": 6,
-        "text": "Stond lager op de kaart dan Harm."
+        "text": "Stond lager op de kaart dan Freerk."
       },
       {
         "type": "above",
@@ -19730,7 +20414,7 @@
           82,
           92
         ],
-        "text": "Bevond zich in kolom 3, hoger op de kaart dan Bertus."
+        "text": "Bevond zich in kolom 3, hoger op de kaart dan Berend."
       },
       {
         "type": "unary",
@@ -19766,7 +20450,7 @@
           85,
           95
         ],
-        "text": "Bevond zich in kolom 6, lager op de kaart dan Jantje."
+        "text": "Bevond zich in kolom 6, lager op de kaart dan Hinderkien."
       },
       {
         "type": "below",
@@ -19864,54 +20548,74 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldert",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de podiumbouwer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geert",
         "role": "de geluidstechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hinderkien",
         "role": "de illustratrice",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ipe",
         "role": "de terrasbeheerder",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       }
     ],
     "objects": [
@@ -20249,7 +20953,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "noorderzon-v1-8",
@@ -20415,7 +21120,7 @@
         "type": "right",
         "a": 0,
         "b": 4,
-        "text": "Stond rechts van Geeske."
+        "text": "Stond rechts van Eefke."
       },
       {
         "type": "above",
@@ -20434,7 +21139,7 @@
           46,
           47
         ],
-        "text": "Bevond zich in de festivaltent, hoger op de kaart dan Jantje."
+        "text": "Bevond zich in de festivaltent, hoger op de kaart dan Hindrikje."
       },
       {
         "type": "unary",
@@ -20449,7 +21154,7 @@
         "type": "above",
         "a": 3,
         "b": 8,
-        "text": "Stond hoger op de kaart dan Jantje."
+        "text": "Stond hoger op de kaart dan Hindrikje."
       },
       {
         "type": "unary",
@@ -20477,7 +21182,7 @@
           87,
           97
         ],
-        "text": "Bevond zich in kolom 8, hoger op de kaart dan Tammo."
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Derk."
       },
       {
         "type": "unary",
@@ -20500,7 +21205,7 @@
           78,
           88
         ],
-        "text": "Bevond zich in kolom 9, lager op de kaart dan Tammo."
+        "text": "Bevond zich in kolom 9, lager op de kaart dan Derk."
       },
       {
         "type": "left",
@@ -20517,7 +21222,7 @@
           58,
           59
         ],
-        "text": "Bevond zich in rij 6, links van Tammo."
+        "text": "Bevond zich in rij 6, links van Derk."
       },
       {
         "type": "objectCount",
@@ -20587,54 +21292,74 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de festivalvrijwilliger",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Boarend",
         "role": "de lichttechnicus",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de theatermaakster",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de pizzabakker",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Eefke",
+        "role": "de programmeur",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de pizzabakker",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de programmeur",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de festivalbezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de podiumbouwer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Gezinus",
         "role": "de geluidstechnicus",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hindrikje",
         "role": "de illustratrice",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ite",
         "role": "de terrasbeheerder",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       }
     ],
     "objects": [
@@ -21038,7 +21763,8 @@
           "height": 2
         }
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-around-v1-1",
@@ -21153,44 +21879,60 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Alle",
         "role": "de stadsgids",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de barista",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de bloemiste",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de kelner",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Engel",
+        "role": "de tuinliefhebber",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kelner",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de tuinliefhebber",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de bezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de gastheer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de restaurator",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       }
     ],
     "victim": 5,
@@ -21205,7 +21947,7 @@
         "type": "right",
         "a": 0,
         "b": 3,
-        "text": "Stond rechts van Tammo."
+        "text": "Stond rechts van Douwe."
       },
       {
         "type": "right",
@@ -21217,7 +21959,7 @@
           60,
           61
         ],
-        "text": "Bevond zich in rij 8, rechts van Geeske."
+        "text": "Bevond zich in rij 8, rechts van Engel."
       },
       {
         "type": "above",
@@ -21228,7 +21970,7 @@
           32,
           40
         ],
-        "text": "Bevond zich in kolom 1, hoger op de kaart dan Bertus."
+        "text": "Bevond zich in kolom 1, hoger op de kaart dan Berend."
       },
       {
         "type": "left",
@@ -21240,7 +21982,7 @@
           53,
           54
         ],
-        "text": "Bevond zich in rij 7, links van Bertus."
+        "text": "Bevond zich in rij 7, links van Berend."
       },
       {
         "type": "left",
@@ -21257,7 +21999,7 @@
           18,
           19
         ],
-        "text": "Bevond zich in de entree, links van Tammo."
+        "text": "Bevond zich in de entree, links van Douwe."
       },
       {
         "type": "below",
@@ -21267,7 +22009,7 @@
           16,
           17
         ],
-        "text": "Bevond zich in de barzaal, lager op de kaart dan Geeske."
+        "text": "Bevond zich in de barzaal, lager op de kaart dan Engel."
       },
       {
         "type": "above",
@@ -21280,7 +22022,7 @@
           39,
           47
         ],
-        "text": "Bevond zich in kolom 8, hoger op de kaart dan Bertus."
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Berend."
       },
       {
         "type": "objectCount",
@@ -21567,7 +22309,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-around-v1-2",
@@ -21711,49 +22454,67 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Aaldrik",
         "role": "de stadsgids",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de barista",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de bloemiste",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Derk",
+        "role": "de kelner",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ete",
+        "role": "de tuinliefhebber",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kelner",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de tuinliefhebber",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de bezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Freerk",
         "role": "de gastheer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de restaurator",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hinderkien",
         "role": "de schrijfster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       }
     ],
     "victim": 5,
@@ -21788,7 +22549,7 @@
           77,
           87
         ],
-        "text": "Bevond zich in kolom 8, hoger op de kaart dan Harm."
+        "text": "Bevond zich in kolom 8, hoger op de kaart dan Freerk."
       },
       {
         "type": "below",
@@ -21799,7 +22560,7 @@
           51,
           61
         ],
-        "text": "Bevond zich in kolom 2, lager op de kaart dan Roelf."
+        "text": "Bevond zich in kolom 2, lager op de kaart dan Geertinus."
       },
       {
         "type": "above",
@@ -21814,13 +22575,13 @@
           74,
           84
         ],
-        "text": "Bevond zich in kolom 5, hoger op de kaart dan Bertus."
+        "text": "Bevond zich in kolom 5, hoger op de kaart dan Berend."
       },
       {
         "type": "right",
         "a": 4,
         "b": 7,
-        "text": "Stond rechts van Roelf."
+        "text": "Stond rechts van Geertinus."
       },
       {
         "type": "right",
@@ -21834,7 +22595,7 @@
           86,
           87
         ],
-        "text": "Bevond zich in rij 9, rechts van Roelf."
+        "text": "Bevond zich in rij 9, rechts van Geertinus."
       },
       {
         "type": "right",
@@ -21868,7 +22629,7 @@
           38,
           39
         ],
-        "text": "Bevond zich in rij 4, rechts van Tammo."
+        "text": "Bevond zich in rij 4, rechts van Derk."
       },
       {
         "type": "objectCount",
@@ -22350,7 +23111,8 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   },
   {
     "id": "martini-around-v1-3",
@@ -22507,54 +23269,74 @@
     ],
     "people": [
       {
-        "name": "Arend",
+        "name": "Abel",
         "role": "de stadsgids",
-        "color": "#a95c42"
+        "color": "#a95c42",
+        "gender": "male",
+        "portraitIndex": 0
       },
       {
-        "name": "Bertus",
+        "name": "Berend",
         "role": "de barista",
-        "color": "#497c78"
+        "color": "#497c78",
+        "gender": "male",
+        "portraitIndex": 1
       },
       {
         "name": "Cora",
         "role": "de bloemiste",
-        "color": "#847341"
+        "color": "#847341",
+        "gender": "female",
+        "portraitIndex": 2
+      },
+      {
+        "name": "Douwe",
+        "role": "de kelner",
+        "color": "#79638e",
+        "gender": "male",
+        "portraitIndex": 3
+      },
+      {
+        "name": "Ebeltje",
+        "role": "de tuinliefhebber",
+        "color": "#4f7955",
+        "gender": "female",
+        "portraitIndex": 4
       },
       {
         "name": "Tammo",
-        "role": "de kelner",
-        "color": "#79638e"
-      },
-      {
-        "name": "Geeske",
-        "role": "de tuinliefhebber",
-        "color": "#4f7955"
-      },
-      {
-        "name": "Fokko",
         "role": "de bezoeker",
-        "color": "#8c5964"
+        "color": "#8c5964",
+        "gender": "male",
+        "portraitIndex": 5
       },
       {
-        "name": "Harm",
+        "name": "Feiko",
         "role": "de gastheer",
-        "color": "#4c718d"
+        "color": "#4c718d",
+        "gender": "male",
+        "portraitIndex": 6
       },
       {
-        "name": "Roelf",
+        "name": "Geertinus",
         "role": "de restaurator",
-        "color": "#a37a3e"
+        "color": "#a37a3e",
+        "gender": "male",
+        "portraitIndex": 7
       },
       {
-        "name": "Jantje",
+        "name": "Hindrikje",
         "role": "de schrijfster",
-        "color": "#ae6d80"
+        "color": "#ae6d80",
+        "gender": "female",
+        "portraitIndex": 8
       },
       {
-        "name": "Wubbo",
+        "name": "Ipe",
         "role": "de conciërge",
-        "color": "#527b66"
+        "color": "#527b66",
+        "gender": "male",
+        "portraitIndex": 9
       }
     ],
     "victim": 5,
@@ -22576,7 +23358,7 @@
           61,
           71
         ],
-        "text": "Bevond zich in kolom 2, lager op de kaart dan Jantje."
+        "text": "Bevond zich in kolom 2, lager op de kaart dan Hindrikje."
       },
       {
         "type": "above",
@@ -22594,7 +23376,7 @@
           86,
           96
         ],
-        "text": "Bevond zich in kolom 7, hoger op de kaart dan Wubbo."
+        "text": "Bevond zich in kolom 7, hoger op de kaart dan Ipe."
       },
       {
         "type": "above",
@@ -22615,7 +23397,7 @@
           22,
           23
         ],
-        "text": "Bevond zich in de poortentree, hoger op de kaart dan Geeske."
+        "text": "Bevond zich in de poortentree, hoger op de kaart dan Ebeltje."
       },
       {
         "type": "right",
@@ -22630,7 +23412,7 @@
           66,
           67
         ],
-        "text": "Bevond zich in de salon, rechts van Roelf."
+        "text": "Bevond zich in de salon, rechts van Geertinus."
       },
       {
         "type": "below",
@@ -22673,7 +23455,7 @@
           20,
           21
         ],
-        "text": "Bevond zich in de garderobe, hoger op de kaart dan Geeske."
+        "text": "Bevond zich in de garderobe, hoger op de kaart dan Ebeltje."
       },
       {
         "type": "right",
@@ -22690,7 +23472,7 @@
           47,
           49
         ],
-        "text": "Bevond zich in rij 5, rechts van Tammo."
+        "text": "Bevond zich in rij 5, rechts van Douwe."
       },
       {
         "type": "right",
@@ -22706,7 +23488,7 @@
           96,
           97
         ],
-        "text": "Bevond zich in de tuinrand, rechts van Jantje."
+        "text": "Bevond zich in de tuinrand, rechts van Hindrikje."
       },
       {
         "type": "objectCount",
@@ -23120,6 +23902,7 @@
         "name": "een stoel",
         "occupiable": true
       }
-    ]
+    ],
+    "castVersion": 1
   }
 ]

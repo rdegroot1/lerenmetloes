@@ -18,12 +18,12 @@ test('Noorderzon is eight normal-size cases on five levels, with its own ten-pag
 for(const p of cases)test(`${p.id}: connected festival spaces, broad public clues and deductive unique solution`,()=>{
  const ss=solve(p);assert.equal(ss.length,1);assert.ok(valid(p,ss[0],true));
  const e=explain(p);assert.deepEqual(e.positions,ss[0]);assert.ok(e.deductions.every(d=>!d.searched));
- assert.deepEqual(p.givens,{});assert.equal(p.people[p.victim].name,'Fokko');assert.equal(personEntries(p).at(-1).i,p.victim);
+ assert.deepEqual(p.givens,{});assert.equal(p.people[p.victim].name,'Tammo');assert.equal(personEntries(p).at(-1).i,p.victim);
  for(let i=0;i<p.people.length;i++){
   const own=p.clues.filter(c=>c.a===i);assert.equal(own.length,i===p.victim?0:1);
   if(own.length)assert.ok(Array.from({length:cellCount(p)},(_,c)=>c).filter(c=>canStand(p,c)&&matches(p,{[i]:c},own[0])).length>=2,'no single-cell giveaway');
  }
- assert.ok(p.clues.every(c=>c.a!==p.victim&&c.b!==p.victim&&!c.text.includes('Fokko')));
+ assert.ok(p.clues.every(c=>c.a!==p.victim&&c.b!==p.victim&&!c.text.includes('Tammo')));
  for(let area=0;area<p.areas.length;area++){
   const cells=p.regions.flatMap((a,c)=>a===area?[c]:[]);assert.ok(cells.length>=4,p.areas[area]);const seen=new Set([cells[0]]),queue=[cells[0]];
   while(queue.length){const c=queue.pop();for(const d of [c-1,c+1,c-p.width,c+p.width])if(p.regions[d]===area&&Math.abs(rowOf(p,c)-rowOf(p,d))+Math.abs(columnOf(p,c)-columnOf(p,d))===1&&!seen.has(d)){seen.add(d);queue.push(d);}}
