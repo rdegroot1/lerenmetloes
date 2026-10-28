@@ -8,7 +8,7 @@ export function finishDossier(p){
  }
  const previous=p.people[p.victim].name;
  if(previous!=='Fokko'){p.people[p.victim].name='Fokko';p.story=p.story.replaceAll(previous,'Fokko').replaceAll('haar tas','zijn tas').replaceAll('haar fiets','zijn fiets');p.people[p.victim].portraitIndex=5;}
- if(p.id==='stad-v2-1'){p.story='Na de bloemenmarkt wordt Fokko gevonden bij de Martinitoren. Drie getuigen vertellen waar ze waren. Plaats iedereen en ontdek wie bij Fokko was.';p.lesson='Lees de drie aanwijzingen en begin bij het enige passende vak';}
+ if(p.id==='stad-v2-1'){p.people[p.victim].name='Tammo';p.people[p.victim].portraitIndex=5;p.story='Na de bloemenmarkt wordt Tammo gevonden bij de Martinitoren. Drie getuigen vertellen waar ze waren. Plaats iedereen en ontdek wie bij Tammo was.';p.lesson='Lees de drie aanwijzingen en begin bij het enige passende vak';}
  if(p.id==='martini-v1-1')p.story='Na een rondleiding blijft een muziekmap achter. Vijf bezoekers vertellen waar ze stonden. Volg hun aanwijzingen en ontdek wie met Fokko achterbleef.';
  if(p.id==='winterwelvaart-v1-1')p.story='Aan boord van een fictieve winterklipper is het laatste lied gezongen. Vijf aanwezigen vertellen waar ze waren. Zoek hun plekken en ontdek wie met Fokko achterbleef.';
  return p;

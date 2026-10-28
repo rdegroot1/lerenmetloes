@@ -21,9 +21,9 @@ export function postponeHelp(saved,time){const result=coachingState(saved);resul
 // Legacy formula retained for older callers. New runs use scoring.js;
 // old completed dossiers keep these previously earned points.
 export function caseScore(p){const stars=Math.min(6,Math.max(1,count(p.difficultyStars)||3));return {base:100,bonus:(stars-1)*20,total:100+(stars-1)*20};}
-export function helpSummary(state){const views=coachingState(state.coaching).hintViews;const general=views[0]||0,detailed=views[3]||0;
- if(!general)return state.hintsUsed?'Je hebt hulp gebruikt. Samen kom je verder!':'Deze zaak heb je zonder Fokko’s tips opgelost. Mooi uitgezocht!';
- return `Fokko dacht bij ${general} ${general===1?'stap':'stappen'} mee${detailed?`, waarvan ${detailed} helemaal uitgewerkt`:''}. Jij hebt de zaak afgerond!`;
+export function helpSummary(state,name='Fokko'){const views=coachingState(state.coaching).hintViews;const general=views[0]||0,detailed=views[3]||0;
+ if(!general)return state.hintsUsed?'Je hebt hulp gebruikt. Samen kom je verder!':`Deze zaak heb je zonder ${name}’s tips opgelost. Mooi uitgezocht!`;
+ return `${name} dacht bij ${general} ${general===1?'stap':'stappen'} mee${detailed?`, waarvan ${detailed} helemaal uitgewerkt`:''}. Jij hebt de zaak afgerond!`;
 }
 export function recommendCase(puzzles,current,readSave,isSolved){
  const theme=current.seriesId||'stad',cases=puzzles.filter(p=>(p.seriesId||'stad')===theme);

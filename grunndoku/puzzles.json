@@ -5,7 +5,7 @@
     "clueVersion": 3,
     "theme": null,
     "title": "Bij d’Olle Grieze",
-    "story": "Na de bloemenmarkt wordt Fokko gevonden bij de Martinitoren. Drie getuigen vertellen waar ze waren. Plaats iedereen en ontdek wie bij Fokko was.",
+    "story": "Na de bloemenmarkt wordt Tammo gevonden bij de Martinitoren. Drie getuigen vertellen waar ze waren. Plaats iedereen en ontdek wie bij Tammo was.",
     "lesson": "Lees de drie aanwijzingen en begin bij het enige passende vak",
     "level": "Heel makkelijk",
     "size": 4,
@@ -50,7 +50,7 @@
         "color": "#89703e"
       },
       {
-        "name": "Fokko",
+        "name": "Tammo",
         "role": "de marktkoopman",
         "color": "#6b6085",
         "portraitIndex": 5
