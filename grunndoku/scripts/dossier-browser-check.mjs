@@ -26,7 +26,7 @@ try{
  await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));});
  const hiddenStart=(await getSaved()).playTimeMs;await page.clock.fastForward(60000);assert.equal((await getSaved()).playTimeMs,hiddenStart);
  await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'));});
- await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/Fokko helpt/);assert.match(await page.locator('#hintText').innerText(),/^Moi, Fokko hier/);assert.match(await page.locator('#hintStep').innerText(),/1\/4/);assert.doesNotMatch(await page.locator('#hintText').innerText(),/rij \d+, kolom \d+/);
+ await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/Tammo helpt/);assert.match(await page.locator('#hintText').innerText(),/^Moi, Tammo hier/);assert.match(await page.locator('#hintStep').innerText(),/1\/4/);assert.doesNotMatch(await page.locator('#hintText').innerText(),/rij \d+, kolom \d+/);
  await page.click('#hintNext');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);const hintBefore=await getSaved();
  await page.click('#hintClose');await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);assert.deepEqual((await getSaved()).coaching.hintViews,hintBefore.coaching.hintViews);
  await page.reload();await page.waitForSelector('#puzzleScreen:visible');await page.click('#hint');assert.match(await page.locator('#hintStep').innerText(),/2\/4/);

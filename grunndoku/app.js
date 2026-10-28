@@ -2,7 +2,7 @@ import {scoreFor,earnedScore} from './scoring.js?v=20261028-score';
 import {startBundles} from './bundle-manager.js?v=20261027-bundles';
 import {completionShare} from './share.js?v=20261028-score';
 import {createShareImage} from './share-image.js?v=20261027-share-map';
-import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,helpSummary,recommendCase} from './coaching.js?v=20261028-score';
+import {HINT_LEVELS,boardKey,coachingState,recordHint,markProgress,offerHelp,postponeHelp,helpSummary,recommendCase} from './coaching.js?v=20261028-tammo';
 import {accountStore,saveProgress,startAccounts,preferenceKey,accountPreview} from './account-manager.js?v=20261027-bundles';
 import {progressSummary,resumeCase,milestoneText,caseProgress} from './progress.js?v=20261027-accounts';
 import {victimHint,completionMessage,elapsedTime,celebrationMessage,nextCelebration} from './detective-voice.js?v=20261027-accounts';
@@ -17,7 +17,7 @@ import {explain} from './explain.js?v=20261027-accounts';
 import {confirmPlacement,restorePencilNotes,sanitizeBackups} from './notes.js?v=20261027-accounts';
 import {difficultyMarkup,difficultyText} from './difficulty.js?v=20261027-accounts';
 const $=id=>document.getElementById(id);
-const DATA_VERSION='20261028-score';
+const DATA_VERSION='20261028-tammo';
 let puzzles;
 try{const response=await fetch(`./puzzles.json?v=${DATA_VERSION}`,{cache:'no-store'});if(!response.ok)throw Error(response.status);puzzles=await response.json();}catch(e){$('message').textContent='De dossiers konden niet worden geladen. Open de app via een webserver en probeer opnieuw.';throw e;}
 const freeCaseIds=new Set(puzzles.map(q=>q.id));let mainCount=puzzles.length;
@@ -176,6 +176,7 @@ function render(){
  $('themeObjectLegend').innerHTML=objectLegend({objects:(index>=mainCount?[p]:seriesCases()).flatMap(q=>q.objects)});$('rulesObjectLegend').innerHTML=$('themeObjectLegend').innerHTML;
  $('level').innerHTML=difficultyMarkup(p)+`<span class="difficulty-size">${width} × ${height}</span>`;
  $('lesson').textContent=church?`${p.people.length} personen · ${p.lesson||'Combineer de aanwijzingen en ontdek de dader.'}`:p.lesson?`${p.number}. ${p.lesson}${p.number===1?' — iedereen begint nog buiten de kaart.':p.number===2?' — volg de aanwijzingen stap voor stap.':p.number===3?' — let ook op bankjes en de plekken in het groen.':p.number===4?' — combineer gebiedsranden, rijen en kolommen.':' — combineer de gebieden met de andere aanwijzingen.'}`:'Een eerdere zaak uit je archief.';
+ $('hint').textContent=`${p.people[p.victim].name}, help eem?`;$('helpOffer').querySelector('span').textContent=`Zal ${p.people[p.victim].name} even meedenken?`;
  $('accuse').textContent=state.solved?'Bekijk afronding':'Dader aanwijzen';
  $('nextCase').hidden=!state.solved||seriesIndices().at(-1)===index;
  $('printAll').textContent=`Print dit thema (${printPageCount(seriesCases())} A4)`;$('printAll').hidden=index>=mainCount;
@@ -326,7 +327,7 @@ function showCompletion(){
  $('scoreExplanation').textContent=score.legacy?'Eerdere afronding: je verdiende punten blijven behouden. De nieuwe speurscore geldt wanneer je een zaak opnieuw speelt.':`600 voor het oplossen + ${score.bonus} zelfstandigheidsbonus. Tijd kost geen punten. Algemene zetjes zijn gratis; per persoon telt alleen de meest gerichte hulp.`;
  $('scoreLevelBonus').textContent=score.levelBonus?`+ ${score.levelBonus} niveaupunten voor je dossier` : '';
 
- $('completionHelp').textContent=helpSummary(state);
+ $('completionHelp').textContent=helpSummary(state,p.people[p.victim].name);
  const recommendation=recommendCase(puzzles.slice(0,mainCount),p,q=>q.id===p.id?state:readSave(q),(q,s)=>caseProgress(q,s).solved);
  $('recommendation').hidden=!recommendation;
  if(recommendation){$('recommendationText').textContent=recommendation.text;$('recommendedCase').textContent=recommendation.puzzle.title+' →';$('recommendedCase').onclick=()=>{$('accuseDialog').close();openCase(puzzles.indexOf(recommendation.puzzle));};}
