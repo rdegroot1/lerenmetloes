@@ -13,7 +13,7 @@ test('help is offered after active time with no placement, dismissible, not when
  s=postponeHelp(s,190000);assert.equal(offerHelp(s,489999),false);assert.equal(offerHelp(s,490000),true);assert.equal(offerHelp(s,490000,true),false);
  s=markProgress(s,480000);assert.equal(offerHelp(s,659999),false);
 });
-test('celebration points depend only on case difficulty, not time or hints',()=>{
+test('legacy celebration points remain compatible with earlier completions',()=>{
  assert.deepEqual(caseScore({difficultyStars:1}),{base:100,bonus:0,total:100});
  for(let stars=1;stars<=6;stars++)assert.equal(caseScore({difficultyStars:stars,playTimeMs:9999999,hintsUsed:99}).total,100+20*(stars-1));
  assert.match(helpSummary({coaching:{hintViews:[2,1,1,1]}}),/2 stappen/);

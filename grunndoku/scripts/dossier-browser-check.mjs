@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {scoreFor} from '../scoring.js';
 import {solve,region} from '../engine.js';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/index.mjs');
 const root=fileURLToPath(new URL('../',import.meta.url)),puzzles=JSON.parse(fs.readFileSync(path.join(root,'puzzles.json')));
@@ -52,11 +53,11 @@ try{
   assert.ok((await page.locator('#celebrationText').innerText()).length>35);assert.match(await page.locator('#completionTime').innerText(),/Jouw speeltijd:/);
   return page.evaluate(id=>JSON.parse(localStorage.getItem('grunmurdoku:v1:'+id)),q.id);
  }
- const saved=await finish(first);assert.equal(saved.solved,true);
+ const saved=await finish(first);assert.equal(saved.solved,true);const expectedScore=scoreFor(first,saved);assert.equal(expectedScore.total,900);await page.waitForFunction(total=>document.querySelector('#scoreCounter').textContent===String(total),expectedScore.total);assert.equal(await page.locator('#scoreMeter').getAttribute('aria-valuenow'),String(expectedScore.total));
  // Native sharing, cancellation and both clipboard fallbacks, without contacting any service.
  await page.waitForFunction(()=>!document.querySelector('#downloadShareMap').hidden);
  await page.evaluate(()=>{Object.defineProperty(navigator,'canShare',{configurable:true,value:data=>data.files?.[0]?.type==='image/png'});Object.defineProperty(navigator,'share',{configurable:true,value:async data=>{window.sharedResult=data;}});});
- await page.click('#shareResult');const shared=await page.evaluate(()=>window.sharedResult);assert.match(shared.text,/100 speurpunten/);assert.equal(shared.url,'http://grunndoku.local/?serie=stad&zaak='+first.id);assert.equal(await page.evaluate(()=>window.sharedResult.files[0].type),'image/png');assert.ok(await page.evaluate(()=>window.sharedResult.files[0].size>1000));assert.doesNotMatch(JSON.stringify(shared),/positions|access_token|is de dader/);
+ await page.click('#shareResult');const shared=await page.evaluate(()=>window.sharedResult);assert.ok(shared.text.includes(expectedScore.total+' / 1.000 speurpunten'));assert.equal(shared.url,'http://grunndoku.local/?serie=stad&zaak='+first.id);assert.equal(await page.evaluate(()=>window.sharedResult.files[0].type),'image/png');assert.ok(await page.evaluate(()=>window.sharedResult.files[0].size>1000));assert.doesNotMatch(JSON.stringify(shared),/positions|access_token|is de dader/);
  await page.evaluate(()=>{Object.defineProperty(navigator,'share',{configurable:true,value:undefined});Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedResult=text;}}});});
  await page.click('#shareResult');assert.match(await page.locator('#shareStatus').innerText(),/gekopieerd/i);assert.match(await page.evaluate(()=>window.copiedResult),/speurpunten/);
  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('Unavailable');}}}));
@@ -65,14 +66,17 @@ try{
  await page.click('#shareResult');assert.equal(await page.locator('#shareFallback').isVisible(),false);assert.equal(await page.locator('#shareStatus').innerText(),'');
  const png=await page.evaluate(async()=>Array.from(new Uint8Array(await window.sharedResult.files[0].arrayBuffer())));fs.writeFileSync('/tmp/grunndoku-share-map.png',Buffer.from(png));
  await page.goto(shared.url);await page.waitForSelector('#puzzleScreen:visible');assert.equal(await page.locator('#caseTitle').innerText(),first.title);await page.click('#accuse');
- assert.match(await page.locator('#completionScore').innerText(),/100 speurpunten/);assert.match(await page.locator('#scoreExplanation').innerText(),/Hulp en bedenktijd kosten geen punten/);await page.screenshot({path:'/tmp/grunndoku-dossier-complete.png'});
- await page.click('#resultMap');assert.equal(await page.locator('#completionPanel').isVisible(),false);await page.click('#accuse');assert.equal(await page.locator('#completionPanel').isVisible(),true);assert.equal(await page.locator('#celebrationText').innerText(),(await import('../detective-voice.js')).celebrationMessage(saved.celebrationIndex));
+ assert.ok((await page.locator('#completionScore').innerText()).includes(expectedScore.total+' / 1.000'));assert.match(await page.locator('#scoreExplanation').innerText(),/Tijd kost geen punten/);await page.screenshot({path:'/tmp/grunndoku-dossier-complete.png'});
+ await page.click('#resultMap');assert.equal(await page.locator('#completionPanel').isVisible(),false);await page.emulateMedia({reducedMotion:'reduce'});await page.click('#accuse');assert.equal(await page.locator('#scoreCounter').innerText(),String(expectedScore.total));await page.emulateMedia({reducedMotion:'no-preference'});assert.equal(await page.locator('#completionPanel').isVisible(),true);assert.equal(await page.locator('#celebrationText').innerText(),(await import('../detective-voice.js')).celebrationMessage(saved.celebrationIndex));
  await page.click('#resultNext');const second=puzzles.find(q=>q.seriesId===first.seriesId&&q.id!==first.id);const savedSecond=await finish(second);assert.notEqual(savedSecond.celebrationIndex,saved.celebrationIndex);
- await page.click('#resultMap');await page.click('#backHome');assert.match(await page.locator('#dossierCount').innerText(),/^2 van 47/);assert.match(await page.locator('#dossierScore').innerText(),/220 speurpunten/);assert.equal(await page.locator('.theme-stad progress').getAttribute('value'),'2');await page.screenshot({path:'/tmp/grunndoku-dossier-home.png',fullPage:true});
+ await page.click('#resultMap');await page.click('#backHome');assert.match(await page.locator('#dossierCount').innerText(),/^2 van 47/);assert.match(await page.locator('#dossierScore').innerText(),/1950 speurpunten/);assert.equal(await page.locator('.theme-stad progress').getAttribute('value'),'2');await page.screenshot({path:'/tmp/grunndoku-dossier-home.png',fullPage:true});
  await page.reload();await page.waitForSelector('#homeScreen:visible');assert.match(await page.locator('#dossierCount').innerText(),/^2 van 47/);
  await page.click('#classicSeries');assert.match(await page.locator('#themeCaseSelect option').first().innerText(),/^✓ Zaak/);
  await page.selectOption('#themeCaseSelect','2');await page.click('#beginTheme');await page.locator('#caseOverview>summary').click();await page.locator('#caseTrail button').first().click();assert.equal(await page.locator('#caseOverview').getAttribute('open'),null);assert.equal(await page.locator('#caseTitle').innerText(),first.title);
  await page.setViewportSize({width:390,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.click('#accuse');assert.equal(await page.locator('#completionPanel').isVisible(),true);const box=await page.locator('#accuseDialog').boundingBox();assert.ok(box.width<=390&&box.height<=844);await page.screenshot({path:'/tmp/grunndoku-dossier-mobile.png'});
- await page.locator('#accuseDialog .close').click();await page.locator('#caseMenu>summary').click();await page.click('#reset');await page.click('#backHome');assert.match(await page.locator('#dossierScore').innerText(),/220 speurpunten/,'earned points survive replay reset');
+ await page.locator('#accuseDialog .close').click();await page.locator('#caseMenu>summary').click();await page.click('#reset');await page.click('#backHome');assert.match(await page.locator('#dossierScore').innerText(),/1950 speurpunten/,'earned points survive replay reset');
+ const old=puzzles[2];await page.evaluate(({id,positions})=>localStorage.setItem('grunmurdoku:v1:'+id,JSON.stringify({positions,crosses:[],checked:[],solved:true})),{id:old.id,positions:solve(old)[0]});
+ await page.goto('http://grunndoku.local/?serie=stad&zaak='+old.id);await page.waitForSelector('#puzzleScreen:visible');await page.click('#accuse');assert.match(await page.locator('#completionScore').innerText(),/eerdere afronding/);assert.equal(await page.locator('#scoreMeter').getAttribute('aria-valuemax'),'120');
+ await page.locator('#accuseDialog .close').click();await page.locator('#caseMenu>summary').click();await page.click('#reset');const replay=await finish(old);assert.equal(replay.scoreVersion,2);assert.equal(replay.achievement.score.total,1000);assert.equal(replay.achievement.score.levelBonus,50);
  assert.deepEqual(errors,[]);console.log('Dossier, resume, progressive Fokko hints, two real solves, saved non-repeating reactions, optional feedback, theme progress, header menus and mobile result OK.');
 }finally{await browser.close();}

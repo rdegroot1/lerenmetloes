@@ -4,10 +4,12 @@ export const HINT_LEVELS=['Een zetje','Kijkrichting','Redeneerstap','Uitgewerkte
 export function boardKey(positions){return JSON.stringify(Object.entries(positions).sort(([a],[b])=>Number(a)-Number(b)));}
 export function coachingState(saved={}){
  saved=saved&&typeof saved==='object'?saved:{};
- return {version:1,observed:saved.observed===true,hintViews:(Array.isArray(saved.hintViews)?saved.hintViews:[]).slice(0,4).map(count),boards:Array.isArray(saved.boards)?saved.boards.filter(b=>typeof b?.key==='string'&&Number.isInteger(b.level)&&b.level>=0&&b.level<4).slice(-32):[],lastProgressMs:count(saved.lastProgressMs),nextOfferMs:count(saved.nextOfferMs)};
+ const scoreDepths=Object.fromEntries(Object.entries(saved.scoreDepths||{}).filter(([who,depth])=>/^\d+$/.test(who)&&Number(who)<100&&Number.isInteger(depth)&&depth>=0&&depth<=3));
+ return {version:1,scoreDepths,observed:saved.observed===true,hintViews:(Array.isArray(saved.hintViews)?saved.hintViews:[]).slice(0,4).map(count),boards:Array.isArray(saved.boards)?saved.boards.filter(b=>typeof b?.key==='string'&&Number.isInteger(b.level)&&b.level>=0&&b.level<4).slice(-32):[],lastProgressMs:count(saved.lastProgressMs),nextOfferMs:count(saved.nextOfferMs)};
 }
-export function recordHint(saved,key,level){
+export function recordHint(saved,key,level,who){
  const result=coachingState(saved),previous=result.boards.find(b=>b.key===key);
+ if(Number.isInteger(who)&&who>=0&&who<100)result.scoreDepths[who]=Math.max(result.scoreDepths[who]||0,level);
  result.observed=true;const oldLevel=previous?.level??-1;
  if(level>oldLevel)for(let i=oldLevel+1;i<=level;i++)result.hintViews[i]=(result.hintViews[i]||0)+1;
  result.boards=[...result.boards.filter(b=>b.key!==key),{key,level:Math.max(level,oldLevel)}].slice(-32);
@@ -16,8 +18,8 @@ export function recordHint(saved,key,level){
 export function markProgress(saved,time){const result=coachingState(saved);result.observed=true;result.lastProgressMs=count(time);result.nextOfferMs=count(time)+180000;return result;}
 export function offerHelp(saved,time,solved=false){const s=coachingState(saved);return !solved&&count(time)>=Math.max(s.lastProgressMs+180000,s.nextOfferMs);}
 export function postponeHelp(saved,time){const result=coachingState(saved);result.nextOfferMs=count(time)+300000;return result;}
-// A celebration score, not a speed or ability grade. Every solved case counts
-// once in the dossier. Replaying, hints and mistakes cannot increase/decrease it.
+// Legacy formula retained for older callers. New runs use scoring.js;
+// old completed dossiers keep these previously earned points.
 export function caseScore(p){const stars=Math.min(6,Math.max(1,count(p.difficultyStars)||3));return {base:100,bonus:(stars-1)*20,total:100+(stars-1)*20};}
 export function helpSummary(state){const views=coachingState(state.coaching).hintViews;const general=views[0]||0,detailed=views[3]||0;
  if(!general)return state.hintsUsed?'Je hebt hulp gebruikt. Samen kom je verder!':'Deze zaak heb je zonder Fokko’s tips opgelost. Mooi uitgezocht!';
