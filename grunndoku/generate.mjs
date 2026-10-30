@@ -105,12 +105,12 @@ for(let k=0;k<specs.length;k++){
   unary(a,'Stond in de eerste of laatste kolom.',c=>[0,size-1].includes(c%size));
   for(const [type,name]of localTypes){
    const near=c=>objects.some(o=>o.type===type&&regions[c]===regions[o.cell]&&Math.abs(Math.floor(c/size)-Math.floor(o.cell/size))+Math.abs(c%size-o.cell%size)===1);
-   unary(a,`Stond naast ${name}.`,near);
-   if(k>=3)unary(a,`Stond niet naast ${name}.`,c=>!near(c));
+   unary(a,`Bevond zich naast ${name}.`,near);
+   if(k>=3)unary(a,`Bevond zich niet naast ${name}.`,c=>!near(c));
   }
   if(k>=2)for(let b=a+1;b<size;b++){
-   const above=Math.floor(target[a]/size)<Math.floor(target[b]/size);pool.push({type:'above',a:above?a:b,b:above?b:a,text:`Stond hoger op de kaart dan ${names[above?b:a]}.`});
-   if(k>=3){const left=target[a]%size<target[b]%size;pool.push({type:'left',a:left?a:b,b:left?b:a,text:`Stond links van ${names[left?b:a]}.`});}
+   const above=Math.floor(target[a]/size)<Math.floor(target[b]/size);pool.push({type:'above',a:above?a:b,b:above?b:a,text:`Bevond zich hoger op de kaart dan ${names[above?b:a]}.`});
+   if(k>=3){const left=target[a]%size<target[b]%size;pool.push({type:'left',a:left?a:b,b:left?b:a,text:`Bevond zich links van ${names[left?b:a]}.`});}
    if(k>=4){const same=regions[target[a]]===regions[target[b]];pool.push({type:same?'same':'different',a,b,text:`Was ${same?'in hetzelfde gebied als':'in een ander gebied dan'} ${names[b]}.`});}
   }
  }
