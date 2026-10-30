@@ -105,7 +105,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond in de noordoosthoek van de Vismarkt.",
+        "text": "Bevond zich in de noordoosthoek van de Vismarkt.",
         "cells": [
           3
         ]
@@ -113,7 +113,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond direct links van de Martinitoren.",
+        "text": "Bevond zich direct links van de Martinitoren.",
         "cells": [
           6
         ]
@@ -257,7 +257,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast de eierballenkraam.",
+        "text": "Bevond zich naast de eierballenkraam.",
         "cells": [
           9
         ]
@@ -426,7 +426,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast de Groningse vlag.",
+        "text": "Bevond zich naast de Groningse vlag.",
         "cells": [
           12,
           18
@@ -621,7 +621,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond tegen de noordrand van Hoge der A.",
+        "text": "Bevond zich tegen de noordrand van Hoge der A.",
         "cells": [
           10,
           22
@@ -871,7 +871,7 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Douwe."
+        "text": "Bevond zich hoger op de kaart dan Douwe."
       },
       {
         "type": "same",
@@ -1143,7 +1143,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een boom.",
+        "text": "Bevond zich naast een boom.",
         "cells": [
           14,
           21
@@ -1152,7 +1152,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond naast een bankje.",
+        "text": "Bevond zich naast een bankje.",
         "cells": [
           9,
           14,
@@ -1163,7 +1163,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast een stoel.",
+        "text": "Bevond zich naast een stoel.",
         "cells": [
           18,
           25,
@@ -1412,7 +1412,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een kleed.",
+        "text": "Bevond zich naast een kleed.",
         "cells": [
           19
         ]
@@ -1420,7 +1420,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond naast een fietsrek.",
+        "text": "Bevond zich naast een fietsrek.",
         "cells": [
           13,
           15,
@@ -1624,7 +1624,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een fietsrek.",
+        "text": "Bevond zich naast een fietsrek.",
         "cells": [
           3,
           9,
@@ -1863,12 +1863,12 @@
         "type": "right",
         "a": 2,
         "b": 0,
-        "text": "Stond rechts van Anno."
+        "text": "Bevond zich rechts van Anno."
       },
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond naast een lantaarn.",
+        "text": "Bevond zich naast een lantaarn.",
         "cells": [
           1,
           12
@@ -1877,7 +1877,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond in een hoek van Muziekkoepel.",
+        "text": "Bevond zich in een hoek van Muziekkoepel.",
         "cells": [
           19,
           24,
@@ -2172,7 +2172,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een kleed.",
+        "text": "Bevond zich naast een kleed.",
         "cells": [
           14,
           20,
@@ -2183,7 +2183,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond direct rechts van een tafel.",
+        "text": "Bevond zich direct rechts van een tafel.",
         "cells": [
           8
         ]
@@ -2192,7 +2192,7 @@
         "type": "below",
         "a": 4,
         "b": 0,
-        "text": "Stond lager op de kaart dan Abel."
+        "text": "Bevond zich lager op de kaart dan Abel."
       }
     ],
     "victimLocationClue": false,
@@ -2402,7 +2402,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast het podium.",
+        "text": "Bevond zich naast het podium.",
         "cells": [
           12,
           20,
@@ -2419,7 +2419,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond in de bovenste rij.",
+        "text": "Bevond zich in de bovenste rij.",
         "cells": [
           1,
           2,
@@ -2635,7 +2635,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een lantaarn.",
+        "text": "Bevond zich naast een lantaarn.",
         "cells": [
           24,
           26,
@@ -2919,18 +2919,18 @@
         "type": "left",
         "a": 2,
         "b": 1,
-        "text": "Stond links van Berend."
+        "text": "Bevond zich links van Berend."
       },
       {
         "type": "below",
         "a": 3,
         "b": 2,
-        "text": "Stond lager op de kaart dan Cora."
+        "text": "Bevond zich lager op de kaart dan Cora."
       },
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond direct boven een kleed.",
+        "text": "Bevond zich direct boven een kleed.",
         "cells": [
           12,
           15
@@ -3166,7 +3166,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond in de onderste rij.",
+        "text": "Bevond zich in de onderste rij.",
         "cells": [
           30,
           31,
@@ -3183,7 +3183,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond tegen de zuidrand van Grote Markt.",
+        "text": "Bevond zich tegen de zuidrand van Grote Markt.",
         "cells": [
           3,
           10,
@@ -3421,7 +3421,7 @@
         "type": "below",
         "a": 2,
         "b": 0,
-        "text": "Stond lager op de kaart dan Alle."
+        "text": "Bevond zich lager op de kaart dan Alle."
       },
       {
         "type": "same",
@@ -3432,7 +3432,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast het podium.",
+        "text": "Bevond zich naast het podium.",
         "cells": [
           11,
           12,
@@ -3677,7 +3677,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond in een hoek van Eettentjes.",
+        "text": "Bevond zich in een hoek van Eettentjes.",
         "cells": [
           9,
           16,
@@ -3690,12 +3690,12 @@
         "type": "below",
         "a": 3,
         "b": 2,
-        "text": "Stond lager op de kaart dan Cora."
+        "text": "Bevond zich lager op de kaart dan Cora."
       },
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast een boom.",
+        "text": "Bevond zich naast een boom.",
         "cells": [
           9,
           14
@@ -3914,13 +3914,13 @@
         "type": "above",
         "a": 2,
         "b": 3,
-        "text": "Stond hoger op de kaart dan Derk."
+        "text": "Bevond zich hoger op de kaart dan Derk."
       },
       {
         "type": "left",
         "a": 3,
         "b": 2,
-        "text": "Stond links van Cora."
+        "text": "Bevond zich links van Cora."
       }
     ],
     "victimLocationClue": false,
@@ -4223,19 +4223,19 @@
         "type": "above",
         "a": 1,
         "b": 0,
-        "text": "Stond hoger op de kaart dan Aaldrik."
+        "text": "Bevond zich hoger op de kaart dan Aaldrik."
       },
       {
         "type": "left",
         "a": 2,
         "b": 0,
-        "text": "Stond links van Aaldrik."
+        "text": "Bevond zich links van Aaldrik."
       },
       {
         "type": "left",
         "a": 3,
         "b": 1,
-        "text": "Stond links van Barrelt."
+        "text": "Bevond zich links van Barrelt."
       }
     ],
     "seriesId": "nacht",
@@ -4537,7 +4537,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond in de eerste of laatste kolom.",
+        "text": "Bevond zich in de eerste of laatste kolom.",
         "cells": [
           11,
           12,
@@ -4548,7 +4548,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond in de onderste rij.",
+        "text": "Bevond zich in de onderste rij.",
         "cells": [
           32,
           33
@@ -4558,7 +4558,7 @@
         "type": "left",
         "a": 4,
         "b": 1,
-        "text": "Stond links van Boarend."
+        "text": "Bevond zich links van Boarend."
       }
     ],
     "seriesId": "nacht",
@@ -4842,7 +4842,7 @@
         "type": "above",
         "a": 3,
         "b": 1,
-        "text": "Stond hoger op de kaart dan Barrelt."
+        "text": "Bevond zich hoger op de kaart dan Barrelt."
       },
       {
         "type": "unary",
@@ -5217,12 +5217,12 @@
         "type": "above",
         "a": 3,
         "b": 4,
-        "text": "Stond hoger op de kaart dan Engel."
+        "text": "Bevond zich hoger op de kaart dan Engel."
       },
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast een gitaar.",
+        "text": "Bevond zich naast een gitaar.",
         "cells": [
           9,
           14,
@@ -5374,7 +5374,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de noordrand van het hoogkoor.",
+        "text": "Bevond zich tegen de noordrand van het hoogkoor.",
         "cells": [
           19,
           20,
@@ -5392,7 +5392,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond in de vierde rij, in de kooromgang.",
+        "text": "Bevond zich in de vierde rij, in de kooromgang.",
         "cells": [
           30,
           31
@@ -5711,7 +5711,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de westrand van de sacristie.",
+        "text": "Bevond zich tegen de westrand van de sacristie.",
         "cells": [
           6,
           16
@@ -5720,7 +5720,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond tegen de zuidrand van het zuidportaal.",
+        "text": "Bevond zich tegen de zuidrand van het zuidportaal.",
         "cells": [
           72,
           73,
@@ -5730,7 +5730,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond tegen de oostrand van het torenportaal.",
+        "text": "Bevond zich tegen de oostrand van het torenportaal.",
         "cells": [
           31,
           41
@@ -5751,7 +5751,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond direct rechts van een zuil in de zuidbeuk.",
+        "text": "Bevond zich direct rechts van een zuil in de zuidbeuk.",
         "cells": [
           55
         ]
@@ -5759,7 +5759,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond direct boven de avondmaalstafel in de kooromgang.",
+        "text": "Bevond zich direct boven de avondmaalstafel in de kooromgang.",
         "cells": [
           28
         ]
@@ -6165,7 +6165,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond in de zuidoosthoek van het torenportaal.",
+        "text": "Bevond zich in de zuidoosthoek van het torenportaal.",
         "cells": [
           61
         ]
@@ -6173,7 +6173,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de noordrand van de kooromgang.",
+        "text": "Bevond zich tegen de noordrand van de kooromgang.",
         "cells": [
           32,
           34,
@@ -6226,7 +6226,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond tegen de oostrand van de noordbeuk.",
+        "text": "Bevond zich tegen de oostrand van de noordbeuk.",
         "cells": [
           18,
           31
@@ -6235,7 +6235,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond direct onder een boekenkast in de sacristie.",
+        "text": "Bevond zich direct onder een boekenkast in de sacristie.",
         "cells": [
           21
         ]
@@ -6243,7 +6243,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond direct rechts van een zuil in de zuidbeuk.",
+        "text": "Bevond zich direct rechts van een zuil in de zuidbeuk.",
         "cells": [
           89
         ]
@@ -6792,7 +6792,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond in de noordoosthoek van het torenportaal.",
+        "text": "Bevond zich in de noordoosthoek van het torenportaal.",
         "cells": [
           71
         ]
@@ -6800,7 +6800,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond in de zuidwesthoek van het middenschip.",
+        "text": "Bevond zich in de zuidwesthoek van het middenschip.",
         "cells": [
           101
         ]
@@ -6808,7 +6808,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond tegen de zuidrand van het zuidportaal.",
+        "text": "Bevond zich tegen de zuidrand van het zuidportaal.",
         "cells": [
           157,
           158,
@@ -6819,7 +6819,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond direct boven een kerkbank in de noorderkapel.",
+        "text": "Bevond zich direct boven een kerkbank in de noorderkapel.",
         "cells": [
           24
         ]
@@ -6827,7 +6827,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond tegen de zuidrand van de kooromgang.",
+        "text": "Bevond zich tegen de zuidrand van de kooromgang.",
         "cells": [
           52,
           97,
@@ -6900,7 +6900,7 @@
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond direct rechts van een boekenkast in de sacristie.",
+        "text": "Bevond zich direct rechts van een boekenkast in de sacristie.",
         "cells": [
           12
         ]
@@ -6908,7 +6908,7 @@
       {
         "type": "unary",
         "a": 11,
-        "text": "Stond naast een kerkbank in het zuidportaal.",
+        "text": "Bevond zich naast een kerkbank in het zuidportaal.",
         "cells": [
           146,
           159
@@ -7599,7 +7599,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond tegen de zuidrand van de kooromgang.",
+        "text": "Bevond zich tegen de zuidrand van de kooromgang.",
         "cells": [
           66,
           68,
@@ -7637,7 +7637,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond direct boven een loper in het middenschip.",
+        "text": "Bevond zich direct boven een loper in het middenschip.",
         "cells": [
           114,
           115,
@@ -7664,7 +7664,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond tegen de oostrand van het zuidportaal.",
+        "text": "Bevond zich tegen de oostrand van het zuidportaal.",
         "cells": [
           206,
           224,
@@ -7674,7 +7674,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond tegen de oostrand van de orgelzone.",
+        "text": "Bevond zich tegen de oostrand van de orgelzone.",
         "cells": [
           57,
           75,
@@ -7687,7 +7687,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond tegen de westrand van het zuidportaal.",
+        "text": "Bevond zich tegen de westrand van het zuidportaal.",
         "cells": [
           221,
           239
@@ -7696,7 +7696,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond naast de avondmaalstafel in het hoogkoor.",
+        "text": "Bevond zich naast de avondmaalstafel in het hoogkoor.",
         "cells": [
           103,
           104,
@@ -7711,7 +7711,7 @@
       {
         "type": "unary",
         "a": 9,
-        "text": "Stond tegen de noordrand van de noorderkapel.",
+        "text": "Bevond zich tegen de noordrand van de noorderkapel.",
         "cells": [
           12,
           13,
@@ -7721,7 +7721,7 @@
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond tegen de westrand van het middenschip.",
+        "text": "Bevond zich tegen de westrand van het middenschip.",
         "cells": [
           76,
           94,
@@ -7754,7 +7754,7 @@
       {
         "type": "unary",
         "a": 12,
-        "text": "Stond tegen de zuidrand van het hoogkoor.",
+        "text": "Bevond zich tegen de zuidrand van het hoogkoor.",
         "cells": [
           174,
           175,
@@ -8820,7 +8820,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond naast de avondmaalstafel in het hoogkoor.",
+        "text": "Bevond zich naast de avondmaalstafel in het hoogkoor.",
         "cells": [
           162,
           163,
@@ -8908,7 +8908,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond naast een kerkbank in de noorderkapel.",
+        "text": "Bevond zich naast een kerkbank in de noorderkapel.",
         "cells": [
           68,
           91
@@ -8930,7 +8930,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond tegen de westrand van het zuidportaal.",
+        "text": "Bevond zich tegen de westrand van het zuidportaal.",
         "cells": [
           318,
           342,
@@ -8956,7 +8956,7 @@
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond op een leeg vloervak in kolom 13.",
+        "text": "Bevond zich op een leeg vloervak in kolom 13.",
         "cells": [
           108,
           180,
@@ -8985,7 +8985,7 @@
       {
         "type": "unary",
         "a": 12,
-        "text": "Stond in de noordoosthoek van het torenportaal.",
+        "text": "Bevond zich in de noordoosthoek van het torenportaal.",
         "cells": [
           169
         ]
@@ -9005,7 +9005,7 @@
       {
         "type": "unary",
         "a": 14,
-        "text": "Stond naast de preekstoel in het middenschip.",
+        "text": "Bevond zich naast de preekstoel in het middenschip.",
         "cells": [
           208,
           231,
@@ -9015,7 +9015,7 @@
       {
         "type": "unary",
         "a": 15,
-        "text": "Stond tegen de westrand van de noordbeuk.",
+        "text": "Bevond zich tegen de westrand van de noordbeuk.",
         "cells": [
           76,
           101
@@ -9941,7 +9941,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond tegen de oostrand van het trappenhuis.",
+        "text": "Bevond zich tegen de oostrand van het trappenhuis.",
         "cells": [
           21,
           31,
@@ -9954,7 +9954,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond direct links van de balustrade in de eerste trans.",
+        "text": "Bevond zich direct links van de balustrade in de eerste trans.",
         "cells": [
           27
         ]
@@ -9962,7 +9962,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond tegen de westrand van het trappenhuis.",
+        "text": "Bevond zich tegen de westrand van het trappenhuis.",
         "cells": [
           20,
           30,
@@ -10011,7 +10011,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond in de zuidoosthoek van de uurwerkzolder.",
+        "text": "Bevond zich in de zuidoosthoek van de uurwerkzolder.",
         "cells": [
           16
         ]
@@ -10516,7 +10516,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond naast de gereedschapskist in de torenentree.",
+        "text": "Bevond zich naast de gereedschapskist in de torenentree.",
         "cells": [
           106,
           107,
@@ -10526,7 +10526,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond direct onder een luidklok in de klokkenzolder.",
+        "text": "Bevond zich direct onder een luidklok in de klokkenzolder.",
         "cells": [
           76,
           77,
@@ -10537,7 +10537,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast het filmscherm in de filmzolder.",
+        "text": "Bevond zich naast het filmscherm in de filmzolder.",
         "cells": [
           28,
           38,
@@ -10555,7 +10555,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond tegen de zuidrand van de filmzolder.",
+        "text": "Bevond zich tegen de zuidrand van de filmzolder.",
         "cells": [
           38,
           39,
@@ -10567,7 +10567,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond tegen de oostrand van de klokkenzolder.",
+        "text": "Bevond zich tegen de oostrand van de klokkenzolder.",
         "cells": [
           58,
           70,
@@ -10578,7 +10578,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond in de zuidoosthoek van de uurwerkzolder.",
+        "text": "Bevond zich in de zuidoosthoek van de uurwerkzolder.",
         "cells": [
           19
         ]
@@ -10601,7 +10601,7 @@
       {
         "type": "unary",
         "a": 9,
-        "text": "Stond in de zuidwesthoek van de klokkenzolder.",
+        "text": "Bevond zich in de zuidwesthoek van de klokkenzolder.",
         "cells": [
           87
         ]
@@ -11194,7 +11194,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond in de zuidoosthoek van de uurwerkzolder.",
+        "text": "Bevond zich in de zuidoosthoek van de uurwerkzolder.",
         "cells": [
           23
         ]
@@ -11202,7 +11202,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond op de wenteltrap in het trappenhuis.",
+        "text": "Bevond zich op de wenteltrap in het trappenhuis.",
         "cells": [
           28,
           42,
@@ -11213,7 +11213,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond direct rechts van het luidtouw in de luidzolder.",
+        "text": "Bevond zich direct rechts van het luidtouw in de luidzolder.",
         "cells": [
           144,
           158
@@ -11222,7 +11222,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond naast de wenteltrap in het trappenhuis.",
+        "text": "Bevond zich naast de wenteltrap in het trappenhuis.",
         "cells": [
           29,
           43,
@@ -11283,7 +11283,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond op een bankje in de luidzolder.",
+        "text": "Bevond zich op een bankje in de luidzolder.",
         "cells": [
           161
         ]
@@ -11312,7 +11312,7 @@
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond tegen de westrand van de klokkenzolder.",
+        "text": "Bevond zich tegen de westrand van de klokkenzolder.",
         "cells": [
           59,
           73,
@@ -11325,7 +11325,7 @@
       {
         "type": "unary",
         "a": 11,
-        "text": "Stond in de noordoosthoek van de klokkenzolder.",
+        "text": "Bevond zich in de noordoosthoek van de klokkenzolder.",
         "cells": [
           68
         ]
@@ -11752,7 +11752,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond direct rechts van de scheepskist in het scheepsruim.",
+        "text": "Bevond zich direct rechts van de scheepskist in het scheepsruim.",
         "cells": [
           4
         ]
@@ -11760,7 +11760,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond op een vloerkleed in het scheepsruim.",
+        "text": "Bevond zich op een vloerkleed in het scheepsruim.",
         "cells": [
           11,
           12,
@@ -11787,7 +11787,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond in de zuidwesthoek van de roef.",
+        "text": "Bevond zich in de zuidwesthoek van de roef.",
         "cells": [
           42
         ]
@@ -12229,7 +12229,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond naast een meerpaal op de Hoge der A.",
+        "text": "Bevond zich naast een meerpaal op de Hoge der A.",
         "cells": [
           5,
           14
@@ -12238,7 +12238,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond direct onder de mast op het voordek.",
+        "text": "Bevond zich direct onder de mast op het voordek.",
         "cells": [
           20
         ]
@@ -12246,7 +12246,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond naast een bankje op het glühweinterras.",
+        "text": "Bevond zich naast een bankje op het glühweinterras.",
         "cells": [
           17,
           18,
@@ -12267,7 +12267,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond direct onder de tafel in de roef.",
+        "text": "Bevond zich direct onder de tafel in de roef.",
         "cells": [
           52
         ]
@@ -12275,7 +12275,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond direct boven de linkerhelft van een bankje op het vuurtonplein.",
+        "text": "Bevond zich direct boven de linkerhelft van een bankje op het vuurtonplein.",
         "cells": [
           48
         ]
@@ -12841,7 +12841,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond direct onder een bankje op de Pottebakkersrijge.",
+        "text": "Bevond zich direct onder een bankje op de Pottebakkersrijge.",
         "cells": [
           13,
           14
@@ -12867,7 +12867,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond tegen de westrand van het voordek.",
+        "text": "Bevond zich tegen de westrand van het voordek.",
         "cells": [
           64,
           76
@@ -12887,7 +12887,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond tegen de oostrand van de roef.",
+        "text": "Bevond zich tegen de oostrand van de roef.",
         "cells": [
           102,
           114
@@ -12913,7 +12913,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond naast de tafel in de roef.",
+        "text": "Bevond zich naast de tafel in de roef.",
         "cells": [
           89,
           102
@@ -12922,7 +12922,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond naast de vuurton op de Pottebakkersrijge.",
+        "text": "Bevond zich naast de vuurton op de Pottebakkersrijge.",
         "cells": [
           97,
           108
@@ -12931,7 +12931,7 @@
       {
         "type": "unary",
         "a": 9,
-        "text": "Stond naast de vuurton op het vuurtonplein.",
+        "text": "Bevond zich naast de vuurton op het vuurtonplein.",
         "cells": [
           10,
           21
@@ -13584,7 +13584,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond tegen de oostrand van de A-brug.",
+        "text": "Bevond zich tegen de oostrand van de A-brug.",
         "cells": [
           77,
           91
@@ -13593,7 +13593,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de westrand van het kunstpakhuis.",
+        "text": "Bevond zich tegen de westrand van het kunstpakhuis.",
         "cells": [
           24,
           38,
@@ -13623,7 +13623,7 @@
       {
         "type": "unary",
         "a": 3,
-        "text": "Stond naast een gitaar in het kunstpakhuis.",
+        "text": "Bevond zich naast een gitaar in het kunstpakhuis.",
         "cells": [
           13,
           26
@@ -13632,7 +13632,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast een lantaarn op de Pottebakkersrijge.",
+        "text": "Bevond zich naast een lantaarn op de Pottebakkersrijge.",
         "cells": [
           142,
           155
@@ -13654,7 +13654,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond naast de mast op het voordek.",
+        "text": "Bevond zich naast de mast op het voordek.",
         "cells": [
           6,
           19
@@ -13663,7 +13663,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond tegen de oostrand van de Pottebakkersrijge.",
+        "text": "Bevond zich tegen de oostrand van de Pottebakkersrijge.",
         "cells": [
           86,
           100,
@@ -13675,7 +13675,7 @@
       {
         "type": "unary",
         "a": 9,
-        "text": "Stond naast een meerpaal op de Kleine der A.",
+        "text": "Bevond zich naast een meerpaal op de Kleine der A.",
         "cells": [
           93,
           106
@@ -13684,7 +13684,7 @@
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond naast de glühweinkraam op het glühweinterras.",
+        "text": "Bevond zich naast de glühweinkraam op het glühweinterras.",
         "cells": [
           68,
           80,
@@ -14708,7 +14708,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de westrand van het achterdek.",
+        "text": "Bevond zich tegen de westrand van het achterdek.",
         "cells": [
           167,
           185
@@ -14717,7 +14717,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een stoel in het Pomphuis.",
+        "text": "Bevond zich naast een stoel in het Pomphuis.",
         "cells": [
           233,
           250
@@ -14764,7 +14764,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond tegen de westrand van de Lage der A.",
+        "text": "Bevond zich tegen de westrand van de Lage der A.",
         "cells": [
           18,
           36,
@@ -14787,7 +14787,7 @@
       {
         "type": "unary",
         "a": 9,
-        "text": "Stond tegen de oostrand van de Hoge der A.",
+        "text": "Bevond zich tegen de oostrand van de Hoge der A.",
         "cells": [
           11,
           29,
@@ -14820,7 +14820,7 @@
       {
         "type": "unary",
         "a": 11,
-        "text": "Stond direct onder een bankje op de Pottebakkersrijge.",
+        "text": "Bevond zich direct onder een bankje op de Pottebakkersrijge.",
         "cells": [
           145,
           146
@@ -14850,7 +14850,7 @@
       {
         "type": "unary",
         "a": 13,
-        "text": "Stond direct boven een vloerkleed in het kunstpakhuis.",
+        "text": "Bevond zich direct boven een vloerkleed in het kunstpakhuis.",
         "cells": [
           106,
           107
@@ -16072,7 +16072,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond naast een bankje op het voordek.",
+        "text": "Bevond zich naast een bankje op het voordek.",
         "cells": [
           36,
           37,
@@ -16082,7 +16082,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond tegen de westrand van het vuurtonplein.",
+        "text": "Bevond zich tegen de westrand van het vuurtonplein.",
         "cells": [
           232,
           256,
@@ -16145,7 +16145,7 @@
       {
         "type": "unary",
         "a": 6,
-        "text": "Stond in de zuidwesthoek van de roef.",
+        "text": "Bevond zich in de zuidwesthoek van de roef.",
         "cells": [
           343,
           368
@@ -16154,7 +16154,7 @@
       {
         "type": "unary",
         "a": 7,
-        "text": "Stond naast de vuurton op de Pottebakkersrijge.",
+        "text": "Bevond zich naast de vuurton op de Pottebakkersrijge.",
         "cells": [
           340,
           363
@@ -16163,7 +16163,7 @@
       {
         "type": "unary",
         "a": 8,
-        "text": "Stond tegen de oostrand van de A-brug.",
+        "text": "Bevond zich tegen de oostrand van de A-brug.",
         "cells": [
           157,
           181
@@ -16195,7 +16195,7 @@
       {
         "type": "unary",
         "a": 10,
-        "text": "Stond tegen de oostrand van de Pottebakkersrijge.",
+        "text": "Bevond zich tegen de oostrand van de Pottebakkersrijge.",
         "cells": [
           197,
           221,
@@ -16209,7 +16209,7 @@
       {
         "type": "unary",
         "a": 11,
-        "text": "Stond tegen de oostrand van het vuurtonplein.",
+        "text": "Bevond zich tegen de oostrand van het vuurtonplein.",
         "cells": [
           215,
           239,
@@ -16235,7 +16235,7 @@
       {
         "type": "unary",
         "a": 13,
-        "text": "Stond naast het kunstpaneel in het kunstpakhuis.",
+        "text": "Bevond zich naast het kunstpaneel in het kunstpakhuis.",
         "cells": [
           136,
           137
@@ -16244,7 +16244,7 @@
       {
         "type": "unary",
         "a": 14,
-        "text": "Stond direct boven een bankje op het vuurtonplein.",
+        "text": "Bevond zich direct boven een bankje op het vuurtonplein.",
         "cells": [
           262,
           263
@@ -16253,7 +16253,7 @@
       {
         "type": "unary",
         "a": 15,
-        "text": "Stond tegen de westrand van het scheepsruim.",
+        "text": "Bevond zich tegen de westrand van het scheepsruim.",
         "cells": [
           103,
           128
@@ -17020,7 +17020,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond naast een stoel in de publiekszaal.",
+        "text": "Bevond zich naast een stoel in de publiekszaal.",
         "cells": [
           20,
           27
@@ -17038,7 +17038,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een luidspreker op het podium.",
+        "text": "Bevond zich naast een luidspreker op het podium.",
         "cells": [
           25,
           32
@@ -17056,7 +17056,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast de kapstok in de garderobe.",
+        "text": "Bevond zich naast de kapstok in de garderobe.",
         "cells": [
           16,
           17
@@ -18447,7 +18447,7 @@
         "type": "right",
         "a": 7,
         "b": 6,
-        "text": "Stond rechts van Feiko."
+        "text": "Bevond zich rechts van Feiko."
       },
       {
         "type": "objectCount",
@@ -19676,7 +19676,7 @@
       {
         "type": "unary",
         "a": 1,
-        "text": "Stond naast een tafel op het zitterras.",
+        "text": "Bevond zich naast een tafel op het zitterras.",
         "cells": [
           56,
           64,
@@ -19717,7 +19717,7 @@
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast een bankje op het publieksveld.",
+        "text": "Bevond zich naast een bankje op het publieksveld.",
         "cells": [
           42,
           43,
@@ -20396,7 +20396,7 @@
         "type": "below",
         "a": 2,
         "b": 6,
-        "text": "Stond lager op de kaart dan Freerk."
+        "text": "Bevond zich lager op de kaart dan Freerk."
       },
       {
         "type": "above",
@@ -21120,7 +21120,7 @@
         "type": "right",
         "a": 0,
         "b": 4,
-        "text": "Stond rechts van Eefke."
+        "text": "Bevond zich rechts van Eefke."
       },
       {
         "type": "above",
@@ -21144,7 +21144,7 @@
       {
         "type": "unary",
         "a": 2,
-        "text": "Stond naast een vloerkleed op de picknickweide.",
+        "text": "Bevond zich naast een vloerkleed op de picknickweide.",
         "cells": [
           42,
           52
@@ -21154,12 +21154,12 @@
         "type": "above",
         "a": 3,
         "b": 8,
-        "text": "Stond hoger op de kaart dan Hindrikje."
+        "text": "Bevond zich hoger op de kaart dan Hindrikje."
       },
       {
         "type": "unary",
         "a": 4,
-        "text": "Stond naast een bankje op het bomenveld.",
+        "text": "Bevond zich naast een bankje op het bomenveld.",
         "cells": [
           86,
           87,
@@ -21947,7 +21947,7 @@
         "type": "right",
         "a": 0,
         "b": 3,
-        "text": "Stond rechts van Douwe."
+        "text": "Bevond zich rechts van Douwe."
       },
       {
         "type": "right",
@@ -22528,7 +22528,7 @@
       {
         "type": "unary",
         "a": 0,
-        "text": "Stond naast een vloerkleed in de theeschenkerij.",
+        "text": "Bevond zich naast een vloerkleed in de theeschenkerij.",
         "cells": [
           52,
           62
@@ -22581,7 +22581,7 @@
         "type": "right",
         "a": 4,
         "b": 7,
-        "text": "Stond rechts van Geertinus."
+        "text": "Bevond zich rechts van Geertinus."
       },
       {
         "type": "right",
